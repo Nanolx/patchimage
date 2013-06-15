@@ -30,12 +30,12 @@ cleanup () {
 
 ask_game () {
 
-echo -e
-"************************************************
+echo -e "************************************************
 mknewersmb.sh
 
 Enter Letter for the Game you want to create:
-A	NewerSMB"
+A	NewerSMB
+B	Newer Summer Sun"
 
 read GAME
 
@@ -58,7 +58,7 @@ check_input_image () {
 
 check_riivolution_patch () {
 
-	if [[ ! ${RIIVOLUTION}}; then
+	if [[ ! ${RIIVOLUTION}} ]]; then
 		if [[ -e ./${RIIVOLUTION_ZIP} ]]; then
 			unzip ./${RIIVOLUTION_ZIP} >/dev/null
 		elif [[ ! -d ./${RIIVOLUTION_DIR} ]]; then
@@ -155,7 +155,7 @@ while [[ $xcount -lt $pcount ]]; do
 			echo -e "create wbfs images from riivolution patches.\n
 ***** using this script is only allowed, if you own an original copy of the game.
 ***** if you don't, no one can be blamed but you. Shame on you.\n
---game={NewerSMB}			| specify game you want to create
+--game={NewerSMB;NewerSummerSun}	| specify game you want to create
 --iso=/home/test/<Image>.wbfs		| specify which ISO to use for building
 --riivolution=/home/test/<Patch>.zip	| specify path to Riivolution files
 --version=EURv1,EURv2,USAv1,USAv2,JPNv1	| specify your game version

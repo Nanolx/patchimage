@@ -7,6 +7,7 @@
 # License: GPL v3
 
 source ./script.d/common.sh
+setup_tools
 
 optparse "${@}"
 
@@ -20,6 +21,10 @@ case ${GAME} in
 		source ./script.d/newersmb.sh
 	;;
 
+	B | NewerSummerSun )
+		source ./script.d/newersummersun.sh
+	;;
+
 	* )
 		echo -e "specified Game ${GAME} not recognized"
 		exit 1
@@ -31,13 +36,19 @@ cleanup_prebuild
 check_input_image
 check_input_image_special
 check_riivolution_patch
+prepare_riivolution_dir
 
 ${WIT} extract "${IMAGE}" ${WORKDIR} --psel=DATA -vv || exit 1
 
 detect_game_version
 place_files
 
-${PPF} a ${DOL} ${PATCH}
+if [[ ${XML} ]]; then
+	XML_FILE="${XML_FILE}"${REG_LETTER}.xml
+	wit dolpatch ${DOL} xml="${XML_FILE}" "${XML_SOURCE}"
+else
+	${PPF} a ${DOL} ${PATCH}
+fi
 
 if [[ ${CUSTOMID} ]]; then
 	${WIT} cp -v -B ${WORKDIR} ./${CUSTOMID}.wbfs -vv --disc-id=${CUSTOMID} ${TMD_OPTS} --name "${GAMENAME}"

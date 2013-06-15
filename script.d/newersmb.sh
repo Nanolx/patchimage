@@ -19,6 +19,12 @@ Supported Versions:	EURv1, EURv2, USAv1, USAv2, JPNv1
 
 }
 
+prepare_riivolution_dir () {
+
+	echo
+
+}
+
 check_input_image_special () {
 
 	if [[ ! ${IMAGE} ]]; then
