@@ -2,9 +2,12 @@
 
 WORKDIR=./nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-RIIVOLUTION_ZIP=NewerSMB.zip
+RIIVOLUTION_ZIP=NewerSMBW.zip
 RIIVOLUTION_DIR=NewerFiles
 GAMENAME="Newer SMB"
+XML=FALSE
+XML_SOURCE=./"${RIIVOLUTION_DIR}"/NewerSMBW/
+XML_FILE=./"${RIIVOLUTION_DIR}"/riivolution/NewerSMBW.xml
 
 show_notes () {
 
@@ -16,12 +19,6 @@ Source:			http://www.newerteam.com/
 Base Image:		New Super Mario Bros. Wii (SMN?01)
 Supported Versions:	EURv1, EURv2, USAv1, USAv2, JPNv1
 ************************************************"
-
-}
-
-prepare_riivolution_dir () {
-
-	echo
 
 }
 

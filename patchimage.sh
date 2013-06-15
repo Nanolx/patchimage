@@ -36,7 +36,6 @@ cleanup_prebuild
 check_input_image
 check_input_image_special
 check_riivolution_patch
-prepare_riivolution_dir
 
 ${WIT} extract "${IMAGE}" ${WORKDIR} --psel=DATA -vv || exit 1
 
@@ -44,10 +43,9 @@ detect_game_version
 place_files
 
 if [[ ${XML} ]]; then
-	XML_FILE="${XML_FILE}"${REG_LETTER}.xml
-	wit dolpatch ${DOL} xml="${XML_FILE}" "${XML_SOURCE}"
+	wit dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}" || exit 1
 else
-	${PPF} a ${DOL} ${PATCH}
+	${PPF} a ${DOL} ${PATCH} || exit 1
 fi
 
 if [[ ${CUSTOMID} ]]; then

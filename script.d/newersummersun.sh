@@ -37,12 +37,6 @@ check_input_image_special () {
 
 }
 
-prepare_riivolution_dir () {
-
-	cp ./"${RIIVOLUTION_DIR}"/SumSun/Loader.bin ./"${RIIVOLUTION_DIR}"/riivolution/
-
-}
-
 detect_game_version () {
 
 	if [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_232911 ]]; then
@@ -65,6 +59,7 @@ detect_game_version () {
 		exit 1
 	fi
 
+	XML_FILE="${XML_FILE}"${REG_LETTER}.xml
 	GAMEID=SMN${REG_LETTER}02
 
 }
