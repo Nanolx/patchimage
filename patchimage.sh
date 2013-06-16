@@ -42,7 +42,7 @@ ${WIT} extract "${IMAGE}" ${WORKDIR} --psel=DATA -vv || exit 1
 detect_game_version
 place_files
 
-if [[ ${XML} ]]; then
+if [[ ${XML} == "TRUE" ]]; then
 	wit dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}" || exit 1
 else
 	${PPF} a ${DOL} ${PATCH} || exit 1
