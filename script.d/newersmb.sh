@@ -146,8 +146,16 @@ place_files () {
 
 }
 
+prepare_xml () {
+
+	cp ${XML_FILE} ${XML_FILE}.new
+	sed -e 's/80001800/803482C0/g' -i ${XML_FILE}.new
+	XML_FILE=${XML_FILE}.new
+
+}
+
 dolpatch_extra () {
 
-	${WIT} dolpatch ${DOL} xml="./patches/NewerSMBW-Loader.xml" || exit 1
+	${WIT} dolpatch ${DOL} xml="./patches/NewerSMBW-Loader.xml"
 
 }
