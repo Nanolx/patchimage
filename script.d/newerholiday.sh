@@ -13,7 +13,7 @@ XML_FILE="riivolution/Xmas"
 
 show_notes () {
 
-echo -e
+echo -e \
 "************************************************
 Newer: Holiday Special
 

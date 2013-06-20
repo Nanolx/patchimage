@@ -13,7 +13,7 @@ XML_FILE="${RIIVOLUTION_DIR}"/riivolution/SumSun
 
 show_notes () {
 
-echo -e
+echo -e \
 "************************************************
 Newer Summer Sun
 

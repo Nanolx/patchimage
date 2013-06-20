@@ -28,7 +28,8 @@ cleanup () {
 
 ask_game () {
 
-echo -e "************************************************
+echo -e \
+"************************************************
 patchimage.sh
 
 Enter Letter for the Game you want to create:
@@ -102,7 +103,7 @@ while [[ $xcount -lt $pcount ]]; do
 				IMAGE=BASE.${ISO_EXT}
 			else
 				echo -e "ISO not found"
-				exit1
+				exit 1
 			fi
 		;;
 

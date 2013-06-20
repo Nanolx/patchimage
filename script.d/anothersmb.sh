@@ -13,7 +13,7 @@ XML_FILE="Riivolution/Another.xml"
 
 show_notes () {
 
-echo -e
+echo -e \
 "************************************************
 Another Super Mario Brothers Wii 2.0
 

@@ -13,7 +13,7 @@ XML_FILE="${RIIVOLUTION_DIR}"/riivolution/NewerSMBW.xml
 
 show_notes () {
 
-echo -e
+echo -e \
 "************************************************
 NewerSMB
 
