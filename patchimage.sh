@@ -43,7 +43,8 @@ detect_game_version
 place_files
 
 if [[ ${XML} == "TRUE" ]]; then
-	wit dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}" || exit 1
+	${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}" || exit 1
+	dolpatch_extra
 else
 	${PPF} a ${DOL} ${PATCH} || exit 1
 fi
