@@ -44,23 +44,18 @@ detect_game_version () {
 
 	if [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_232911 ]]; then
 		VERSION=EURv1
-		PATCH=./patches/NewerSMB/EURv1.ppf
 		REG_LETTER=P
 	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2010-01-05_152101 ]]; then
 		VERSION=EURv2
-		PATCH=./patches/NewerSMB/EURv2.ppf
 		REG_LETTER=P
 	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_232303 ]]; then
 		VERSION=USAv1
-		PATCH=./patches/NewerSMB/USAv1.ppf
 		REG_LETTER=E
 	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2010-01-05_143554 ]]; then
 		VERSION=USAv2
-		PATCH=./patches/NewerSMB/USAv2.ppf
 		REG_LETTER=E
 	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_231655 ]]; then
 		VERSION=JPNv1
-		PATCH=./patches/NewerSMB/JPNv1.ppf
 		REG_LETTER=J
 	elif [[ ! ${VERSION} ]]; then
 		echo -e "please specify your games version using --version={EURv1,EURv2,USAv1,USAv2,JPNv1}"
@@ -73,7 +68,7 @@ detect_game_version () {
 
 place_files () {
 
-	NEW_DIRS=( nsmb.d/files/LevelSamples nsmb.d/files/NewerRes nsmb.d/files/Sound/new/sfx nsmb.d/files/Maps )
+	NEW_DIRS=( ${WORKDIR}/files/LevelSamples ${WORKDIR}/files/NewerRes ${WORKDIR}/files/Sound/new/sfx ${WORKDIR}/files/Maps )
 	for dir in ${NEW_DIRS[@]}; do
 		mkdir -p ${dir}
 	done
@@ -82,67 +77,67 @@ place_files () {
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r ./NewerFiles/NewerSMBW/{Font,Message}/ ./nsmb.d/files/EU/${dir}/
+				cp -r ${RIIVOLUTION_DIR}/NewerSMBW/{Font,Message}/ ${WORKDIR}/files/EU/${dir}/
 			done
-			cp ./NewerFiles/NewerSMBW/OthersP/* ./nsmb.d/files/EU/Layout/openingTitle/
+			cp ${RIIVOLUTION_DIR}/NewerSMBW/OthersP/* ${WORKDIR}/files/EU/Layout/openingTitle/
 		;;
 
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r ./NewerFiles/NewerSMBW/{Font,Message}/ ./nsmb.d/files/US/${dir}/
+				cp -r ${RIIVOLUTION_DIR}/NewerSMBW/{Font,Message}/ ${WORKDIR}/files/US/${dir}/
 			done
-			cp ./NewerFiles/NewerSMBW/OthersE/* ./nsmb.d/files/US/Layout/openingTitle/
+			cp ${RIIVOLUTION_DIR}/NewerSMBW/OthersE/* ${WORKDIR}/files/US/Layout/openingTitle/
 		;;
 
 		JPNv1 )
-			cp ./NewerFiles/NewerSMBW/Font/* ./nsmb.d/files/JP/Font/
-			cp ./NewerFiles/NewerSMBW/Message/* ./nsmb.d/files/JP/Message/
-			cp ./NewerFiles/NewerSMBW/OthersJ/* ./nsmb.d/files/JP/Layout/openingTitle/
+			cp ${RIIVOLUTION_DIR}/NewerSMBW/Font/* ${WORKDIR}/files/JP/Font/
+			cp ${RIIVOLUTION_DIR}/NewerSMBW/Message/* ${WORKDIR}/files/JP/Message/
+			cp ${RIIVOLUTION_DIR}/NewerSMBW/OthersJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
 		;;
 	esac
 
-	cp ./NewerFiles/NewerSMBW/Tilesets/* ./nsmb.d/files/Stage/Texture/
-	cp ./NewerFiles/NewerSMBW/TitleReplay/* ./nsmb.d/files/Replay/title/
-	cp ./NewerFiles/NewerSMBW/BGs/* ./nsmb.d/files/Object/
-	cp ./NewerFiles/NewerSMBW/SpriteTex/* ./nsmb.d/files/Object/
-	cp ./NewerFiles/NewerSMBW/Layouts/* ./nsmb.d/files/Layout/
-	cp -r ./NewerFiles/NewerSMBW/Music/*.er ./nsmb.d/files/Sound/new/
-	cp ./NewerFiles/NewerSMBW/Music/sfx/* ./nsmb.d/files/Sound/new/sfx/
-	cp ./NewerFiles/NewerSMBW/Music/stream/* ./nsmb.d/files/Sound/stream/
-	cp ./NewerFiles/NewerSMBW/Music/rsar/* ./nsmb.d/files/Sound/
-	cp ./NewerFiles/NewerSMBW/NewerRes/* ./nsmb.d/files/NewerRes/
-	cp ./NewerFiles/NewerSMBW/LevelSamples/* ./nsmb.d/files/LevelSamples/
-	cp ./NewerFiles/NewerSMBW/Others/charaChangeSelectContents.arc ./nsmb.d/files/Layout/charaChangeSelectContents/charaChangeSelectContents.arc
-	cp ./NewerFiles/NewerSMBW/Others/characterChange.arc ./nsmb.d/files/Layout/characterChange/characterChange.arc
-	cp ./NewerFiles/NewerSMBW/Others/continue.arc ./nsmb.d/files/Layout/continue/continue.arc
-	cp ./NewerFiles/NewerSMBW/Others/controllerInformation.arc ./nsmb.d/files/Layout/controllerInformation/controllerInformation.arc
-	cp ./NewerFiles/NewerSMBW/Others/corseSelectMenu.arc ./nsmb.d/files/Layout/corseSelectMenu/corseSelectMenu.arc
-	cp ./NewerFiles/NewerSMBW/Others/corseSelectUIGuide.arc ./nsmb.d/files/Layout/corseSelectUIGuide/corseSelectUIGuide.arc
-	cp ./NewerFiles/NewerSMBW/Others/dateFile.arc ./nsmb.d/files/Layout/dateFile/dateFile.arc
-	cp ./NewerFiles/NewerSMBW/Others/dateFile_OLD.arc ./nsmb.d/files/Layout/dateFile/dateFile_OLD.arc
-	cp ./NewerFiles/NewerSMBW/Others/easyPairing.arc ./nsmb.d/files/Layout/easyPairing/easyPairing.arc
-	cp ./NewerFiles/NewerSMBW/Others/extensionControllerNunchuk.arc ./nsmb.d/files/Layout/extensionControllerNunchuk/extensionControllerNunchuk.arc
-	cp ./NewerFiles/NewerSMBW/Others/extensionControllerYokomochi.arc ./nsmb.d/files/Layout/extensionControllerYokomochi/extensionControllerYokomochi.arc
-	cp ./NewerFiles/NewerSMBW/Others/fileSelectBase.arc ./nsmb.d/files/Layout/fileSelectBase/fileSelectBase.arc
-	cp ./NewerFiles/NewerSMBW/Others/fileSelectBase_OLD.arc ./nsmb.d/files/Layout/fileSelectBase/fileSelectBase_OLD.arc
-	cp ./NewerFiles/NewerSMBW/Others/fileSelectPlayer.arc ./nsmb.d/files/Layout/fileSelectPlayer/fileSelectPlayer.arc
-	cp ./NewerFiles/NewerSMBW/Others/gameScene.arc ./nsmb.d/files/Layout/gameScene/gameScene.arc
-	cp ./NewerFiles/NewerSMBW/Others/infoWindow.arc ./nsmb.d/files/Layout/infoWindow/infoWindow.arc
-	cp ./NewerFiles/NewerSMBW/Others/miniGameCannon.arc ./nsmb.d/files/Layout/miniGameCannon/miniGameCannon.arc
-	cp ./NewerFiles/NewerSMBW/Others/miniGameWire.arc ./nsmb.d/files/Layout/miniGameWire/miniGameWire.arc
-	cp ./NewerFiles/NewerSMBW/Others/pauseMenu.arc ./nsmb.d/files/Layout/pauseMenu/pauseMenu.arc
-	cp ./NewerFiles/NewerSMBW/Others/pointResultDateFile.arc ./nsmb.d/files/Layout/pointResultDateFile/pointResultDateFile.arc
-	cp ./NewerFiles/NewerSMBW/Others/pointResultDateFileFree.arc ./nsmb.d/files/Layout/pointResultDateFileFree/pointResultDateFileFree.arc
-	cp ./NewerFiles/NewerSMBW/Others/preGame.arc ./nsmb.d/files/Layout/preGame/preGame.arc
-	cp ./NewerFiles/NewerSMBW/Others/select_cursor.arc ./nsmb.d/files/Layout/select_cursor/select_cursor.arc
-	cp ./NewerFiles/NewerSMBW/Others/sequenceBG.arc ./nsmb.d/files/Layout/sequenceBG/sequenceBG.arc
-	cp ./NewerFiles/NewerSMBW/Others/staffCredit.arc ./nsmb.d/files/Layout/staffCredit/staffCredit.arc
-	cp ./NewerFiles/NewerSMBW/Others/stockItem.arc ./nsmb.d/files/Layout/stockItem/stockItem.arc
-	cp ./NewerFiles/NewerSMBW/Others/stockItemShadow.arc ./nsmb.d/files/Layout/stockItemShadow/stockItemShadow.arc
-	cp ./NewerFiles/NewerSMBW/Others/yesnoWindow.arc ./nsmb.d/files/Layout/yesnoWindow/yesnoWindow.arc
-	cp -r ./NewerFiles/NewerSMBW/Maps/* ./nsmb.d/files/Maps/
-	cp ./NewerFiles/NewerSMBW/Stages/* ./nsmb.d/files/Stage/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Tilesets/* ${WORKDIR}/files/Stage/Texture/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/TitleReplay/* ${WORKDIR}/files/Replay/title/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/BGs/* ${WORKDIR}/files/Object/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/SpriteTex/* ${WORKDIR}/files/Object/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Layouts/* ${WORKDIR}/files/Layout/
+	cp -r ${RIIVOLUTION_DIR}/NewerSMBW/Music/*.er ${WORKDIR}/files/Sound/new/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Music/sfx/* ${WORKDIR}/files/Sound/new/sfx/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Music/stream/* ${WORKDIR}/files/Sound/stream/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Music/rsar/* ${WORKDIR}/files/Sound/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/NewerRes/* ${WORKDIR}/files/NewerRes/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/LevelSamples/* ${WORKDIR}/files/LevelSamples/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/charaChangeSelectContents.arc ${WORKDIR}/files/Layout/charaChangeSelectContents/charaChangeSelectContents.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/characterChange.arc ${WORKDIR}/files/Layout/characterChange/characterChange.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/continue.arc ${WORKDIR}/files/Layout/continue/continue.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/controllerInformation.arc ${WORKDIR}/files/Layout/controllerInformation/controllerInformation.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/corseSelectMenu.arc ${WORKDIR}/files/Layout/corseSelectMenu/corseSelectMenu.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/corseSelectUIGuide.arc ${WORKDIR}/files/Layout/corseSelectUIGuide/corseSelectUIGuide.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/dateFile.arc ${WORKDIR}/files/Layout/dateFile/dateFile.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/dateFile_OLD.arc ${WORKDIR}/files/Layout/dateFile/dateFile_OLD.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/easyPairing.arc ${WORKDIR}/files/Layout/easyPairing/easyPairing.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/extensionControllerNunchuk.arc ${WORKDIR}/files/Layout/extensionControllerNunchuk/extensionControllerNunchuk.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/extensionControllerYokomochi.arc ${WORKDIR}/files/Layout/extensionControllerYokomochi/extensionControllerYokomochi.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/fileSelectBase.arc ${WORKDIR}/files/Layout/fileSelectBase/fileSelectBase.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/fileSelectBase_OLD.arc ${WORKDIR}/files/Layout/fileSelectBase/fileSelectBase_OLD.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/fileSelectPlayer.arc ${WORKDIR}/files/Layout/fileSelectPlayer/fileSelectPlayer.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/gameScene.arc ${WORKDIR}/files/Layout/gameScene/gameScene.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/infoWindow.arc ${WORKDIR}/files/Layout/infoWindow/infoWindow.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/miniGameCannon.arc ${WORKDIR}/files/Layout/miniGameCannon/miniGameCannon.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/miniGameWire.arc ${WORKDIR}/files/Layout/miniGameWire/miniGameWire.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/pauseMenu.arc ${WORKDIR}/files/Layout/pauseMenu/pauseMenu.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/pointResultDateFile.arc ${WORKDIR}/files/Layout/pointResultDateFile/pointResultDateFile.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/pointResultDateFileFree.arc ${WORKDIR}/files/Layout/pointResultDateFileFree/pointResultDateFileFree.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/preGame.arc ${WORKDIR}/files/Layout/preGame/preGame.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/select_cursor.arc ${WORKDIR}/files/Layout/select_cursor/select_cursor.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/sequenceBG.arc ${WORKDIR}/files/Layout/sequenceBG/sequenceBG.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/staffCredit.arc ${WORKDIR}/files/Layout/staffCredit/staffCredit.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/stockItem.arc ${WORKDIR}/files/Layout/stockItem/stockItem.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/stockItemShadow.arc ${WORKDIR}/files/Layout/stockItemShadow/stockItemShadow.arc
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Others/yesnoWindow.arc ${WORKDIR}/files/Layout/yesnoWindow/yesnoWindow.arc
+	cp -r ${RIIVOLUTION_DIR}/NewerSMBW/Maps/* ${WORKDIR}/files/Maps/
+	cp ${RIIVOLUTION_DIR}/NewerSMBW/Stages/* ${WORKDIR}/files/Stage/
 
 }
 
