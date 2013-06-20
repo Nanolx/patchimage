@@ -58,7 +58,9 @@ check_input_image () {
 
 check_riivolution_patch () {
 
-	if [[ ! ${RIIVOLUTION}} ]]; then
+	if [[ ${DOWNLOAD} ]]; then
+		wget ${DOWNLOAD_LINK} -O ./${RIIVOLUTION_ZIP}
+	elif [[ ! ${RIIVOLUTION}} ]]; then
 		if [[ -e ./${RIIVOLUTION_ZIP} ]]; then
 			unzip ./${RIIVOLUTION_ZIP} >/dev/null
 		elif [[ ! -d ./${RIIVOLUTION_DIR} ]]; then
@@ -106,6 +108,10 @@ while [[ $xcount -lt $pcount ]]; do
 				echo -e "CustomID ${CUSTOMID} needs to have 6 digits"
 				exit 1
 			fi
+		;;
+
+		--download )
+			DOWNLOAD=TRUE
 		;;
 
 		--version=* )
@@ -161,7 +167,8 @@ while [[ $xcount -lt $pcount ]]; do
 --version=EURv1,EURv2,USAv1,USAv2,JPNv1	| specify your game version
 --customdid=SMNP02			| specify a custom ID to use for the game
 --sharesave				| let modified game share savegame with original game
---clean					| cleanup the build-directory"
+--clean					| cleanup the build-directory
+--download				| download riivolution patchfiles"
 			exit 0
 		;;
 	esac
