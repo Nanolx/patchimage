@@ -6,7 +6,7 @@
 #
 # License: GPL v3
 
-source ./script.d/common.sh
+source script.d/common.sh
 setup_tools
 
 optparse "${@}"
@@ -18,11 +18,11 @@ fi
 case ${GAME} in
 
 	A | NewerSMB | NewerSMBW )
-		source ./script.d/newersmb.sh
+		source script.d/newersmb.sh
 	;;
 
 	B | NewerSummerSun )
-		source ./script.d/newersummersun.sh
+		source script.d/newersummersun.sh
 	;;
 
 	* )
@@ -48,7 +48,7 @@ ${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}"
 dolpatch_extra
 
 if [[ ${CUSTOMID} ]]; then
-	${WIT} cp -v -B ${WORKDIR} ./${CUSTOMID}.wbfs -vv --disc-id=${CUSTOMID} ${TMD_OPTS} --name "${GAMENAME}"
+	${WIT} cp -v -B ${WORKDIR} ${CUSTOMID}.wbfs -vv --disc-id=${CUSTOMID} ${TMD_OPTS} --name "${GAMENAME}"
 else
-	${WIT} cp -v -B ${WORKDIR} ./${GAMEID}.wbfs -vv --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}"
+	${WIT} cp -v -B ${WORKDIR} ${GAMEID}.wbfs -vv --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}"
 fi
