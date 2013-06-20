@@ -6,7 +6,7 @@ DOWNLOAD_LIK="http://newerteam.com/getNewerFile.php"
 RIIVOLUTION_ZIP=NewerSMBW.zip
 RIIVOLUTION_DIR=NewerFiles
 GAMENAME="Newer SMB"
-XML=FALSE
+XML=TRUE
 XML_SOURCE=./"${RIIVOLUTION_DIR}"/NewerSMBW/
 XML_FILE=./"${RIIVOLUTION_DIR}"/riivolution/NewerSMBW.xml
 
@@ -146,6 +146,6 @@ place_files () {
 
 dolpatch_extra () {
 
-	echo 0
+	${WIT} dolpatch ${DOL} xml="./patches/NewerSMBW-Loader.xml" || exit 1
 
 }
