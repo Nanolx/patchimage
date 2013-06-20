@@ -75,8 +75,12 @@ check_input_image () {
 check_riivolution_patch () {
 
 	if [[ ${DOWNLOAD} ]]; then
-		wget ${DOWNLOAD_LINK} -O ${RIIVOLUTION_ZIP}
-		unzip ${RIIVOLUTION_ZIP} >/dev/null
+		if [[ ! -f ${RIIVOLUTION_ZIP} ]]; then
+			wget ${DOWNLOAD_LINK} -O ${RIIVOLUTION_ZIP}
+		fi
+		if [[ ! -d "${RIIVOLUTION_DIR}" ]]; then
+			unzip ${RIIVOLUTION_ZIP} >/dev/null
+		fi
 	elif [[ -f ${RIIVOLUTION_ZIP} && ! -d "${RIIVOLUTION_DIR}" ]]; then
 		unzip ${RIIVOLUTION_ZIP} >/dev/null
 	elif [[ ! -d "${RIIVOLUTION_DIR}" ]]; then
