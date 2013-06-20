@@ -17,7 +17,7 @@ fi
 
 case ${GAME} in
 
-	A | NewerSMB )
+	A | NewerSMB | NewerSMBW )
 		source ./script.d/newersmb.sh
 	;;
 
@@ -32,6 +32,7 @@ case ${GAME} in
 
 esac
 
+download_soundtrack
 cleanup_prebuild
 check_input_image
 check_input_image_special
