@@ -31,7 +31,7 @@ cleanup () {
 ask_game () {
 
 echo -e "************************************************
-mknewersmb.sh
+patchimage.sh
 
 Enter Letter for the Game you want to create:
 A	NewerSMB
@@ -75,13 +75,11 @@ check_riivolution_patch () {
 	if [[ ${DOWNLOAD} ]]; then
 		wget ${DOWNLOAD_LINK} -O ./${RIIVOLUTION_ZIP}
 		unzip ./${RIIVOLUTION_ZIP} >/dev/null
-	elif [[ ! ${RIIVOLUTION}} ]]; then
-		if [[ -e ./${RIIVOLUTION_ZIP} ]]; then
-			unzip ./${RIIVOLUTION_ZIP} >/dev/null
-		elif [[ ! -d ./${RIIVOLUTION_DIR} ]]; then
-			echo -e "please specify zip to use with --riivolution=<path>"
-			exit 1
-		fi
+	elif [[ -f ./${RIIVOLUTION_ZIP} && ! -d ./${RIIVOLUTION_DIR} ]]; then
+		unzip ./${RIIVOLUTION_ZIP} >/dev/null
+	elif [[ ! -d ./${RIIVOLUTION_DIR} ]]; then
+		echo -e "please specify zip to use with --riivolution=<path>"
+		exit 1
 	fi
 
 }
