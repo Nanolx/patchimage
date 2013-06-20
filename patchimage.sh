@@ -17,16 +17,20 @@ fi
 
 case ${GAME} in
 
-	A | NewerSMB | NewerSMBW )
+	a | A | NewerSMB | NewerSMBW )
 		source script.d/newersmb.sh
 	;;
 
-	B | NewerSummerSun )
+	b | B | NewerSummerSun )
 		source script.d/newersummersun.sh
 	;;
 
-	C | ASMBW | AnotherSMBW )
+	c | C | ASMBW | AnotherSMBW )
 		source script.d/anothersmb.sh
+	;;
+
+	d | D | HolidaySpecial | "Newer: Holiday Special" )
+		source script.d/newerholiday.sh
 	;;
 
 	* )

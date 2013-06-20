@@ -35,6 +35,7 @@ Enter Letter for the Game you want to create:
 A	NewerSMB
 B	Newer Summer Sun
 C	AnotherSMB
+D	Newer: Holiday Special
 "
 
 read GAME
@@ -173,7 +174,8 @@ while [[ $xcount -lt $pcount ]]; do
 			echo -e "create wbfs images from riivolution patches.\n
 ***** using this script is only allowed, if you own an original copy of the game.
 ***** if you don't, no one can be blamed but you. Shame on you.\n
---game={NewerSMB;NewerSummerSun}	| specify game you want to create
+--game={NewerSMB;NewerSummerSun;AnotherSMB;HolidaySpecial}
+					| specify game you want to create
 --iso=/home/test/<Image>.wbfs		| specify which ISO to use for building
 --riivolution=/home/test/<Patch>.zip	| specify path to Riivolution files
 --version=EURv1,EURv2,USAv1,USAv2,JPNv1	| specify your game version

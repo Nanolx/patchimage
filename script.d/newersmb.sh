@@ -151,5 +151,6 @@ prepare_xml () {
 dolpatch_extra () {
 
 	${WIT} dolpatch ${DOL} xml="patches/NewerSMBW-Loader.xml"
+	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml"
 
 }
