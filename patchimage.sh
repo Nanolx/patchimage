@@ -40,6 +40,7 @@ case ${GAME} in
 
 esac
 
+show_notes
 download_soundtrack
 cleanup_prebuild
 check_input_image
