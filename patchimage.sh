@@ -43,13 +43,9 @@ ${WIT} extract "${IMAGE}" ${WORKDIR} --psel=DATA -vv || exit 1
 detect_game_version
 place_files
 
-if [[ ${XML} == "TRUE" ]]; then
-	prepare_xml
-	${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}"
-	dolpatch_extra
-else
-	${PPF} a ${DOL} ${PATCH} || exit 1
-fi
+prepare_xml
+${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}"
+dolpatch_extra
 
 if [[ ${CUSTOMID} ]]; then
 	${WIT} cp -v -B ${WORKDIR} ./${CUSTOMID}.wbfs -vv --disc-id=${CUSTOMID} ${TMD_OPTS} --name "${GAMENAME}"

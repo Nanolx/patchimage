@@ -6,10 +6,8 @@ setup_tools () {
 
 	if [[ $(uname -m) == "x86_64" ]]; then
 		WIT=./tools/wit.64
-		PPF=./tools/applyppf3.64
 	else
 		WIT=./tools/wit.32
-		PPF=./tools/applyppf3.32
 	fi
 
 }
@@ -105,7 +103,7 @@ while [[ $xcount -lt $pcount ]]; do
 			fi
 		;;
 
-		--patch* )
+		--riivolution* )
 			RIIVOLUTION=${1/*=}
 			if [[ -e "${RIIVOLUTION}" ]]; then
 				unzip "${RIIVOLUTION}" >/dev/null
