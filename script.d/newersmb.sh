@@ -2,7 +2,9 @@
 
 WORKDIR=./nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LIK="http://newerteam.com/getNewerFile.php"
+DOWNLOAD_LINK="http://newerteam.com/getNewerFile.php"
+SOUNDTRACK_LINK="http://dirbaio.net/newer/NewerSoundtrack.zip"
+SOUNDTRACK_ZIP="NewerSoundtrack.zip"
 RIIVOLUTION_ZIP=NewerSMBW.zip
 RIIVOLUTION_DIR=NewerFiles
 GAMENAME="Newer SMB"

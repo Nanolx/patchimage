@@ -41,6 +41,20 @@ read GAME
 
 }
 
+download_soundtrack () {
+
+	if [[ ${SOUNDTRACK} ]]; then
+		if [[ ${SOUNDTRACK_LINK} ]]; then
+			wget ${SOUNDTRACK_LINK} -O ./${SOUNDTRACK_ZIP}
+			exit 0
+		else
+			echo -e "no soundtrack for ${GAME} available."
+			exit 1
+		fi
+	fi
+
+}
+
 check_input_image () {
 
 	if [[ ! ${IMAGE} ]]; then
@@ -60,6 +74,7 @@ check_riivolution_patch () {
 
 	if [[ ${DOWNLOAD} ]]; then
 		wget ${DOWNLOAD_LINK} -O ./${RIIVOLUTION_ZIP}
+		unzip ./${RIIVOLUTION_ZIP} >/dev/null
 	elif [[ ! ${RIIVOLUTION}} ]]; then
 		if [[ -e ./${RIIVOLUTION_ZIP} ]]; then
 			unzip ./${RIIVOLUTION_ZIP} >/dev/null
@@ -112,6 +127,10 @@ while [[ $xcount -lt $pcount ]]; do
 
 		--download )
 			DOWNLOAD=TRUE
+		;;
+
+		--soundtrack )
+			SOUNDTRACK=TRUE
 		;;
 
 		--version=* )
