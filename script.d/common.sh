@@ -187,7 +187,8 @@ while [[ $xcount -lt $pcount ]]; do
 --customdid=SMNP02			| specify a custom ID to use for the game
 --sharesave				| let modified game share savegame with original game
 --clean					| cleanup the build-directory
---download				| download riivolution patchfiles"
+--download				| download riivolution patchfiles
+--soundtrack				| download soundtrack (if available) and exit"
 			exit 0
 		;;
 	esac
