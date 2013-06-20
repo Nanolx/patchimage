@@ -2,6 +2,7 @@
 
 WORKDIR=./nsmb.d
 DOL=${WORKDIR}/sys/main.dol
+DOWNLOAD_LIK="http://newerteam.com/getNewerFile.php"
 RIIVOLUTION_ZIP=NewerSMBW.zip
 RIIVOLUTION_DIR=NewerFiles
 GAMENAME="Newer SMB"
@@ -140,5 +141,11 @@ place_files () {
 	cp ./NewerFiles/NewerSMBW/Others/yesnoWindow.arc ./nsmb.d/files/Layout/yesnoWindow/yesnoWindow.arc
 	cp -r ./NewerFiles/NewerSMBW/Maps/* ./nsmb.d/files/Maps/
 	cp ./NewerFiles/NewerSMBW/Stages/* ./nsmb.d/files/Stage/
+
+}
+
+dolpatch_extra () {
+
+	echo 0
 
 }
