@@ -112,7 +112,7 @@ while [[ $xcount -lt $pcount ]]; do
 				unzip "${RIIVOLUTION}" >/dev/null
 			else
 				echo -e "Riivolution patch ${RIIVOLUTION} not found."
-				exit1
+				exit 1
 			fi
 		;;
 
