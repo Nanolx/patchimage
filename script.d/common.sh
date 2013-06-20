@@ -5,9 +5,9 @@ TMD_OPTS="--ticket-id=K --tmd-id=K"
 setup_tools () {
 
 	if [[ $(uname -m) == "x86_64" ]]; then
-		WIT=./tools/wit.64
+		WIT=tools/wit.64
 	else
-		WIT=./tools/wit.32
+		WIT=tools/wit.32
 	fi
 
 }
@@ -56,10 +56,10 @@ download_soundtrack () {
 check_input_image () {
 
 	if [[ ! ${IMAGE} ]]; then
-		if [[ -f ./BASE.wbfs ]]; then
-			IMAGE=./BASE.wbfs
-		elif [[ -f ./BASE.iso ]]; then
-			IMAGE=./BASE.iso
+		if [[ -f BASE.wbfs ]]; then
+			IMAGE=BASE.wbfs
+		elif [[ -f BASE.iso ]]; then
+			IMAGE=BASE.iso
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 1
@@ -71,11 +71,11 @@ check_input_image () {
 check_riivolution_patch () {
 
 	if [[ ${DOWNLOAD} ]]; then
-		wget ${DOWNLOAD_LINK} -O ./${RIIVOLUTION_ZIP}
-		unzip ./${RIIVOLUTION_ZIP} >/dev/null
-	elif [[ -f ./${RIIVOLUTION_ZIP} && ! -d ./${RIIVOLUTION_DIR} ]]; then
-		unzip ./${RIIVOLUTION_ZIP} >/dev/null
-	elif [[ ! -d ./${RIIVOLUTION_DIR} ]]; then
+		wget ${DOWNLOAD_LINK} -O ${RIIVOLUTION_ZIP}
+		unzip ${RIIVOLUTION_ZIP} >/dev/null
+	elif [[ -f ${RIIVOLUTION_ZIP} && ! -d "${RIIVOLUTION_DIR}" ]]; then
+		unzip ${RIIVOLUTION_ZIP} >/dev/null
+	elif [[ ! -d "${RIIVOLUTION_DIR}" ]]; then
 		echo -e "please specify zip to use with --riivolution=<path>"
 		exit 1
 	fi
@@ -96,7 +96,7 @@ while [[ $xcount -lt $pcount ]]; do
 
 			if [[ -e "${ISO_PATH}" ]]; then
 				ln -sf "${ISO_PATH}" ./BASE.${ISO_EXT}
-				IMAGE=./BASE.${ISO_EXT}
+				IMAGE=BASE.${ISO_EXT}
 			else
 				echo -e "ISO not found"
 				exit1
@@ -133,27 +133,22 @@ while [[ $xcount -lt $pcount ]]; do
 			VERSION=${1/*=}
 			case ${VERSION} in
 				EURv1 )
-					PATCH=./patches/EURv1.ppf
 					REG_LETTER=P
 				;;
 
 				EURv2 )
-					PATCH=./patches/EURv2.ppf
 					REG_LETTER=P
 				;;
 
 				USAv1 )
-					PATCH=./patches/USAv1.ppf
 					REG_LETTER=E
 				;;
 
 				USAv2 )
-					PATCH=./patches/USAv2.ppf
 					REG_LETTER=E
 				;;
 
 				JPNv1 )
-					PATCH=./patches/JPNv1.ppf
 					REG_LETTER=J
 				;;
 
