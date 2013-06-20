@@ -33,7 +33,9 @@ patchimage.sh
 
 Enter Letter for the Game you want to create:
 A	NewerSMB
-B	Newer Summer Sun"
+B	Newer Summer Sun
+C	AnotherSMB
+"
 
 read GAME
 
@@ -43,7 +45,7 @@ download_soundtrack () {
 
 	if [[ ${SOUNDTRACK} ]]; then
 		if [[ ${SOUNDTRACK_LINK} ]]; then
-			wget ${SOUNDTRACK_LINK} -O ./${SOUNDTRACK_ZIP}
+			wget "${SOUNDTRACK_LINK}" -O ${SOUNDTRACK_ZIP}
 			exit 0
 		else
 			echo -e "no soundtrack for ${GAME} available."

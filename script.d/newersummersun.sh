@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WORKDIR=./nsmb.d
+WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
 DOWNLOAD_LINK="http://dirbaio.net/newer/Newer_Summer_Sun.zip"
 SOUNDTRACK_LINK="http://dirbaio.net/newer/Newer_Summer_Sun_Soundtrack.zip"

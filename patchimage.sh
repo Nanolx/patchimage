@@ -25,6 +25,10 @@ case ${GAME} in
 		source script.d/newersummersun.sh
 	;;
 
+	C | ASMBW | AnotherSMBW )
+		source script.d/anothersmb.sh
+	;;
+
 	* )
 		echo -e "specified Game ${GAME} not recognized"
 		exit 1
