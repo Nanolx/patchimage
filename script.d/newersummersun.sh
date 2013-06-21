@@ -10,6 +10,7 @@ RIIVOLUTION_DIR="Newer Summer Sun"
 GAMENAME="Newer Summer Sun"
 XML_SOURCE="${RIIVOLUTION_DIR}"/SumSun/
 XML_FILE="${RIIVOLUTION_DIR}"/riivolution/SumSun
+GAME_TYPE=RIIVOLUTION
 
 show_notes () {
 

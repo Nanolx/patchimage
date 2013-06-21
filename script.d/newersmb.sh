@@ -10,6 +10,7 @@ RIIVOLUTION_DIR="NewerFiles"
 GAMENAME="Newer SMB"
 XML_SOURCE="${RIIVOLUTION_DIR}"/NewerSMBW/
 XML_FILE="${RIIVOLUTION_DIR}"/riivolution/NewerSMBW.xml
+GAME_TYPE=RIIVOLUTION
 
 show_notes () {
 

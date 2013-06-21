@@ -40,24 +40,28 @@ case ${GAME} in
 
 esac
 
-show_notes
-download_soundtrack
-cleanup_prebuild
-check_input_image
-check_input_image_special
-check_riivolution_patch
+case ${GAME_TYPE} in
+	"RIIVOLUTION" )
+		show_notes
+		download_soundtrack
+		cleanup_prebuild
+		check_input_image
+		check_input_image_special
+		check_riivolution_patch
 
-${WIT} extract "${IMAGE}" ${WORKDIR} --psel=DATA -vv || exit 1
+		${WIT} extract "${IMAGE}" ${WORKDIR} --psel=DATA -vv || exit 1
 
-detect_game_version
-place_files
+		detect_game_version
+		place_files
 
-prepare_xml
-${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}"
-dolpatch_extra
+		prepare_xml
+		${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}"
+		dolpatch_extra
 
-if [[ ${CUSTOMID} ]]; then
-	${WIT} cp -v -B ${WORKDIR} ${CUSTOMID}.wbfs -vv --disc-id=${CUSTOMID} ${TMD_OPTS} --name "${GAMENAME}"
-else
-	${WIT} cp -v -B ${WORKDIR} ${GAMEID}.wbfs -vv --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}"
-fi
+		if [[ ${CUSTOMID} ]]; then
+			${WIT} cp -v -B ${WORKDIR} ${CUSTOMID}.wbfs -vv --disc-id=${CUSTOMID} ${TMD_OPTS} --name "${GAMENAME}"
+		else
+			${WIT} cp -v -B ${WORKDIR} ${GAMEID}.wbfs -vv --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}"
+		fi
+	;;
+esac

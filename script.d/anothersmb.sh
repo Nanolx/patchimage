@@ -10,6 +10,7 @@ RIIVOLUTION_DIR="Another"
 GAMENAME="Another Super Mario Brothers Wii 2.0"
 XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="Riivolution/Another.xml"
+GAME_TYPE=RIIVOLUTION
 
 show_notes () {
 

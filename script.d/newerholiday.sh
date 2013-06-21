@@ -10,6 +10,7 @@ RIIVOLUTION_DIR="XmasNewer"
 GAMENAME="Newer: Holiday Special"
 XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="riivolution/Xmas"
+GAME_TYPE=RIIVOLUTION
 
 show_notes () {
 
