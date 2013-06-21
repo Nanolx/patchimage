@@ -63,7 +63,7 @@ detect_game_version () {
 		exit 1
 	fi
 
-	GAMEID=SMN${REG_LETTER}04
+	GAMEID=SMN${REG_LETTER}05
 
 	if [[ ${VERSION} == "EURv2" || ${VERSION} == "JPNv*" ]]; then
 		echo -e "Version ${VERSION} is not supported!"

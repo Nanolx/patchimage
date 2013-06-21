@@ -64,7 +64,7 @@ detect_game_version () {
 	fi
 
 	XML_FILE="${XML_FILE}"${REG_LETTER}.xml
-	GAMEID=SMN${REG_LETTER}05
+	GAMEID=SMN${REG_LETTER}07
 
 }
 
