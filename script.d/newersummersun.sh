@@ -16,7 +16,10 @@ show_notes () {
 
 echo -e \
 "************************************************
-Newer Summer Sun
+${GAMENAME}
+
+Newer: Summer Sun is a short game with a hot theme, originally released
+in Summer 2012. It features 23 new levels and some fresh music!
 
 Source:			http://www.newerteam.com/specials.html
 Base Image:		New Super Mario Bros. Wii (SMN?01)

@@ -16,7 +16,11 @@ show_notes () {
 
 echo -e \
 "************************************************
-NewerSMB
+${GAMENAME}
+
+Newer is a full unofficial sequel to New Super Mario Bros. Wii, crafted
+over the span of 3 years by a team of devoted Nintendo fans. Playable
+legally on any homebrew-enabled Wii; no piracy or hardware mods needed.
 
 Source:			http://www.newerteam.com/
 Base Image:		New Super Mario Bros. Wii (SMN?01)

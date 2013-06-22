@@ -16,7 +16,11 @@ show_notes () {
 
 echo -e \
 "************************************************
-Newer: Holiday Special
+${GAMENAME}
+
+Newer: Holiday Special is a frosty adventure created to celebrate
+Christmas 2011. Explore 8 of the coldest levels you'll ever see, set
+to chilly music and new, icy textures!
 
 Source:			http://www.newerteam.com/specials.html
 Base Image:		New Super Mario Bros. Wii (SMN?01)

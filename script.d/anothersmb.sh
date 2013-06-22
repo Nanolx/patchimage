@@ -16,7 +16,11 @@ show_notes () {
 
 echo -e \
 "************************************************
-Another Super Mario Brothers Wii 2.0
+${GAMENAME}
+
+Another Super Mario Bros. Wii is a simple mod created by Skawo and
+released in December 2010 which includes a full set of new levels with
+the same themes as the original game.
 
 Source:			http://www.newerteam.com/specials.html
 Base Image:		New Super Mario Bros. Wii (SMN?01)

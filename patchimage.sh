@@ -33,6 +33,10 @@ case ${GAME} in
 		source script.d/newerholiday.sh
 	;;
 
+	e | E | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
+		source script.d/parallelworlds.sh
+	;;
+
 	* )
 		echo -e "specified Game ${GAME} not recognized"
 		exit 1
@@ -63,5 +67,14 @@ case ${GAME_TYPE} in
 		else
 			${WIT} cp -v -B ${WORKDIR} ${GAMEID}.wbfs -vv --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}"
 		fi
+	;;
+
+	"IPS" )
+		show_notes
+		check_input_rom
+		check_input_rom_special
+		check_ips_patch
+
+		${IPS} a ${PATCH} ${ROM}
 	;;
 esac
