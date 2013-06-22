@@ -72,9 +72,13 @@ case ${GAME_TYPE} in
 	"IPS" )
 		show_notes
 		check_input_rom
-		check_input_rom_special
-		check_ips_patch
 
-		${IPS} a ${PATCH} ${ROM}
+		if [[ -f ${PATCH} ]]; then
+			ext=${ROM/*.}
+			cp "${ROM}" "${GAMENAME}.${ext}"
+			${IPS} a "${PATCH}" "${GAMENAME}.${ext}"
+		else
+			echo -e "error: patch (${PATCH}) could not be found"
+		fi
 	;;
 esac

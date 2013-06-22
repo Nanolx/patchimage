@@ -107,7 +107,7 @@ while [[ $xcount -lt $pcount ]]; do
 			ISO_EXT=${ISO_PATH//*./}
 
 			if [[ -e "${ISO_PATH}" ]]; then
-				ln -sf "${ISO_PATH}" ./BASE.${ISO_EXT}
+				ln -sf "${ISO_PATH}" BASE.${ISO_EXT}
 				IMAGE=BASE.${ISO_EXT}
 			else
 				echo -e "ISO not found"
@@ -115,12 +115,43 @@ while [[ $xcount -lt $pcount ]]; do
 			fi
 		;;
 
+		--rom* )
+			ROM_PATH=${1/*=}
+			ROM_EXT=${ROM_PATH//*./}
+
+			if [[ -e "${ROM_PATH}" ]]; then
+				ln -sf "${ROM_PATH}" BASE.${ROM_EXT}
+				IMAGE=BASE.${ROM_EXT}
+			else
+				echo -e "ROM not found"
+				exit 1
+			fi
+		;;
+
 		--riivolution* )
 			RIIVOLUTION=${1/*=}
 			if [[ -e "${RIIVOLUTION}" ]]; then
-				unzip "${RIIVOLUTION}" >/dev/null
+				if [[ "${RIIVOLUTION}" == *.zip ]]; then
+					unzip "${RIIVOLUTION}" >/dev/null
+				elif [[ "${RIIVOLUTION}" == *.rar ]]; then
+					unrar e "${RIIVOLUTION}" >/dev/null
+				fi
 			else
 				echo -e "Riivolution patch ${RIIVOLUTION} not found."
+				exit 1
+			fi
+		;;
+
+		--patch*  )
+			PATCH=${1/*=}
+			if [[ -e "${PATCH}" ]]; then
+				if [[ "${PATCH}" == *.zip ]]; then
+					unzip "${PATCH}" >/dev/null
+				elif [[ "${PATCH}" == *.rar ]]; then
+					unrar e "${PATCH}" >/dev/null
+				fi
+			else
+				echo -e "PATCH patch ${PATCH} not found."
 				exit 1
 			fi
 		;;
@@ -183,10 +214,10 @@ while [[ $xcount -lt $pcount ]]; do
 			echo -e "create wbfs images from riivolution patches.\n
 ***** using this script is only allowed, if you own an original copy of the game.
 ***** if you don't, no one can be blamed but you. Shame on you.\n
---game={NewerSMB;NewerSummerSun;AnotherSMB;HolidaySpecial}
+--game={NewerSMB;NewerSummerSun;AnotherSMB;HolidaySpecial;ParallelWorlds}
 					| specify game you want to create
---iso=/home/test/<Image>.wbfs		| specify which ISO to use for building
---riivolution=/home/test/<Patch>.zip	| specify path to Riivolution files
+--iso/--rom=/home/test/<Image>		| specify which ISO/ROM to use for building
+--riivolution/--patch=<Patch>		| specify path to Riivolution/Patch files
 --version=EURv1,EURv2,USAv1,USAv2,JPNv1	| specify your game version
 --customdid=SMNP02			| specify a custom ID to use for the game
 --sharesave				| let modified game share savegame with original game
