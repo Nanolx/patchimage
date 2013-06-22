@@ -33,7 +33,9 @@ case ${GAME} in
 		source script.d/newerholiday.sh
 	;;
 
-	e | E | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
+# e preserved for canon smbw
+
+	f | F | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source script.d/parallelworlds.sh
 	;;
 

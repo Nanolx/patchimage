@@ -32,6 +32,10 @@ cleanup () {
 
 ask_game () {
 
+# ####
+# E: preserved for Canon SMBW
+# ###
+
 echo -e \
 "************************************************
 patchimage.sh
@@ -41,6 +45,8 @@ A	NewerSMB
 B	Newer Summer Sun
 C	AnotherSMB
 D	Newer: Holiday Special
+
+F	The Legend of Zelda: Parallel Worlds
 "
 
 read GAME
