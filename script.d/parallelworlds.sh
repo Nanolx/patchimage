@@ -18,7 +18,7 @@ new world, new dungeons... and much more difficult.
 
 Source:			https://sites.google.com/site/zeldaparallelworlds/
 Base ROM:		The Legend of Zelda: A Link to the Past
-Supported Versions:	?
+Supported Versions:	US
 ************************************************"
 
 }
