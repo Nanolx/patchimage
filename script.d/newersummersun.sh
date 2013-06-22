@@ -125,10 +125,10 @@ prepare_xml () {
 
 dolpatch_extra () {
 
-	${WIT} dolpatch ${DOL} "802F148C=53756D6D53756E#7769696D6A3264" --verbose
-	${WIT} dolpatch ${DOL} "802F118C=53756D6D53756E#7769696D6A3264" --verbose
-	${WIT} dolpatch ${DOL} "802F0F8C=53756D6D53756E#7769696D6A3264" --verbose
-	${WIT} dolpatch ${DOL} xml="patches/SummerSun-Loader.xml"
-	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml"
+	${WIT} dolpatch ${DOL} "802F148C=53756D6D53756E#7769696D6A3264" -q
+	${WIT} dolpatch ${DOL} "802F118C=53756D6D53756E#7769696D6A3264" -q
+	${WIT} dolpatch ${DOL} "802F0F8C=53756D6D53756E#7769696D6A3264" -q
+	${WIT} dolpatch ${DOL} xml="patches/SummerSun-Loader.xml" -q
+	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml" -q
 
 }

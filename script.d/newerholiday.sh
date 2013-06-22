@@ -121,7 +121,7 @@ prepare_xml () {
 
 dolpatch_extra () {
 
-	${WIT} dolpatch ${DOL} xml="patches/HolidaySpecial-Loader.xml"
-	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml"
+	${WIT} dolpatch ${DOL} xml="patches/HolidaySpecial-Loader.xml" -q
+	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml" -q
 
 }

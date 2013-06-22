@@ -61,7 +61,7 @@ case ${GAME_TYPE} in
 		place_files
 
 		prepare_xml
-		${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}"
+		${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}" -q
 		dolpatch_extra
 
 		if [[ ${CUSTOMID} ]]; then

@@ -147,7 +147,7 @@ prepare_xml () {
 
 dolpatch_extra () {
 
-	${WIT} dolpatch ${DOL} xml="patches/AnotherSMB-Loader.xml"
-	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml"
+	${WIT} dolpatch ${DOL} xml="patches/AnotherSMB-Loader.xml" -q
+	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml" -q
 
 }
