@@ -59,12 +59,11 @@ case ${GAME_TYPE} in
 
 		detect_game_version
 		place_files
+
 		download_banner
 		apply_banner
 
-		prepare_xml
-		${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}" -q
-		dolpatch_extra
+		dolpatch
 
 		if [[ ${CUSTOMID} ]]; then
 			${WIT} cp -v -B ${WORKDIR} ${CUSTOMID}.wbfs -vv --disc-id=${CUSTOMID} ${TMD_OPTS} --name "${GAMENAME}"

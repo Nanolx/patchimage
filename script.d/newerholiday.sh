@@ -115,15 +115,9 @@ place_files () {
 
 }
 
-prepare_xml () {
+dolpatch () {
 
-	echo -ne
-
-}
-
-dolpatch_extra () {
-
-	${WIT} dolpatch ${DOL} xml="patches/HolidaySpecial-Loader.xml" -q
+	${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" xml="patches/HolidaySpecial-Loader.xml" -q
 	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml" -q
 
 }
