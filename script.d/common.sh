@@ -1,6 +1,7 @@
 #!/bin/bash
 
 TMD_OPTS="--ticket-id=K --tmd-id=K"
+TMP_FILES=(Another Another_Super_Mario_Brothers_Wii_2.0.zip nsmb.d Newer_Super_Mario_Bros._Wii_HS.zip XmasNewer NewerSMBW.zip NewerFiles "Newer Summer Sun" Newer_Summer_Sun.zip ZPW_1.1.ips lozpw110.rar "*[Ll]ink*[Pp]ast*smc")
 
 setup_tools () {
 
@@ -19,14 +20,13 @@ setup_tools () {
 cleanup_prebuild () {
 
 	rm -rf ${WORKDIR}
-	rm -f ./*.wbfs
+	rm -f *.wbfs
 
 }
 
 cleanup () {
 
-	rm  -f *.{iso,wbfs} NewerSMB.zip
-	rm -rf NewerFiles nsmb.d
+	rm -rf ${TMP_FILES[@]}
 
 }
 
@@ -214,6 +214,11 @@ while [[ $xcount -lt $pcount ]]; do
 
 		--game* )
 			GAME=${1/*=}
+		;;
+
+		--clean )
+			cleanup
+			exit $?
 		;;
 
 		"" | --help )
