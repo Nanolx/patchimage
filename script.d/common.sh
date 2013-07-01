@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TMD_OPTS="--ticket-id=K --tmd-id=K"
+TMD_OPTS="--tt-id=K"
 TMP_FILES=(Another Another_Super_Mario_Brothers_Wii_2.0.zip nsmb.d Newer_Super_Mario_Bros._Wii_HS.zip XmasNewer NewerSMBW.zip NewerFiles "Newer Summer Sun" Newer_Summer_Sun.zip ZPW_1.1.ips lozpw110.rar "*[Ll]ink*[Pp]ast*smc")
 
 setup_tools () {
@@ -26,7 +26,7 @@ cleanup_prebuild () {
 
 cleanup () {
 
-	rm -rf ${TMP_FILES[@]}
+	rm -rf ${TMP_FILES[@]} *.wbfs *.bnr
 
 }
 
@@ -63,6 +63,29 @@ download_soundtrack () {
 			echo -e "no soundtrack for ${GAME} available."
 			exit 1
 		fi
+	fi
+
+}
+
+download_banner () {
+
+	if [[ ${DL_BANNER} == "TRUE" ]]; then
+		if [[ ${CUSTOM_BANNER} ]]; then
+			wget "${CUSTOM_BANNER}" -O ${GAMEID}-custom-banner.bnr
+			BANNER=${GAMEID}-custom-banner.bnr
+		else
+			echo "no custom banner for ${GAMENAME} available, not modifying"
+		fi
+	fi
+
+}
+
+apply_banner () {
+
+	if [[ -e ${BANNER} ]]; then
+		cp "${BANNER}" "${BANNER_LOCATION}"
+	else
+		echo "specified banner ${BANNER} does not exist, not modifying"
 	fi
 
 }
@@ -221,6 +244,19 @@ while [[ $xcount -lt $pcount ]]; do
 			exit $?
 		;;
 
+		--banner=* )
+			BANNER=${1/*=}
+			BANNER_EXT=${BANNER//*./}
+			if [[ ${BANNER_EXT} != "bnr" ]]; then
+				echo "given banner (${BANNER}) is not a .bnr file!"
+				exit 1
+			fi
+		;;
+
+		--download-banner )
+			DL_BANNER=TRUE
+		;;
+
 		"" | --help )
 			echo -e "create wbfs images from riivolution patches.\n
 ***** using this script is only allowed, if you own an original copy of the game.
@@ -234,7 +270,9 @@ while [[ $xcount -lt $pcount ]]; do
 --sharesave				| let modified game share savegame with original game
 --clean					| cleanup the build-directory
 --download				| download riivolution patchfiles
---soundtrack				| download soundtrack (if available) and exit"
+--soundtrack				| download soundtrack (if available) and exit
+--banner=<banner.bnr>			| use a custom banner (riivolution games)
+--download-banner			| download a custom banner (if available)"
 			exit 0
 		;;
 	esac

@@ -11,6 +11,9 @@ GAMENAME="Newer SMB"
 XML_SOURCE="${RIIVOLUTION_DIR}"/NewerSMBW/
 XML_FILE="${RIIVOLUTION_DIR}"/riivolution/NewerSMBW.xml
 GAME_TYPE=RIIVOLUTION
+BANNER_LOCATION=${WORKDIR}/files/opening.bnr
+
+}
 
 show_notes () {
 
@@ -67,6 +70,7 @@ detect_game_version () {
 	fi
 
 	GAMEID=SMN${REG_LETTER}03
+	CUSTOM_BANNER=http://dl.dropboxusercontent.com/u/101209384/${GAMEID}.bnr
 
 }
 

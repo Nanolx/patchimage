@@ -11,6 +11,7 @@ GAMENAME="Another Super Mario Brothers Wii 2.0"
 XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="Riivolution/Another.xml"
 GAME_TYPE=RIIVOLUTION
+BANNER_LOCATION=${WORKDIR}/files/opening.bnr
 
 show_notes () {
 
@@ -68,6 +69,7 @@ detect_game_version () {
 	fi
 
 	GAMEID=SMN${REG_LETTER}05
+	CUSTOM_BANNER=http://dl.dropboxusercontent.com/u/101209384/${GAMEID}.bnr
 
 	if [[ ${VERSION} == "EURv2" || ${VERSION} == "JPNv*" ]]; then
 		echo -e "Version ${VERSION} is not supported!"

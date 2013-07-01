@@ -11,6 +11,7 @@ GAMENAME="Newer: Holiday Special"
 XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="riivolution/Xmas"
 GAME_TYPE=RIIVOLUTION
+BANNER_LOCATION=${WORKDIR}/files/opening.bnr
 
 show_notes () {
 
@@ -69,6 +70,7 @@ detect_game_version () {
 
 	XML_FILE="${XML_FILE}"${REG_LETTER}.xml
 	GAMEID=SMN${REG_LETTER}07
+	CUSTOM_BANNER=http://dl.dropboxusercontent.com/u/101209384/${GAMEID}.bnr
 
 }
 

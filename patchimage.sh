@@ -59,6 +59,8 @@ case ${GAME_TYPE} in
 
 		detect_game_version
 		place_files
+		download_banner
+		apply_banner
 
 		prepare_xml
 		${WIT} dolpatch ${DOL} xml="${XML_FILE}" --source "${XML_SOURCE}" -q
