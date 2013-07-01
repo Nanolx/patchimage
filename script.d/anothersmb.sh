@@ -116,24 +116,18 @@ place_files () {
 		;;
 	esac
 
-	cp "${RIIVOLUTION_DIR}"/Lang/Other/01-01_N_1.bin ${WORKDIR}/files/Replay/otehon/01-01_N_1.bin
-	cp "${RIIVOLUTION_DIR}"/Lang/Other/01-02_N_1.bin ${WORKDIR}/files/Replay/otehon/01-02_N_1.bin
-	cp "${RIIVOLUTION_DIR}"/Lang/Other/01-04_N_1.bin ${WORKDIR}/files/Replay/otehon/01-04_N_1.bin
-	cp "${RIIVOLUTION_DIR}"/Lang/Other/01-06_N_1.bin ${WORKDIR}/files/Replay/otehon/01-06_N_1.bin
+	cp "${RIIVOLUTION_DIR}"/Lang/Other/01-0{1,2,4,6}_N_1.bin ${WORKDIR}/files/Replay/otehon/
 	cp "${RIIVOLUTION_DIR}"/Stage/*.arc ${WORKDIR}/files/Stage/
-	cp "${RIIVOLUTION_DIR}"/Sound/BGM_HIKOUSEN_ROUKA.32.brstm ${WORKDIR}/files/Sound/stream/BGM_HIKOUSEN_ROUKA.32.brstm
-	cp "${RIIVOLUTION_DIR}"/Sound/BGM_HIKOUSEN_ROUKA_FAST.32.brstm ${WORKDIR}/files/Sound/stream/BGM_HIKOUSEN_ROUKA_FAST.32.brstm
-	cp "${RIIVOLUTION_DIR}"/Sound/kazan_tika_fast_lr.ry.32.brstm ${WORKDIR}/files/Sound/stream/kazan_tika_fast_lr.ry.32.brstm
-	cp "${RIIVOLUTION_DIR}"/Sound/kazan_tika_lr.ry.32.brstm ${WORKDIR}/files/Sound/stream/kazan_tika_lr.ry.32.brstm
-	cp "${RIIVOLUTION_DIR}"/Sound/wii_mj2d_sound.brsar ${WORKDIR}/files/Sound/wii_mj2d_sound.brsar
-	cp "${RIIVOLUTION_DIR}"/Layout/controllerInformation.arc ${WORKDIR}/files/Layout/controllerInformation/controllerInformation.arc
-	cp "${RIIVOLUTION_DIR}"/Layout/MultiCorseSelectTexture.arc ${WORKDIR}/files/Layout/textures/MultiCorseSelectTexture.arc
+	cp "${RIIVOLUTION_DIR}"/Sound/*.brstm ${WORKDIR}/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/Sound/*.brsar ${WORKDIR}/files/Sound/
+	cp "${RIIVOLUTION_DIR}"/Layout/controllerInformation.arc ${WORKDIR}/files/Layout/controllerInformation/
+	cp "${RIIVOLUTION_DIR}"/Layout/MultiCorseSelectTexture.arc ${WORKDIR}/files/Layout/textures/
 	cp "${RIIVOLUTION_DIR}"/Object/*.arc ${WORKDIR}/files/Object/
 	cp "${RIIVOLUTION_DIR}"/WorldMap/* ${WORKDIR}/files/WorldMap/
 	cp "${RIIVOLUTION_DIR}"/AnotherRes/* ${WORKDIR}/files/AnotherRes/
 	cp "${RIIVOLUTION_DIR}"/Object/Background/* ${WORKDIR}/files/Object/
 	cp "${RIIVOLUTION_DIR}"/Stage/Texture/* ${WORKDIR}/files/Stage/Texture/
-	cp "${RIIVOLUTION_DIR}"/Sample/tobira.bti ${WORKDIR}/files/Sample/tobira.bti
+	cp "${RIIVOLUTION_DIR}"/Sample/tobira.bti ${WORKDIR}/files/Sample/
 
 }
 
