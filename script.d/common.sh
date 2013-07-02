@@ -2,7 +2,6 @@
 
 TMD_OPTS="--tt-id=K"
 TMP_FILES=(Another Another_Super_Mario_Brothers_Wii_2.0.zip nsmb.d Newer_Super_Mario_Bros._Wii_HS.zip XmasNewer NewerSMBW.zip NewerFiles "Newer Summer Sun" Newer_Summer_Sun.zip ZPW_1.1.ips lozpw110.rar "*[Ll]ink*[Pp]ast*smc" Epic_Super_Bowser_World_v1.00 Epic_Super_Bowser_World_v1.00.zip)
-DL_BANNER=FALSE
 
 setup_tools () {
 
@@ -85,10 +84,12 @@ download_banner () {
 
 apply_banner () {
 
-	if [[ ${BANNER} && -e ${BANNER} ]]; then
-		cp "${BANNER}" "${BANNER_LOCATION}"
-	else
-		echo "specified banner ${BANNER} does not exist, not modifying"
+	if [[ ${BANNER} != "" ]]; then
+		if [[ -e ${BANNER} ]]; then
+			cp "${BANNER}" "${BANNER_LOCATION}"
+		else
+			echo "specified banner ${BANNER} does not exist, not modifying"
+		fi
 	fi
 
 }
