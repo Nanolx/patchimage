@@ -125,4 +125,6 @@ dolpatch() {
 	${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" \
 		xml="patches/EpicSuperBowserWorld-Loader.xml" -q
 
+	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml" -q
+
 }
