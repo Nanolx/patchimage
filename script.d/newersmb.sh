@@ -13,8 +13,6 @@ XML_FILE="${RIIVOLUTION_DIR}"/riivolution/NewerSMBW.xml
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
 
-}
-
 show_notes () {
 
 echo -e \
