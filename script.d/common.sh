@@ -45,7 +45,7 @@ A	NewerSMB
 B	Newer Summer Sun
 C	AnotherSMB
 D	Newer: Holiday Special
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX (coming soon)
+E	Cannon Super Mario Bros.
 F	Epic Super Bowser World
 
 G	The Legend of Zelda: Parallel Worlds
