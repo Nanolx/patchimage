@@ -9,7 +9,7 @@ RIIVOLUTION_ZIP="Newer_Summer_Sun.zip"
 RIIVOLUTION_DIR="Newer Summer Sun"
 GAMENAME="Newer Summer Sun"
 XML_SOURCE="${RIIVOLUTION_DIR}"/SumSun/
-XML_FILE="${RIIVOLUTION_DIR}"/riivolution/SumSun
+XML_FILE="${RIIVOLUTION_DIR}"/riivolution/SumSunP.xml
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
 
@@ -67,7 +67,6 @@ detect_game_version () {
 		exit 1
 	fi
 
-	XML_FILE="${XML_FILE}"${REG_LETTER}.xml
 	GAMEID=SMN${REG_LETTER}06
 	CUSTOM_BANNER=http://dl.dropboxusercontent.com/u/101209384/${GAMEID}.bnr
 
