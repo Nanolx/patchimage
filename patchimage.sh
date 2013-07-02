@@ -35,7 +35,11 @@ case ${GAME} in
 
 # e preserved for canon smbw
 
-	f | F | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
+	f | F | ESBW | "Epic Super Bowser World" )
+		source script.d/epicbowserworld.sh
+	;;
+
+	g | G | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source script.d/parallelworlds.sh
 	;;
 
