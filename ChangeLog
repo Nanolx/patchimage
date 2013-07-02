@@ -1,0 +1,36 @@
+v2.0:
+- --download Parameter (lädt Riivolution-Daten mit wget herunter)
+- --soundtrack Parameter (lädt Soundtrack mit wget herunter)
+- --banner Parameter (benutzt einen custom Banner)
+- --download-banner Parameter (lädt einen custom Banner mit wget herunter)
+
+- wit auf Version 2.22c aktualisiert
+- uips hinzugefügt
+
+- Loader-Patches von DMM auf aktuellem Stand
+
+Unterstützung für folgende neue Spiele:
+* Another SMBW
+* Newer Summer Sun
+* Newer Holiday Special
+* Epic Super Bowser World
+* Cannon SMBW
+* The Legend of Zelda - Parallel Worlds
+
+- diverse (Fehler)-Korrekturen, Verbesserungen und Umstrukturierungen
+
+v1.2:
+- Autoerkennung der Spielversion (EURv1,  EURv2, USAv1, USAv2, JPNv1)
+- Fehlerbehebung bei Bearbeitung von USA/JPN-Versionen
+- --sharesave Parameter
+- --customid Parameter
+- unzip-Ausgabe nach /dev/null
+
+v1.1:
+- neue patches für EURv2, USAv1, USAv2, JPNv1 hinzugefügt (DMM)
+- Holländisch wird ebenfalls berücksichtigt
+- kleinere Verbesserungen am Code
+- --version= Parameter (zur Angabe der Spielversion)
+
+v1.0:
+- erste Version
