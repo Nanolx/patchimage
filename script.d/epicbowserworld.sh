@@ -110,6 +110,7 @@ place_files () {
 	cp "${RIIVOLUTION_DIR}"/ESBW/Sound/*.brsar ${WORKDIR}/files/Sound/
 	cp "${RIIVOLUTION_DIR}"/ESBW/WorldMap/* ${WORKDIR}/files/WorldMap/
 	cp "${RIIVOLUTION_DIR}"/ESBW/Object/* ${WORKDIR}/files/Object/
+	cp "${RIIVOLUTION_DIR}"/ESBW/MovieDemo/* ${WORKDIR}/files/MovieDemo/
 	cp -r "${RIIVOLUTION_DIR}"/ESBW/Layout/ ${WORKDIR}/files/
 
 }
