@@ -89,6 +89,7 @@ place_files () {
 		EURv* )
 
 			cp "${RIIVOLUTION_DIR}"/Lang/EUENGLISH.arc ${WORKDIR}/files/EU/EngEU/Message/Message.arc
+			cp "${RIIVOLUTION_DIR}"/Lang/EUENGLISH.arc ${WORKDIR}/files/EU/NedEU/Message/Message.arc
 			cp "${RIIVOLUTION_DIR}"/Lang/EUFRENCH.arc ${WORKDIR}/files/EU/FraEU/Message/Message.arc
 			cp "${RIIVOLUTION_DIR}"/Lang/EUGERMAN.arc ${WORKDIR}/files/EU/GerEU/Message/Message.arc
 			cp "${RIIVOLUTION_DIR}"/Lang/EUITALIAN.arc ${WORKDIR}/files/EU/ItaEU/Message/Message.arc

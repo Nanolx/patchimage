@@ -75,11 +75,13 @@ place_files () {
 		mkdir -p ${dir}
 	done
 
+	cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{m,M}essage
+
 	case ${VERSION} in
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{message,staffroll}/ ${WORKDIR}/files/EU/${dir}/
+				cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/EU/${dir}/
 				cp -r "${RIIVOLUTION_DIR}"/ESBW/Font/ ${WORKDIR}/files/EU/${dir}/
 			done
 			cp "${RIIVOLUTION_DIR}"/ESBW/OpeningP/* ${WORKDIR}/files/EU/Layout/openingTitle/
@@ -88,14 +90,14 @@ place_files () {
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{message,staffroll}/ ${WORKDIR}/files/US/${dir}/
+				cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/US/${dir}/
 				cp -r "${RIIVOLUTION_DIR}"/ESBW/Font/ ${WORKDIR}/files/US/${dir}/
 			done
 			cp "${RIIVOLUTION_DIR}"/ESBW/OpeningE/* ${WORKDIR}/files/US/Layout/openingTitle/
 		;;
 
 		JPNv1 )
-			cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{message,staffroll}/ ${WORKDIR}/files/JP/
+			cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/JP/
 			cp -r "${RIIVOLUTION_DIR}"/ESBW/Font/ ${WORKDIR}/files/JP/
 			cp "${RIIVOLUTION_DIR}"/ESBW/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
 		;;

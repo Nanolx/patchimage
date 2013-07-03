@@ -8,13 +8,16 @@ v2.0:
 - uips hinzugefügt
 
 - Loader-Patches von DMM auf aktuellem Stand
+- README hinzugefügt
+- GAMEIDS hinzugefügt
 
 Unterstützung für folgende neue Spiele:
 * Another SMBW
 * Newer Summer Sun
 * Newer Holiday Special
 * Epic Super Bowser World
-* Cannon SMBW
+* Cannon SMBW [ungetestet]
+* Koopa Country
 * The Legend of Zelda - Parallel Worlds
 
 - diverse (Fehler)-Korrekturen, Verbesserungen und Umstrukturierungen

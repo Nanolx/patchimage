@@ -74,16 +74,18 @@ detect_game_version () {
 
 place_files () {
 
-	NEW_DIRS=( ${WORKDIR}/files/NewerRes )
+	NEW_DIRS=( ${WORKDIR}/files/NewerRes ${WORKDIR}/files/EU/NedEU )
 	for dir in ${NEW_DIRS[@]}; do
 		mkdir -p ${dir}
 	done
+
+	cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{m,M}essage
 
 	case ${VERSION} in
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{message,staffroll}/ ${WORKDIR}/files/EU/${dir}/
+				cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/EU/${dir}/
 			done
 			cp "${RIIVOLUTION_DIR}"/SumSun/OpeningP/* ${WORKDIR}/files/EU/Layout/openingTitle/
 		;;
@@ -91,13 +93,13 @@ place_files () {
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{message,staffroll}/ ${WORKDIR}/files/US/${dir}/
+				cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/US/${dir}/
 			done
 			cp "${RIIVOLUTION_DIR}"/SumSun/OpeningE/* ${WORKDIR}/files/US/Layout/openingTitle/
 		;;
 
 		JPNv1 )
-			cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{message,staffroll}/ ${WORKDIR}/files/JP/
+			cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/JP/
 			cp "${RIIVOLUTION_DIR}"/SumSun/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
 		;;
 	esac
