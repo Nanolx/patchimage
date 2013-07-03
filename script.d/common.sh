@@ -47,8 +47,9 @@ C	AnotherSMB
 D	Newer: Holiday Special
 E	Cannon Super Mario Bros.
 F	Epic Super Bowser World
+G	Koopa Country
 
-G	The Legend of Zelda: Parallel Worlds
+ 1	The Legend of Zelda: Parallel Worlds
 "
 
 read GAME
@@ -112,11 +113,14 @@ check_input_image () {
 check_riivolution_patch () {
 
 	if [[ ${DOWNLOAD} ]]; then
-		if [[ ! -f ${RIIVOLUTION_ZIP} ]]; then
-			wget ${DOWNLOAD_LINK} -O ${RIIVOLUTION_ZIP}
-		fi
-		if [[ ! -d "${RIIVOLUTION_DIR}" ]]; then
-			unzip ${RIIVOLUTION_ZIP} >/dev/null
+		if [[ ${DOWNLOAD_LINK} ]]; then
+			if [[ ! -f ${RIIVOLUTION_ZIP} ]]; then
+				wget ${DOWNLOAD_LINK} -O ${RIIVOLUTION_ZIP}
+				unzip ${RIIVOLUTION_ZIP} >/dev/null
+			fi
+		else
+			echo "no download link for ${GAMENAME} available."
+			exit 1
 		fi
 	elif [[ -f ${RIIVOLUTION_ZIP} && ! -d "${RIIVOLUTION_DIR}" ]]; then
 		unzip ${RIIVOLUTION_ZIP} >/dev/null
@@ -181,7 +185,7 @@ while [[ $xcount -lt $pcount ]]; do
 				if [[ "${PATCH}" == *.zip ]]; then
 					unzip "${PATCH}" >/dev/null
 				elif [[ "${PATCH}" == *.rar ]]; then
-					unrar e "${PATCH}" >/dev/null
+					unrar x "${PATCH}" >/dev/null
 				fi
 			else
 				echo -e "PATCH patch ${PATCH} not found."
