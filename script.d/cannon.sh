@@ -5,8 +5,8 @@ DOL=${WORKDIR}/sys/main.dol
 RIIVOLUTION_ZIP="Cannon_Super_Mario_Bros._Wii_v1.1.zip"
 RIIVOLUTION_DIR="Cannon_Super_Mario_Bros._Wii_v1.1"
 GAMENAME="Cannon Super Mario Bros."
-XML_SOURCE="${RIIVOLUTION_DIR}"/SumSun/
-XML_FILE="${RIIVOLUTION_DIR}"/riivolution/Cannon
+XML_SOURCE="${RIIVOLUTION_DIR}"/Cannon/
+XML_FILE="${RIIVOLUTION_DIR}"/riivolution/CannonP.xml
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
 
