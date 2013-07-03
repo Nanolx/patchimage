@@ -39,7 +39,11 @@ case ${GAME} in
 		source script.d/epicbowserworld.sh
 	;;
 
-	g | G | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
+	g | G | Koopa | "Koopa Country" )
+		source script.d/koopacountry.sh
+	;;
+
+	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source script.d/parallelworlds.sh
 	;;
 
