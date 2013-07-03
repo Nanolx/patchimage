@@ -7,7 +7,7 @@ RIIVOLUTION_ZIP="Epic_Super_Bowser_World_v1.00.zip"
 RIIVOLUTION_DIR="Epic_Super_Bowser_World_v1.00"
 GAMENAME="Epic Super Bowser World"
 XML_SOURCE="${RIIVOLUTION_DIR}"/ESBW/
-XML_FILE="${RIIVOLUTION_DIR}"/riivolution/ESBW
+XML_FILE="${RIIVOLUTION_DIR}"/riivolution/ESBWP.xml
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
 
@@ -64,7 +64,6 @@ detect_game_version () {
 		exit 1
 	fi
 
-	XML_FILE="${XML_FILE}"${REG_LETTER}.xml
 	GAMEID=SMN${REG_LETTER}08
 
 }
