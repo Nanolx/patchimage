@@ -33,7 +33,9 @@ case ${GAME} in
 		source script.d/newerholiday.sh
 	;;
 
-# e preserved for canon smbw
+	e | E | Cannon | "Cannon SMBW" )
+		source script.d/cannon.sh
+	;;
 
 	f | F | ESBW | "Epic Super Bowser World" )
 		source script.d/epicbowserworld.sh

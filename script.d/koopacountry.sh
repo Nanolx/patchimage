@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-#DOWNLOAD_LINK="http://rvlution.net/forums/viewtopic.php?f=53&t=1352"
+DOWNLOAD_LINK="http://www.nanolx.org/riivolution/Koopa%20country.rar"
 RIIVOLUTION_ZIP="Koopa country.rar"
 RIIVOLUTION_DIR="."
 GAMENAME="Koopa Country"
