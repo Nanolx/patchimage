@@ -1,3 +1,10 @@
+v2.1:
+- --clean no longer removes riivolution .zip files
+- only remove (if already existing) the wbfs file we are going to build,
+  prior to do so, not all wbfs files in the directory
+- fixup support for Cannon SMBW (now built properly)
+- add download-link for Cannon SMBW
+
 v2.0:
 - --download Parameter (lädt Riivolution-Daten mit wget herunter)
 - --soundtrack Parameter (lädt Soundtrack mit wget herunter)

@@ -2,6 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
+DOWNLOAD_LINK="http://www.nanolx.org/riivolution/Cannon_Super_Mario_Bros._Wii_v1.1.zip"
 RIIVOLUTION_ZIP="Cannon_Super_Mario_Bros._Wii_v1.1.zip"
 RIIVOLUTION_DIR="Cannon_Super_Mario_Bros._Wii_v1.1"
 GAMENAME="Cannon Super Mario Bros."
@@ -16,10 +17,12 @@ echo -e \
 "************************************************
 ${GAMENAME}
 
-Newer: Summer Sun is a short game with a hot theme, originally released
-in Summer 2012. It features 23 new levels and some fresh music!
+- 14 full new levels divided over 3 worlds
+- Over 50 new goodies and retextured objects
+- Many custom music composed over almost all levels
+- And of course some custom tilesets
 
-Source:			http://www.newerteam.com/specials.html
+Source:			http://www.rvlution.net/forums/viewtopic.php?f=20&t=1080
 Base Image:		New Super Mario Bros. Wii (SMN?01)
 Supported Versions:	EURv1, EURv2, USAv1, USAv2, JPNv1
 ************************************************"
@@ -103,7 +106,7 @@ place_files () {
 	cp "${RIIVOLUTION_DIR}"/Cannon/NewerRes/* ${WORKDIR}/files/NewerRes/
 	cp "${RIIVOLUTION_DIR}"/Cannon/Stage/*.arc ${WORKDIR}/files/Stage/
 	cp "${RIIVOLUTION_DIR}"/Cannon/Env/* ${WORKDIR}/files/Env/
-	cp "${RIIVOLUTION_DIR}"/Cannon/Sound/stream/* ${WORKDIR}/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/Cannon/Sound/Stream/* ${WORKDIR}/files/Sound/stream/
 	cp "${RIIVOLUTION_DIR}"/Cannon/Sound/*.brsar ${WORKDIR}/files/Sound/
 	cp "${RIIVOLUTION_DIR}"/Cannon/WorldMap/* ${WORKDIR}/files/WorldMap/
 	cp "${RIIVOLUTION_DIR}"/Cannon/Object/* ${WORKDIR}/files/Object/
