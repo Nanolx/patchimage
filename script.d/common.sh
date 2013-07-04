@@ -1,9 +1,9 @@
 #!/bin/bash
 
 TMD_OPTS="--tt-id=K"
-TMP_FILES=(Another nsmb.d XmasNewer NewerFiles "Newer Summer Sun" \
-ZPW_1.1.ips Epic_Super_Bowser_World_v1.00 \
-Koopa riivolution "Readme*" "*.txt" )
+TMP_FILES=(Another nsmb.d XmasNewer NewerFiles "Newer*Summer*Sun" \
+ZPW_1.1.ips Epic_Super_Bowser_World_v1.00 Riivolution Koopa \
+Cannon_Super_Mario_Bros._Wii_v1.1 riivolution "Readme*" "*.txt" "*.rtf" )
 
 setup_tools () {
 
