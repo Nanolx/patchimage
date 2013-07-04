@@ -59,8 +59,8 @@ esac
 case ${GAME_TYPE} in
 	"RIIVOLUTION" )
 		show_notes
+		rm -rf ${WORKDIR}
 		download_soundtrack
-		cleanup_prebuild
 		check_input_image
 		check_input_image_special
 		check_riivolution_patch
@@ -68,6 +68,7 @@ case ${GAME_TYPE} in
 		${WIT} extract "${IMAGE}" ${WORKDIR} --psel=DATA -vv || exit 1
 
 		detect_game_version
+		rm -f ${GAMEID}.wbfs ${CUSTOMID}.wbfs
 		place_files
 
 		download_banner
