@@ -1,12 +1,9 @@
 #!/bin/bash
 
 TMD_OPTS="--tt-id=K"
-TMP_FILES=(Another Another_Super_Mario_Brothers_Wii_2.0.zip nsmb.d \
-Newer_Super_Mario_Bros._Wii_HS.zip XmasNewer NewerSMBW.zip NewerFiles \
-"Newer Summer Sun" Newer_Summer_Sun.zip ZPW_1.1.ips lozpw110.rar \
-"*[Ll]ink*[Pp]ast*smc" Epic_Super_Bowser_World_v1.00 \
-Epic_Super_Bowser_World_v1.00.zip "Koopa country.rar" Koopa riivolution \
-"Readme*" )
+TMP_FILES=(Another nsmb.d XmasNewer NewerFiles "Newer Summer Sun" \
+ZPW_1.1.ips Epic_Super_Bowser_World_v1.00 \
+Koopa riivolution "Readme*" "*.txt" )
 
 setup_tools () {
 
@@ -19,13 +16,6 @@ setup_tools () {
 		PPF=tools/applyppf3.32
 		IPS=tools/uips.32
 	fi
-
-}
-
-cleanup_prebuild () {
-
-	rm -rf ${WORKDIR}
-	rm -f *.wbfs
 
 }
 
