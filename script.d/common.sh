@@ -3,7 +3,8 @@
 TMD_OPTS="--tt-id=K"
 TMP_FILES=(Another nsmb.d XmasNewer NewerFiles "Newer*Summer*Sun" \
 ZPW_1.1.ips Epic_Super_Bowser_World_v1.00 Riivolution Koopa \
-Cannon_Super_Mario_Bros._Wii_v1.1 riivolution "Readme*" "*.txt" "*.rtf" )
+Cannon_Super_Mario_Bros._Wii_v1.1 riivolution "Readme*" "*.txt" "*.rtf" \
+"*.dol" "*.elf" nsmb)
 
 setup_tools () {
 
@@ -27,10 +28,6 @@ cleanup () {
 
 ask_game () {
 
-# ####
-# E: preserved for Canon SMBW
-# ###
-
 echo -e \
 "************************************************
 patchimage.sh
@@ -43,8 +40,9 @@ D	Newer: Holiday Special
 E	Cannon Super Mario Bros.
 F	Epic Super Bowser World
 G	Koopa Country
+H	New Super Mario Bros. 4
 
- 1	The Legend of Zelda: Parallel Worlds
+1	The Legend of Zelda: Parallel Worlds
 "
 
 read GAME

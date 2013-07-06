@@ -45,6 +45,10 @@ case ${GAME} in
 		source script.d/koopacountry.sh
 	;;
 
+	h | H | NSMB4 | "New Super Mario Bros. 4" )
+		source script.d/nsmbw4.sh
+	;;
+
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source script.d/parallelworlds.sh
 	;;

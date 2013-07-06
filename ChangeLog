@@ -1,3 +1,7 @@
+v2.3:
+- add support for New Super Mario Bros. 4
+- fixed building JPN version of NewerHoliday
+
 v2.2:
 - change ID for Koopa Country to SMN?10
 - fix handling .rar files for riivolution patches
