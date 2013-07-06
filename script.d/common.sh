@@ -107,20 +107,20 @@ check_riivolution_patch () {
 
 	if [[ ${DOWNLOAD} ]]; then
 		if [[ ${DOWNLOAD_LINK} ]]; then
-			if [[ ! -f ${RIIVOLUTION_ZIP} ]]; then
-				wget ${DOWNLOAD_LINK} -O ${RIIVOLUTION_ZIP}
-				if [[ ${RIIVOLUTION_ZIP} == *.zip ]]; then
-					unzip ${RIIVOLUTION_ZIP} >/dev/null
-				elif [[ ${RIIVOLUTION_ZIP} == *.rar ]]; then
-					unrar x ${RIIVOLUTION_ZIP} >/dev/null
+			if [[ ! -f "${RIIVOLUTION_ZIP}" ]]; then
+				wget ${DOWNLOAD_LINK} -O "${RIIVOLUTION_ZIP}"
+				if [[ "${RIIVOLUTION_ZIP}" == *.zip ]]; then
+					unzip "${RIIVOLUTION_ZIP}" >/dev/null
+				elif [[ "${RIIVOLUTION_ZIP}" == *.rar ]]; then
+					unrar x "${RIIVOLUTION_ZIP}" >/dev/null
 				fi
 			fi
 		else
 			echo "no download link for ${GAMENAME} available."
 			exit 1
 		fi
-	elif [[ -f ${RIIVOLUTION_ZIP} && ! -d "${RIIVOLUTION_DIR}" ]]; then
-		unzip ${RIIVOLUTION_ZIP} >/dev/null
+	elif [[ -f "${RIIVOLUTION_ZIP}" && ! -d "${RIIVOLUTION_DIR}" ]]; then
+		unzip "${RIIVOLUTION_ZIP}" >/dev/null
 	elif [[ ! -d "${RIIVOLUTION_DIR}" ]]; then
 		echo -e "please specify zip to use with --riivolution=<path>"
 		exit 1
