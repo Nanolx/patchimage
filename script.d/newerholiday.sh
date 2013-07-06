@@ -104,6 +104,7 @@ place_files () {
 		JPNv* )
 			cp "${RIIVOLUTION_DIR}"/MessageEN/* ${WORKDIR}/files/JP/Message/
 			cp "${RIIVOLUTION_DIR}"/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
+		;;
 	esac
 
 	cp "${RIIVOLUTION_DIR}"/Sound/Stream/* ${WORKDIR}/files/Sound/stream/
