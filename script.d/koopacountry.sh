@@ -72,7 +72,7 @@ detect_game_version () {
 		exit 1
 	fi
 
-	GAMEID=SMN${REG_LETTER}09
+	GAMEID=SMN${REG_LETTER}10
 
 }
 
