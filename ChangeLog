@@ -1,3 +1,7 @@
+v2.2:
+- change ID for Koopa Country to SMN?10
+- fix handling .rar files for riivolution patches
+
 v2.1:
 - --clean no longer removes riivolution .zip files
 - only remove (if already existing) the wbfs file we are going to build,
