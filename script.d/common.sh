@@ -111,7 +111,11 @@ check_riivolution_patch () {
 		if [[ ${DOWNLOAD_LINK} ]]; then
 			if [[ ! -f ${RIIVOLUTION_ZIP} ]]; then
 				wget ${DOWNLOAD_LINK} -O ${RIIVOLUTION_ZIP}
-				unzip ${RIIVOLUTION_ZIP} >/dev/null
+				if [[ ${RIIVOLUTION_ZIP} == *.zip ]]; then
+					unzip ${RIIVOLUTION_ZIP} >/dev/null
+				elif [[ ${RIIVOLUTION_ZIP} == *.rar ]]; then
+					unrar x ${RIIVOLUTION_ZIP} >/dev/null
+				fi
 			fi
 		else
 			echo "no download link for ${GAMENAME} available."
@@ -166,7 +170,7 @@ while [[ $xcount -lt $pcount ]]; do
 				if [[ "${RIIVOLUTION}" == *.zip ]]; then
 					unzip "${RIIVOLUTION}" >/dev/null
 				elif [[ "${RIIVOLUTION}" == *.rar ]]; then
-					unrar e "${RIIVOLUTION}" >/dev/null
+					unrar x "${RIIVOLUTION}" >/dev/null
 				fi
 			else
 				echo -e "Riivolution patch ${RIIVOLUTION} not found."
