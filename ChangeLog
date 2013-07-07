@@ -1,6 +1,8 @@
 v2.4:
 - fixed downloading NewerSMBW
 - added support for New Super Mario Bros. Wii Retro Remix
+  NOTE: on PAL/NTSC-J the game has the original opening title
+        (there's only a opening title for NTSC-U)
 - add savegame hack to Epic Super Bowser World
 - add savegame hack to Newer: Holiday Special
 - add savegame hack to New Super Mario Bros. 4

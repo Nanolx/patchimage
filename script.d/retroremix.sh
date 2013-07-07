@@ -58,7 +58,7 @@ place_files () {
 			for dir in ${LANGDIRS[@]}; do
 				cp -r "${RIIVOLUTION_DIR}"/US/EngUS/Message/ ${WORKDIR}/files/EU/${dir}/
 			done
-			cp "${RIIVOLUTION_DIR}"/US/Layout/openingTitle/openingTitle.arc ${WORKDIR}/files/EU/Layout/openingTitle/
+			#cp "${RIIVOLUTION_DIR}"/US/Layout/openingTitle/openingTitle.arc ${WORKDIR}/files/EU/Layout/openingTitle/
 		;;
 
 		USAv* )
@@ -71,7 +71,7 @@ place_files () {
 
 		JPNv* )
 			cp "${RIIVOLUTION_DIR}"/US/EngUS/Message/* ${WORKDIR}/files/JP/Message/
-			cp "${RIIVOLUTION_DIR}"/US/Layout/openingTitle/openingTitle.arc ${WORKDIR}/files/JP/Layout/openingTitle/
+			#cp "${RIIVOLUTION_DIR}"/US/Layout/openingTitle/openingTitle.arc ${WORKDIR}/files/JP/Layout/openingTitle/
 		;;
 	esac
 
