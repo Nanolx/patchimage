@@ -53,7 +53,7 @@ download_soundtrack () {
 
 	if [[ ${SOUNDTRACK} ]]; then
 		if [[ ${SOUNDTRACK_LINK} ]]; then
-			wget "${SOUNDTRACK_LINK}" -O ${SOUNDTRACK_ZIP}
+			wget --no-check-certificate "${SOUNDTRACK_LINK}" -O ${SOUNDTRACK_ZIP}
 			exit 0
 		else
 			echo -e "no soundtrack for ${GAME} available."
@@ -67,7 +67,7 @@ download_banner () {
 
 	if [[ ${DL_BANNER} == "TRUE" ]]; then
 		if [[ ${CUSTOM_BANNER} ]]; then
-			wget "${CUSTOM_BANNER}" -O ${GAMEID}-custom-banner.bnr
+			wget --no-check-certificate "${CUSTOM_BANNER}" -O ${GAMEID}-custom-banner.bnr
 			BANNER=${GAMEID}-custom-banner.bnr
 		else
 			echo "no custom banner for ${GAMENAME} available, not modifying"
@@ -108,7 +108,7 @@ check_riivolution_patch () {
 	if [[ ${DOWNLOAD} ]]; then
 		if [[ ${DOWNLOAD_LINK} ]]; then
 			if [[ ! -f "${RIIVOLUTION_ZIP}" ]]; then
-				wget ${DOWNLOAD_LINK} -O "${RIIVOLUTION_ZIP}"
+				wget --no-check-certificate ${DOWNLOAD_LINK} -O "${RIIVOLUTION_ZIP}"
 				if [[ "${RIIVOLUTION_ZIP}" == *.zip ]]; then
 					unzip "${RIIVOLUTION_ZIP}" >/dev/null
 				elif [[ "${RIIVOLUTION_ZIP}" == *.rar ]]; then
