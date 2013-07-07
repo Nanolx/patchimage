@@ -48,25 +48,7 @@ check_input_image_special () {
 detect_game_version () {
 
 
-	if [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_232911 ]]; then
-		VERSION=EURv1
-		REG_LETTER=P
-	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2010-01-05_152101 ]]; then
-		VERSION=EURv2
-		REG_LETTER=P
-	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_232303 ]]; then
-		VERSION=USAv1
-		REG_LETTER=E
-	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2010-01-05_143554 ]]; then
-		VERSION=USAv2
-		REG_LETTER=E
-	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_231655 ]]; then
-		VERSION=JPNv1
-		REG_LETTER=J
-	elif [[ ! ${VERSION} ]]; then
-		echo -e "please specify your games version using --version={EURv1,USAv1,USAv2}"
-		exit 1
-	fi
+	nsmbw_version
 
 	GAMEID=SMN${REG_LETTER}05
 	CUSTOM_BANNER=http://dl.dropboxusercontent.com/u/101209384/${GAMEID}.bnr

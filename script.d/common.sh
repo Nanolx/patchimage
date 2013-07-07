@@ -76,6 +76,30 @@ download_banner () {
 
 }
 
+nsmbw_version () {
+
+	if [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_232911 ]]; then
+		VERSION=EURv1
+		REG_LETTER=P
+	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2010-01-05_152101 ]]; then
+		VERSION=EURv2
+		REG_LETTER=P
+	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_232303 ]]; then
+		VERSION=USAv1
+		REG_LETTER=E
+	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2010-01-05_143554 ]]; then
+		VERSION=USAv2
+		REG_LETTER=E
+	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_231655 ]]; then
+		VERSION=JPNv1
+		REG_LETTER=J
+	elif [[ ! ${VERSION} ]]; then
+		echo -e "please specify your games version using --version={EURv1,EURv2,USAv1,USAv2,JPNv1}"
+		exit 1
+	fi
+
+}
+
 apply_banner () {
 
 	if [[ ${BANNER} != "" ]]; then
