@@ -1,5 +1,7 @@
 v2.5:
 - add opening titles for NSMBW 4 and Retro Remix (PAL, US) by alejandroues
+- add ucat and unp utilites (perl script to detect archive type and extract it)
+- add support for $HOME/.patchimage.rc (see README.RC)
 
 v2.4:
 - fixed downloading NewerSMBW

@@ -87,9 +87,21 @@ case ${GAME_TYPE} in
 		if [[ ${CUSTOMID} ]]; then
 			GAMEID = ${CUSTOMID}
 		fi
+
+		if [[ ${PATCHIMAGE_SHARE_SAVE} == "TRUE" ]]; then
+			TMD_OPTS=""
+		else
+			TMD_OPTS="--tt-id=K"
+		fi
+
 		${WIT} cp -v -B ${WORKDIR} ${GAMEID}.wbfs -vv --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}" || exit 1
 
-		echo -e "\n >>> ${GAMENAME} saved as:\n >>> ${GAMEID}.wbfs"
+		if [[ -d ${PATCHIMAGE_WBFS_DIR} ]]; then
+			mv ${GAMEID}.wbfs "${PATCHIMAGE_WBFS_DIR}"/
+		fi
+
+		echo -e "\n >>> ${GAMENAME} saved as:\n >>> ${PATCHIMAGE_WBFS_DIR}/${GAMEID}.wbfs"
+
 	;;
 
 	"IPS" )

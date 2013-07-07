@@ -1,0 +1,31 @@
+patchimage rc file
+
+patchimage (as of version 2.5) supports a configuration file, below is an example with explanations:
+
+Filename:	$HOME/.patchimage.rc
+
+##################
+#  patchimage rc #
+##################
+
+# global directory your riivolution hacks will be looked for
+# or there they will be downloaded to:
+PATCHIMAGE_RIIVOLUTION_DIR=${HOME}/Hacks
+
+# global directory your wbfs files will be saved to
+PATCHIMAGE_WBFS_DIR=/media/WiiHDD/wbfs
+
+# global directory to look for original game image
+PATCHIMAGE_GAME_DIR=/media/WiiHDD/wbfs
+
+# global directory soundtracks will be saved to
+PATCHIMAGE_AUDIO_DIR=${HOME}/Music
+
+# always (try) to download riivolution patches
+PATCHIMAGE_RIIVOLUTION_DOWNLOAD=TRUE
+
+# always (try) to download custom banners
+PATCHIMAGE_BANNER_DOWNLOAD=TRUE
+
+# always share the save with original game
+PATCHIMAGE_SHARE_SAVE=TRUE

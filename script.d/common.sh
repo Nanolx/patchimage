@@ -1,10 +1,13 @@
 #!/bin/bash
 
-TMD_OPTS="--tt-id=K"
 TMP_FILES=(Another nsmb.d XmasNewer NewerFiles "Newer*Summer*Sun" \
 ZPW_1.1.ips Epic_Super_Bowser_World_v1.00 Riivolution Koopa \
 Cannon_Super_Mario_Bros._Wii_v1.1 riivolution "Readme*" "*.txt" "*.rtf" \
 "*.dol" "*.elf" nsmb "Retro Remix")
+
+PATCHIMAGE_RIIVOLUTION_DIR="."
+PATCHIMAGE_WBFS_DIR="."
+PATCHIMAGE_AUDIO_DIR="."
 
 if [[ -e $HOME/.patchimage.rc ]]; then
 	source $HOME/.patchimage.rc
@@ -58,7 +61,8 @@ download_soundtrack () {
 
 	if [[ ${SOUNDTRACK} ]]; then
 		if [[ ${SOUNDTRACK_LINK} ]]; then
-			wget --no-check-certificate "${SOUNDTRACK_LINK}" -O ${SOUNDTRACK_ZIP}
+			wget --no-check-certificate "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/${SOUNDTRACK_ZIP}
+			echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
 			exit 0
 		else
 			echo -e "no soundtrack for ${GAME} available."
@@ -70,10 +74,12 @@ download_soundtrack () {
 
 download_banner () {
 
-	if [[ ${DL_BANNER} == "TRUE" ]]; then
+	if [[ ${PATCHIMAGE_BANNER_DOWNLOAD} == "TRUE" ]]; then
 		if [[ ${CUSTOM_BANNER} ]]; then
-			wget --no-check-certificate "${CUSTOM_BANNER}" -O ${GAMEID}-custom-banner.bnr
-			BANNER=${GAMEID}-custom-banner.bnr
+			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr ]]; then
+				wget --no-check-certificate "${CUSTOM_BANNER}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr
+			fi
+			BANNER="${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr
 		else
 			echo "no custom banner for ${GAMENAME} available, not modifying"
 		fi
@@ -134,20 +140,18 @@ check_input_image () {
 
 check_riivolution_patch () {
 
-	if [[ ${DOWNLOAD} ]]; then
+	if [[ ${PATCHIMAGE_RIIVOLTUION_DOWNLOAD} == "TRUE" ]]; then
 		if [[ ${DOWNLOAD_LINK} ]]; then
-			if [[ ! -f "${RIIVOLUTION_ZIP}" ]]; then
-				wget --no-check-certificate ${DOWNLOAD_LINK} -O "${RIIVOLUTION_ZIP}"
-				tools/unp "${RIIVOLUTION_ZIP}" >/dev/null
+			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" ]]; then
+				wget --no-check-certificate ${DOWNLOAD_LINK} -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}"
+				tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
 			fi
 		else
 			echo "no download link for ${GAMENAME} available."
 			exit 1
 		fi
-	elif [[ -f "${RIIVOLUTION_ZIP}" && ! -d "${RIIVOLUTION_DIR}" ]]; then
-		tools/unp "${RIIVOLUTION_ZIP}" >/dev/null
 	elif [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" && ! -d "${RIIVOLUTION_DIR}" ]]; then
-		tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
+		tools/unp "${RIIVOLUTION_ZIP}" >/dev/null
 	elif [[ ! -d "${RIIVOLUTION_DIR}" ]]; then
 		echo -e "please specify zip/rar to use with --riivolution=<path>"
 		exit 1
@@ -218,7 +222,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--download )
-			DOWNLOAD=TRUE
+			PATCHIMAGE_RIIVOLUTION_DOWNLOAD=TRUE
 		;;
 
 		--soundtrack )
@@ -256,7 +260,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--sharesave )
-			TMD_OPTS=""
+			PATCHIMAGE_SHARE_SAVE=TRUE
 		;;
 
 		--game* )
@@ -278,7 +282,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--download-banner )
-			DL_BANNER=TRUE
+			PATCHIMAGE_BANNER_DOWNLOAD=TRUE
 		;;
 
 		"" | --help )
