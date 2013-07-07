@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="http://riivolution.nanolx.org/Epic_Super_Bowser_World_v1.00.zip"
+DOWNLOAD_LINK="http://www.nanolx.org/riivolution/Epic_Super_Bowser_World_v1.00.zip"
 RIIVOLUTION_ZIP="Epic_Super_Bowser_World_v1.00.zip"
 RIIVOLUTION_DIR="Epic_Super_Bowser_World_v1.00"
 GAMENAME="Epic Super Bowser World"
