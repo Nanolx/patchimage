@@ -118,7 +118,11 @@ place_files () {
 
 dolpatch () {
 
-	${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" xml="patches/HolidaySpecial-Loader.xml" -q
+	${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" \
+		"802F148C=53756D6D53756E#7769696D6A3264" \
+		"802F118C=53756D6D53756E#7769696D6A3264" \
+		"802F0F8C=53756D6D53756E#7769696D6A3264" \
+		xml="patches/HolidaySpecial-Loader.xml" -q
 	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml" -q
 
 }
