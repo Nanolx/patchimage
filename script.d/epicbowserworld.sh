@@ -124,6 +124,9 @@ dolpatch() {
 	XML_FILE="${XML_FILE}".new
 
 	${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" \
+		"802F148C=53756D6D53756E#7769696D6A3264" \
+		"802F118C=53756D6D53756E#7769696D6A3264" \
+		"802F0F8C=53756D6D53756E#7769696D6A3264" \
 		xml="patches/EpicSuperBowserWorld-Loader.xml" -q
 
 	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml" -q
