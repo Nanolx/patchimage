@@ -81,10 +81,11 @@ case ${GAME_TYPE} in
 		dolpatch
 
 		if [[ ${CUSTOMID} ]]; then
-			${WIT} cp -v -B ${WORKDIR} ${CUSTOMID}.wbfs -vv --disc-id=${CUSTOMID} ${TMD_OPTS} --name "${GAMENAME}"
-		else
-			${WIT} cp -v -B ${WORKDIR} ${GAMEID}.wbfs -vv --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}"
+			GAMEID = ${CUSTOMID}
 		fi
+		${WIT} cp -v -B ${WORKDIR} ${GAMEID}.wbfs -vv --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}" || exit 1
+
+		echo -e "\n >>> ${GAMENAME} saved as:\n >>> ${GAMEID}.wbfs"
 	;;
 
 	"IPS" )
