@@ -49,6 +49,10 @@ case ${GAME} in
 		source script.d/nsmbw4.sh
 	;;
 
+	i | I | Retro | "Retro Remix" )
+		source script.d/retroremix.sh
+	;;
+
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source script.d/parallelworlds.sh
 	;;

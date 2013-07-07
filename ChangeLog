@@ -1,3 +1,15 @@
+v2.4:
+- fixed downloading NewerSMBW
+- added support for New Super Mario Bros. Wii Retro Remix
+- add savegame hack to Epic Super Bowser World
+- add savegame hack to Newer: Holiday Special
+- add savegame hack to New Super Mario Bros. 4
+- leave a message where the file was created
+- removed patches/03-06.arc.LH (NewerSMBW 1.02 includes it)
+- moved NSMBW detection in a function (no more duplicated code)
+- fixed pre-requisite checking for Koopa Country
+- fixed handling .zip/.rar files with spaces in the name
+
 v2.3:
 - add support for New Super Mario Bros. 4
 - fixed building JPN version of NewerHoliday

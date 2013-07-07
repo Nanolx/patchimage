@@ -41,6 +41,7 @@ E	Cannon Super Mario Bros.
 F	Epic Super Bowser World
 G	Koopa Country
 H	New Super Mario Bros. 4
+I	New Super Mario Bros. Wii Retro Remix
 
 1	The Legend of Zelda: Parallel Worlds
 "
