@@ -4,10 +4,10 @@ WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
 DOWNLOAD_LINK="http://www.nanolx.org/riivolution/Koopa%20country.rar"
 RIIVOLUTION_ZIP="Koopa country.rar"
-RIIVOLUTION_DIR="."
+RIIVOLUTION_DIR="Koopa"
 GAMENAME="Koopa Country"
-XML_SOURCE="${RIIVOLUTION_DIR}"/Koopa
-XML_FILE="${RIIVOLUTION_DIR}"/riivolution/KoopaP.xml
+XML_SOURCE="${RIIVOLUTION_DIR}"
+XML_FILE="${RIIVOLUTION_DIR}"/../riivolution/KoopaP.xml
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
 
@@ -83,40 +83,40 @@ place_files () {
 		mkdir -p ${dir}
 	done
 
-	cp -r "${RIIVOLUTION_DIR}"/Koopa/EU/EngEU/{m,M}essage
+	cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/{m,M}essage
 
 	case ${VERSION} in
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/Koopa/EU/EngEU/Message/ ${WORKDIR}/files/EU/${dir}/
+				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message/ ${WORKDIR}/files/EU/${dir}/
 			done
-			cp "${RIIVOLUTION_DIR}"/Koopa/OpeningP/* ${WORKDIR}/files/EU/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/OpeningP/* ${WORKDIR}/files/EU/Layout/openingTitle/
 		;;
 
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/Koopa/EU/EngEU/Message/ ${WORKDIR}/files/US/${dir}/
+				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message/ ${WORKDIR}/files/US/${dir}/
 			done
-			cp "${RIIVOLUTION_DIR}"/Koopa/OpeningE/* ${WORKDIR}/files/US/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/OpeningE/* ${WORKDIR}/files/US/Layout/openingTitle/
 		;;
 
 		JPNv1 )
-			cp -r "${RIIVOLUTION_DIR}"/Koopa/EU/EngEU/Message/ ${WORKDIR}/files/JP/
-			cp "${RIIVOLUTION_DIR}"/Koopa/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
+			cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message/ ${WORKDIR}/files/JP/
+			cp "${RIIVOLUTION_DIR}"/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
 		;;
 	esac
 
-	cp "${RIIVOLUTION_DIR}"/Koopa/Stage/Texture/* ${WORKDIR}/files/Stage/Texture/
-	cp "${RIIVOLUTION_DIR}"/Koopa/NewerRes/* ${WORKDIR}/files/NewerRes/
-	cp "${RIIVOLUTION_DIR}"/Koopa/Stage/*.arc ${WORKDIR}/files/Stage/
-	cp "${RIIVOLUTION_DIR}"/Koopa/Env/* ${WORKDIR}/files/Env/
-	cp "${RIIVOLUTION_DIR}"/Koopa/sound/stream/* ${WORKDIR}/files/Sound/stream/
-	cp "${RIIVOLUTION_DIR}"/Koopa/sound/*.brsar ${WORKDIR}/files/Sound/
-	cp "${RIIVOLUTION_DIR}"/Koopa/WorldMap/* ${WORKDIR}/files/WorldMap/
-	cp "${RIIVOLUTION_DIR}"/Koopa/Object/* ${WORKDIR}/files/Object/
-	cp -r "${RIIVOLUTION_DIR}"/Koopa/Layout/preGame.arc ${WORKDIR}/files/Layout/preGame/
+	cp "${RIIVOLUTION_DIR}"/Stage/Texture/* ${WORKDIR}/files/Stage/Texture/
+	cp "${RIIVOLUTION_DIR}"/NewerRes/* ${WORKDIR}/files/NewerRes/
+	cp "${RIIVOLUTION_DIR}"/Stage/*.arc ${WORKDIR}/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/Env/* ${WORKDIR}/files/Env/
+	cp "${RIIVOLUTION_DIR}"/sound/stream/* ${WORKDIR}/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/sound/*.brsar ${WORKDIR}/files/Sound/
+	cp "${RIIVOLUTION_DIR}"/WorldMap/* ${WORKDIR}/files/WorldMap/
+	cp "${RIIVOLUTION_DIR}"/Object/* ${WORKDIR}/files/Object/
+	cp -r "${RIIVOLUTION_DIR}"/Layout/preGame.arc ${WORKDIR}/files/Layout/preGame/
 	# fixes
 	cp patches/01-03.arc ${WORKDIR}/files/Stage/
 	cp patches/08-01.arc ${WORKDIR}/files/Stage/
