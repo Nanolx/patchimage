@@ -52,16 +52,16 @@ place_files () {
 
 	case ${VERSION} in
 		EURv* )
-			cp "${RIIVOLUTION_DIR}"/openingTitle.arc ${WORKDIR}/files/EU/Layout/openingTitle/
+			patches/openingTitle_nsmbw4.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
 		;;
 
 		USAv* )
-			cp "${RIIVOLUTION_DIR}"/openingTitle.arc ${WORKDIR}/files/US/Layout/openingTitle/
+			patches/openingTitle_nsmbw4.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
 		;;
 
-		JPNv* )
-			cp "${RIIVOLUTION_DIR}"/openingTitle.arc ${WORKDIR}/files/JP/Layout/openingTitle/
-		;;
+#		JPNv* )
+#			cp "${RIIVOLUTION_DIR}"/openingTitle.arc ${WORKDIR}/files/JP/Layout/openingTitle/
+#		;;
 	esac
 
 	cp "${RIIVOLUTION_DIR}"/*.brstm ${WORKDIR}/files/Sound/stream/
