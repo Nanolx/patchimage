@@ -4,7 +4,11 @@ TMD_OPTS="--tt-id=K"
 TMP_FILES=(Another nsmb.d XmasNewer NewerFiles "Newer*Summer*Sun" \
 ZPW_1.1.ips Epic_Super_Bowser_World_v1.00 Riivolution Koopa \
 Cannon_Super_Mario_Bros._Wii_v1.1 riivolution "Readme*" "*.txt" "*.rtf" \
-"*.dol" "*.elf" nsmb)
+"*.dol" "*.elf" nsmb "Retro Remix")
+
+if [[ -e $HOME/.patchimage.rc ]]; then
+	source $HOME/.patchimage.rc
+fi
 
 setup_tools () {
 
@@ -134,20 +138,18 @@ check_riivolution_patch () {
 		if [[ ${DOWNLOAD_LINK} ]]; then
 			if [[ ! -f "${RIIVOLUTION_ZIP}" ]]; then
 				wget --no-check-certificate ${DOWNLOAD_LINK} -O "${RIIVOLUTION_ZIP}"
-				if [[ "${RIIVOLUTION_ZIP}" == *.zip ]]; then
-					unzip "${RIIVOLUTION_ZIP}" >/dev/null
-				elif [[ "${RIIVOLUTION_ZIP}" == *.rar ]]; then
-					unrar x "${RIIVOLUTION_ZIP}" >/dev/null
-				fi
+				tools/unp "${RIIVOLUTION_ZIP}" >/dev/null
 			fi
 		else
 			echo "no download link for ${GAMENAME} available."
 			exit 1
 		fi
 	elif [[ -f "${RIIVOLUTION_ZIP}" && ! -d "${RIIVOLUTION_DIR}" ]]; then
-		unzip "${RIIVOLUTION_ZIP}" >/dev/null
+		tools/unp "${RIIVOLUTION_ZIP}" >/dev/null
+	elif [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" && ! -d "${RIIVOLUTION_DIR}" ]]; then
+		tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
 	elif [[ ! -d "${RIIVOLUTION_DIR}" ]]; then
-		echo -e "please specify zip to use with --riivolution=<path>"
+		echo -e "please specify zip/rar to use with --riivolution=<path>"
 		exit 1
 	fi
 
@@ -190,11 +192,7 @@ while [[ $xcount -lt $pcount ]]; do
 		--riivolution* )
 			RIIVOLUTION=${1/*=}
 			if [[ -e "${RIIVOLUTION}" ]]; then
-				if [[ "${RIIVOLUTION}" == *.zip ]]; then
-					unzip "${RIIVOLUTION}" >/dev/null
-				elif [[ "${RIIVOLUTION}" == *.rar ]]; then
-					unrar x "${RIIVOLUTION}" >/dev/null
-				fi
+				tools/unp "${RIIVOLUTION}" >/dev/null
 			else
 				echo -e "Riivolution patch ${RIIVOLUTION} not found."
 				exit 1
@@ -204,11 +202,7 @@ while [[ $xcount -lt $pcount ]]; do
 		--patch*  )
 			PATCH=${1/*=}
 			if [[ -e "${PATCH}" ]]; then
-				if [[ "${PATCH}" == *.zip ]]; then
-					unzip "${PATCH}" >/dev/null
-				elif [[ "${PATCH}" == *.rar ]]; then
-					unrar x "${PATCH}" >/dev/null
-				fi
+				tools/unp "${PATCH}" >/dev/null
 			else
 				echo -e "PATCH patch ${PATCH} not found."
 				exit 1
