@@ -144,8 +144,6 @@ place_files () {
 	cp "${RIIVOLUTION_DIR}"/NewerSMBW/Others/yesnoWindow.arc ${WORKDIR}/files/Layout/yesnoWindow/yesnoWindow.arc
 	cp -r "${RIIVOLUTION_DIR}"/NewerSMBW/Maps/* ${WORKDIR}/files/Maps/
 	cp "${RIIVOLUTION_DIR}"/NewerSMBW/Stages/* ${WORKDIR}/files/Stage/
-	# fix until newer team delivers update
-	cp patches/03-06.arc.LH ${WORKDIR}/files/Stage/
 
 }
 
