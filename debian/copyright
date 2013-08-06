@@ -1,0 +1,65 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: patchimage
+Upstream-Contact: Christopher Roy Bratusek <nano@tuxfamily.org>
+Source: http://nanolx.org/nanolx/patchimage
+
+Files: *
+Copyright: 2013 Christopher Roy Bratusek <nano@tuxfamily.org>
+License: GPL-3
+
+Files: tools/uips*
+Copyright: 2010 Neill Corlett <neill@neillcorlett.com>
+License: GPL-3
+
+License: GPL-3
+    This package is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+    .
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    .
+    You should have received a copy of the GNU General Public License
+    along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+    .
+    On Debian systems, the full text of the GNU General Public License
+    version 3 can be found in `/usr/share/common-licenses/GPL-3'.
+
+Files: tools/wit.*
+Copyright: 2009-2013 Dirk Clemens <wiimm@wiimm.de>
+License: GPL-2
+
+Files: tools/ucat tools/unp
+Copyright: 1997, Andre Karwath <Andre.Karwath@informatik.tu-chemnitz.de>
+           2000 - 2010, Eduard Bloch <blade@debian.org>
+License: GPL-2
+
+License: GPL-2
+    This program is free software; you can redistribute it and/or modify it under
+    the terms of the GNU General Public License Version 2 as published by the Free
+    Software Foundation.
+    .
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    .
+    You should have received a copy of the GNU General Public License with
+    the Debian GNU/Linux distribution in file /usr/share/common-licenses/GPL-2;
+    if not, write to the Free Software Foundation, Inc., 51 Franklin St,
+    Fifth Floor, Boston, MA 02110-1301, USA.
+    .
+    On Debian systems, the full text of the GNU General Public License
+    version 3 can be found in `/usr/share/common-licenses/GPL-3'.
+
+Files: patches/*
+Copyright: 2013 DaMysteryMan
+License: Public Domain
+
+Files: tools/applyppf3.*
+Copyright: 2006 SukkoPera <sukkopera@gmail.com>
+License: Public Domain

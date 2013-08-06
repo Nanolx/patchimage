@@ -1,0 +1,20 @@
+Source: patchimage
+Section: games
+Priority: extra
+Maintainer: Christopher Roy Bratusek <nano@tuxfamily.org>
+Build-Depends: debhelper (>= 8), make
+Standards-Version: 3.9.4
+Homepage: http://nanolx.org/nanolx/patchimage
+
+Package: patchimage
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Wii image patcher
+ Patchimage is a script that allows to patch
+ riivoluton patches into wbfs/iso images of
+ legal Wii game dumps.
+ .
+ Currently there are 12 modifications of
+ New Super Mario Bros. Wii supported, aswell
+ as one modification of The Legend of Zelda:
+ A Link To The Past.
