@@ -3,6 +3,10 @@ v2.6:
   call check_input_image_special aswell
 - bugfix: WIT got the image name wrong if the image was detected
   using check_input_image_special
+- bugfix: if PATCHIMAGE_RIIVOLUTION_DOWNLOAD from $HOME/.patchimage.rc
+  was not honoured by the script
+- bugfix: if riivolution patch existed in PATCHIMAGE_RIIVOLUTION_DIR
+  (set by $HOME/.patchimage.rc) it was not properly handled
 - support for Super Mario: Mushroom Adventure PLUS - Winter Moon
 - support for NSMBW3: The Final Levels
 

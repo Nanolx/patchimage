@@ -139,7 +139,7 @@ check_input_image () {
 
 check_riivolution_patch () {
 
-	if [[ ${PATCHIMAGE_RIIVOLTUION_DOWNLOAD} == "TRUE" ]]; then
+	if [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
 		if [[ ${DOWNLOAD_LINK} ]]; then
 			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" ]]; then
 				wget --no-check-certificate ${DOWNLOAD_LINK} -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}"
@@ -150,7 +150,7 @@ check_riivolution_patch () {
 			exit 1
 		fi
 	elif [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" && ! -d "${RIIVOLUTION_DIR}" ]]; then
-		tools/unp "${RIIVOLUTION_ZIP}" >/dev/null
+		tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
 	elif [[ ! -d "${RIIVOLUTION_DIR}" ]]; then
 		echo -e "please specify zip/rar to use with --riivolution=<path>"
 		exit 1
