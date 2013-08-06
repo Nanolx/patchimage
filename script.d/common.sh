@@ -3,7 +3,7 @@
 TMP_FILES=(Another nsmb.d XmasNewer NewerFiles "Newer*Summer*Sun" \
 ZPW_1.1.ips Epic_Super_Bowser_World_v1.00 Riivolution Koopa \
 Cannon_Super_Mario_Bros._Wii_v1.1 riivolution "Readme*" "*.txt" "*.rtf" \
-"*.dol" "*.elf" nsmb "Retro Remix")
+"*.dol" "*.elf" nsmb "Retro Remix" WinterMoon* WMManual.rtf)
 
 PATCHIMAGE_RIIVOLUTION_DIR="."
 PATCHIMAGE_WBFS_DIR="."
@@ -49,6 +49,7 @@ F	Epic Super Bowser World
 G	Koopa Country
 H	New Super Mario Bros. 4
 I	New Super Mario Bros. Wii Retro Remix
+J	Super Mario: Mushroom Adventure PLUS - Winter Moon
 
 1	The Legend of Zelda: Parallel Worlds
 "
@@ -130,9 +131,6 @@ check_input_image () {
 			IMAGE=BASE.wbfs
 		elif [[ -f BASE.iso ]]; then
 			IMAGE=BASE.iso
-		else
-			echo -e "please specify image to use with --iso=<path>"
-			exit 1
 		fi
 	fi
 
@@ -289,7 +287,7 @@ while [[ $xcount -lt $pcount ]]; do
 			echo -e "create wbfs images from riivolution patches.\n
 ***** using this script is only allowed, if you own an original copy of the game.
 ***** if you don't, no one can be blamed but you. Shame on you.\n
---game={NewerSMB;NewerSummerSun;AnotherSMB;HolidaySpecial;ParallelWorlds}
+--game={NewerSMB;NewerSummerSun;AnotherSMB;HolidaySpecial;ParallelWorlds...}
 					| specify game you want to create
 --iso/--rom=/home/test/<Image>		| specify which ISO/ROM to use for building
 --riivolution/--patch=<Patch>		| specify path to Riivolution/Patch files
