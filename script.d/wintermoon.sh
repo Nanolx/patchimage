@@ -108,18 +108,13 @@ place_files () {
 }
 
 
-dolpatch() {
+dolpatch () {
 
-	cp "${XML_FILE}" "${XML_FILE}".new
-	sed -e 's/80001800/803482C0/g' -i "${XML_FILE}".new
-	XML_FILE="${XML_FILE}".new
-
-	${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" #\
-#		"802F148C=53756D6D53756E#7769696D6A3264" \
-#		"802F118C=53756D6D53756E#7769696D6A3264" \
-#		"802F0F8C=53756D6D53756E#7769696D6A3264" \
-#		xml="patches/KoopaCountry-Loader.xml" -q
-
-	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml" -q
+	${WIT} dolpatch ${DOL}	\
+		"802F148C=53756D6D53756E#7769696D6A3264" \
+		"802F118C=53756D6D53756E#7769696D6A3264" \
+		"802F0F8C=53756D6D53756E#7769696D6A3264" \
+		xml="patches/NSMBW_AP.xml" -q
 
 }
+
