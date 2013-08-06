@@ -16,13 +16,33 @@ fi
 setup_tools () {
 
 	if [[ $(uname -m) == "x86_64" ]]; then
-		WIT=tools/wit.64
-		PPF=tools/applyppf3.64
-		IPS=tools/uips.64
+		SUFFIX=64
 	else
-		WIT=tools/wit.32
-		PPF=tools/applyppf3.32
-		IPS=tools/uips.32
+		SUFFIX=32
+	fi
+
+	if [[ $(which wit) ]]; then
+		WIT=$(which wit)
+	else
+		WIT=${PATCHIMAGE_TOOLS_DIR}/wit.${SUFFIX}
+	fi
+
+	if [[ $(which applyppf3) ]]; then
+		PPF=$(which applyppf3)
+	else
+		PPF=${PATCHIMAGE_TOOLS_DIR}/applyppf3.${SUFFIX}
+	fi
+
+	if [[ $(which uips) ]]; then
+		IPS=$(which uips)
+	else
+		IPS=${PATCHIMAGE_TOOLS_DIR}/uips.${SUFFIX}
+	fi
+
+	if [[ $(which unp) ]]; then
+		UNP=$(which unp)
+	else
+		UNP=${PATCHIMAGE_TOOLS_DIR}/unp
 	fi
 
 }
@@ -137,16 +157,35 @@ check_input_image () {
 
 }
 
+check_input_image_nsmb () {
+
+	if [[ ! ${IMAGE} ]]; then
+		if test -f SMN?01.wbfs; then
+			IMAGE=$(eval echo SMN?01.wbfs)
+		elif test -f SMN?01.iso; then
+			IMAGE=$(eval echo SMN?01.iso)
+		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.iso; then
+			IMAGE=$(eval echo ${PATCHIMAGE_WBFS_DIR}/SMN?01.iso)
+		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs; then
+			IMAGE=$(eval echo ${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs)
+		else
+			echo -e "please specify image to use with --iso=<path>"
+			exit 1
+		fi
+	fi
+
+}
+
 check_riivolution_patch () {
 
 	if [[ ! -d ${RIIVOLUTION_DIR} ]]; then
 		if [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" ]]; then
-			tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
+			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
 		elif [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
 			if [[ ${DOWNLOAD_LINK} ]]; then
 				if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" ]]; then
 					wget --no-check-certificate ${DOWNLOAD_LINK} -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}"
-					tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
+					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
 				fi
 			else
 				echo "no download link for ${GAMENAME} available."
@@ -197,7 +236,7 @@ while [[ $xcount -lt $pcount ]]; do
 		--riivolution* )
 			RIIVOLUTION=${1/*=}
 			if [[ -e "${RIIVOLUTION}" ]]; then
-				tools/unp "${RIIVOLUTION}" >/dev/null
+				${UNP} "${RIIVOLUTION}" >/dev/null
 			else
 				echo -e "Riivolution patch ${RIIVOLUTION} not found."
 				exit 1
@@ -207,7 +246,7 @@ while [[ $xcount -lt $pcount ]]; do
 		--patch*  )
 			PATCH=${1/*=}
 			if [[ -e "${PATCH}" ]]; then
-				tools/unp "${PATCH}" >/dev/null
+				${UNP} "${PATCH}" >/dev/null
 			else
 				echo -e "PATCH patch ${PATCH} not found."
 				exit 1

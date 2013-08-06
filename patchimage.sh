@@ -6,7 +6,17 @@
 #
 # License: GPL v3
 
-source script.d/common.sh
+if [[ -d ${PWD}/script.d ]]; then
+	PATCHIMAGE_SCRIPT_DIR=${PWD}/script.d
+	PATCHIMAGE_PATCH_DIR=${PWD}/patches
+	PATCHIMAGE_TOOLS_DIR=${PWD}/tools
+else
+	PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/script.d
+	PATCHIMAGE_PATCH_DIR=/usr/share/patchimage/patches
+	PATCHIMAGE_TOOLS_DIR=/usr/share/patchimage/tools
+fi
+
+source ${PATCHIMAGE_SCRIPT_DIR}/common.sh
 setup_tools
 
 optparse "${@}"
@@ -18,51 +28,51 @@ fi
 case ${GAME} in
 
 	a | A | NewerSMB | NewerSMBW )
-		source script.d/newersmb.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/newersmb.sh
 	;;
 
 	b | B | NewerSummerSun )
-		source script.d/newersummersun.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/newersummersun.sh
 	;;
 
 	c | C | ASMBW | AnotherSMBW )
-		source script.d/anothersmb.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/anothersmb.sh
 	;;
 
 	d | D | HolidaySpecial | "Newer: Holiday Special" )
-		source script.d/newerholiday.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/newerholiday.sh
 	;;
 
 	e | E | Cannon | "Cannon SMBW" )
-		source script.d/cannon.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/cannon.sh
 	;;
 
 	f | F | ESBW | "Epic Super Bowser World" )
-		source script.d/epicbowserworld.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/epicbowserworld.sh
 	;;
 
 	g | G | Koopa | "Koopa Country" )
-		source script.d/koopacountry.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/koopacountry.sh
 	;;
 
 	h | H | NSMBW4 | "New Super Mario Bros. 4" )
-		source script.d/nsmbw4.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw4.sh
 	;;
 
 	i | I | Retro | "Retro Remix" )
-		source script.d/retroremix.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/retroremix.sh
 	;;
 
 	j | J | WinterMoon | "Super Mario: Mushroom Adventure PLUS - Winter Moon" )
-		source script.d/wintermoon.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/wintermoon.sh
 	;;
 
 	k | K | NSMBW3 | "NSMBW3: The Final Levels" )
-		source script.d/nsmbw3.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw3.sh
 	;;
 
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
-		source script.d/parallelworlds.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;
 
 	* )

@@ -1,4 +1,4 @@
-v2.6:
+v3.0:
 - bugfix: don't exit with error on check_input_image as we will
   call check_input_image_special aswell
 - bugfix: WIT got the image name wrong if the image was detected
@@ -7,6 +7,15 @@ v2.6:
   was not honoured by the script
 - bugfix: if riivolution patch existed in PATCHIMAGE_RIIVOLUTION_DIR
   (set by $HOME/.patchimage.rc) it was not properly handled
+- bugfix: actually utilize PATCHIMAGE_WBFS_DIR if set from
+  $HOME/.patchimage.rc
+- move Newer Super Mario Bros. Wii image detection into own function,
+  so that the function is duplicated over all NSMB patch scripts
+- make it possible to use system-wide installed wit, uips, unp and
+  applyppf3 (if installed, else use the ones in tools/)
+- make it possible to install patchimage system-wide (running from
+  unpacked archive as before still works aswell)
+- added debian packaging scripts
 - support for Super Mario: Mushroom Adventure PLUS - Winter Moon
 - support for NSMBW3: The Final Levels
 

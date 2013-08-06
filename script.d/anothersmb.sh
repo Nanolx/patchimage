@@ -32,16 +32,7 @@ Supported Versions:	EURv1, USAv1, USAv2
 
 check_input_image_special () {
 
-	if [[ ! ${IMAGE} ]]; then
-		if test -f SMN?01.wbfs; then
-			IMAGE=$(eval echo SMN?01.wbfs)
-		elif test -f SMN?01.iso; then
-			IMAGE=$(eval echo SMN?01.iso)
-		else
-			echo -e "please specify image to use with --iso=<path>"
-			exit 1
-		fi
-	fi
+	check_input_image_nsmb
 
 }
 
@@ -122,7 +113,7 @@ dolpatch () {
 	sed -e 's/80001800/803482C0/g' -i "${XML_FILE}".new
 	XML_FILE="${XML_FILE}".new
 
-	${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" xml="patches/AnotherSMB-Loader.xml" -q
-	${WIT} dolpatch ${DOL} xml="patches/NSMBW_AP.xml" -q
+	${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" xml="${PATCHIMAGE_PATCH_DIR}/AnotherSMB-Loader.xml" -q
+	${WIT} dolpatch ${DOL} xml="${PATCHIMAGE_PATCH_DIR}/NSMBW_AP.xml" -q
 
 }

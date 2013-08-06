@@ -27,16 +27,7 @@ Supported Versions:	EURv1, EURv2, USAv1, USAv2, JPNv1
 
 check_input_image_special () {
 
-	if [[ ! ${IMAGE} ]]; then
-		if test -f SMN?01.wbfs; then
-			IMAGE=$(eval echo SMN?01.wbfs)
-		elif test -f SMN?01.iso; then
-			IMAGE=$(eval echo SMN?01.iso)
-		else
-			echo -e "please specify image to use with --iso=<path>"
-			exit 1
-		fi
-	fi
+	check_input_image_nsmb
 
 }
 
@@ -52,11 +43,11 @@ place_files () {
 
 	case ${VERSION} in
 		EURv* )
-			patches/openingTitle_nsmbw4.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
+			${PATCHIMAGE_PATCH_DIR}/openingTitle_nsmbw4.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
 		;;
 
 		USAv* )
-			patches/openingTitle_nsmbw4.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
+			${PATCHIMAGE_PATCH_DIR}/openingTitle_nsmbw4.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
 		;;
 
 #		JPNv* )
@@ -69,7 +60,7 @@ place_files () {
 	cp "${RIIVOLUTION_DIR}"/*.brsar ${WORKDIR}/files/Sound/
 	cp "${RIIVOLUTION_DIR}"/bgA*.arc ${WORKDIR}/files/Object/
 	# fix
-	cp patches/05-04.arc ${WORKDIR}/files/Stage/
+	cp ${PATCHIMAGE_PATCH_DIR}/05-04.arc ${WORKDIR}/files/Stage/
 
 
 }
@@ -80,6 +71,6 @@ dolpatch () {
 		"802F148C=53756D6D53756E#7769696D6A3264" \
 		"802F118C=53756D6D53756E#7769696D6A3264" \
 		"802F0F8C=53756D6D53756E#7769696D6A3264" \
-		xml="patches/NSMBW_AP.xml" -q
+		xml="${PATCHIMAGE_PATCH_DIR}/NSMBW_AP.xml" -q
 
 }

@@ -9,7 +9,7 @@ GAMENAME="SMMA+: Winter Moon"
 XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="${RIIVOLUTION_DIR}"/../riivolution/WinterMoon.xml
 GAME_TYPE=RIIVOLUTION
-BANNER_LOCATION=""
+BANNER_LOCATION=${WORKDIR}/files/opening.bnr
 
 show_notes () {
 
@@ -39,16 +39,7 @@ Supported Versions:	EURv1, EURv2, USAv1, USAv2, JPNv1
 
 check_input_image_special () {
 
-	if [[ ! ${IMAGE} ]]; then
-		if test -f SMN?01.wbfs; then
-			IMAGE=$(eval echo SMN?01.wbfs)
-		elif test -f SMN?01.iso; then
-			IMAGE=$(eval echo SMN?01.iso)
-		else
-			echo -e "please specify image to use with --iso=<path>"
-			exit 1
-		fi
-	fi
+	check_input_image_nsmb
 
 }
 
@@ -114,7 +105,7 @@ dolpatch () {
 		"802F148C=53756D6D53756E#7769696D6A3264" \
 		"802F118C=53756D6D53756E#7769696D6A3264" \
 		"802F0F8C=53756D6D53756E#7769696D6A3264" \
-		xml="patches/NSMBW_AP.xml" -q
+		xml="${PATCHIMAGE_PATCH_DIR}/NSMBW_AP.xml" -q
 
 }
 

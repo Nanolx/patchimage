@@ -29,16 +29,7 @@ Supported Versions:	EURv1, EURv2, USAv1, USAv2, JPNv1
 
 check_input_image_special () {
 
-	if [[ ! ${IMAGE} ]]; then
-		if test -f SMN?01.wbfs; then
-			IMAGE=$(eval echo SMN?01.wbfs)
-		elif test -f SMN?01.iso; then
-			IMAGE=$(eval echo SMN?01.iso)
-		else
-			echo -e "please specify image to use with --iso=<path>"
-			exit 1
-		fi
-	fi
+	check_input_image_nsmb
 
 }
 
