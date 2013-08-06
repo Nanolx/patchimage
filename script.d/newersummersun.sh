@@ -33,9 +33,9 @@ check_input_image_special () {
 
 	if [[ ! ${IMAGE} ]]; then
 		if test -f SMN?01.wbfs; then
-			IMAGE=SMN?01.wbfs
+			IMAGE=$(eval echo SMN?01.wbfs)
 		elif test -f SMN?01.iso; then
-			IMAGE=SMN?01.iso
+			IMAGE=$(eval echo SMN?01.iso)
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 1
