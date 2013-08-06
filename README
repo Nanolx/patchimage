@@ -21,6 +21,7 @@ Supported Games
 * Epic Super Bower World (riivolution) [SMN?08]
 * Koopa Country (riivolution) [SMN?10]
 * New Super Mario Bros. 4 (riivolution) [SMN?11]
+*Super Mario: Mushroom Adventure PLUS - Winter Moon [SMM?02]
 * New Super Mario Bros. Wii Retro Remix [MRR?01]
 * The Legend of Zelda: Parallel Worlds (ips)
 
@@ -31,7 +32,7 @@ Default Searchpaths:
     ROM: some mask matching the file (eg: "*[Ll]ink*[Pp]ast*smc" for Zelda: Parallel Worlds)
 
 Parameters
---game={NewerSMB;NewerSummerSun;AnotherSMBW;HolidaySpecial;ParallelWorlds}
+--game={NewerSMB;NewerSummerSun;AnotherSMBW;HolidaySpecial;ParallelWorlds...}
 specify game to create (if none is provided, the script will ask you)
 
 --iso/--rom=/home/test/<Image>

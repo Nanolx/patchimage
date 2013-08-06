@@ -1,3 +1,10 @@
+v2.6:
+- bugfix: don't exit with error on check_input_image as we will
+  call check_input_image_special aswell
+- bugfix: WIT got the image name wrong if the image was detected
+  using check_input_image_special
+- support for Super Mario: Mushroom Adventure PLUS - Winter Moon
+
 v2.5:
 - add opening titles for NSMBW 4 and Retro Remix (PAL, US) by alejandroues
 - add ucat and unp utilites (perl script to detect archive type and extract it)

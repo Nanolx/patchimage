@@ -53,6 +53,10 @@ case ${GAME} in
 		source script.d/retroremix.sh
 	;;
 
+	j | J | WinterMoon | "Super Mario: Mushroom Adventure PLUS - Winter Moon" )
+		source script.d/wintermoon.sh
+	;;
+
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source script.d/parallelworlds.sh
 	;;
@@ -96,7 +100,7 @@ case ${GAME_TYPE} in
 
 		${WIT} cp -v -B ${WORKDIR} ${GAMEID}.wbfs -vv --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}" || exit 1
 
-		if [[ -d ${PATCHIMAGE_WBFS_DIR} ]]; then
+		if [[ -d ${PATCHIMAGE_WBFS_DIR} && ${PATCHIMAGE_WBFS_DIR} != . ]]; then
 			mv ${GAMEID}.wbfs "${PATCHIMAGE_WBFS_DIR}"/
 		fi
 
