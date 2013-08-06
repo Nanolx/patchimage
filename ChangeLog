@@ -4,6 +4,7 @@ v2.6:
 - bugfix: WIT got the image name wrong if the image was detected
   using check_input_image_special
 - support for Super Mario: Mushroom Adventure PLUS - Winter Moon
+- support for NSMBW3: The Final Levels
 
 v2.5:
 - add opening titles for NSMBW 4 and Retro Remix (PAL, US) by alejandroues
