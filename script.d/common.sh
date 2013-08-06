@@ -139,21 +139,23 @@ check_input_image () {
 
 check_riivolution_patch () {
 
-	if [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
-		if [[ ${DOWNLOAD_LINK} ]]; then
-			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" ]]; then
-				wget --no-check-certificate ${DOWNLOAD_LINK} -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}"
-				tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
+	if [[ ! -d ${RIIVOLUTION_DIR} ]]; then
+		if [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" ]]; then
+			tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
+		elif [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
+			if [[ ${DOWNLOAD_LINK} ]]; then
+				if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" ]]; then
+					wget --no-check-certificate ${DOWNLOAD_LINK} -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}"
+					tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
+				fi
+			else
+				echo "no download link for ${GAMENAME} available."
+				exit 1
 			fi
 		else
-			echo "no download link for ${GAMENAME} available."
+			echo -e "please specify zip/rar to use with --riivolution=<path>"
 			exit 1
 		fi
-	elif [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" && ! -d "${RIIVOLUTION_DIR}" ]]; then
-		tools/unp "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
-	elif [[ ! -d "${RIIVOLUTION_DIR}" ]]; then
-		echo -e "please specify zip/rar to use with --riivolution=<path>"
-		exit 1
 	fi
 
 }
