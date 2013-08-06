@@ -45,7 +45,7 @@ case ${GAME} in
 		source script.d/koopacountry.sh
 	;;
 
-	h | H | NSMB4 | "New Super Mario Bros. 4" )
+	h | H | NSMBW4 | "New Super Mario Bros. 4" )
 		source script.d/nsmbw4.sh
 	;;
 
@@ -55,6 +55,10 @@ case ${GAME} in
 
 	j | J | WinterMoon | "Super Mario: Mushroom Adventure PLUS - Winter Moon" )
 		source script.d/wintermoon.sh
+	;;
+
+	k | K | NSMBW3 | "NSMBW3: The Final Levels" )
+		source script.d/nsmbw3.sh
 	;;
 
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
