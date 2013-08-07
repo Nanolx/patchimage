@@ -161,13 +161,13 @@ check_input_image_nsmb () {
 
 	if [[ ! ${IMAGE} ]]; then
 		if test -f SMN?01.wbfs; then
-			IMAGE=$(eval echo SMN?01.wbfs)
+			IMAGE=SMN?01.wbfs
 		elif test -f SMN?01.iso; then
-			IMAGE=$(eval echo SMN?01.iso)
+			IMAGE=SMN?01.iso
 		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.iso; then
-			IMAGE=$(eval echo ${PATCHIMAGE_WBFS_DIR}/SMN?01.iso)
+			IMAGE=${PATCHIMAGE_WBFS_DIR}/SMN?01.iso
 		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs; then
-			IMAGE=$(eval echo ${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs)
+			IMAGE=${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 1

@@ -91,7 +91,7 @@ case ${GAME_TYPE} in
 		check_input_image_special
 		check_riivolution_patch
 
-		${WIT} extract "${IMAGE}" ${WORKDIR} --psel=DATA -vv || exit 1
+		${WIT} extract ${IMAGE} ${WORKDIR} --psel=DATA -vv || exit 1
 
 		detect_game_version
 		rm -f ${GAMEID}.wbfs ${CUSTOMID}.wbfs
