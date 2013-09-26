@@ -71,6 +71,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw3.sh
 	;;
 
+	l | L | SMV | "Super Mario Vacation" )
+		source ${PATCHIMAGE_SCRIPT_DIR}/summervacation.sh
+	;;
+
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;

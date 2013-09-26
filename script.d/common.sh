@@ -71,6 +71,7 @@ H	New Super Mario Bros. 4
 I	New Super Mario Bros. Wii Retro Remix
 J	Super Mario: Mushroom Adventure PLUS - Winter Moon
 K	NSMBW3: The Final Levels
+L	Super Mario Vacation
 
 1	The Legend of Zelda: Parallel Worlds
 "

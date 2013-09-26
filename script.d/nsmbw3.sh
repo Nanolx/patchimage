@@ -62,7 +62,7 @@ place_files () {
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/{Message,Layout} ${WORKDIR}/files/EU/${dir}/
+				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/{Message,Layout} ${WORKDIR}/files/US/${dir}/
 			done
 		;;
 

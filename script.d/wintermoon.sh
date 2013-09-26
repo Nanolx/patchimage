@@ -64,20 +64,20 @@ place_files () {
 			for dir in ${LANGDIRS[@]}; do
 				cp "${RIIVOLUTION_DIR}"/Others/Text.arc ${WORKDIR}/files/EU/${dir}/Message/Message.arc
 			done
-			cp "${RIIVOLUTION_DIR}"/Others/Title/Logo.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
+			#cp "${RIIVOLUTION_DIR}"/Others/Title/Logo.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
 		;;
 
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
 			for dir in ${LANGDIRS[@]}; do
-				cp "${RIIVOLUTION_DIR}"/Others/Text.arc ${WORKDIR}/files/EU/${dir}/Message/Message.arc
+				cp "${RIIVOLUTION_DIR}"/Others/Text.arc ${WORKDIR}/files/US/${dir}/Message/Message.arc
 			done
 			cp "${RIIVOLUTION_DIR}"/Others/Title/Logo.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
 		;;
 
 		JPNv1 )
 			cp "${RIIVOLUTION_DIR}"/Others/Text.arc ${WORKDIR}/files/JP/
-			cp "${RIIVOLUTION_DIR}"/Others/Title/Logo.arc ${WORKDIR}/files/JP/Layout/openingTitle/openingTitle.arc
+			#cp "${RIIVOLUTION_DIR}"/Others/Title/Logo.arc ${WORKDIR}/files/JP/Layout/openingTitle/openingTitle.arc
 		;;
 	esac
 

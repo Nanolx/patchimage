@@ -1,3 +1,11 @@
+v3.1:
+- bugfix: for NSMBW3 on US games the language files weren't updated
+- bugfix: for Super Mario: Mushroom Adventure PLUS - Winter Moon on US
+          games the language files weren't updated
+- bugfix: for Super Mario: Mushroom Adventure PLUS - Winter Moon on non-US
+          games the supplied OpeningTitle does not work, so don' use it
+- support for Super Mario Vacation
+
 v3.0:
 - bugfix: don't exit with error on check_input_image as we will
   call check_input_image_special aswell
