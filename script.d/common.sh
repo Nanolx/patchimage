@@ -1,18 +1,5 @@
 #!/bin/bash
 
-TMP_FILES=(Another nsmb.d XmasNewer NewerFiles "Newer*Summer*Sun" \
-ZPW_1.1.ips Epic_Super_Bowser_World_v1.00 Riivolution Koopa \
-Cannon_Super_Mario_Bros._Wii_v1.1 riivolution "Readme*" "*.txt" "*.rtf" \
-"*.dol" "*.elf" nsmb "Retro Remix" WinterMoon WMManual.rtf NSMBW3 )
-
-PATCHIMAGE_RIIVOLUTION_DIR="."
-PATCHIMAGE_WBFS_DIR="."
-PATCHIMAGE_AUDIO_DIR="."
-
-if [[ -e $HOME/.patchimage.rc ]]; then
-	source $HOME/.patchimage.rc
-fi
-
 setup_tools () {
 
 	if [[ $(uname -m) == "x86_64" ]]; then
@@ -47,12 +34,6 @@ setup_tools () {
 
 }
 
-cleanup () {
-
-	rm -rf ${TMP_FILES[@]} *.wbfs *.bnr
-
-}
-
 ask_game () {
 
 echo -e \
@@ -72,6 +53,7 @@ I	New Super Mario Bros. Wii Retro Remix
 J	Super Mario: Mushroom Adventure PLUS - Winter Moon
 K	NSMBW3: The Final Levels
 L	Super Mario Vacation
+M	Awesomer Super Luigi Mini
 
 1	The Legend of Zelda: Parallel Worlds
 "
@@ -84,12 +66,10 @@ download_soundtrack () {
 
 	if [[ ${SOUNDTRACK} ]]; then
 		if [[ ${SOUNDTRACK_LINK} ]]; then
-			wget --no-check-certificate "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/${SOUNDTRACK_ZIP}
+			wget --no-check-certificate "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/${SOUNDTRACK_ZIP} || exit 57
 			echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
-			exit 0
 		else
 			echo -e "no soundtrack for ${GAME} available."
-			exit 1
 		fi
 	fi
 
@@ -100,11 +80,12 @@ download_banner () {
 	if [[ ${PATCHIMAGE_BANNER_DOWNLOAD} == "TRUE" ]]; then
 		if [[ ${CUSTOM_BANNER} ]]; then
 			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr ]]; then
-				wget --no-check-certificate "${CUSTOM_BANNER}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr
+				wget --no-check-certificate "${CUSTOM_BANNER}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr__tmp || exit 57
+				mv "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr
 			fi
 			BANNER="${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr
 		else
-			echo "no custom banner for ${GAMENAME} available, not modifying"
+			echo "*** >> no custom banner available"
 		fi
 	fi
 
@@ -129,9 +110,9 @@ nsmbw_version () {
 		REG_LETTER=J
 	elif [[ ! ${VERSION} ]]; then
 		echo -e "please specify your games version using --version={EURv1,EURv2,USAv1,USAv2,JPNv1}"
-		exit 1
+		exit 27
 	fi
-
+	echo "*** >> status: ${VERSION}"
 }
 
 apply_banner () {
@@ -146,57 +127,102 @@ apply_banner () {
 
 }
 
+check_directories () {
+
+	if [[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR} ]]; then
+		mkdir -p ${PATCHIMAGE_RIIVOLUTION_DIR}
+	fi
+
+	if [[ ! -d ${PATCHIMAGE_WBFS_DIR} ]]; then
+		mkdir -p ${PATCHIMAGE_WBFS_DIR}
+	fi
+
+	if [[ ! -d ${PATCHIMAGE_GAME_DIR} ]]; then
+		mkdir -p ${PATCHIMAGE_GAME_DIR}
+	fi
+
+	if [[ ! -d ${PATCHIMAGE_AUDIO_DIR} ]]; then
+		mkdir -p ${PATCHIMAGE_AUDIO_DIR}
+	fi
+
+}
+
+
 check_input_image () {
 
+	x=0
 	if [[ ! ${IMAGE} ]]; then
 		if [[ -f BASE.wbfs ]]; then
+			x=1
 			IMAGE=BASE.wbfs
 		elif [[ -f BASE.iso ]]; then
+			x=1
 			IMAGE=BASE.iso
 		fi
 	fi
+	echo "*** >> status: ${x}"
 
 }
 
 check_input_image_nsmb () {
 
+	x=0
 	if [[ ! ${IMAGE} ]]; then
 		if test -f SMN?01.wbfs; then
+			x=1
 			IMAGE=SMN?01.wbfs
 		elif test -f SMN?01.iso; then
+			x=2
 			IMAGE=SMN?01.iso
 		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.iso; then
+			x=3
 			IMAGE=${PATCHIMAGE_WBFS_DIR}/SMN?01.iso
 		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs; then
+			x=4
 			IMAGE=${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
-			exit 1
+			exit 15
 		fi
 	fi
+	echo "*** >> status: ${x}"
 
 }
 
 check_riivolution_patch () {
 
+	x=0
 	if [[ ! -d ${RIIVOLUTION_DIR} ]]; then
-		if [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" ]]; then
-			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
+		x=1
+		if [[ -f "${PWD}/${RIIVOLUTION_DIR}" ]]; then
+			echo "*** >> unpacking"
+			x=2
+			${UNP} "${PWD}/${RIIVOLUTION_ZIP}" >/dev/null || exit 63
+		elif [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
+			echo "*** >> unpacking"
+			x=3
+			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" >/dev/null || exit 63
 		elif [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
+			x=4
 			if [[ ${DOWNLOAD_LINK} ]]; then
-				if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" ]]; then
-					wget --no-check-certificate ${DOWNLOAD_LINK} -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}"
-					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${RIIVOLUTION_ZIP}" >/dev/null
+				if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
+					x=5
+					echo "*** >> downloading"
+					wget --no-check-certificate ${DOWNLOAD_LINK} -O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
+					mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
+					echo "*** >> unpacking"
+					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" >/dev/null || exit 63
 				fi
 			else
 				echo "no download link for ${GAMENAME} available."
-				exit 1
+				exit 21
 			fi
 		else
 			echo -e "please specify zip/rar to use with --riivolution=<path>"
-			exit 1
+			exit 21
 		fi
 	fi
+	echo "*** >> status: ${x}"
 
 }
 
@@ -217,7 +243,7 @@ while [[ $xcount -lt $pcount ]]; do
 				IMAGE=BASE.${ISO_EXT}
 			else
 				echo -e "ISO not found"
-				exit 1
+				exit 15
 			fi
 		;;
 
@@ -230,7 +256,7 @@ while [[ $xcount -lt $pcount ]]; do
 				IMAGE=BASE.${ROM_EXT}
 			else
 				echo -e "ROM not found"
-				exit 1
+				exit 15
 			fi
 		;;
 
@@ -240,7 +266,7 @@ while [[ $xcount -lt $pcount ]]; do
 				${UNP} "${RIIVOLUTION}" >/dev/null
 			else
 				echo -e "Riivolution patch ${RIIVOLUTION} not found."
-				exit 1
+				exit 21
 			fi
 		;;
 
@@ -250,7 +276,7 @@ while [[ $xcount -lt $pcount ]]; do
 				${UNP} "${PATCH}" >/dev/null
 			else
 				echo -e "PATCH patch ${PATCH} not found."
-				exit 1
+				exit 21
 			fi
 		;;
 
@@ -258,7 +284,7 @@ while [[ $xcount -lt $pcount ]]; do
 			CUSTOMID=${1/*=}
 			if [[ ${#CUSTOMID} != 6 ]]; then
 				echo -e "CustomID ${CUSTOMID} needs to have 6 digits"
-				exit 1
+				exit 39
 			fi
 		;;
 
@@ -267,7 +293,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--soundtrack )
-			SOUNDTRACK=TRUE
+			DOWNLOAD_SOUNDTRACK=TRUE
 		;;
 
 		--version=* )
@@ -295,7 +321,7 @@ while [[ $xcount -lt $pcount ]]; do
 
 				* )
 					echo -e "unrecognized game version: ${VERSION}"
-					exit 1
+					exit 27
 				;;
 			esac
 		;;
@@ -308,17 +334,12 @@ while [[ $xcount -lt $pcount ]]; do
 			GAME=${1/*=}
 		;;
 
-		--clean )
-			cleanup
-			exit $?
-		;;
-
 		--banner=* )
 			BANNER=${1/*=}
 			BANNER_EXT=${BANNER//*./}
 			if [[ ${BANNER_EXT} != "bnr" ]]; then
 				echo "given banner (${BANNER}) is not a .bnr file!"
-				exit 1
+				exit 33
 			fi
 		;;
 
@@ -327,17 +348,17 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		"" | --help )
-			echo -e "create wbfs images from riivolution patches.\n
-***** using this script is only allowed, if you own an original copy of the game.
-***** if you don't, no one can be blamed but you. Shame on you.\n
---game={NewerSMB;NewerSummerSun;AnotherSMB;HolidaySpecial;ParallelWorlds...}
-					| specify game you want to create
+			echo -e "patchimage 4.0 (2013-10-11)
+
+	(c) 2013 Christopher Roy Bratusek <nano@tuxfamily.org>
+	patchimage creates wbfs images from riivolution patches.
+
+--game=<gamename/gameletter>		| specify game you want to create
 --iso/--rom=/home/test/<Image>		| specify which ISO/ROM to use for building
 --riivolution/--patch=<Patch>		| specify path to Riivolution/Patch files
 --version=EURv1,EURv2,USAv1,USAv2,JPNv1	| specify your game version
 --customdid=SMNP02			| specify a custom ID to use for the game
 --sharesave				| let modified game share savegame with original game
---clean					| cleanup the build-directory
 --download				| download riivolution patchfiles
 --soundtrack				| download soundtrack (if available) and exit
 --banner=<banner.bnr>			| use a custom banner (riivolution games)

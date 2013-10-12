@@ -49,7 +49,7 @@ place_files () {
 			for dir in ${LANGDIRS[@]}; do
 				cp -r "${RIIVOLUTION_DIR}"/US/EngUS/Message/ ${WORKDIR}/files/EU/${dir}/
 			done
-			cp patches/openingTitle_retromix.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
+			cp ${PATCHIMAGE_PATCH_DIR}/openingTitle_retromix.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
 		;;
 
 		USAv* )
@@ -57,7 +57,7 @@ place_files () {
 			for dir in ${LANGDIRS[@]}; do
 				cp -r "${RIIVOLUTION_DIR}"/US/EngUS/Message/ ${WORKDIR}/files/US/${dir}/
 			done
-			cp patches/openingTitle_retromix.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
+			cp ${PATCHIMAGE_PATCH_DIR}/openingTitle_retromix.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
 		;;
 
 		JPNv* )
@@ -74,6 +74,6 @@ place_files () {
 
 dolpatch () {
 
-	echo
+	echo -n
 
 }

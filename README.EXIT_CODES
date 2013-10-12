@@ -1,0 +1,19 @@
+If the script failed at some point issueing
+
+	echo $?
+
+right after the failure will you show the following:
+
+	0		everything went right
+	1		general error (none of the following)
+	9		game specified is not known
+	15		ISO or ROM does not exist
+	21		Riivolution files/patch does not exist
+	27		NSMBW version is not recognized
+	33		custom banner specified from command line is not a .bnr file
+	39		custom game id specified from command line is not a 6 digit alphanumeric
+	45		error copying new game files
+	51		wit/ips/applyppf caught an error processing files
+	57		wget caught an error while downloading
+	63		unp caught an error while unpacking a file
+

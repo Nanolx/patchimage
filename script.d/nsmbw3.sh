@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://www.dropbox.com/s/rvuwd8ztl44g18y/NSMBW3_The%20final%20levels.zip"
+DOWNLOAD_LINK="https://www.dropbox.com/s/f7x8evfrc07bcbw/NSMBW%203%20The%20Final%20Levels.zip"
 RIIVOLUTION_ZIP="NSMBW3_The final levels.zip"
 RIIVOLUTION_DIR="NSMBW3"
 GAMENAME="NSMBW3: The Final Levels"
@@ -54,7 +54,7 @@ place_files () {
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/{Message,Layout} ${WORKDIR}/files/EU/${dir}/
+				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message ${WORKDIR}/files/EU/${dir}/
 			done
 			cp "${RIIVOLUTION_DIR}"/EU/Layout/openingtitle/* ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
 		;;
@@ -62,12 +62,12 @@ place_files () {
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
 			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/{Message,Layout} ${WORKDIR}/files/US/${dir}/
+				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message ${WORKDIR}/files/US/${dir}/
 			done
 		;;
 
 		JPNv1 )
-			cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/{Message,Layout} ${WORKDIR}/files/JP/
+			cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message ${WORKDIR}/files/JP/
 		;;
 	esac
 

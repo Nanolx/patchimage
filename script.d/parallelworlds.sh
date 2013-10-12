@@ -29,7 +29,7 @@ check_input_rom () {
 		ROM=$(find . -name ${ROM_MASK} | sed -e 's,./,,')
 		if [[ ${ROM} == "" ]]; then
 			echo -e "error: could not find suitable ROM, specify using --rom"
-			exit 1
+			exit 15
 		fi
 	fi
 

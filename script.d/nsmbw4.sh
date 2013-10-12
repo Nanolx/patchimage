@@ -43,11 +43,11 @@ place_files () {
 
 	case ${VERSION} in
 		EURv* )
-			${PATCHIMAGE_PATCH_DIR}/openingTitle_nsmbw4.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
+			cp ${PATCHIMAGE_PATCH_DIR}/openingTitle_nsmbw4.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
 		;;
 
 		USAv* )
-			${PATCHIMAGE_PATCH_DIR}/openingTitle_nsmbw4.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
+			cp ${PATCHIMAGE_PATCH_DIR}/openingTitle_nsmbw4.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
 		;;
 
 #		JPNv* )

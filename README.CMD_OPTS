@@ -1,0 +1,33 @@
+Parameters
+--game={NewerSMB;NewerSummerSun;AnotherSMBW;HolidaySpecial;ParallelWorlds...}
+specify game to create (if none is provided, the script will ask you)
+
+--iso/--rom=/home/test/<Image>
+specify path to the original ISO/ROM
+
+--riivolution/--patch=<Patch>
+specify path to Riivolution/Patch files
+
+--version=EURv1,EURv2,USAv1,USAv2,JPNv1
+specify your game version (for Wii games, if auto-detection fails)
+
+--customdid=SMNP02
+specify a custom ID to use for the game
+
+--sharesave
+let modified game share savegame with original game
+
+--download
+download riivolution/patchfiles
+
+--soundtrack
+download soundtrack (if available) and exit
+
+--banner=<banner>
+specify a custom banner to use
+
+--download-banner
+download a custom banner (if available)
+
+--clean
+cleanup working directory from anything (also riivolution patches)s

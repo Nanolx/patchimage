@@ -1,3 +1,24 @@
+v4.0:
+- bugfix: fix looking for already downloaded riivolution files in
+  ${PATCHIMAGE_RIIVOLUTION_DIR}
+- bugfix: fix looking for original game iso in ${PATCHIMAGE_WBFS_DIR}
+- bugfix: if the directories set in ${HOME}/.patchimage.rc don't exist
+  let the script create them
+- bugfix: fix paths for NewerSMBW (seems they changed the way the latest
+  release is packaged slightly)
+- bugfix: download files with __tmp suffix, so that faulty downloads cause
+  re-download the next time it is tried
+- bugfix: make use of ${PATCHIMAGE_PATCH_DIR} when building Retro Remix,
+  fixing the openingTitle for PAL and US
+- bugfix: fix applying openingTitle for PAL and US in NSMBW4
+- bugfix: updated download link for NSMBW3 (downloading works again)
+- bugfix: don't apply wiiStrap from NSMBW3 on PAL (black screen on start)
+- added meaningfull exit codes to the script (see: EXIT_CODES for more info)
+- annoy the user with messages (eases finding bugs, as you now see when the
+  script stopped working) and make wit quiet
+- do all operation in ${PWD}/workdir (which removed on each start)
+- support for Awesomer Super Luigi Mini (WIP)
+
 v3.1:
 - bugfix: for NSMBW3 on US games the language files weren't updated
 - bugfix: for Super Mario: Mushroom Adventure PLUS - Winter Moon on US
