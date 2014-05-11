@@ -1,3 +1,24 @@
+v4.91:
+- update my mail address
+- fixed downloading soundtracks
+- when using wiimmfi stuff, ask whether to patch all or a specific image
+- previously --soundtrack would download the soundtrack and exit. Now
+  it does no longer exit.
+- added --only-soundtrack (download soundtrack for selected game and exit)
+- added --covers (download covers for selected game)
+- added --only-covers (download covers for selected game and exit)
+- added mkwiimm.db ("database" containing all RMC??? IDs for MKWiimm)
+
+v4.90:
+- support wiimmfi patcher. All RMC??? images in the current directory or
+  all RMC??? images in ${PATCHIMAGE_WBFS_DIR} will be patched to use the
+  new server. patchimage will download and prepare the wiimmfi-patcher,
+  check the directory for RMC??? images (.iso and .wbfs), create a copy
+  of your image for the patcher, let Wiimm's patcher do it's work, move
+  the new image to ${PATCHIMAGE_GAME_DIR}.
+  .
+  Ensure both variables are set in ${HOME}/.patchimage.rc
+
 v4.0:
 - bugfix: fix looking for already downloaded riivolution files in
   ${PATCHIMAGE_RIIVOLUTION_DIR}

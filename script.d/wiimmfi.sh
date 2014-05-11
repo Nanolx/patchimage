@@ -22,7 +22,9 @@ Supported Versions:	EUR, JAP, USA
 check_input_image_special () {
 
 	check_input_image_mkwiimm
-	IMAGE_DIR=${IMAGE%/*}
+	ask_input_image_mkwiimm ${IMAGE%/*}
+	echo -e "type ALL or RMC???.wbfs:\n"
+	read ID
 
 }
 
@@ -41,13 +43,22 @@ download_wiimm () {
 patch_wiimm () {
 
 	cd ${HOME}/.patchimage/tools/wiimmfi-patcher/
-	for image in "${IMAGE_DIR}"/RMC???.iso "${IMAGE_DIR}"/RMC???.wbfs; do
-		if [[ -e ${image} ]]; then
-			cp -v "${image}" .
-			./create-image.sh >/dev/null
-			mv -v ./wiimmfi-images/${image##*/} "${PATCHIMAGE_GAME_DIR}"/
-			rm ${image##*/}
-		fi
-	done
+
+	if [[ ${ID} == ALL ]]; then
+		for image in ${IMAGE%/*}/RMC???.{iso,wbfs}; do
+			if [[ -e ${image} ]]; then
+				cp -v "${image}" .
+				./create-image.sh >/dev/null
+				mv -v ./wiimmfi-images/${image##*/} "${PATCHIMAGE_GAME_DIR}"/
+				rm ${image##*/}
+			fi
+		done
+	else
+		cp -v ${IMAGE%/*}/${ID} . 2>/dev/null
+		./create-image.sh >/dev/null
+		mv -v ./wiimmfi-images/${ID} "${PATCHIMAGE_GAME_DIR}"/
+		rm -f ${ID}
+	fi
+
 	rm -rf ${HOME}/.patchimage/tools/wiimfi-patcher/
 }

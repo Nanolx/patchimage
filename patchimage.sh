@@ -27,6 +27,8 @@ cd ${PWD}/workdir
 PATCHIMAGE_RIIVOLUTION_DIR=${PWD}
 PATCHIMAGE_WBFS_DIR=${PWD}
 PATCHIMAGE_AUDIO_DIR=${PWD}
+PATCHIMAGE_GAME_DIR=${PWD}
+PATCHIMAGE_COVER_DIR=${PWD}
 
 if [[ -e $HOME/.patchimage.rc ]]; then
 	source $HOME/.patchimage.rc
@@ -116,11 +118,14 @@ case ${GAME_TYPE} in
 	"RIIVOLUTION" )
 		show_notes
 		rm -rf ${WORKDIR}
-		if [[ ${DOWNLOAD_SOUNDTRACK} == TRUE ]]; then
-			echo "\n*** 1) download_soundtrack"
+		if [[ ${PATCHIMAGE_SOUNDTRACK_DOWNLOAD} == TRUE ]]; then
+			echo -e "\n*** A) download_soundtrack"
 			download_soundtrack
-			exit 0
+			if [[ ${ONLY_SOUNDTRACK} == TRUE ]]; then
+				exit 0
+			fi
 		fi
+
 		echo -e "\n*** 1) check_input_image"
 		check_input_image
 		echo "*** 2) check_input_image_special"
@@ -146,7 +151,7 @@ case ${GAME_TYPE} in
 		dolpatch
 
 		if [[ ${CUSTOMID} ]]; then
-			GAMEID = ${CUSTOMID}
+			GAMEID=${CUSTOMID}
 		fi
 
 		if [[ ${PATCHIMAGE_SHARE_SAVE} == "TRUE" ]]; then
@@ -169,10 +174,24 @@ case ${GAME_TYPE} in
 
 		echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_WBFS_DIR}/${GAMEID}.wbfs\n"
 
+		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
+			echo -e "\n*** Z) download_covers"
+			download_covers ${GAMEID}
+		fi
+
 	;;
 
 	"MKWIIMM")
 		show_notes
+
+		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
+			echo "\n*** B) download_covers"
+			download_covers
+			if [[ ${ONLY_COVERS} ]]; then
+				exit 0
+			fi
+		fi
+
 		echo -e "\n*** 1) check_input_image"
 		check_input_image
 		echo -e "\n*** 2) check_input_image_special"

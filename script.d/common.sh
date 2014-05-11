@@ -66,13 +66,12 @@ read GAME
 
 download_soundtrack () {
 
-	if [[ ${SOUNDTRACK} ]]; then
-		if [[ ${SOUNDTRACK_LINK} ]]; then
-			wget --no-check-certificate "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/${SOUNDTRACK_ZIP} || exit 57
-			echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
-		else
-			echo -e "no soundtrack for ${GAME} available."
-		fi
+	if [[ ${SOUNDTRACK_LINK} ]]; then
+		[[ ! -d ${PATCHIMAGE_AUDIO_DIR} ]] && mkdir -p ${PATCHIMAGE_AUDIO_DIR}
+		wget --no-check-certificate "${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_AUDIO_DIR}"/${SOUNDTRACK_ZIP} || exit 57
+		echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
+	else
+		echo -e "no soundtrack for ${GAME} available."
 	fi
 
 }
@@ -216,6 +215,30 @@ check_input_image_mkwiimm () {
 
 }
 
+show_mkwiimm_db () {
+
+	ID=${1:4:2}
+	[[ ${ID} == [0-9][0-9] ]] && gawk -F \: "/^${ID}/"'{print $2}' \
+		< ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db || echo "** Unknown **"
+
+}
+
+ask_input_image_mkwiimm () {
+
+	echo "Choose Mario Kart Wii Image to wiimmfi
+
+	ALL		patch all images"
+
+	for image in ${1}/RMC???.{iso,wbfs}; do
+		if [[ -e ${image} ]]; then
+			echo "	${image##*/}	$(show_mkwiimm_db ${image##*/})"
+		fi
+	done
+
+	echo ""
+
+}
+
 check_riivolution_patch () {
 
 	x=0
@@ -255,10 +278,13 @@ check_riivolution_patch () {
 
 download_covers () {
 
+	[[ ! -d ${PATCHIMAGE_COVER_DIR} ]] && mkdir -p ${PATCHIMAGE_COVER_DIR}
+
 	for path in cover cover3D coverfull disc disccustom; do
-		wget -O ${PATCHIMAGE_COVER_DIR}/${1}_${cover}.png \
-			http://art.gametdb.com/wii/cover/${cover}/EN/${1}.png &>/dev/null \
-			|| echo "Cover (${cover}) does not exists for gameid ${1}."
+		wget -O ${PATCHIMAGE_COVER_DIR}/${1}_${path}.png \
+			http://art.gametdb.com/wii/${path}/EN/${1}.png &>/dev/null \
+			|| ( echo "Cover (${path}) does not exists for gameid ${1}." && \
+			rm ${PATCHIMAGE_COVER_DIR}/${1}_${path}.png )
 	done
 
 }
@@ -330,7 +356,12 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--soundtrack )
-			DOWNLOAD_SOUNDTRACK=TRUE
+			PATCHIMAGE_SOUNDTRACK_DOWNLOAD=TRUE
+		;;
+
+		--only-soundtrack )
+			PATCHIMAGE_SOUNDTRACK_DOWNLOAD=TRUE
+			ONLY_SOUNDTRACK=TRUE
 		;;
 
 		--version=* )
@@ -371,6 +402,16 @@ while [[ $xcount -lt $pcount ]]; do
 			GAME=${1/*=}
 		;;
 
+		--covers* )
+			PATCHIMAGE_COVER_DOWNLOAD=TRUE
+		;;
+
+		--only-covers* )
+			PATCHIMAGE_COVER_DOWNLOAD=TRUE
+			download_covers ${1/*=}
+			exit 0
+		;;
+
 		--banner=* )
 			BANNER=${1/*=}
 			BANNER_EXT=${BANNER//*./}
@@ -385,9 +426,9 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		"" | --help )
-			echo -e "patchimage 4.0 (2013-10-11)
+			echo -e "patchimage 4.91 (2014-05-10)
 
-	(c) 2013 Christopher Roy Bratusek <nano@tuxfamily.org>
+	(c) 2013-2014 Christopher Roy Bratusek <nano@jpberlin.de>
 	patchimage creates wbfs images from riivolution patches.
 
 --game=<gamename/gameletter>		| specify game you want to create
@@ -397,7 +438,10 @@ while [[ $xcount -lt $pcount ]]; do
 --customdid=SMNP02			| specify a custom ID to use for the game
 --sharesave				| let modified game share savegame with original game
 --download				| download riivolution patchfiles
---soundtrack				| download soundtrack (if available) and exit
+--soundtrack				| download soundtrack (if available)
+--only-soundtrack			| download soundtrack only (if available) and exit
+--covers				| download covers (if available)
+--only-covers=SMNP02			| download covers only (if available)
 --banner=<banner.bnr>			| use a custom banner (riivolution games)
 --download-banner			| download a custom banner (if available)"
 			exit 0
