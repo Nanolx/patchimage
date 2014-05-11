@@ -44,7 +44,7 @@ patch_wiimm () {
 	for image in "${IMAGE_DIR}"/RMC???.iso "${IMAGE_DIR}"/RMC???.wbfs; do
 		if [[ -e ${image} ]]; then
 			cp -v "${image}" .
-			./create-image.sh >/dev/null
+			./create-image.sh
 			mv -v ./wiimmfi-images/${image##*/} "${PATCHIMAGE_GAME_DIR}"/
 			rm ${image##*/}
 		fi
