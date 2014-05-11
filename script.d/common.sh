@@ -55,6 +55,8 @@ K	NSMBW3: The Final Levels
 L	Super Mario Vacation
 M	Awesomer Super Luigi Mini
 
+N	Wiimfi Patcher. Patch all RMC??? to use Wiimm's server
+
 1	The Legend of Zelda: Parallel Worlds
 "
 
@@ -180,6 +182,31 @@ check_input_image_nsmb () {
 		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs; then
 			x=4
 			IMAGE=${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs
+		else
+			echo -e "please specify image to use with --iso=<path>"
+			exit 15
+		fi
+	fi
+	echo "*** >> status: ${x}"
+
+}
+
+check_input_image_mkwiimm () {
+
+	x=0
+	if [[ ! ${IMAGE} ]]; then
+		if test -f RMC?01.wbfs; then
+			x=1
+			IMAGE=RMC?01.wbfs
+		elif test -f RMC?01.iso; then
+			x=2
+			IMAGE=RMC?01.iso
+		elif test -f ${PATCHIMAGE_WBFS_DIR}/RMC?01.iso; then
+			x=3
+			IMAGE=${PATCHIMAGE_WBFS_DIR}/RMC?01.iso
+		elif test -f ${PATCHIMAGE_WBFS_DIR}/RMC?01.wbfs; then
+			x=4
+			IMAGE=${PATCHIMAGE_WBFS_DIR}/RMC?01.wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 15

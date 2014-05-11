@@ -97,6 +97,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/awesomersuperluigi.sh
 	;;
 
+	n | N | Wiimfi )
+		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
+	;;
+
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;
@@ -165,6 +169,18 @@ case ${GAME_TYPE} in
 
 		echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_WBFS_DIR}/${GAMEID}.wbfs\n"
 
+	;;
+
+	"MKWIIMM")
+		show_notes
+		echo -e "\n*** 1) check_input_image"
+		check_input_image
+		echo -e "\n*** 2) check_input_image_special"
+		check_input_image_special
+		echo -e "\n*** 3) download_wiimm"
+		download_wiimm
+		echo -e "\n*** 4) patch_wiimm"
+		patch_wiimm
 	;;
 
 	"IPS" )
