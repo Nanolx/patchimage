@@ -2,6 +2,7 @@
 
 DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/mkw-wiimmfi-patcher.7z"
 GAME_TYPE="MKWIIMM"
+GAME_NAME="Mario Kart Wiimmfi"
 
 show_notes () {
 
@@ -44,7 +45,7 @@ patch_wiimm () {
 		if [[ -e ${image} ]]; then
 			cp -v "${image}" .
 			./create-image.sh >/dev/null
-			mv -v ./wiimmfi-images/${image##*/} "${PATCHIMAGE_GAME_DIR}/"
+			mv -v ./wiimmfi-images/${image##*/} "${PATCHIMAGE_GAME_DIR}"/
 			rm ${image##*/}
 		fi
 	done

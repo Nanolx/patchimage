@@ -97,7 +97,7 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/awesomersuperluigi.sh
 	;;
 
-	n | N | Wiimfi )
+	n | N | Wiimmfi )
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
 	;;
 
