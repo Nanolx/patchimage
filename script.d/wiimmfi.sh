@@ -47,10 +47,16 @@ patch_wiimm () {
 	if [[ ${ID} == ALL ]]; then
 		for image in ${IMAGE%/*}/RMC???.{iso,wbfs}; do
 			if [[ -e ${image} ]]; then
+				ximg=${image##*}
 				cp -v "${image}" .
 				./create-image.sh >/dev/null
-				mv -v ./wiimmfi-images/${image##*/} "${PATCHIMAGE_GAME_DIR}"/
-				rm ${image##*/}
+				mv -v ./wiimmfi-images/${ximg} "${PATCHIMAGE_GAME_DIR}"/
+				rm ${ximg}
+
+				if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
+					echo "\n*** Z) download_covers"
+					download_covers ${ximg/.*}
+				fi
 			fi
 		done
 	else
@@ -58,6 +64,11 @@ patch_wiimm () {
 		./create-image.sh >/dev/null
 		mv -v ./wiimmfi-images/${ID} "${PATCHIMAGE_GAME_DIR}"/
 		rm -f ${ID}
+
+		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
+			echo "\n*** Z) download_covers"
+			download_covers ${ID/.*}
+		fi
 	fi
 
 	rm -rf ${HOME}/.patchimage/tools/wiimfi-patcher/

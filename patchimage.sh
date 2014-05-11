@@ -184,14 +184,6 @@ case ${GAME_TYPE} in
 	"MKWIIMM")
 		show_notes
 
-		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
-			echo "\n*** B) download_covers"
-			download_covers
-			if [[ ${ONLY_COVERS} ]]; then
-				exit 0
-			fi
-		fi
-
 		echo -e "\n*** 1) check_input_image"
 		check_input_image
 		echo -e "\n*** 2) check_input_image_special"
