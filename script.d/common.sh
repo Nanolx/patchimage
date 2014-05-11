@@ -253,6 +253,16 @@ check_riivolution_patch () {
 
 }
 
+download_covers () {
+
+	for path in cover cover3D coverfull disc disccustom; do
+		wget -O ${PATCHIMAGE_COVER_DIR}/${1}_${cover}.png \
+			http://art.gametdb.com/wii/cover/${cover}/EN/${1}.png &>/dev/null \
+			|| echo "Cover (${cover}) does not exists for gameid ${1}."
+	done
+
+}
+
 optparse () {
 
 xcount=0
