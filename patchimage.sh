@@ -6,23 +6,15 @@
 #
 # License: GPL v3
 
-if [[ ! -d ${PWD}/workdir ]]; then
-	mkdir ${PWD}/workdir
-else
-	rm -rf ${PWD}/workdir/*
-fi
-
 if [[ -d ${PWD}/script.d ]]; then
-	PATCHIMAGE_SCRIPT_DIR=../script.d
-	PATCHIMAGE_PATCH_DIR=../patches
-	PATCHIMAGE_TOOLS_DIR=../tools
+	PATCHIMAGE_SCRIPT_DIR=${PWD}/script.d
+	PATCHIMAGE_PATCH_DIR=${PWD}/patches
+	PATCHIMAGE_TOOLS_DIR=${PWD}/tools
 else
 	PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/script.d
 	PATCHIMAGE_PATCH_DIR=/usr/share/patchimage/patches
 	PATCHIMAGE_TOOLS_DIR=/usr/share/patchimage/tools
 fi
-
-cd ${PWD}/workdir
 
 PATCHIMAGE_RIIVOLUTION_DIR=${PWD}
 PATCHIMAGE_WBFS_DIR=${PWD}
@@ -174,7 +166,7 @@ case ${GAME_TYPE} in
 
 		echo "*** 12) remove workdir"
 		cd ..
-		rm -rf workdir
+		rm -rf ${WORKDIR}
 
 		echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_WBFS_DIR}/${GAMEID}.wbfs\n"
 

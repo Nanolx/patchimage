@@ -160,12 +160,12 @@ check_input_image () {
 
 	x=0
 	if [[ ! ${IMAGE} ]]; then
-		if [[ -f BASE.wbfs ]]; then
+		if [[ *.wbfs ]]; then
 			x=1
-			IMAGE=BASE.wbfs
-		elif [[ -f BASE.iso ]]; then
+			IMAGE=*.wbfs
+		elif [[ *.iso ]]; then
 			x=1
-			IMAGE=BASE.iso
+			IMAGE=*.iso
 		fi
 	fi
 	echo "*** >> status: ${x}"
@@ -250,7 +250,7 @@ ask_input_image_wiimmfi () {
 
 	echo "Choose Wii Game Image to wiimmfi"
 
-	for image in ${1}/??????.{iso,wbfs}; do
+	for image in ${1}/*.{iso,wbfs}; do
 		if [[ -e ${image} && ! ${image} == "*/RMC*" ]]; then
 			echo "	${image##*/}"
 		fi
