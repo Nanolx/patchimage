@@ -258,12 +258,23 @@ show_titles_db () {
 
 }
 
+check_wfc () {
+
+	ID=${1/.*}
+	if [[ $(grep ${ID} ${PATCHIMAGE_SCRIPT_DIR}/wfc.db) ]]; then
+		echo TRUE
+	else
+		echo FALSE
+	fi
+
+}
+
 ask_input_image_wiimmfi () {
 
 	echo "Choose Wii Game Image to wiimmfi"
 
 	for image in ${1}/*.{iso,wbfs}; do
-		if [[ -e ${image} && ! ${image} == "*/RMC*" ]]; then
+		if [[ -e ${image} && ! ${image} == "*/RMC*" && $(check_wfc ${image##*/}) == TRUE ]]; then
 			echo "	${image##*/}	$(show_titles_db ${image##*/})"
 		fi
 	done
