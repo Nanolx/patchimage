@@ -9,7 +9,7 @@ setup_tools () {
 	fi
 
 	#if [[ $(which wit) ]]; then
-		WIT=$(which wit)
+	#	WIT=$(which wit)
 	#else
 	#	WIT=${PATCHIMAGE_TOOLS_DIR}/wit.${SUFFIX}
 	#fi
@@ -57,7 +57,8 @@ K	NSMBW3: The Final Levels
 L	Super Mario Vacation
 M	Awesomer Super Luigi Mini
 
-N	Wiimfi Patcher. Patch all RMC??? to use Wiimm's server
+N	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
+O	Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
 
 1	The Legend of Zelda: Parallel Worlds
 "
@@ -146,6 +147,10 @@ check_directories () {
 
 	if [[ ! -d ${PATCHIMAGE_AUDIO_DIR} ]]; then
 		mkdir -p ${PATCHIMAGE_AUDIO_DIR}
+	fi
+
+	if [[ ! -d ${PATCHIMAGE_COVER_DIR} ]]; then
+		mkdir -p ${PATCHIMAGE_COVER_DIR}
 	fi
 
 }
@@ -241,6 +246,20 @@ ask_input_image_mkwiimm () {
 
 }
 
+ask_input_image_wiimmfi () {
+
+	echo "Choose Wii Game Image to wiimmfi"
+
+	for image in ${1}/RMC???.{iso,wbfs}; do
+		if [[ -e ${image} && ! ${image} == "*/RMC*" ]]; then
+			echo "	${image##*/}"
+		fi
+	done
+
+	echo ""
+
+}
+
 check_riivolution_patch () {
 
 	x=0
@@ -279,8 +298,6 @@ check_riivolution_patch () {
 }
 
 download_covers () {
-
-	[[ ! -d ${PATCHIMAGE_COVER_DIR} ]] && mkdir -p ${PATCHIMAGE_COVER_DIR}
 
 	for path in cover cover3D coverfull disc disccustom; do
 		wget -O ${PATCHIMAGE_COVER_DIR}/${1}_${path}.png \

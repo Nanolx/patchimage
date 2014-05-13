@@ -103,6 +103,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
 	;;
 
+	o | O | Wiimmpatch )
+		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi_generic.sh
+	;;
+
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;

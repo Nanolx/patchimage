@@ -60,6 +60,11 @@ patch_wiimm () {
 			fi
 		done
 	else
+		if [[ ! -f ${IMAGE%/*}/${ID} ]]; then
+			echo "unvalid game passed from user-input. exit"
+			exit 1
+		fi
+
 		cp -v ${IMAGE%/*}/${ID} . 2>/dev/null
 		./create-image.sh >/dev/null
 		mv -v ./wiimmfi-images/${ID} "${PATCHIMAGE_GAME_DIR}"/
