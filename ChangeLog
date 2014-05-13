@@ -1,6 +1,8 @@
 v4.93:
 - various fixups
 - wiimmfi generic: show game titles next to id when showing available images
+- wiimmfi generic: only offer those games to be patched that are wfc-enabled
+  (according to gametdb)
 - add support for Super Mario Skyland (SMN?ZY)
 
 v4.92:
