@@ -99,6 +99,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi_generic.sh
 	;;
 
+	p | P | Sykland )
+		source ${PATCHIMAGE_SCRIPT_DIR}/skyland.sh
+	;;
+
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;
@@ -165,7 +169,6 @@ case ${GAME_TYPE} in
 		fi
 
 		echo "*** 12) remove workdir"
-		cd ..
 		rm -rf ${WORKDIR}
 
 		echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_WBFS_DIR}/${GAMEID}.wbfs\n"

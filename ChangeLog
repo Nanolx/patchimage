@@ -1,3 +1,8 @@
+v4.93:
+- various fixups
+- wiimmfi generic: show game titles next to id when showing available images
+- add support for Super Mario Skyland (SMN?ZY)
+
 v4.92:
 - wiimmfi mario kart: check if user-provided input is correct
 - wiimmfi generic: add generic wiimmfi patcher (only one game at a time)
