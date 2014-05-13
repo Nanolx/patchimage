@@ -160,12 +160,12 @@ check_input_image () {
 
 	x=0
 	if [[ ! ${IMAGE} ]]; then
-		if [[ *.wbfs ]]; then
+		if [[ -f BASE.wbfs ]]; then
 			x=1
-			IMAGE=*.wbfs
-		elif [[ *.iso ]]; then
+			IMAGE=BASE.wbfs
+		elif [[ -f BASE.iso ]]; then
 			x=1
-			IMAGE=*.iso
+			IMAGE=BASE.iso
 		fi
 	fi
 	echo "*** >> status: ${x}"
@@ -246,13 +246,21 @@ ask_input_image_mkwiimm () {
 
 }
 
+show_titles_db () {
+
+	ID=${1/.*}
+	gawk -F \: "/^${ID}/"'{print $2}' \
+		< ${PATCHIMAGE_SCRIPT_DIR}/titles.db || echo "** Unknown **"
+
+}
+
 ask_input_image_wiimmfi () {
 
 	echo "Choose Wii Game Image to wiimmfi"
 
 	for image in ${1}/*.{iso,wbfs}; do
 		if [[ -e ${image} && ! ${image} == "*/RMC*" ]]; then
-			echo "	${image##*/}"
+			echo "	${image##*/}	$(show_titles_db ${image##*/})"
 		fi
 	done
 
