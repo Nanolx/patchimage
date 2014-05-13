@@ -1,3 +1,7 @@
+v4.92:
+- wiimmfi mario kart: check if user-provided input is correct
+- wiimmfi generic: add generic wiimmfi patcher (only one game at a time)
+
 v4.91:
 - update my mail address
 - fixed downloading soundtracks

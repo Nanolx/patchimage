@@ -250,7 +250,7 @@ ask_input_image_wiimmfi () {
 
 	echo "Choose Wii Game Image to wiimmfi"
 
-	for image in ${1}/RMC???.{iso,wbfs}; do
+	for image in ${1}/??????.{iso,wbfs}; do
 		if [[ -e ${image} && ! ${image} == "*/RMC*" ]]; then
 			echo "	${image##*/}"
 		fi
