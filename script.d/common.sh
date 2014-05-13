@@ -8,11 +8,13 @@ setup_tools () {
 		SUFFIX=32
 	fi
 
-	if [[ $(which wit) ]]; then
+	#if [[ $(which wit) ]]; then
 		WIT=$(which wit)
-	else
-		WIT=${PATCHIMAGE_TOOLS_DIR}/wit.${SUFFIX}
-	fi
+	#else
+	#	WIT=${PATCHIMAGE_TOOLS_DIR}/wit.${SUFFIX}
+	#fi
+
+	WIT=${PATCHIMAGE_TOOLS_DIR}/wit.next
 
 	if [[ $(which applyppf3) ]]; then
 		PPF=$(which applyppf3)
