@@ -48,7 +48,7 @@ patch_wiimm () {
 	fi
 
 	cp -v ${GAMEDIR}/${ID} . 2>/dev/null
-	wit cp ${ID} --DEST wiimmfi-images/ --update --psel=data --wiimmfi -vv >/dev/null
+	${WIT} cp ${ID} --DEST wiimmfi-images/ --update --psel=data --wiimmfi >/dev/null
 	mv -v ./wiimmfi-images/${ID} "${PATCHIMAGE_GAME_DIR}"/
 	rm -f ${ID}
 
