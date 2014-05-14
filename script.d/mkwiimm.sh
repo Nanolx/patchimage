@@ -96,11 +96,9 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 		rm -rf ${FILENAME/.7z}
 
 		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
-			echo "\n*** Z) download_covers"
+			echo -e "\n*** Z) download_covers"
 			download_covers RMC${REG}${ID}
 		fi
-
-		echo "*** SUCCESS ***"
 
 }
 

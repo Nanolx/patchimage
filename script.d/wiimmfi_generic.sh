@@ -53,7 +53,7 @@ patch_wiimm () {
 	rm -f ${ID}
 
 	if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
-		echo "\n*** Z) download_covers"
+		echo -e "\n*** Z) download_covers"
 		download_covers ${ID/.*}
 	fi
 

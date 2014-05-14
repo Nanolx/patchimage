@@ -16,6 +16,8 @@ v4.94:
 		whether to share save with the original game
   if you set them they will be applied for all mkwiimm patchers and no
   further user interactions with the wiimm patcher is needed.
+- NOTE: error-handling for mkwiimm, wiimmfi generic and wiimmfi mario
+  kart is not yet complete
 
 v4.93:
 - various fixups
