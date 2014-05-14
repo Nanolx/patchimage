@@ -12,14 +12,17 @@ Filename:	$HOME/.patchimage.rc
 # or there they will be downloaded to:
 PATCHIMAGE_RIIVOLUTION_DIR=${HOME}/Hacks
 
-# global directory your wbfs files will be saved to
-PATCHIMAGE_WBFS_DIR=/media/WiiHDD/wbfs
-
 # global directory to look for original game image
-PATCHIMAGE_GAME_DIR=/media/WiiHDD/wbfs
+PATCHIMAGE_WBFS_DIR=/media/chris/WiiHDDX/wbfs
+
+# global directory your wbfs files will be saved to
+PATCHIMAGE_GAME_DIR=/media/chris/WiiHDDX/wbfs
 
 # global directory soundtracks will be saved to
 PATCHIMAGE_AUDIO_DIR=${HOME}/Music
+
+# global directory covers will be saved to
+PATCHIMAGE_COVER_DIR=${HOME}/Covers
 
 # always (try) to download riivolution patches
 PATCHIMAGE_RIIVOLUTION_DOWNLOAD=TRUE
@@ -27,5 +30,32 @@ PATCHIMAGE_RIIVOLUTION_DOWNLOAD=TRUE
 # always (try) to download custom banners
 PATCHIMAGE_BANNER_DOWNLOAD=TRUE
 
+# always (try) to download soundtrack
+PATCHIMAGE_SOUNDTRACK_DOWNLOAD=TRUE
+
+# always (try) to download covers
+PATCHIMAGE_COVER_DOWNLOAD=TRUE
+
 # always share the save with original game
 PATCHIMAGE_SHARE_SAVE=TRUE
+
+#####################
+# Mario Kart Wiimmm #
+#####################
+
+# game language for Mario Kart Wiimm
+# de = german
+# en = english
+MKWIIMM_GAME_LANG="de"
+
+# message language for Mario Kart Wiimm
+# de  = german
+# de+ = all languages will be german
+# en  = english
+# en+ = all languages will be english
+MKWIIMM_MSG_LANG="de"
+
+# use own savegame
+# 1=ja    (use own save, no sharing)
+# 2=nein  (share save with original game)
+MKWIIMM_OWN_SAVE="1=ja"
