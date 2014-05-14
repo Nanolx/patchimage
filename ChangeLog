@@ -1,3 +1,23 @@
+v4.94:
+- wiimmfi generic: use correct version of wit
+- wiimmfi mario kart: major code simplification and major speed-up
+  (as we now symlink the old images rather than copying)
+- mkwiimm support. Download and build any Mario Kart Wiimm distribution
+  and patch it to use Wiimms custom server (thus patching process takes
+  longer as there are two steps now). The old patchers will all work,
+  because the outdated versions of the provided tools will be overriden.
+- new patchimage.rc options:
+	MKWIIMM_GAME_LANG	either de (german) or en (english)
+		mkwiimm game language
+	MKWIIMM_MSG_LANG	either de, de+ (german) or en, en+ (english)
+		mkwiimm message language. de+ and en+ also change all
+		other languages to german or english
+	MKWIIMM_SHARE_SAVE	either 1=ja (yes) or 2=nein (no)
+		whether to share save with the original game
+  YOU MUST SET THOSE VAlUES (patchimage will tell Wiimm's patcher to use
+  them and thus allows full automatic creating of mkwiimm without any
+  further user interaction needed). See README.RC for example config.
+
 v4.93:
 - various fixups
 - wiimmfi generic: show game titles next to id when showing available images

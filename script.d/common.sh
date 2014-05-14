@@ -60,9 +60,10 @@ M	Awesomer Super Luigi Mini
 <<<>>>
 N	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
 O	Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
+P	Mario Kart Wiimm. Custom Mario Kart Distribution
 <<<>>>
 
-P	Super Mario Skyland
+Q	Super Mario Skyland
 
 1	The Legend of Zelda: Parallel Worlds
 "

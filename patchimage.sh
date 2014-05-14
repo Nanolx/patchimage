@@ -99,7 +99,11 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi_generic.sh
 	;;
 
-	p | P | Sykland )
+	p | P | Mkwiimm )
+		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.sh
+	;;
+
+	q | Q | Sykland )
 		source ${PATCHIMAGE_SCRIPT_DIR}/skyland.sh
 	;;
 
