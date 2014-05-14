@@ -72,14 +72,19 @@ build_mkwiimm () {
 
 		cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
 
-		echo "LANGUAGE=${MKWIIMM_GAME_LANG}
+		if [[ ${MKWIIMM_GAME_LANG} && ${MKWIIMM_MSG_LANG} && ${MKWIIMM_MKWIIMM_OWN_SAVE} ]]; then
+			echo "LANGUAGE=${MKWIIMM_GAME_LANG}
 MSGLANG=${MKWIIMM_MSG_LANG}
 ISOMODE=wbfs
 SPLITISO=
 PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 
-		echo "creating >${DIST}<, stand by..."
-		./create-image.sh -a --dest=${PWD}/RMC${REG}${ID}.wbfs >/dev/null
+			echo "creating >${DIST}<, stand by..."
+			./create-image.sh -a --dest=${PWD}/RMC${REG}${ID}.wbfs >/dev/null
+		else
+			echo "creating >${DIST}<"
+			./create-image.sh --dest=${PWD}/RMC${REG}${ID}.wbfs
+		fi
 
 		echo "patching >${DIST}< to use custom server..."
 		${WIT} cp ${PWD}/RMC${REG}${ID}.wbfs --DEST \

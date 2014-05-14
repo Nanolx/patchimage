@@ -14,9 +14,8 @@ v4.94:
 		other languages to german or english
 	MKWIIMM_SHARE_SAVE	either 1=ja (yes) or 2=nein (no)
 		whether to share save with the original game
-  YOU MUST SET THOSE VAlUES (patchimage will tell Wiimm's patcher to use
-  them and thus allows full automatic creating of mkwiimm without any
-  further user interaction needed). See README.RC for example config.
+  if you set them they will be applied for all mkwiimm patchers and no
+  further user interactions with the wiimm patcher is needed.
 
 v4.93:
 - various fixups
