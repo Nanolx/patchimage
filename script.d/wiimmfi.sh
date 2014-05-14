@@ -47,33 +47,22 @@ patch_wiimm () {
 	if [[ ${ID} == ALL ]]; then
 		for image in ${IMAGE%/*}/RMC???.{iso,wbfs}; do
 			if [[ -e ${image} ]]; then
-				ximg=${image##*}
-				cp -v "${image}" .
-				./create-image.sh >/dev/null
-				mv -v ./wiimmfi-images/${ximg} "${PATCHIMAGE_GAME_DIR}"/
-				rm ${ximg}
-
-				if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
-					echo "\n*** Z) download_covers"
-					download_covers ${ximg/.*}
-				fi
+				ln -s "${image}" .
 			fi
 		done
+
+			./create-image.sh >/dev/null
+			mv -v ./wiimmfi-images/* "${PATCHIMAGE_GAME_DIR}"/
+
 	else
 		if [[ ! -f ${IMAGE%/*}/${ID} ]]; then
 			echo "unvalid game passed from user-input. exit"
 			exit 1
 		fi
 
-		cp -v ${IMAGE%/*}/${ID} . 2>/dev/null
+		ln -s ${IMAGE%/*}/${ID} .
 		./create-image.sh >/dev/null
 		mv -v ./wiimmfi-images/${ID} "${PATCHIMAGE_GAME_DIR}"/
-		rm -f ${ID}
-
-		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
-			echo "\n*** Z) download_covers"
-			download_covers ${ID/.*}
-		fi
 	fi
 
 	rm -rf ${HOME}/.patchimage/tools/wiimfi-patcher/
