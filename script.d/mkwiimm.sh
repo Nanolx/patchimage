@@ -47,6 +47,8 @@ build_mkwiimm () {
 			exit 1
 		fi
 
+		rm -rf ${FILENAME/.7z}
+
 		if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ]]; then
 			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null
 		elif [[ -f ${PWD}/${FILENAME} ]]; then
@@ -58,8 +60,14 @@ build_mkwiimm () {
 
 		cd ${FILENAME/.7z}
 		ln -s ${IMAGE} .
-		REG=${IMAGE##*/}
-		REG=${REG:3:1}
+
+		REG=$(gawk '/^RMC/{print $3}' <(wit ll /media/chris/WiiHDDX/wbfs/RMCP01.wbfs))
+
+		case $REG in
+			PAL)	REG=P	;;
+			NTSC-J)	REG=J	;;
+			NTSC-U)	REG=E	;;
+		esac
 		chmod +x *.sh
 
 		cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
@@ -84,7 +92,7 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 
 		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
 			echo "\n*** Z) download_covers"
-			download_covers ${ID/.*}
+			download_covers RMC${REG}${ID}
 		fi
 
 		echo "*** SUCCESS ***"
