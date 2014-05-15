@@ -61,9 +61,11 @@ M	Awesomer Super Luigi Mini
 N	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
 O	Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
 P	Mario Kart Wiimm. Custom Mario Kart Distribution
+Q	*** comming soon ***
 <<<>>>
 
-Q	Super Mario Skyland
+R	Super Mario Skyland
+S	Kirby's Adventure Wii (change first player character)
 
 1	The Legend of Zelda: Parallel Worlds
 "
@@ -193,6 +195,31 @@ check_input_image_nsmb () {
 		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs; then
 			x=4
 			IMAGE=${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs
+		else
+			echo -e "please specify image to use with --iso=<path>"
+			exit 15
+		fi
+	fi
+	echo "*** >> status: ${x}"
+
+}
+
+check_input_image_kirby () {
+
+	x=0
+	if [[ ! ${IMAGE} ]]; then
+		if test -f SMN?01.wbfs; then
+			x=1
+			IMAGE=SMN?01.wbfs
+		elif test -f SMN?01.iso; then
+			x=2
+			IMAGE=SMN?01.iso
+		elif test -f ${PATCHIMAGE_WBFS_DIR}/SUK?01.iso; then
+			x=3
+			IMAGE=${PATCHIMAGE_WBFS_DIR}/SUK?01.iso
+		elif test -f ${PATCHIMAGE_WBFS_DIR}/SUK?01.wbfs; then
+			x=4
+			IMAGE=${PATCHIMAGE_WBFS_DIR}/SUK?01.wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 15
@@ -469,7 +496,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		"" | --help )
-			echo -e "patchimage 4.93 (2014-05-13)
+			echo -e "patchimage 4.95 (2014-05-15)
 
 	(c) 2013-2014 Christopher Roy Bratusek <nano@jpberlin.de>
 	patchimage creates wbfs images from riivolution patches.

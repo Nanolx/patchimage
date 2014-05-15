@@ -1,3 +1,9 @@
+v4.95:
+- fixed storing NewSMB mods into ${PATCHIMAGE_GAME_DIR}
+- added support for exchanging first player's character
+  in Kirby's Adventure Wii (using someone different than
+  one of the different Kirbys may crash the game)
+
 v4.94:
 - wiimmfi generic: use correct version of wit
 - wiimmfi mario kart: major code simplification and major speed-up

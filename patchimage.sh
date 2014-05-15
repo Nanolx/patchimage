@@ -103,8 +103,12 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.sh
 	;;
 
-	q | Q | Sykland )
+	r | R | Sykland )
 		source ${PATCHIMAGE_SCRIPT_DIR}/skyland.sh
+	;;
+
+	s | S | Kirby )
+		source ${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh
 	;;
 
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
@@ -167,9 +171,9 @@ case ${GAME_TYPE} in
 		echo "*** 10) rebuild game"
 		${WIT} cp -q -B ${WORKDIR} ${GAMEID}.wbfs --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}" || exit 51
 
-		if [[ -d ${PATCHIMAGE_WBFS_DIR} && ${PATCHIMAGE_WBFS_DIR} != ${PWD} ]]; then
+		if [[ -d ${PATCHIMAGE_GAME_DIR} && ${PATCHIMAGE_GAME_DIR} != ${PWD} ]]; then
 			echo "*** 11) store game"
-			mv ${GAMEID}.wbfs "${PATCHIMAGE_WBFS_DIR}"/
+			mv ${GAMEID}.wbfs "${PATCHIMAGE_GAME_DIR}"/
 		fi
 
 		echo "*** 12) remove workdir"
@@ -195,6 +199,15 @@ case ${GAME_TYPE} in
 		download_wiimm
 		echo -e "\n*** 4) patch_wiimm"
 		patch_wiimm
+	;;
+
+	"WII_GENERIC")
+		show_notes
+
+		echo -e "\n*** 1) check_input_image"
+		check_input_image
+		echo -e "\n*** 2) pi_action"
+		pi_action
 	;;
 
 	"IPS" )

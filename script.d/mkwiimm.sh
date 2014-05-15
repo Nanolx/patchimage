@@ -20,7 +20,7 @@ Supported Versions:	EUR, JAP, USA
 
 check_input_image_special () {
 
-	check_input_image_mkwiimm
+	check_input_image_kirby
 
 }
 
@@ -61,7 +61,7 @@ build_mkwiimm () {
 		cd ${FILENAME/.7z}
 		ln -s ${IMAGE} .
 
-		REG=$(gawk '/^RMC/{print $3}' <(wit ll /media/chris/WiiHDDX/wbfs/RMCP01.wbfs))
+		REG=$(gawk '/^RMC/{print $3}' <(wit ll ${IMAGE}))
 
 		case $REG in
 			PAL)	REG=P	;;
