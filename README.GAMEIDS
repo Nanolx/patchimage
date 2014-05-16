@@ -1,7 +1,8 @@
 GAMEIDS
 
-SLF?01		NSMBW3: The Final Levels
+### New Super Mario Bros. Wii ###
 
+SLF?01		NSMBW3: The Final Levels
 SMN?01		Original New Super Mario Bros. Wii
 SMN?02		?
 SMN?03		Newer Super Mario Bros. Wii
@@ -14,10 +15,37 @@ SMN?09		?
 SMN?10		Koopa Country
 SMN?11		New Super Mario Bros. 4
 SMN?12		Awesomer Super Luigi Mini
+SMN?RV		RVLution Wii (NewSMB Mod)
 SMN?ZY		Super Mario Skyland
-
 SMM?02		Super Mario: Mushroom Adventure PLUS - Winter Moon
-
 SMV?01		Super Mario Vacation
-
 MRR?01		New Super Mario Bros. Wii Retro Remix
+
+### Mario Kart Wii ###
+
+RMC?01		Original Mario Kart Wii
+RMC?06		Wiimms MKW Fun 2010-12
+RMC?07		Wiimms MKW Retro 2011-02
+RMC?08		Wiimms MKW Fun 2011-03
+RMC?09		Wiimms MKW Fun 2011-06
+RMC?10		Wiimms MKW Fun 2011-07
+RMC?11		Wiimms MKW Fun 2011-08
+RMC?12		Wiimms MKW Fun 2011-11
+RMC?13		Wiimms MKW Fun 2012-01
+RMC?14		Wiimms MKW Revival 2012-02
+RMC?15		Wiimms MKW Boost 2012-03
+RMC?16		Wiimms MKW Fun 2012-05
+RMC?17		Wiimms MKW Fun 2012-09
+RMC?18		Wiimms MKW N64 2012-10
+RMC?19		Wiimms MKW Fun 2012-12
+RMC?20		Wiimms MKW Fun 2013-04
+RMC?21		Wiimms MKW Fun 2013-09
+RMC?22		Wiimms MKW Fun 2013-10
+RMC?23		Wiimms MKW-Fun 2014-01
+RMC?24		Wiimms MKW Retro 2014-02
+RMC?25		Wiimms MKW-Fun 2014-04
+
+### Kirby's Adventure Wii ###
+
+SUK?01		Kirby's Adventure Wii (only exchanging first
+		player's character is supported)
