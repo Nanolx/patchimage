@@ -111,6 +111,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh
 	;;
 
+	t | T | RVLution )
+		source ${PATCHIMAGE_SCRIPT_DIR}/rvlution.sh
+	;;
+
 	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;
@@ -169,8 +173,8 @@ case ${GAME_TYPE} in
 		fi
 
 		echo "*** 10) rebuild and store game"
-		${WIT} cp -o -q -B ${WORKDIR} -DEST "${PATCHIMAGE_GAME_DIR}"/${GAMEID}.wbfs \
-			--disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}" || exit 51
+		${WIT} cp -o -q --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}" \
+			-B ${WORKDIR} "${PATCHIMAGE_GAME_DIR}"/${GAMEID}.wbfs || exit 51
 
 		echo "*** 12) remove workdir"
 		rm -rf ${WORKDIR}

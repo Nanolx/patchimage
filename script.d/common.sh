@@ -66,6 +66,7 @@ Q	*** comming soon ***
 
 R	Super Mario Skyland
 S	Kirby's Adventure Wii (change first player character)
+T	RVLution Wii (NewSMB Mod)
 
 1	The Legend of Zelda: Parallel Worlds
 "
@@ -81,7 +82,7 @@ download_soundtrack () {
 		wget --no-check-certificate "${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_AUDIO_DIR}"/${SOUNDTRACK_ZIP} || exit 57
 		echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
 	else
-		echo -e "no soundtrack for ${GAME} available."
+		echo -e "no soundtrack for ${GAMENAME} available."
 	fi
 
 }
@@ -496,7 +497,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		"" | --help )
-			echo -e "patchimage 4.95 (2014-05-15)
+			echo -e "patchimage 4.96 (2014-05-16)
 
 	(c) 2013-2014 Christopher Roy Bratusek <nano@jpberlin.de>
 	patchimage creates wbfs images from riivolution patches.

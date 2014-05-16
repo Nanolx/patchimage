@@ -1,3 +1,8 @@
+v4.96:
+- wiimmfi/mkwiimm/kirbywii: minor improvements and fixups
+- support RVLution Wii (a NewSMB Mod)
+- update README.GAMEIDS
+
 v4.95:
 - fixed storing NewSMB mods into ${PATCHIMAGE_GAME_DIR}
 - added support for exchanging first player's character
