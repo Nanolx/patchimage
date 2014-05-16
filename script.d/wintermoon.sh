@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://www.dropbox.com/s/3wyc49450iiz2ok/WinterMoon.rar"
+DOWNLOAD_LINK="https://docs.google.com/uc?id=0B0P-eSDZCIexTXdHZm5Xbk9HbEU&export=download"
 RIIVOLUTION_ZIP="WinterMoon.rar"
 RIIVOLUTION_DIR="WinterMoon"
 GAMENAME="SMMA+: Winter Moon"

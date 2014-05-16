@@ -40,6 +40,8 @@ setup_tools () {
 		SZS=${PATCHIMAGE_TOOLS_DIR}/../override/linux${SUFFIX}/wszst
 	fi
 
+	GDOWN=${PATCHIMAGE_TOOLS_DIR}/gdown.pl
+
 }
 
 ask_game () {
@@ -333,7 +335,16 @@ check_riivolution_patch () {
 			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" >/dev/null || exit 63
 		elif [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
 			x=4
-			if [[ ${DOWNLOAD_LINK} ]]; then
+			if [[ ${DOWNLOAD_LINK} == *docs.google* ]]; then
+				if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
+					x=5
+					echo "*** >> downloading"
+					${GDOWN} "${DOWNLOAD_LINK}" "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
+					mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
+					echo "*** >> unpacking"
+					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" >/dev/null || exit 63
+				fi
+			elif [[ ${DOWNLOAD_LINK} ]]; then
 				if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
 					x=5
 					echo "*** >> downloading"
@@ -360,7 +371,7 @@ download_covers () {
 	for path in cover cover3D coverfull disc disccustom; do
 		wget -O ${PATCHIMAGE_COVER_DIR}/${1}_${path}.png \
 			http://art.gametdb.com/wii/${path}/EN/${1}.png &>/dev/null \
-			|| ( echo "Cover (${path}) does not exists for gameid ${1}." && \
+			|| ( echo "Cover (${path}) does not exist for gameid ${1}." && \
 			rm ${PATCHIMAGE_COVER_DIR}/${1}_${path}.png )
 	done
 

@@ -2,6 +2,8 @@ v4.96:
 - wiimmfi/mkwiimm/kirbywii: minor improvements and fixups
 - support RVLution Wii (a NewSMB Mod)
 - update README.GAMEIDS
+- update WinterMoon link to v1.2.3
+- added gdown.pl (google-drive downloader) by circulosmeos
 
 v4.95:
 - fixed storing NewSMB mods into ${PATCHIMAGE_GAME_DIR}
