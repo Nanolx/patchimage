@@ -48,15 +48,12 @@ patch_wiimm () {
 	fi
 
 	cp -v ${GAMEDIR}/${ID} . 2>/dev/null
-	${WIT} cp ${ID} --DEST wiimmfi-images/ --update --psel=data --wiimmfi >/dev/null
-	mv -v ./wiimmfi-images/${ID} "${PATCHIMAGE_GAME_DIR}"/
+	${WIT} cp -o ${ID} --DEST "${PATCHIMAGE_GAME_DIR}"/${ID} --update --psel=data --wiimmfi >/dev/null
 	rm -f ${ID}
 
 	if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
 		echo -e "\n*** Z) download_covers"
 		download_covers ${ID/.*}
 	fi
-
-	rmdir wiimmfi-images/
 
 }

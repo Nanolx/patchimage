@@ -89,7 +89,7 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 		echo "patching >${DIST}< to use custom server..."
 		${WIT} cp ${PWD}/RMC${REG}${ID}.wbfs --DEST \
 			${PATCHIMAGE_GAME_DIR}/RMC${REG}${ID}.wbfs \
-			--update --psel=data --wiimmfi >/dev/null
+			--update --psel=data --wiimmfi -q -o
 
 		echo "cleaning up workdir..."
 		cd ..

@@ -168,18 +168,14 @@ case ${GAME_TYPE} in
 			TMD_OPTS="--tt-id=K"
 		fi
 
-		echo "*** 10) rebuild game"
-		${WIT} cp -q -B ${WORKDIR} ${GAMEID}.wbfs --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}" || exit 51
-
-		if [[ -d ${PATCHIMAGE_GAME_DIR} && ${PATCHIMAGE_GAME_DIR} != ${PWD} ]]; then
-			echo "*** 11) store game"
-			mv ${GAMEID}.wbfs "${PATCHIMAGE_GAME_DIR}"/
-		fi
+		echo "*** 10) rebuild and store game"
+		${WIT} cp -o -q -B ${WORKDIR} -DEST "${PATCHIMAGE_GAME_DIR}"/${GAMEID}.wbfs \
+			--disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}" || exit 51
 
 		echo "*** 12) remove workdir"
 		rm -rf ${WORKDIR}
 
-		echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_WBFS_DIR}/${GAMEID}.wbfs\n"
+		echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_GAME_DIR}/${GAMEID}.wbfs\n"
 
 		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
 			echo -e "\n*** Z) download_covers"

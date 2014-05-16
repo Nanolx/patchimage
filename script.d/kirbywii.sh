@@ -17,6 +17,34 @@ Supported Versions:	EUR, JAP, USA
 
 PATH_HERO="files/g3d/step/chara/hero/"
 
+exchange_kirby () {
+
+	cp workdir/${PATH_HERO}/kirby/base/${1}.brres.cmp{,_tmp}
+	cp workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp \
+		workdir/${PATH_HERO}/kirby/base/${1}.brres.cmp
+	mv workdir/${PATH_HERO}/kirby/base/${1}.brres.cmp_tmp \
+		workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp
+
+}
+
+exchange_hero () {
+
+	cp workdir/${PATH_HERO}/${1}/base/Default.brres.cmp \
+		workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp_temp
+	cp workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp \
+		workdir/${PATH_HERO}/${1}/base/Default.brres.cmp
+	mv workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp{_temp,}
+	for brres in workdir/${PATH_HERO}/${1}/normal/*.cmp ; do
+		xfile=${brres##*/}
+		xpath=${brres%/*}
+		cp ${brres} workdir/${PATH_HERO}/kirby/normal/${xfile}_temp
+		cp workdir/${PATH_HERO}/kirby/normal/${xfile} \
+			workdir/${PATH_HERO}/${1}/normal/
+		mv workdir/${PATH_HERO}/kirby/normal/${xfile}{_temp,}
+	done
+
+}
+
 pi_action () {
 
 	check_input_image_kirby
@@ -41,15 +69,15 @@ read ID
 
 	rm -rf workdir
 
-	echo -e "\n*** 3) extracting images"
+	echo -e "\n*** 3) extracting image"
 	${WIT} extract ${IMAGE} --psel=data -d workdir -q || exit 51
 
 	if [[ ! -d "${PATCHIMAGE_RIIVOLUTION_DIR}"/hero/ ]]; then
-		echo -e "\n*** 4) this is the first run, so backing up all characters
+		echo "*** 4) this is the first run, so backing up all characters
 (in ${PATCHIMAGE_RIIVOLUTION_DIR}) for future customizations"
 		cp -r workdir/${PATH_HERO}/ "${PATCHIMAGE_RIIVOLUTION_DIR}"
 	else
-		echo -e "\n*** 4) restoring original characters"
+		echo "*** 4) restoring original characters"
 		cp -r "${PATCHIMAGE_RIIVOLUTION_DIR}"/hero/* workdir/${PATH_HERO}/
 	fi
 
@@ -63,47 +91,17 @@ read ID
 
 	[[ ${ID} != 7 ]] && echo "*** 5) exchanging characters"
 	case ${ID} in
-		1)	cp workdir/${PATH_HERO}/kirby/base/Blue.brres.cmp{,_tmp}
-			cp workdir/${PATH_HERO}/kirby/base/{Pink,Blue}.brres.cmp
-			mv workdir/${PATH_HERO}/kirby/base/{Blue.brres.cmp_tmp,Pink.brres.cmp}
-		;;
-
-		2)	cp workdir/${PATH_HERO}/kirby/base/Yellow.brres.cmp{,_tmp}
-			cp workdir/${PATH_HERO}/kirby/base/{Pink,Yellow}.brres.cmp
-			mv workdir/${PATH_HERO}/kirby/base/{Yellow.brres.cmp_tmp,Pink.brres.cmp}
-		;;
-
-		3)	cp workdir/${PATH_HERO}/kirby/base/Green.brres.cmp{,_tmp}
-			cp workdir/${PATH_HERO}/kirby/base/{Pink,Green}.brres.cmp
-			mv workdir/${PATH_HERO}/kirby/base/{Green.brres.cmp_tmp,Pink.brres.cmp}
-		;;
-
-		4)	cp workdir/${PATH_HERO}/dedede/base/Default.brres.cmp \
-				workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp
-			cp workdir/${PATH_HERO}/dedede/normal/*.cmp \
-				workdir/${PATH_HERO}/kirby/normal/
-		;;
-
-		5)	cp workdir/${PATH_HERO}/meta/base/Default.brres.cmp \
-				workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp
-			cp workdir/${PATH_HERO}/meta/normal/*.cmp \
-				workdir/${PATH_HERO}/kirby/normal/
-		;;
-
-		6)	cp workdir/${PATH_HERO}/de/base/Default.brres.cmp \
-				workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp
-			cp workdir/${PATH_HERO}/dee/normal/*.cmp \
-				workdir/${PATH_HERO}/kirby/normal/
-		;;
+		1)	exchange_kirby Blue	;;
+		2)	exchange_kirby Yellow	;;
+		3)	exchange_kirby Green	;;
+		4)	exchange_hero dedede	;;
+		5)	exchange_hero meta	;;
+		6)	exchange_hero dee	;;
 	esac
 
-	echo "*** 6) rebuilding the game"
-	${WIT} cp -q -B workdir SUK${REG}01.wbfs || exit 51
-
-	if [[ -d ${PATCHIMAGE_GAME_DIR} && ${PATCHIMAGE_GAME_DIR} != ${PWD} ]]; then
-		echo "*** 7) storing game in ${PATCHIMAGE_GAME_DIR}"
-		mv SUK${REG}01.wbfs "${PATCHIMAGE_GAME_DIR}"/
-	fi
+	echo "*** 6) rebuilding the game "
+	echo "       (storing game in ${PATCHIMAGE_GAME_DIR}/SUK${REG}01.wbfs)"
+	${WIT} cp -o -q -B workdir ${PATCHIMAGE_GAME_DIR}/SUK${REG}01.wbfs || exit 51
 
 	rm -rf workdir
 
