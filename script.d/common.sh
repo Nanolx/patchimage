@@ -34,6 +34,12 @@ setup_tools () {
 		UNP=${PATCHIMAGE_TOOLS_DIR}/unp
 	fi
 
+	if [[ $(which wszst) ]]; then
+		SZS=$(which wszst)
+	else
+		SZS=${PATCHIMAGE_TOOLS_DIR}/../override/linux${SUFFIX}/wszst
+	fi
+
 }
 
 ask_game () {
@@ -496,7 +502,7 @@ while [[ $xcount -lt $pcount ]]; do
 			PATCHIMAGE_BANNER_DOWNLOAD=TRUE
 		;;
 
-		"" | --help )
+		--help | -h )
 			echo -e "patchimage 4.96 (2014-05-16)
 
 	(c) 2013-2014 Christopher Roy Bratusek <nano@jpberlin.de>

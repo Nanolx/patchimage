@@ -9,7 +9,7 @@ specify path to the original ISO/ROM
 specify path to Riivolution/Patch files
 
 --version=EURv1,EURv2,USAv1,USAv2,JPNv1
-specify your game version (for Wii games, if auto-detection fails)
+specify your game version (for NSMB, if auto-detection fails)
 
 --customdid=SMNP02
 specify a custom ID to use for the game
@@ -21,13 +21,19 @@ let modified game share savegame with original game
 download riivolution/patchfiles
 
 --soundtrack
-download soundtrack (if available) and exit
+download soundtrack (if available)
+
+--only-soundtrack
+only download soundtrack (if available) and exit
+
+--covers
+download covers (if available)
+
+--only-covers=SMNP02
+only download covers (if available) and exit
 
 --banner=<banner>
 specify a custom banner to use
 
 --download-banner
 download a custom banner (if available)
-
---clean
-cleanup working directory from anything (also riivolution patches)s
