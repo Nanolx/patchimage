@@ -12,6 +12,10 @@ script uses files as "unzip" creates them. No need to modify whatever.
 own the original, you can't blame me. patchimage is 100% legal, as it
 does not contain any propritary contents, nor is able to grab them.
 
+Starting with versions 4.90 and up, patchimage support Mario Kart Wiimm
+and Wimmfi (custom server for Mario Kart Wii and other games after the
+official server's shutdown).
+
 More information:
 	* supported games: 		see file README.GAMEIDS
 	* supported commandline flags:	see file README.CMD_OPTS

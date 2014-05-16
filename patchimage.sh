@@ -2,7 +2,7 @@
 #
 # create wbfs image from riivolution patch
 #
-# Christopher Roy Bratusek <nano@tuxfamily.org>
+# Christopher Roy Bratusek <nano@jpberlin.de>
 #
 # License: GPL v3
 
