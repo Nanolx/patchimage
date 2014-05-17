@@ -39,83 +39,87 @@ fi
 
 case ${GAME} in
 
-	a | A | NewerSMB | NewerSMBW )
+	NSMB1 | NewerSMB | NewerSMBW )
 		source ${PATCHIMAGE_SCRIPT_DIR}/newersmb.sh
 	;;
 
-	b | B | NewerSummerSun )
+	NSMB2 | NewerSummerSun )
 		source ${PATCHIMAGE_SCRIPT_DIR}/newersummersun.sh
 	;;
 
-	c | C | ASMBW | AnotherSMBW )
+	NSMB3 | ASMBW | AnotherSMBW )
 		source ${PATCHIMAGE_SCRIPT_DIR}/anothersmb.sh
 	;;
 
-	d | D | HolidaySpecial | "Newer: Holiday Special" )
+	NSMB4 | HolidaySpecial | "Newer: Holiday Special" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/newerholiday.sh
 	;;
 
-	e | E | Cannon | "Cannon SMBW" )
+	NSMB5 | Cannon | "Cannon SMBW" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/cannon.sh
 	;;
 
-	f | F | ESBW | "Epic Super Bowser World" )
+	NSMB6 | ESBW | "Epic Super Bowser World" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/epicbowserworld.sh
 	;;
 
-	g | G | Koopa | "Koopa Country" )
+	NSMB7 | Koopa | "Koopa Country" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/koopacountry.sh
 	;;
 
-	h | H | NSMBW4 | "New Super Mario Bros. 4" )
+	NSMB8 | "New Super Mario Bros. 4" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw4.sh
 	;;
 
-	i | I | Retro | "Retro Remix" )
+	NSMB9 | Retro | "Retro Remix" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/retroremix.sh
 	;;
 
-	j | J | WinterMoon | "Super Mario: Mushroom Adventure PLUS - Winter Moon" )
+	NSMB10 | WinterMoon | "Super Mario: Mushroom Adventure PLUS - Winter Moon" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/wintermoon.sh
 	;;
 
-	k | K | NSMBW3 | "NSMBW3: The Final Levels" )
+	NSMB11 | NSMBW3 | "NSMBW3: The Final Levels" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw3.sh
 	;;
 
-	l | L | SMV | "Super Mario Vacation" )
+	NSMB12 | SMV | "Super Mario Vacation" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/summervacation.sh
 	;;
 
-	m | M | ASLM | "Awesomer Super Luigi Mini" )
+	NSMB13 | ASLM | "Awesomer Super Luigi Mini" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/awesomersuperluigi.sh
 	;;
 
-	n | N | Wiimmfi )
-		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
-	;;
-
-	o | O | Wiimmpatch )
-		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi_generic.sh
-	;;
-
-	p | P | Mkwiimm )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.sh
-	;;
-
-	r | R | Sykland )
+	NSMB14 | Sykland )
 		source ${PATCHIMAGE_SCRIPT_DIR}/skyland.sh
 	;;
 
-	s | S | Kirby )
-		source ${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh
-	;;
-
-	t | T | RVLution )
+	NSMB15 | RVLution )
 		source ${PATCHIMAGE_SCRIPT_DIR}/rvlution.sh
 	;;
 
-	1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
+	MKW1 | Wiimmfi )
+		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
+	;;
+
+	MKW2 | Wiimmpatch )
+		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi_generic.sh
+	;;
+
+	MKW3 | Mkwiimm )
+		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.sh
+	;;
+
+	MKW4 | MkwiimmItems )
+		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_items.sh
+	;;
+
+	KAW1 | Kirby )
+		source ${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh
+	;;
+
+	ZEL1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;
 

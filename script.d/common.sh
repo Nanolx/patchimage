@@ -48,35 +48,38 @@ ask_game () {
 
 echo -e \
 "************************************************
-patchimage.sh
+patchimage v4.97
 
-Enter Letter for the Game you want to create:
-A	NewerSMB
-B	Newer Summer Sun
-C	AnotherSMB
-D	Newer: Holiday Special
-E	Cannon Super Mario Bros.
-F	Epic Super Bowser World
-G	Koopa Country
-H	New Super Mario Bros. 4
-I	New Super Mario Bros. Wii Retro Remix
-J	Super Mario: Mushroom Adventure PLUS - Winter Moon
-K	NSMBW3: The Final Levels
-L	Super Mario Vacation
-M	Awesomer Super Luigi Mini
+Enter ID for the Game you want to create:
 
-<<<>>>
-N	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
-O	Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
-P	Mario Kart Wiimm. Custom Mario Kart Distribution
-Q	*** comming soon ***
-<<<>>>
+<<<<<< New Super Mario Bros. Wii >>>>>>
+NSMB1	NewerSMB
+NSMB2	Newer Summer Sun
+NSMB3	AnotherSMB
+NSMB4	Newer: Holiday Special
+NSMB5	Cannon Super Mario Bros.
+NSMB6	Epic Super Bowser World
+NSMB7	Koopa Country
+NSMB8	New Super Mario Bros. 4
+NSMB9	New Super Mario Bros. Wii Retro Remix
+NSMB10	Super Mario: Mushroom Adventure PLUS - Winter Moon
+NSMB11	NSMBW3: The Final Levels
+NSMB12	Super Mario Vacation
+NSMB13	Awesomer Super Luigi Mini
+NSMB14	Super Mario Skyland
+NSMB15	RVLution Wii (NewSMB Mod)
 
-R	Super Mario Skyland
-S	Kirby's Adventure Wii (change first player character)
-T	RVLution Wii (NewSMB Mod)
+<<<<<< Mario Kart Wii >>>>>>
+MKW1	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
+MKW2	Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
+MKW3	Mario Kart Wiimm. Custom Mario Kart Distribution
+MKW4	Custom Items. Replace items in the game
 
-1	The Legend of Zelda: Parallel Worlds
+<<<<<< Kirby's Adventure Wii >>>>>>
+KAW1	Change first player's character
+
+<<<<<< ROMS >>>>>>
+ZEL1	The Legend of Zelda: Parallel Worlds
 "
 
 read GAME
@@ -514,7 +517,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--help | -h )
-			echo -e "patchimage 4.96 (2014-05-16)
+			echo -e "patchimage 4.97 (2014-05-17)
 
 	(c) 2013-2014 Christopher Roy Bratusek <nano@jpberlin.de>
 	patchimage creates wbfs images from riivolution patches.
