@@ -108,19 +108,19 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 			echo "*** 6) creating >${DIST}<, stand by"
 			./create-image.sh -a --dest=${PWD}/RMC${REG}${ID}.wbfs >/dev/null
 		else
-			echo "*** 7) creating >${DIST}<"
+			echo "*** 6) creating >${DIST}<"
 			./create-image.sh --dest=${PWD}/RMC${REG}${ID}.wbfs
 		fi
 
-		echo "*** 8) patching >${DIST}< to use custom server"
+		echo "*** 7) patching >${DIST}< to use custom server"
 		wiimmfi ${PWD}/RMC${REG}${ID}.wbfs
 
-		echo "*** 10) cleaning up workdir"
+		echo "*** 8) cleaning up workdir"
 		cd ${XD}
 		rm -rf ${FILENAME/.7z}
 
 		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
-			echo -e "\n*** Z) download_covers"
+			echo -e "*** Z) download_covers\n"
 			download_covers RMC${REG}${ID}
 		fi
 
