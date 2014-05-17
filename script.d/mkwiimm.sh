@@ -82,6 +82,8 @@ build_mkwiimm () {
 			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null
 		fi
 
+		XD=${PWD}
+
 		cd ${FILENAME/.7z}
 		ln -s ${IMAGE} .
 
@@ -114,7 +116,7 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 		wiimmfi ${PWD}/RMC${REG}${ID}.wbfs
 
 		echo "*** 10) cleaning up workdir"
-		cd ..
+		cd ${XD}
 		rm -rf ${FILENAME/.7z}
 
 		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
