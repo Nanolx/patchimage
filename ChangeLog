@@ -1,3 +1,10 @@
+v4.98:
+- mario kart wiimm: when building mario kart wiimm from scratch
+  use the wiimmfi mario kart patcher, not wiimmfi generic. Also
+  some string changes and more detailed info on current step
+- supply wit 2.29a and szs 1.35a
+- always use supplied tools (don't fallback to system ones)
+
 v4.97:
 - changed IDs in the game selection menu (old A..Z for Wii, 1..9
   for ROMs / new <ID>1..<ID>..99 ; example: NSMB1, NSMB2, NSMB3)

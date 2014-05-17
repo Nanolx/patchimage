@@ -2,6 +2,7 @@
 
 GAME_TYPE="MKWIIMM"
 GAME_NAME="Mario Kart Wiimm"
+DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/mkw-wiimmfi-patcher.7z"
 
 show_notes () {
 
@@ -36,6 +37,26 @@ type in ALL or an ID"
 
 }
 
+wiimmfi () {
+
+	mkdir -p "${HOME}/.patchimage/tools/"
+	cd ${HOME}/.patchimage/tools
+	rm -rf wiimmfi-patcher/ *.7z*
+	wget "${DOWNLOAD_LINK}" >/dev/null
+	${UNP} mkw-wiimmfi-patcher.7z >/dev/null
+	mv mkw-wiimmfi-patcher*/ wiimmfi-patcher
+	chmod +x wiimmfi-patcher/*.sh
+	rm *.7z
+
+	ln -s "${1}" .
+	./create-image.sh >/dev/null
+	echo "*** 9) storing game in ${PATCHIMAGE_GAME_DIR}/${1##*/}"
+	mv -v ./wiimmfi-images/${1##*/} "${PATCHIMAGE_GAME_DIR}"/
+
+	rm -rf ${HOME}/.patchimage/tools/wiimfi-patcher/
+
+}
+
 build_mkwiimm () {
 
 		DIST=$(gawk -F \: "/^${1}/"'{print $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
@@ -50,11 +71,14 @@ build_mkwiimm () {
 		rm -rf ${FILENAME/.7z}
 
 		if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ]]; then
+			echo "*** 5) extracting mkwiimm files"
 			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null
 		elif [[ -f ${PWD}/${FILENAME} ]]; then
+			echo "*** 5) extracting mkwiimm files"
 			${UNP} ${PWD}/${FILENAME} >/dev/null
 		else
-			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ${DOWNLOAD}
+			echo "*** 5) downloading extracting mkwiimm files"
+			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ${DOWNLOAD} >/dev/null
 			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null
 		fi
 
@@ -79,19 +103,17 @@ ISOMODE=wbfs
 SPLITISO=
 PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 
-			echo "creating >${DIST}<, stand by..."
+			echo "*** 6) creating >${DIST}<, stand by"
 			./create-image.sh -a --dest=${PWD}/RMC${REG}${ID}.wbfs >/dev/null
 		else
-			echo "creating >${DIST}<"
+			echo "*** 7) creating >${DIST}<"
 			./create-image.sh --dest=${PWD}/RMC${REG}${ID}.wbfs
 		fi
 
-		echo "patching >${DIST}< to use custom server..."
-		${WIT} cp ${PWD}/RMC${REG}${ID}.wbfs --DEST \
-			${PATCHIMAGE_GAME_DIR}/RMC${REG}${ID}.wbfs \
-			--update --psel=data --wiimmfi -q -o
+		echo "*** 8) patching >${DIST}< to use custom server"
+		wiimmfi ${PWD}/RMC${REG}${ID}.wbfs
 
-		echo "cleaning up workdir..."
+		echo "*** 10) cleaning up workdir"
 		cd ..
 		rm -rf ${FILENAME/.7z}
 
