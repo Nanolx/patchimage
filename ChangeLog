@@ -1,3 +1,11 @@
+v4.97:
+- changed IDs in the game selection menu (old A..Z for Wii, 1..9
+  for ROMs / new <ID>1..<ID>..99 ; example: NSMB1, NSMB2, NSMB3)
+- mkwiimm_items: support for exchanging items in Mario Kart Wii
+  (your item choices are saved and can be re-used, so if you want
+  to modifiy more than one Mario Kart you only have to choose the
+  items once for all mods)
+
 v4.96:
 - wiimmfi/mkwiimm/kirbywii: minor improvements and fixups
 - support RVLution Wii (a NewSMB Mod)

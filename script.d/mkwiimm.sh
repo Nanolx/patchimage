@@ -20,7 +20,7 @@ Supported Versions:	EUR, JAP, USA
 
 check_input_image_special () {
 
-	check_input_image_kirby
+	check_input_image_mkwiimm
 
 }
 
