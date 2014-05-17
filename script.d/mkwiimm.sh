@@ -42,7 +42,7 @@ wiimmfi () {
 	mkdir -p "${HOME}/.patchimage/tools/"
 	cd ${HOME}/.patchimage/tools
 	rm -rf wiimmfi-patcher/ *.7z*
-	wget "${DOWNLOAD_LINK}" >/dev/null
+	wget "${DOWNLOAD_LINK}" &>/dev/null
 	${UNP} mkw-wiimmfi-patcher.7z >/dev/null
 	mv mkw-wiimmfi-patcher*/ wiimmfi-patcher
 	chmod +x wiimmfi-patcher/*.sh
@@ -51,7 +51,7 @@ wiimmfi () {
 	ln -s "${1}" .
 	./create-image.sh >/dev/null
 	echo "*** 9) storing game in ${PATCHIMAGE_GAME_DIR}/${1##*/}"
-	mv -v ./wiimmfi-images/${1##*/} "${PATCHIMAGE_GAME_DIR}"/
+	mv ./wiimmfi-images/${1##*/} "${PATCHIMAGE_GAME_DIR}"/
 
 	rm -rf ${HOME}/.patchimage/tools/*
 
