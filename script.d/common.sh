@@ -8,38 +8,11 @@ setup_tools () {
 		SUFFIX=32
 	fi
 
-	#if [[ $(which wit) ]]; then
-	#	WIT=$(which wit)
-	#else
-	#	WIT=${PATCHIMAGE_TOOLS_DIR}/wit.${SUFFIX}
-	#fi
-
-	WIT=${PATCHIMAGE_TOOLS_DIR}/wit.next
-
-	if [[ $(which applyppf3) ]]; then
-		PPF=$(which applyppf3)
-	else
-		PPF=${PATCHIMAGE_TOOLS_DIR}/applyppf3.${SUFFIX}
-	fi
-
-	if [[ $(which uips) ]]; then
-		IPS=$(which uips)
-	else
-		IPS=${PATCHIMAGE_TOOLS_DIR}/uips.${SUFFIX}
-	fi
-
-	if [[ $(which unp) ]]; then
-		UNP=$(which unp)
-	else
-		UNP=${PATCHIMAGE_TOOLS_DIR}/unp
-	fi
-
-	if [[ $(which wszst) ]]; then
-		SZS=$(which wszst)
-	else
-		SZS=${PATCHIMAGE_TOOLS_DIR}/../override/linux${SUFFIX}/wszst
-	fi
-
+	WIT=${PATCHIMAGE_TOOLS_DIR}/wit.${SUFFIX}
+	PPF=${PATCHIMAGE_TOOLS_DIR}/applyppf3.${SUFFIX}
+	IPS=${PATCHIMAGE_TOOLS_DIR}/uips.${SUFFIX}
+	UNP=${PATCHIMAGE_TOOLS_DIR}/unp
+	SZS=${PATCHIMAGE_TOOLS_DIR}/wszst.${SUFFIX}
 	GDOWN=${PATCHIMAGE_TOOLS_DIR}/gdown.pl
 
 }
@@ -517,7 +490,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--help | -h )
-			echo -e "patchimage 4.97 (2014-05-17)
+			echo -e "patchimage 4.98 (2014-05-17)
 
 	(c) 2013-2014 Christopher Roy Bratusek <nano@jpberlin.de>
 	patchimage creates wbfs images from riivolution patches.
