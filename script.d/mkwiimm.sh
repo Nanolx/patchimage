@@ -46,14 +46,14 @@ wiimmfi () {
 	${UNP} mkw-wiimmfi-patcher.7z >/dev/null
 	mv mkw-wiimmfi-patcher*/ wiimmfi-patcher
 	chmod +x wiimmfi-patcher/*.sh
-	rm *.7z
+	cd wiimmfi-patcher/
 
 	ln -s "${1}" .
 	./create-image.sh >/dev/null
 	echo "*** 9) storing game in ${PATCHIMAGE_GAME_DIR}/${1##*/}"
 	mv -v ./wiimmfi-images/${1##*/} "${PATCHIMAGE_GAME_DIR}"/
 
-	rm -rf ${HOME}/.patchimage/tools/wiimfi-patcher/
+	rm -rf ${HOME}/.patchimage/tools/*
 
 }
 
