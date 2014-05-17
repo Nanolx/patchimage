@@ -50,7 +50,7 @@ wiimmfi () {
 
 	ln -s "${1}" .
 	./create-image.sh >/dev/null
-	echo "*** 9) storing game in ${PATCHIMAGE_GAME_DIR}/${1##*/}"
+	echo "*** 8) storing game in ${PATCHIMAGE_GAME_DIR}/${1##*/}"
 	mv ./wiimmfi-images/${1##*/} "${PATCHIMAGE_GAME_DIR}"/
 
 	rm -rf ${HOME}/.patchimage/tools/*
@@ -115,7 +115,7 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 		echo "*** 7) patching >${DIST}< to use custom server"
 		wiimmfi ${PWD}/RMC${REG}${ID}.wbfs
 
-		echo "*** 8) cleaning up workdir"
+		echo "*** 9) cleaning up workdir"
 		cd ${XD}
 		rm -rf ${FILENAME/.7z}
 
@@ -129,7 +129,7 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 patch_wiimm () {
 
 	if [[ ${ID} == ALL ]]; then
-		for ID in {06..24}; do
+		for ID in {06..25}; do
 			build_mkwiimm ${ID}
 		done
 	else

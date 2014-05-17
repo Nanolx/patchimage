@@ -1,3 +1,7 @@
+v4.99:
+- mario kart wiimm: when choosing all RMCP25 (Fun 2014-04) was
+  not build (RMCP06 - RMCP24 were built "only")
+
 v4.98:
 - mario kart wiimm: when building mario kart wiimm from scratch
   use the wiimmfi mario kart patcher, not wiimmfi generic. Also
