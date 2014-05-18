@@ -47,6 +47,7 @@ MKW1	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
 MKW2	Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
 MKW3	Mario Kart Wiimm. Custom Mario Kart Distribution
 MKW4	Custom Items. Replace items in the game
+MKW5	Custom Font. Replace font in the game
 
 <<<<<< Kirby's Adventure Wii >>>>>>
 KAW1	Change first player's character
