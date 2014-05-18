@@ -129,11 +129,11 @@ build_mkwiimm () {
 	rm -rf workdir/${CSZD}
 	${SZS} extract workdir/${CSZS} -q
 	for item in ${choosenitems[@]}; do
-		slot=${image/:*}
-		newi=${image/*:}
+		slot=${item/:*}
+		newi=${item/*:}
 		if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${newi} ]]; then
 			cp ${PATCHIMAGE_RIIVOLUTION_DIR}/${newi} \
-				${CSZD}/${slot}
+				workdir/${CSZD}/${slot}
 		fi
 	done
 	${SZS} create -o workdir/${CSZD} -q

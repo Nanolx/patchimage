@@ -1,3 +1,6 @@
+v5.0.1:
+- fix bug in mario kart wiimm items (did not properly work)
+
 v5.0:
 - mario kart wiimm: when choosing all RMCP25 (Fun 2014-04) was
   not build (RMCP06 - RMCP24 were built "only")

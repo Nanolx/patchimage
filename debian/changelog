@@ -1,4 +1,4 @@
-patchimage (5.0-1nano) unstable; urgency=low
+patchimage (5.0.1-1nano) unstable; urgency=low
 
   * new upstream stable release
 
@@ -13,13 +13,6 @@ patchimage (4.0-1nano) unstable; urgency=low
 patchimage (3.1-1nano) unstable; urgency=low
 
   * new upstream stable release
-  * Upstream changes:
-	- bugfix: for NSMBW3 on US games the language files weren't updated
-	- bugfix: for Super Mario: Mushroom Adventure PLUS - Winter Moon on US
-		games the language files weren't updated
-	- bugfix: for Super Mario: Mushroom Adventure PLUS - Winter Moon on non-US
-		games the supplied OpeningTitle does not work, so don' use it
-	- support for Super Mario Vacation
 
  -- Christopher Roy Bratusek <nano@tuxfamily.org>  Thu, 26 Sep 2013 20:01:27 +0200
 
