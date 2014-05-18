@@ -1,7 +1,7 @@
 Source: patchimage
 Section: games
 Priority: extra
-Maintainer: Christopher Roy Bratusek <nano@tuxfamily.org>
+Maintainer: Christopher Roy Bratusek <nano@jpberlin.de
 Build-Depends: debhelper (>= 8), make
 Standards-Version: 3.9.4
 Homepage: http://nanolx.org/nanolx/patchimage
@@ -14,7 +14,11 @@ Description: Wii image patcher
  riivoluton patches into wbfs/iso images of
  legal Wii game dumps.
  .
- Currently there are 13 modifications of
+ Currently there are 15 modifications of
  New Super Mario Bros. Wii supported, aswell
  as one modification of The Legend of Zelda:
  A Link To The Past.
+ .
+ Also all Mario Kart Wii mods by Wiimm, aswell
+ as wiimmfi (custom server after nintendo wfc
+ shutdown) is supported

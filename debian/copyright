@@ -1,10 +1,10 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: patchimage
-Upstream-Contact: Christopher Roy Bratusek <nano@tuxfamily.org>
+Upstream-Contact: Christopher Roy Bratusek <nano@jpberlin.de>
 Source: http://nanolx.org/nanolx/patchimage
 
 Files: *
-Copyright: 2013 Christopher Roy Bratusek <nano@tuxfamily.org>
+Copyright: 2013 Christopher Roy Bratusek <nano@jpberlin.de>
 License: GPL-3
 
 Files: tools/uips*
