@@ -116,7 +116,16 @@ build_mkwiimm () {
 	echo "*** 5) extracting image"
 	${WIT} extract ${IMAGE%/*}/${ID} workdir -q
 
-	echo "*** 6) replacing items"
+	if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/Common.szs_${ID/.*} ]]; then
+		echo "*** 6) this is the first run, so backing up common.szs
+(in ${PATCHIMAGE_RIIVOLUTION_DIR}) for future customizations"
+		cp workdir/${CSZS} "${PATCHIMAGE_RIIVOLUTION_DIR}"/Common.szs_${ID/.*}
+	else
+		echo "*** 6) restoring original common.szs"
+		cp "${PATCHIMAGE_RIIVOLUTION_DIR}"/Common.szs_${ID/.*} workdir/${CSZS}
+	fi
+
+	echo "*** 7) replacing items"
 	rm -rf workdir/${CSZD}
 	${SZS} extract workdir/${CSZS} -q
 	for item in ${choosenitems[@]}; do
@@ -130,7 +139,7 @@ build_mkwiimm () {
 	${SZS} create -o workdir/${CSZD} -q
 	rm -rf workdir/${CSZD}
 
-	echo "*** 7) rebuilding game"
+	echo "*** 8) rebuilding game"
 	echo "       (storing game in ${PATCHIMAGE_GAME_DIR}/${ID})"
 	${WIT} cp -o -q -B workdir ${PATCHIMAGE_GAME_DIR}/${ID} || exit 51
 

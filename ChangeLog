@@ -1,6 +1,8 @@
 v4.99:
 - mario kart wiimm: when choosing all RMCP25 (Fun 2014-04) was
   not build (RMCP06 - RMCP24 were built "only")
+- mario kart wiimm items: backup the original common.szs on first
+  customization of a game
 
 v4.98:
 - mario kart wiimm: when building mario kart wiimm from scratch
