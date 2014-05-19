@@ -1,3 +1,9 @@
+v5.0.2:
+- remove MKWIIMM_GAME_LANG from patchimage.rc (sets the language
+  for the patcher only, so not required at all) Thanks @Leseratte
+  for the hint.
+- fixup debian packaging scripts
+
 v5.0.1:
 - fix bug in mario kart wiimm items (did not properly work)
 

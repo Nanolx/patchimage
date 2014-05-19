@@ -491,7 +491,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--help | -h )
-			echo -e "patchimage 5.0 (2014-05-18)
+			echo -e "patchimage 5.0.2 (2014-05-19)
 
 	(c) 2013-2014 Christopher Roy Bratusek <nano@jpberlin.de>
 	patchimage creates wbfs images from riivolution patches.

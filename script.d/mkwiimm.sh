@@ -99,7 +99,7 @@ build_mkwiimm () {
 		cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
 
 		if [[ ${MKWIIMM_GAME_LANG} && ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} ]]; then
-			echo "LANGUAGE=${MKWIIMM_GAME_LANG}
+			echo "LANGUAGE=de
 MSGLANG=${MKWIIMM_MSG_LANG}
 ISOMODE=wbfs
 SPLITISO=

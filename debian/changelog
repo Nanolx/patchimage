@@ -1,8 +1,8 @@
-patchimage (5.0.1-1nano) unstable; urgency=low
+patchimage (5.0.2-1nano) unstable; urgency=low
 
   * new upstream stable release
 
- -- Christopher Roy Bratusek <nano@tuxfamily.org>  Sun, 18 May 2014 09:03:04 +0200
+ -- Christopher Roy Bratusek <nano@jpberlin.de>  Mon, 19 May 2014 21:40:22 +0200
 
 patchimage (4.0-1nano) unstable; urgency=low
 

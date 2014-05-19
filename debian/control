@@ -1,7 +1,7 @@
 Source: patchimage
 Section: games
 Priority: extra
-Maintainer: Christopher Roy Bratusek <nano@jpberlin.de
+Maintainer: Christopher Roy Bratusek <nano@jpberlin.de>
 Build-Depends: debhelper (>= 8), make
 Standards-Version: 3.9.4
 Homepage: http://nanolx.org/nanolx/patchimage
