@@ -29,7 +29,7 @@ check_input_image_special () {
 
 	if [[ ! -f ${IMAGE%/*}/${ID} ]]; then
 		echo "wrong id from user-input given."
-		exit 1
+		exit 75
 	fi
 
 }
@@ -61,7 +61,7 @@ build_mkwiimm () {
 
 	rm -rf workdir
 	echo "*** 5) extracting image"
-	${WIT} extract ${IMAGE%/*}/${ID} workdir -q
+	${WIT} extract ${IMAGE%/*}/${ID} workdir -q || exit 51
 
 	if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/Font.szs_${ID/.*} ]]; then
 		echo "*** 6) this is the first run, so backing up font.szs

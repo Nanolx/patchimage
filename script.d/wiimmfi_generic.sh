@@ -44,11 +44,13 @@ patch_wiimm () {
 
 	if [[ ! -f ${GAMEDIR}/${ID} ]]; then
 		echo "unvalid game passed from user-input. exit"
-		exit 1
+		exit 75
 	fi
 
 	cp -v ${GAMEDIR}/${ID} . 2>/dev/null
-	${WIT} cp -o ${ID} --DEST "${PATCHIMAGE_GAME_DIR}"/${ID} --update --psel=data --wiimmfi >/dev/null
+	${WIT} cp -o ${ID} --DEST "${PATCHIMAGE_GAME_DIR}"/${ID} \
+		--update --psel=data --wiimmfi >/dev/null || \
+		( echo "wiimmfi-ing the images failed." && exit 69 )
 	rm -f ${ID}
 
 	if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then

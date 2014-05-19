@@ -230,4 +230,5 @@ case ${GAME_TYPE} in
 			echo -e "error: patch (${PATCH}) could not be found"
 		fi
 	;;
+
 esac

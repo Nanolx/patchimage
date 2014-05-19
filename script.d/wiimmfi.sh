@@ -33,8 +33,8 @@ download_wiimm () {
 	mkdir -p "${HOME}/.patchimage/tools/"
 	cd ${HOME}/.patchimage/tools
 	rm -rf wiimmfi-patcher/ *.7z*
-	wget "${DOWNLOAD_LINK}"
-	${UNP} mkw-wiimmfi-patcher.7z >/dev/null
+	wget "${DOWNLOAD_LINK}" || ( echo "something went wrong downloading ${DOWNLOAD_LINK}" && exit 57 )
+	${UNP} mkw-wiimmfi-patcher.7z >/dev/null ( echo "something went wrong unpacking files" && exit 63 )
 	mv mkw-wiimmfi-patcher*/ wiimmfi-patcher
 	chmod +x wiimmfi-patcher/*.sh
 	rm *.7z
@@ -51,17 +51,19 @@ patch_wiimm () {
 			fi
 		done
 
-			./create-image.sh >/dev/null
+			./create-image.sh >/dev/null || \
+				( echo "wiimmfi-ing the images failed." && exit 69 )
 			mv -v ./wiimmfi-images/* "${PATCHIMAGE_GAME_DIR}"/
 
 	else
 		if [[ ! -f ${IMAGE%/*}/${ID} ]]; then
 			echo "unvalid game passed from user-input. exit"
-			exit 1
+			exit 75
 		fi
 
 		ln -s ${IMAGE%/*}/${ID} .
-		./create-image.sh >/dev/null
+		./create-image.sh >/dev/null || \
+			( echo "wiimmfi-ing the image failed." && exit 69 )
 		mv -v ./wiimmfi-images/${ID} "${PATCHIMAGE_GAME_DIR}"/
 	fi
 

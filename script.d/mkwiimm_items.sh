@@ -114,7 +114,7 @@ build_mkwiimm () {
 
 	rm -rf workdir
 	echo "*** 5) extracting image"
-	${WIT} extract ${IMAGE%/*}/${ID} workdir -q
+	${WIT} extract ${IMAGE%/*}/${ID} workdir -q || exit 51
 
 	if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/Common.szs_${ID/.*} ]]; then
 		echo "*** 6) this is the first run, so backing up common.szs
@@ -127,7 +127,8 @@ build_mkwiimm () {
 
 	echo "*** 7) replacing items"
 	rm -rf workdir/${CSZD}
-	${SZS} extract workdir/${CSZS} -q
+	${SZS} extract workdir/${CSZS} -q || \
+		( echo "szs caught an erro extracting common.szs" && exit 51 )
 	for item in ${choosenitems[@]}; do
 		slot=${item/:*}
 		newi=${item/*:}
@@ -136,7 +137,8 @@ build_mkwiimm () {
 				workdir/${CSZD}/${slot}
 		fi
 	done
-	${SZS} create -o workdir/${CSZD} -q
+	${SZS} create -o workdir/${CSZD} -q || \
+		( echo "szs caught an error rebuilding common.szs" && exit 51 )
 	rm -rf workdir/${CSZD}
 
 	echo "*** 8) rebuilding game"

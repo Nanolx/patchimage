@@ -42,14 +42,14 @@ wiimmfi () {
 	mkdir -p "${HOME}/.patchimage/tools/"
 	cd ${HOME}/.patchimage/tools
 	rm -rf wiimmfi-patcher/ *.7z*
-	wget "${DOWNLOAD_LINK}" &>/dev/null
-	${UNP} mkw-wiimmfi-patcher.7z >/dev/null
+	wget "${DOWNLOAD_LINK}" &>/dev/null || ( echo "something went wrong downloading ${DOWNLOAD_LINK}" && exit 57 )
+	${UNP} mkw-wiimmfi-patcher.7z >/dev/null || ( echo "something went wrong extracting files" && exit 63 )
 	mv mkw-wiimmfi-patcher*/ wiimmfi-patcher
 	chmod +x wiimmfi-patcher/*.sh
 	cd wiimmfi-patcher/
 
 	ln -s "${1}" .
-	./create-image.sh >/dev/null
+	./create-image.sh >/dev/null || exit 51
 	echo "*** 8) storing game in ${PATCHIMAGE_GAME_DIR}/${1##*/}"
 	mv ./wiimmfi-images/${1##*/} "${PATCHIMAGE_GAME_DIR}"/
 
@@ -65,21 +65,25 @@ build_mkwiimm () {
 
 		if [[ ${FILENAME} != mkw* ]]; then
 			echo "wrong ID passed from user-input, exiting."
-			exit 1
+			exit 75
 		fi
 
 		rm -rf ${FILENAME/.7z}
 
 		if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ]]; then
 			echo "*** 5) extracting mkwiimm files"
-			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null
+			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null || \
+				( echo "something went wrong extracting files" && exit 63 )
 		elif [[ -f ${PWD}/${FILENAME} ]]; then
 			echo "*** 5) extracting mkwiimm files"
-			${UNP} ${PWD}/${FILENAME} >/dev/null
+			${UNP} ${PWD}/${FILENAME} >/dev/null || \
+				( echo "something went wrong extracting files" && exit 63 )
 		else
 			echo "*** 5) downloading extracting mkwiimm files"
-			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ${DOWNLOAD} >/dev/null
-			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null
+			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ${DOWNLOAD} >/dev/null || \
+				( echo "something went wrong downloading ${DOWNLOAD}" && exit 57 )
+			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null || \
+				( echo "something went wrong extracting files" && exit 63 )
 		fi
 
 		XD=${PWD}
@@ -106,14 +110,14 @@ SPLITISO=
 PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 
 			echo "*** 6) creating >${DIST}<, stand by"
-			./create-image.sh -a --dest=${PWD}/RMC${REG}${ID}.wbfs >/dev/null
+			./create-image.sh -a --dest=${PWD}/RMC${REG}${ID}.wbfs >/dev/null || exit 51
 		else
 			echo "*** 6) creating >${DIST}<"
-			./create-image.sh --dest=${PWD}/RMC${REG}${ID}.wbfs
+			./create-image.sh --dest=${PWD}/RMC${REG}${ID}.wbfs || exit 51
 		fi
 
 		echo "*** 7) patching >${DIST}< to use custom server"
-		wiimmfi ${PWD}/RMC${REG}${ID}.wbfs
+		wiimmfi ${PWD}/RMC${REG}${ID}.wbfs || exit 69
 
 		echo "*** 9) cleaning up workdir"
 		cd ${XD}
