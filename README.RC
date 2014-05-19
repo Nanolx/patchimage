@@ -43,11 +43,6 @@ PATCHIMAGE_SHARE_SAVE=TRUE
 # Mario Kart Wiimmm #
 #####################
 
-# game language for Mario Kart Wiimm
-# de = german
-# en = english
-MKWIIMM_GAME_LANG="de"
-
 # message language for Mario Kart Wiimm
 # de  = german
 # de+ = all languages will be german
