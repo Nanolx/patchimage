@@ -18,3 +18,4 @@ right after the failure will you show the following:
 	63		unp caught an error while unpacking a file
 	69		wiimmfi caught an error patching the image
 	75		user input was not usable/wrong
+	81		NSMBW version not supported by Hack
