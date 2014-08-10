@@ -41,6 +41,7 @@ NSMB12	Super Mario Vacation
 NSMB13	Awesomer Super Luigi Mini
 NSMB14	Super Mario Skyland
 NSMB15	RVLution Wii (NewSMB Mod)
+NSMB16	Midi's Super Mario Wii (Just A Little Adventure)
 
 <<<<<< Mario Kart Wii >>>>>>
 MKW1	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server

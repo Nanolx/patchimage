@@ -99,6 +99,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/rvlution.sh
 	;;
 
+	NSMB16 | Midi )
+		source ${PATCHIMAGE_SCRIPT_DIR}/midissupermariowii.sh
+	;;
+
 	MKW1 | Wiimmfi )
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
 	;;
