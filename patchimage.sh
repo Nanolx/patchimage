@@ -107,6 +107,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/darkumbrasmb.sh
 	;;
 
+	NSMB18 | NewerApocalypse )
+		source ${PATCHIMAGE_SCRIPT_DIR}/newerapocalypse.sh
+	;;
+
 	MKW1 | Wiimmfi )
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
 	;;
