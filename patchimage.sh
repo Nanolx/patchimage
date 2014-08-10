@@ -103,6 +103,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/midissupermariowii.sh
 	;;
 
+	NSMB17 | DarkUmbra )
+		source ${PATCHIMAGE_SCRIPT_DIR}/darkumbrasmb.sh
+	;;
+
 	MKW1 | Wiimmfi )
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
 	;;
