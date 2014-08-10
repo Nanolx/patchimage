@@ -3,6 +3,7 @@ v5.2.0:
   adventure)
 - add support for SMN?DU DarkUmbra SMB Anniversary Edition
 - add support for SMN?ZA Newer Apocalypse
+- add exit code 81 (hack does not support supplied game version)
 
 v5.1.0:
 - remove MKWIIMM_GAME_LANG from patchimage.rc (sets the language

@@ -45,7 +45,7 @@ detect_game_version () {
 place_files () {
 
 
-	cp -r "${RIIVOLUTION_DIR}"/dusmbae/ ${WORKDIR}/files/
+	cp -r "${RIIVOLUTION_DIR}"/dusmbae/files/ ${WORKDIR}/
 
 }
 
