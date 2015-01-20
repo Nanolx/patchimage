@@ -21,7 +21,7 @@ ask_game () {
 
 echo -e \
 "************************************************
-patchimage v5.2.0
+patchimage v5.3.0
 
 Enter ID for the Game you want to create:
 
@@ -44,6 +44,7 @@ NSMB15	RVLution Wii (NewSMB Mod)
 NSMB16	Midi's Super Mario Wii (Just A Little Adventure)
 NSMB17	DarkUmbra SMB Anniversary Edition
 NSMB18	Newer Apocalypse
+NSMB19	Luigi's Super Yoshi Bros.
 
 <<<<<< Mario Kart Wii >>>>>>
 MKW1	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server

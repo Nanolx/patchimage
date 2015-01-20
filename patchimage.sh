@@ -111,6 +111,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/newerapocalypse.sh
 	;;
 
+	NSMB19 | LuigisSuperYoshiBros )
+		source ${PATCHIMAGE_SCRIPT_DIR}/luigissuperyoshibros.sh
+	;;
+
 	MKW1 | Wiimmfi )
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
 	;;
