@@ -103,7 +103,7 @@ build_mkwiimm () {
 		cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
 
 		if [[ ${MKWIIMM_GAME_LANG} && ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} ]]; then
-			echo "LANGUAGE=de
+			echo "LANGUAGE=${MKWIIMM_GAME_LANG}
 MSGLANG=${MKWIIMM_MSG_LANG}
 ISOMODE=wbfs
 SPLITISO=
@@ -116,10 +116,16 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 			./create-image.sh --dest=${PWD}/RMC${REG}${ID}.wbfs || exit 51
 		fi
 
-		echo "*** 7) patching >${DIST}< to use custom server"
-		wiimmfi ${PWD}/RMC${REG}${ID}.wbfs || exit 69
+		if [[ ${ID} -lt 23 ]]; then
 
-		echo "*** 9) cleaning up workdir"
+			echo "*** 7) patching >${DIST}< to use custom server"
+			wiimmfi ${PWD}/RMC${REG}${ID}.wbfs || exit 69
+
+			echo "*** 9) cleaning up workdir"
+		else
+			echo "*** 7) cleaning up workdir"
+		fi
+
 		cd ${XD}
 		rm -rf ${FILENAME/.7z}
 
@@ -133,7 +139,7 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 patch_wiimm () {
 
 	if [[ ${ID} == ALL ]]; then
-		for ID in {06..25}; do
+		for ID in {06..26}; do
 			build_mkwiimm ${ID}
 		done
 	else

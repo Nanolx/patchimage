@@ -1,3 +1,15 @@
+v5.3.0:
+- update wit to 2.30a
+- update szs to 1.36b
+- update link for MKWiimm 2014-01 to v2
+- update link for MKWiimm 2014-02 to v3
+- update link for MKWiimm 2014-04 to v4
+- add support for MKWiimm 2014-11
+- fixed bug that ${MKWIIMM_GAME_LANG} from ${HOME}/.patchimage.rc
+  is not honoured
+- only apply wiimmfi patcher for pre 2014 MKWiimm (starting with
+  2014 the supplied patcher supports wiimmfi out-of-the-box)
+
 v5.2.0:
 - add support for SMN?MI (Midi's Super Mario Wii - Just A Little
   adventure)
