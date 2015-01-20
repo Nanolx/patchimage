@@ -9,6 +9,8 @@ v5.3.0:
   is not honoured
 - only apply wiimmfi patcher for pre 2014 MKWiimm (starting with
   2014 the supplied patcher supports wiimmfi out-of-the-box)
+- add support for SMN?YL: Luigi's Super Yoshi Bros.
+- add support for SMN?FL: Newer: Falling Leaf
 
 v5.2.0:
 - add support for SMN?MI (Midi's Super Mario Wii - Just A Little

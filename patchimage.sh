@@ -115,6 +115,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/luigissuperyoshibros.sh
 	;;
 
+	NSMB20 | NewerFallingLeaf )
+		source ${PATCHIMAGE_SCRIPT_DIR}/newerfallingleaf.sh
+	;;
+
 	MKW1 | Wiimmfi )
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
 	;;
