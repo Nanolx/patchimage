@@ -8,7 +8,7 @@ show_notes () {
 
 echo -e \
 "************************************************
-${GAMENAME}
+${GAME_NAME}
 
 Custom Mario Kart Wii
 
