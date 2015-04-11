@@ -123,6 +123,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/devilmariowinterspecial.sh
 	;;
 
+	NSMB22 | NewSMBWOtherWorld )
+		source ${PATCHIMAGE_SCRIPT_DIR}/newsmbwotherworld.sh
+	;;
+
 	MKW1 | Wiimmfi )
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
 	;;

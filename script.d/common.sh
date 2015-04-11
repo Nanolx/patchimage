@@ -47,6 +47,7 @@ NSMB18	Newer Apocalypse
 NSMB19	Luigi's Super Yoshi Bros.
 NSMB20	Newer: Falling Leaf
 NSMB21	Devil Mario Winter Special
+NSMB22	New Super Mario Bros. Wii - Other World
 
 <<<<<< Mario Kart Wii >>>>>>
 MKW1	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
