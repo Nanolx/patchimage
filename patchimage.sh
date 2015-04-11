@@ -119,6 +119,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/newerfallingleaf.sh
 	;;
 
+	NSMB21 | DevilMarioWinterSpecial )
+		source ${PATCHIMAGE_SCRIPT_DIR}/devilmariowinterspecial.sh
+	;;
+
 	MKW1 | Wiimmfi )
 		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
 	;;
