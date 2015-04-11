@@ -1,7 +1,10 @@
 v5.4.0:
+- fixed major bug creating MKWiimm: image was not saved to proper
+  destination directory (now everything's fine)
 - update wit to version 2.31a
 - update szs to version 1.39a
 - add support for MKWiimm 2015-03
+- add support for creating multiple MKWiimm at once
 - add support for replacing karts in MKWiimm
   The madness begins, feel free to test this out. downloaded
   karts are prefixed mkwiimm_kart_ to avoid naming collision

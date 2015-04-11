@@ -32,7 +32,7 @@ download_wiimm () {
 ALL	Build all distributions."
 	gawk -F \: 'NR>1 {print $1 "\t" $2}' < script.d/mkwiimm.db
 	echo "
-type in ALL or an ID"
+type in ALL or an ID (multiple separated by space)"
 	read ID
 
 }
@@ -59,9 +59,10 @@ wiimmfi () {
 
 build_mkwiimm () {
 
-		DIST=$(gawk -F \: "/^${1}/"'{print $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
-		DOWNLOAD=$(gawk -F \: "/^${1}/"'{print $3}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
-		FILENAME=$(gawk -F \: "/^${1}/"'{split($3, a, "/") ; print a[3]}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
+		MY_ID=${1}
+		DIST=$(gawk -F \: "/^${MY_ID}/"'{print $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
+		DOWNLOAD=$(gawk -F \: "/^${MY_ID}/"'{print $3}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
+		FILENAME=$(gawk -F \: "/^${MY_ID}/"'{split($3, a, "/") ; print a[3]}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
 
 		if [[ ${FILENAME} != mkw* ]]; then
 			echo "wrong ID passed from user-input, exiting."
@@ -100,7 +101,7 @@ build_mkwiimm () {
 		esac
 		chmod +x *.sh
 
-		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" || ${ID} -lt 23 ]]; then
+		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" || ${MY_ID} -lt 23 ]]; then
 			cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
 		fi
 
@@ -111,29 +112,38 @@ ISOMODE=wbfs
 SPLITISO=
 PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 
-			echo "*** 6) creating >${DIST}<, stand by"
-			./create-image.sh -a --dest=${PWD}/RMC${REG}${ID}.wbfs >/dev/null || exit 51
+			echo "*** 6) creating >${DIST}< (can take some time)"
+			./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
 		else
-			echo "*** 6) creating >${DIST}<"
-			./create-image.sh --dest=${PWD}/RMC${REG}${ID}.wbfs || exit 51
+			echo "*** 6) creating >${DIST}< (can take some time)"
+			./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
 		fi
 
-		if [[ ${ID} -lt 23 ]]; then
-
+		if [[ ${MY_ID} -lt 23 ]]; then
 			echo "*** 7) patching >${DIST}< to use custom server"
-			wiimmfi ${PWD}/RMC${REG}${ID}.wbfs || exit 69
-
-			echo "*** 9) cleaning up workdir"
-		else
-			echo "*** 7) cleaning up workdir"
+			wiimmfi ${XD}/RMC${REG}${MY_ID}.wbfs || exit 69
 		fi
 
 		cd ${XD}
+
+		if [[ ${MY_ID} -lt 23 ]]; then
+			echo "*** 8) storing game"
+		else	echo "*** 7) storing game"
+		fi
+		echo "       ${DIST} saved as ${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs"
+		mv RMC${REG}${MY_ID}.wbfs \
+			${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs
+
+		if [[ ${MY_ID} -lt 23 ]]; then
+			echo "*** 9) cleaning up workdir"
+		else
+			echo "*** 8) cleaning up workdir"
+		fi
 		rm -rf ${FILENAME/.7z}
 
 		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
 			echo -e "*** Z) download_covers\n"
-			download_covers RMC${REG}${ID}
+			download_covers RMC${REG}${MY_ID}
 		fi
 
 }
@@ -141,12 +151,12 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 patch_wiimm () {
 
 	if [[ ${ID} == ALL ]]; then
-		for ID in {06..26}; do
+		for ID in {06..27}; do
 			build_mkwiimm ${ID}
 		done
 	else
-
-		build_mkwiimm ${ID}
-
+		for game in ${ID[@]}; do
+			build_mkwiimm ${game}
+		done
 	fi
 }
