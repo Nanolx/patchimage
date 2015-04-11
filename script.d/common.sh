@@ -258,7 +258,7 @@ show_mkwiimm_db () {
 
 ask_input_image_mkwiimm () {
 
-	echo "Choose Mario Kart Wii Image to wiimmfi
+	echo "Choose Mario Kart Wii Image to modify
 
 	ALL		patch all images"
 
