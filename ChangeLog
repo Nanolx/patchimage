@@ -32,9 +32,6 @@ v5.4.0:
   This is useful when the supplied ones don't work with your system's
   libpng (usually this happens on non-recent Debian GNU/Linux).
   .
-  If patching anything older than RMCP23 (pre-wiimmfi versions) the tools
-  will always be overriden (because they are ancient).
-  .
   If creating anything newer than RMCP26 (2015 versions) the tools will
   be never overriden (for now, does not work yet).
 

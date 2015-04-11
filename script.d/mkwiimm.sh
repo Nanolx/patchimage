@@ -99,7 +99,7 @@ build_mkwiimm () {
 		esac
 		chmod +x *.sh
 
-		if [[ (${MKWIIMM_OVERRIDE_SZS} == "TRUE" && ${MY_ID} -lt 27) || ${MY_ID} -lt 23 ]]; then
+		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" && ${MY_ID} -lt 27 ]]; then
 			cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
 		fi
 
