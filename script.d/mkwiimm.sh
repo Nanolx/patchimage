@@ -79,7 +79,7 @@ build_mkwiimm () {
 			${UNP} ${PWD}/${FILENAME} >/dev/null || \
 				( echo "something went wrong extracting files" && exit 63 )
 		else
-			echo "*** 5) downloading extracting mkwiimm files"
+			echo "*** 5) downloading and extracting mkwiimm files"
 			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ${DOWNLOAD} >/dev/null || \
 				( echo "something went wrong downloading ${DOWNLOAD}" && exit 57 )
 			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null || \
