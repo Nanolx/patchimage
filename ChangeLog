@@ -3,7 +3,13 @@ v5.4.0:
 - update szs to version 1.39a
 - add support for MKWiimm 2015-03
 - add support for replacing karts in MKWiimm
-  No vehicles were harmed during the making of this feature
+  The madness begins, feel free to test this out. downloaded
+  karts are prefixed mkwiimm_kart_ to avoid naming collision
+  with fonts and items (3-chars.szs naming-scheme)
+  .
+  No dummys were harmed during the making of this feature
+- downloaded fonts for MKWiimm are now prefixed mkwiimm_font_
+- downloaded items for MKWiimm are now prefixed mkwiimm_item_
 - add support for SMN?41 (Devil Mario Winter Special)
 - add support for SMN?31 (New Super Mario Bros. Wii - Other World)
 - add MKWIIMM_OVERRIDE_SZS variable to patchimage.rc
