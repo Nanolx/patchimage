@@ -93,8 +93,8 @@ download_items () {
 
 	for item in ${choosenitems[@]}; do
 		id=${item/*:}
-		if [[ ! -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${id} ]]; then
-			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${id} \
+		if [[ ! -f ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_item_${id} ]]; then
+			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_item_${id} \
 				${ITEMS_BASE}/${id} &>/dev/null \
 				|| (echo "download of ${id} failed." \
 				&& rm ${PATCHIMAGE_RIIVOLUTION_DIR}/${id})
@@ -132,8 +132,8 @@ build_mkwiimm () {
 	for item in ${choosenitems[@]}; do
 		slot=${item/:*}
 		newi=${item/*:}
-		if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${newi} ]]; then
-			cp ${PATCHIMAGE_RIIVOLUTION_DIR}/${newi} \
+		if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_item_${newi} ]]; then
+			cp ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_item_${newi} \
 				workdir/${CSZD}/${slot}
 		fi
 	done

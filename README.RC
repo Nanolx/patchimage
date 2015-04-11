@@ -54,3 +54,6 @@ MKWIIMM_MSG_LANG="de"
 # 1=ja    (use own save, no sharing)
 # 2=nein  (share save with original game)
 MKWIIMM_OWN_SAVE="1=ja"
+
+# override szs tools
+MKWIIMM_OVERRIDE_SZS="TRUE"

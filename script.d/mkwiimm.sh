@@ -100,7 +100,9 @@ build_mkwiimm () {
 		esac
 		chmod +x *.sh
 
-		cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
+		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" || ${ID} -lt 23 ]]; then
+			cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
+		fi
 
 		if [[ ${MKWIIMM_GAME_LANG} && ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} ]]; then
 			echo "LANGUAGE=${MKWIIMM_GAME_LANG}

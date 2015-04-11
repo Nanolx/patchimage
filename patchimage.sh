@@ -147,6 +147,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_fonts.sh
 	;;
 
+	MKW6 | MkwiimmKarts )
+		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_karts.sh
+	;;
+
 	KAW1 | Kirby )
 		source ${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh
 	;;

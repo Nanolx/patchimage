@@ -46,8 +46,8 @@ orig		Original Mario Kart Wii Font"
 	read FONT
 
 	if [[ ${FONT} != orig ]]; then
-		if [[ ! -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${FONT} ]]; then
-			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${FONT} \
+		if [[ ! -f ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_font_${FONT} ]]; then
+			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_font_${FONT} \
 				${ITEMS_BASE}/${FONT} &>/dev/null \
 				|| (echo "download of ${FONT} failed." \
 				&& rm ${PATCHIMAGE_RIIVOLUTION_DIR}/${FONT} \
@@ -73,7 +73,7 @@ build_mkwiimm () {
 	fi
 
 	echo "*** 7) replacing font"
-	cp "${PATCHIMAGE_RIIVOLUTION_DIR}"/${FONT} workdir/${FSZS}
+	cp "${PATCHIMAGE_RIIVOLUTION_DIR}"/mkwiimm_font_${FONT} workdir/${FSZS}
 
 	echo "*** 8) rebuilding game"
 	echo "       (storing game in ${PATCHIMAGE_GAME_DIR}/${ID})"
