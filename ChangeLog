@@ -10,6 +10,16 @@ v5.4.0:
   karts are prefixed mkwiimm_kart_ to avoid naming collision
   with fonts and items (3-chars.szs naming-scheme)
   .
+  Original files are backed-up in ${PATCHIMAGE_RIIVOLUTION_DIR}/ \
+  ${GAME}_SZS/ - for example /home/chris/Hacks/RMCP27_SZS/ and
+  restored every time when you change your selection on the same
+  game.
+  .
+  Your choices are saved into ${HOME}/.patchimage.choice, if
+  you want to modify another MKWiimm with the same settings,
+  simply enter y when the script asks you whether you want to
+  apply your previous settings, else enter n for new choices.
+  .
   No dummys were harmed during the making of this feature
 - downloaded fonts for MKWiimm are now prefixed mkwiimm_font_
 - downloaded items for MKWiimm are now prefixed mkwiimm_item_
