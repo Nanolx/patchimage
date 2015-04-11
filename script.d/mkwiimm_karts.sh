@@ -78,6 +78,7 @@ download_wiimm () {
 					&& exit 57)
 			fi
 		done
+		ask_slot
 
 		echo ${choosenkarts[@]}
 		echo "choosenkarts=( ${choosenkarts[@]} )" > ${HOME}/.patchimage.choice
