@@ -1,3 +1,8 @@
+v5.4.0:
+- add support for MKWiimm 2015-03
+- add support for SMN?41 (Devil Mario Winter Special)
+- add support for SMN?31 (New Super Mario Bros. Wii - Other World)
+
 v5.3.0:
 - update wit to 2.30a
 - update szs to 1.36b
