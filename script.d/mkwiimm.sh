@@ -8,7 +8,7 @@ show_notes () {
 
 echo -e \
 "************************************************
-${GAMENAME}
+${GAME_NAME}
 
 Custom Mario Kart Wii
 
@@ -87,8 +87,6 @@ build_mkwiimm () {
 				( echo "something went wrong extracting files" && exit 63 )
 		fi
 
-		XD=${PWD}
-
 		cd ${FILENAME/.7z}
 		ln -s ${IMAGE} .
 
@@ -101,7 +99,7 @@ build_mkwiimm () {
 		esac
 		chmod +x *.sh
 
-		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" || ${MY_ID} -lt 23 ]]; then
+		if [[ (${MKWIIMM_OVERRIDE_SZS} == "TRUE" && ${MY_ID} -lt 27) || ${MY_ID} -lt 23 ]]; then
 			cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
 		fi
 
@@ -132,7 +130,7 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 		fi
 		echo "       ${DIST} saved as ${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs"
 		mv RMC${REG}${MY_ID}.wbfs \
-			${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs
+			${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs || exit 51
 
 		if [[ ${MY_ID} -lt 23 ]]; then
 			echo "*** 9) cleaning up workdir"
@@ -150,6 +148,7 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 
 patch_wiimm () {
 
+	XD=${PWD}
 	if [[ ${ID} == ALL ]]; then
 		for ID in {06..27}; do
 			build_mkwiimm ${ID}

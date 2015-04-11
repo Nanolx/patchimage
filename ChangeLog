@@ -26,14 +26,17 @@ v5.4.0:
 - add support for SMN?41 (Devil Mario Winter Special)
 - add support for SMN?31 (New Super Mario Bros. Wii - Other World)
 - add MKWIIMM_OVERRIDE_SZS variable to patchimage.rc
-  if set to TRUE patchimage will override the supplied SZS tools
+  If set to TRUE patchimage will override the supplied SZS tools
   of the MKWiimm patcher with it's own version of the tools.
   .
   This is useful when the supplied ones don't work with your system's
-  libpng (usually this happens on Debian GNU/Linux).
+  libpng (usually this happens on non-recent Debian GNU/Linux).
   .
   If patching anything older than RMCP23 (pre-wiimmfi versions) the tools
   will always be overriden (because they are ancient).
+  .
+  If creating anything newer than RMCP26 (2015 versions) the tools will
+  be never overriden (for now, does not work yet).
 
 v5.3.0:
 - update wit to 2.30a
