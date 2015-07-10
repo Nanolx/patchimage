@@ -1,3 +1,6 @@
+v5.5.0:
+-add support for MKWiimm 2015-05
+
 v5.4.0:
 - fixed major bug creating MKWiimm: image was not saved to proper
   destination directory (now everything's fine)
