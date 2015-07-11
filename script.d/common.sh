@@ -21,7 +21,7 @@ ask_game () {
 
 echo -e \
 "************************************************
-patchimage v5.3.0
+patchimage v6.0.0
 
 Enter ID for the Game you want to create:
 
@@ -48,6 +48,8 @@ NSMB19	Luigi's Super Yoshi Bros.
 NSMB20	Newer: Falling Leaf
 NSMB21	Devil Mario Winter Special
 NSMB22	New Super Mario Bros. Wii - Other World
+
+NSMB99	Customize Characters
 
 <<<<<< Mario Kart Wii >>>>>>
 MKW1	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
@@ -248,6 +250,14 @@ check_input_image_mkwiimm () {
 
 }
 
+show_nsmbw_db () {
+
+	ID=${1:0:6}
+	gawk -F \: "/^${ID}/"'{print $2}' \
+		< ${PATCHIMAGE_SCRIPT_DIR}/nsmbw.db || echo "** Unknown **"
+
+}
+
 show_mkwiimm_db () {
 
 	ID=${1:4:2}
@@ -265,6 +275,22 @@ ask_input_image_mkwiimm () {
 	for image in ${1}/RMC???.{iso,wbfs}; do
 		if [[ -e ${image} ]]; then
 			echo "	${image##*/}	$(show_mkwiimm_db ${image##*/})"
+		fi
+	done
+
+	echo ""
+
+}
+
+ask_input_image_nsmbw () {
+
+	echo "Choose New Super Mario Bros. Wii Image to modify
+
+	ALL		patch all images"
+
+	for image in ${1}/MSN???.{iso,wbfs}; do
+		if [[ -e ${image} ]]; then
+			echo "	${image##*/}	$(show_nsmbw_db ${image##*/})"
 		fi
 	done
 

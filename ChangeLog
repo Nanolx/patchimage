@@ -1,5 +1,6 @@
 v5.5.0:
--add support for MKWiimm 2015-05
+- update szs to version 1.40a
+- add support for MKWiimm 2015-05
 
 v5.4.0:
 - fixed major bug creating MKWiimm: image was not saved to proper
