@@ -250,7 +250,7 @@ check_input_image_mkwiimm () {
 
 }
 
-show_nsmbw_db () {
+show_nsmb_db () {
 
 	ID=${1:0:6}
 	gawk -F \: "/^${ID}/"'{print $2}' \
@@ -282,7 +282,7 @@ ask_input_image_mkwiimm () {
 
 }
 
-ask_input_image_nsmbw () {
+ask_input_image_nsmb () {
 
 	echo "Choose New Super Mario Bros. Wii Image to modify
 
@@ -290,7 +290,7 @@ ask_input_image_nsmbw () {
 
 	for image in ${1}/MSN???.{iso,wbfs}; do
 		if [[ -e ${image} ]]; then
-			echo "	${image##*/}	$(show_nsmbw_db ${image##*/})"
+			echo "	${image##*/}	$(show_nsmb_db ${image##*/})"
 		fi
 	done
 
