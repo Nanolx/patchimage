@@ -252,8 +252,9 @@ check_input_image_mkwiimm () {
 
 show_nsmb_db () {
 
-	ID=${1:0:6}
-	gawk -F \: "/^${ID}/"'{print $2}' \
+	ID1=${1:0:3}
+	ID2=${1:4:2}
+	gawk -F \: "/^${ID1}\*${ID2}/"'{print $2}' \
 		< ${PATCHIMAGE_SCRIPT_DIR}/nsmbw.db || echo "** Unknown **"
 
 }
@@ -288,7 +289,7 @@ ask_input_image_nsmb () {
 
 	ALL		patch all images"
 
-	for image in ${1}/MSN???.{iso,wbfs}; do
+	for image in ${1}/SMN???.{iso,wbfs} ${1}/SLF???.{iso,wbfs} ${1}/SMM???.{iso,wbfs} ${1}/SMV???.{iso,wbfs} ${1}/MRR???.{iso,wbfs}; do
 		if [[ -e ${image} ]]; then
 			echo "	${image##*/}	$(show_nsmb_db ${image##*/})"
 		fi

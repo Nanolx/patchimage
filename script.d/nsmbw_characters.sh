@@ -64,9 +64,8 @@ pi_action () {
 					&& exit 57)
 			fi
 			slot=$(gawk -F \: "/^${player}/"'{print $2}' ${PATCHIMAGE_SCRIPT_DIR}/nsmbw_characters.db)
-			choosenplayers=( ${choosenplayers[@]} player:${slot} )
+			choosenplayers=( ${choosenplayers[@]} ${player}:${slot} )
 		done
-		
 
 		echo ${choosenplayers[@]}
 		echo "choosenplayers=( ${choosenplayers[@]} )" > ${HOME}/.patchimage.choice
