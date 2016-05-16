@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PATCHIMAGE_VERSION=6.1.0
+
 setup_tools () {
 
 	if [[ $(uname -m) == "x86_64" ]]; then
@@ -21,7 +23,7 @@ ask_game () {
 
 echo -e \
 "************************************************
-patchimage v6.0.0
+patchimage v${PATCHIMAGE_VERSION}
 
 Enter ID for the Game you want to create:
 
