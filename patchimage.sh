@@ -135,6 +135,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/remixedsupermariobroswii.sh
 	;;
 
+	NSMB25 | GhostlySuperGhostBoosWii )
+		source ${PATCHIMAGE_SCRIPT_DIR}/ghostlysuperghostbooswii.sh
+	;;
+
 	NSMB99 | NSMBWCharacters )
 		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw_characters.sh
 	;;

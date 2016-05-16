@@ -53,6 +53,7 @@ NSMB21	Devil Mario Winter Special
 NSMB22	New Super Mario Bros. Wii - Other World
 NSMB23	The Legend of Yoshi
 NSMB24	Remixed Super Mario Bros. Wii
+NSMB25	Ghostly Super Ghost Boos. Wii
 
 NSMB99	Customize Characters
 
