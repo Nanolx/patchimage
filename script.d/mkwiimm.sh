@@ -139,8 +139,6 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 				./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
 			fi
 
-			echo ${XD}/RMC${REG}${MY_ID}.wbfs
-
 		fi
 
 		if [[ ${MY_ID} -lt 23 ]]; then
