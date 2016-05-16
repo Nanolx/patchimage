@@ -23,6 +23,8 @@ v6.1.0:
   - if you can't build MKWiimm, set MKWIIMM_OVERRIDE_SZS=TRUE
     in ~/.patchimage.rc to use supplied tools, that the case
     on Debian GNU/Linux Stretch or Sid
+- update link to Wiimmfi-Patcher (Generic)
+- update link to Wiimmfi-Patcher (Mario Kart Wii)
 
 v6.0.0:
 - update szs to version 1.40a

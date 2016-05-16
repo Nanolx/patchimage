@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/mkw-wiimmfi-patcher.7z"
+DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/patcher/mkw-wiimmfi-patcher-v3.7z"
 GAME_TYPE="MKWIIMM"
 GAME_NAME="Mario Kart Wiimmfi"
 
