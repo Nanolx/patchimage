@@ -127,8 +127,12 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/newsmbwotherworld.sh
 	;;
 
-	NSMB33 | TheLegendOfYoshi )
+	NSMB23 | TheLegendOfYoshi )
 		source ${PATCHIMAGE_SCRIPT_DIR}/thelegendofyoshi.sh
+	;;
+
+	NSMB24 | RemixedSuperMarioBrosWii )
+		source ${PATCHIMAGE_SCRIPT_DIR}/remixedsupermariobroswii.sh
 	;;
 
 	NSMB99 | NSMBWCharacters )
