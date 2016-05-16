@@ -1,5 +1,7 @@
 v6.1.0:
 - update szs to version 1.50a
+- show "Enter ID (...)" message at the end of menu
+- show "ID	Name" header/footer in menu
 - show proper version number in --help
 - support for MKWiimm 2015-08
 - support for MKWiimm 2015-12
