@@ -1,8 +1,10 @@
 v6.1.0:
 - update szs to version 1.50a
+- show proper version number in --help
 - support for MKWiimm 2015-08
 - support for MKWiimm 2015-12
 - support for MKWiimm 2016-02
+- support for The Legend of Yoshi (SMN?66)
 
 v6.0.0:
 - update szs to version 1.40a

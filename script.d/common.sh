@@ -1,6 +1,7 @@
 #!/bin/bash
 
 PATCHIMAGE_VERSION=6.1.0
+PATCHIMAGE_RELEASE=2016-05-16
 
 setup_tools () {
 
@@ -50,6 +51,7 @@ NSMB19	Luigi's Super Yoshi Bros.
 NSMB20	Newer: Falling Leaf
 NSMB21	Devil Mario Winter Special
 NSMB22	New Super Mario Bros. Wii - Other World
+NSMB23	The Legend of Yoshi
 
 NSMB99	Customize Characters
 
@@ -528,7 +530,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--help | -h )
-			echo -e "patchimage 5.0.2 (2014-05-19)
+			echo -e "patchimage ${PATCHIMAGE_VERSION} (${PATCHIMAGE_RELEASE})
 
 	(c) 2013-2014 Christopher Roy Bratusek <nano@jpberlin.de>
 	patchimage creates wbfs images from riivolution patches.
