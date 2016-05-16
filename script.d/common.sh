@@ -26,7 +26,7 @@ echo -e \
 "************************************************
 patchimage v${PATCHIMAGE_VERSION}
 
-Enter ID for the Game you want to create:
+ID	Name
 
 <<<<<< New Super Mario Bros. Wii >>>>>>
 NSMB1	NewerSMB
@@ -52,6 +52,7 @@ NSMB20	Newer: Falling Leaf
 NSMB21	Devil Mario Winter Special
 NSMB22	New Super Mario Bros. Wii - Other World
 NSMB23	The Legend of Yoshi
+NSMB24	Remixed Super Mario Bros. Wii
 
 NSMB99	Customize Characters
 
@@ -68,6 +69,9 @@ KAW1	Change first player's character
 
 <<<<<< ROMS >>>>>>
 ZEL1	The Legend of Zelda: Parallel Worlds
+
+ID	Name
+Enter ID for the Game you want to create:
 "
 
 read GAME
