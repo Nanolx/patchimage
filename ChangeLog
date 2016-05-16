@@ -19,6 +19,9 @@ v6.1.0:
 - support for The Legend of Yoshi (SMN?66)
 - support for Remixed Super Mario Bros. Wii (SMN?60)
 - support for Ghostly Super Mario Boos. Wii (SMN?65)
+- update wit/wszst override for MKWiimm
+  - if you can't build MKWiimm, set MKWIIMM_OVERRIDE_SZS=TRUE
+    in ~/.patchimage.rc to use supplied tools
 
 v6.0.0:
 - update szs to version 1.40a
