@@ -1,3 +1,9 @@
+v6.1.0:
+- update szs to version 1.50a
+- support for MKWiimm 2015-08
+- support for MKWiimm 2015-12
+- support for MKWiimm 2016-02
+
 v6.0.0:
 - update szs to version 1.40a
 - add support for MKWiimm 2015-05
