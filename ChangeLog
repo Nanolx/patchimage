@@ -4,9 +4,18 @@ v6.1.0:
 - show "Enter ID (...)" message at the end of menu
 - show "ID	Name" header/footer in menu
 - show proper version number in --help
-- support for MKWiimm 2015-08
-- support for MKWiimm 2015-12
-- support for MKWiimm 2016-02
+- support for new MKWiimm config.def variables ID >= 29
+  - default set:
+    - MSGLANG1 = -
+    - MSGLANG2 = E
+  - set from ~/.patchimage.rc
+    - TRACKLANG = x,${MKWIIMM_MSG_LANG}
+    - CTRENAME = ${MKWIIMM_CTRENAME}
+    - REORDER = ${MKWIIMM_CTREORDER}
+    - see README.RC for more infos
+- support for MKWiimm 2015-08 (ID 29)
+- support for MKWiimm 2015-12 (ID 30)
+- support for MKWiimm 2016-02 (ID 31)
 - support for The Legend of Yoshi (SMN?66)
 - support for Remixed Super Mario Bros. Wii (SMN?60)
 - support for Ghostly Super Mario Boos. Wii (SMN?65)

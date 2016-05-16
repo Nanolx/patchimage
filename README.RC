@@ -50,10 +50,20 @@ PATCHIMAGE_SHARE_SAVE=TRUE
 # en+ = all languages will be english
 MKWIIMM_MSG_LANG="de"
 
-# use own savegame
+# Eigenes Savegame verwenden
 # 1=ja    (use own save, no sharing)
-# 2=nein  (share save with original game)
+# 0=nein  (share save with original game)
 MKWIIMM_OWN_SAVE="1=ja"
 
-# override szs tools
-MKWIIMM_OVERRIDE_SZS="TRUE"
+# szs von MKWiimm überschreiben
+MKWIIMM_OVERRIDE_SZS="FALSE"
+
+# Custom Track-Namen übersetzen
+# 1=ja
+# 0=nein
+MKWIIMM_CTRENAME="0=nein"
+
+# Custom Tracks alphabetisch sortieren
+# 1=ja
+# 0=nein
+MKWIIMM_CTREORDER="1=ja"

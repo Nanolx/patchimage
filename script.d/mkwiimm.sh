@@ -30,7 +30,7 @@ download_wiimm () {
 	echo "Choose a Mario Kart Wiimm Distribution
 
 ALL	Build all distributions."
-	gawk -F \: 'NR>1 {print $1 "\t" $2}' < script.d/mkwiimm.db
+	gawk -F \: 'NR>1 {print $1 "\t" $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db
 	echo "
 type in ALL or an ID (multiple separated by space)"
 	read ID
@@ -88,9 +88,10 @@ build_mkwiimm () {
 		fi
 
 		cd ${FILENAME/.7z}
-		ln -s ${IMAGE} .
 
 		REG=$(gawk '/^RMC/{print $3}' <(wit ll ${IMAGE}))
+
+		ln -s ${IMAGE} .
 
 		case $REG in
 			PAL)	REG=P	;;
@@ -99,22 +100,47 @@ build_mkwiimm () {
 		esac
 		chmod +x *.sh
 
-		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" && ${MY_ID} -lt 27 ]]; then
+		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" ]]; then
 			cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
 		fi
 
-		if [[ ${MKWIIMM_GAME_LANG} && ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} ]]; then
-			echo "LANGUAGE=${MKWIIMM_GAME_LANG}
+		if [[ ${MY_ID} -lt 27 ]]; then
+
+			if [[ ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} ]]; then
+				echo "LANGUAGE=${MKWIIMM_MSG_LANG}
 MSGLANG=${MKWIIMM_MSG_LANG}
 ISOMODE=wbfs
 SPLITISO=
 PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
+				echo "*** 6) creating >${DIST}< (can take some time)"
+				./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+			else
+				echo "*** 6) creating >${DIST}< (can take some time)"
+				./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+			fi
 
-			echo "*** 6) creating >${DIST}< (can take some time)"
-			./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
 		else
-			echo "*** 6) creating >${DIST}< (can take some time)"
-			./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+
+			if [[ ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} && ${MKWIIMM_CTRENAME} && ${MKWIIMM_CTREORDER} ]]; then
+				echo "LANGUAGE=${MKWIIMM_MSG_LANG}
+MSGLANG1=-
+MSGLANG2=E
+TRACKLANG=x,${MKWIIMM_MSG_LANG}
+CTRENAME=${MKWIIMM_CTRENAME}
+REORDER=${MKWIIMM_CTREORDER}
+ISOMODE=wbfs
+SPLITISO=
+PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
+
+				echo "*** 6) creating >${DIST}< (can take some time)"
+				./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+			else
+				echo "*** 6) creating >${DIST}< (can take some time)"
+				./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+			fi
+
+			echo ${XD}/RMC${REG}${MY_ID}.wbfs
+
 		fi
 
 		if [[ ${MY_ID} -lt 23 ]]; then
@@ -150,7 +176,7 @@ patch_wiimm () {
 
 	XD=${PWD}
 	if [[ ${ID} == ALL ]]; then
-		for ID in {06..27}; do
+		for ID in {06..31}; do
 			build_mkwiimm ${ID}
 		done
 	else
