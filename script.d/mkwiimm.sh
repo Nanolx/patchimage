@@ -113,7 +113,7 @@ ISOMODE=wbfs
 SPLITISO=
 PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 				echo "*** 6) creating >${DIST}< (can take some time)"
-				./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+				./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
 			else
 				echo "*** 6) creating >${DIST}< (can take some time)"
 				./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
@@ -133,7 +133,7 @@ SPLITISO=
 PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 
 				echo "*** 6) creating >${DIST}< (can take some time)"
-				./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+				./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
 			else
 				echo "*** 6) creating >${DIST}< (can take some time)"
 				./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
