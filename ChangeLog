@@ -24,7 +24,9 @@ v6.1.0:
     in ~/.patchimage.rc to use supplied tools, that the case
     on Debian GNU/Linux Stretch or Sid
 - update link to Wiimmfi-Patcher (Generic)
+  - unused Patchimage uses "wit cp --wiimmfi" instead
 - update link to Wiimmfi-Patcher (Mario Kart Wii)
+- update for Wiimmfi-Patcher script changes
 
 v6.0.0:
 - update szs to version 1.40a

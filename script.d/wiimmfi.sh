@@ -51,7 +51,7 @@ patch_wiimm () {
 			fi
 		done
 
-			./create-image.sh >/dev/null || \
+			./patch-wiimmfi.sh >/dev/null || \
 				( echo "wiimmfi-ing the images failed." && exit 69 )
 			mv -v ./wiimmfi-images/* "${PATCHIMAGE_GAME_DIR}"/
 
@@ -62,7 +62,7 @@ patch_wiimm () {
 		fi
 
 		ln -s ${IMAGE%/*}/${ID} .
-		./create-image.sh >/dev/null || \
+		./patch-wiimmfi.sh >/dev/null || \
 			( echo "wiimmfi-ing the image failed." && exit 69 )
 		mv -v ./wiimmfi-images/${ID} "${PATCHIMAGE_GAME_DIR}"/
 	fi
