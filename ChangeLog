@@ -1,3 +1,8 @@
+v6.2.0:
+- code improvements for MKWiimm
+- use ${WIT} instead of wit when checking image region for
+  MKWiimm and Kirbys Adventure Wii
+
 v6.1.0:
 - update szs to version 1.50a
 - update title database

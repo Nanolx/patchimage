@@ -81,7 +81,7 @@ read ID
 		cp -r "${PATCHIMAGE_RIIVOLUTION_DIR}"/hero/* workdir/${PATH_HERO}/
 	fi
 
-	REG=$(gawk '/^SUK/{print $3}' <(wit ll ${IMAGE}))
+	REG=$(gawk '/^SUK/{print $3}' <(${WIT} ll ${IMAGE}))
 
 	case $REG in
 		PAL)	REG=P	;;

@@ -57,6 +57,65 @@ wiimmfi () {
 
 }
 
+mkwiimm_distfiles () {
+
+	if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ]]; then
+		echo "*** 5) extracting mkwiimm files"
+		${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null || \
+			( echo "something went wrong extracting files" && exit 63 )
+	elif [[ -f ${PWD}/${FILENAME} ]]; then
+		echo "*** 5) extracting mkwiimm files"
+		${UNP} ${PWD}/${FILENAME} >/dev/null || \
+			( echo "something went wrong extracting files" && exit 63 )
+	else
+		echo "*** 5) downloading and extracting mkwiimm files"
+		wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ${DOWNLOAD} >/dev/null || \
+			( echo "something went wrong downloading ${DOWNLOAD}" && exit 57 )
+		${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null || \
+			( echo "something went wrong extracting files" && exit 63 )
+	fi
+
+}
+
+mkwiimm_build_olddist () {
+
+	if [[ ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} ]]; then
+		echo "LANGUAGE=${MKWIIMM_MSG_LANG}
+MSGLANG=${MKWIIMM_MSG_LANG}
+ISOMODE=wbfs
+SPLITISO=
+PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
+		echo "*** 6) creating >${DIST}< (can take some time)"
+		./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
+	else
+		echo "*** 6) creating >${DIST}< (can take some time)"
+		./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+	fi
+
+}
+
+mkwiimm_build_newdist () {
+
+	if [[ ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} && ${MKWIIMM_CTRENAME} && ${MKWIIMM_CTREORDER} ]]; then
+		echo "LANGUAGE=${MKWIIMM_MSG_LANG}
+MSGLANG1=-
+MSGLANG2=E
+TRACKLANG=x,${MKWIIMM_MSG_LANG}
+CTRENAME=${MKWIIMM_CTRENAME}
+REORDER=${MKWIIMM_CTREORDER}
+ISOMODE=wbfs
+SPLITISO=
+PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
+
+		echo "*** 6) creating >${DIST}< (can take some time)"
+		./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
+	else
+		echo "*** 6) creating >${DIST}< (can take some time)"
+		./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+	fi
+
+}
+
 build_mkwiimm () {
 
 		MY_ID=${1}
@@ -70,88 +129,36 @@ build_mkwiimm () {
 		fi
 
 		rm -rf ${FILENAME/.7z}
-
-		if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ]]; then
-			echo "*** 5) extracting mkwiimm files"
-			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null || \
-				( echo "something went wrong extracting files" && exit 63 )
-		elif [[ -f ${PWD}/${FILENAME} ]]; then
-			echo "*** 5) extracting mkwiimm files"
-			${UNP} ${PWD}/${FILENAME} >/dev/null || \
-				( echo "something went wrong extracting files" && exit 63 )
-		else
-			echo "*** 5) downloading and extracting mkwiimm files"
-			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ${DOWNLOAD} >/dev/null || \
-				( echo "something went wrong downloading ${DOWNLOAD}" && exit 57 )
-			${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null || \
-				( echo "something went wrong extracting files" && exit 63 )
-		fi
-
+		mkwiimm_distfiles
 		cd ${FILENAME/.7z}
 
-		REG=$(gawk '/^RMC/{print $3}' <(wit ll ${IMAGE}))
-
-		ln -s ${IMAGE} .
+		REG=$(gawk '/^RMC/{print $3}' <(${WIT} ll ${IMAGE}))
 
 		case $REG in
 			PAL)	REG=P	;;
 			NTSC-J)	REG=J	;;
 			NTSC-U)	REG=E	;;
 		esac
+
+		ln -s "${IMAGE}" .
 		chmod +x *.sh
 
-		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" ]]; then
-			cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
-		fi
+		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" ]] && cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
 
 		if [[ ${MY_ID} -lt 27 ]]; then
-
-			if [[ ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} ]]; then
-				echo "LANGUAGE=${MKWIIMM_MSG_LANG}
-MSGLANG=${MKWIIMM_MSG_LANG}
-ISOMODE=wbfs
-SPLITISO=
-PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
-				echo "*** 6) creating >${DIST}< (can take some time)"
-				./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
-			else
-				echo "*** 6) creating >${DIST}< (can take some time)"
-				./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
-			fi
-
-		else
-
-			if [[ ${MKWIIMM_MSG_LANG} && ${MKWIIMM_OWN_SAVE} && ${MKWIIMM_CTRENAME} && ${MKWIIMM_CTREORDER} ]]; then
-				echo "LANGUAGE=${MKWIIMM_MSG_LANG}
-MSGLANG1=-
-MSGLANG2=E
-TRACKLANG=x,${MKWIIMM_MSG_LANG}
-CTRENAME=${MKWIIMM_CTRENAME}
-REORDER=${MKWIIMM_CTREORDER}
-ISOMODE=wbfs
-SPLITISO=
-PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
-
-				echo "*** 6) creating >${DIST}< (can take some time)"
-				./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
-			else
-				echo "*** 6) creating >${DIST}< (can take some time)"
-				./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
-			fi
-
+			mkwiimm_olddist
+		else	mkwiimm_newdist
 		fi
 
 		if [[ ${MY_ID} -lt 23 ]]; then
 			echo "*** 7) patching >${DIST}< to use custom server"
-			wiimmfi ${XD}/RMC${REG}${MY_ID}.wbfs || exit 69
+			wiimmfi ${XD}/RMC${REG}${MY_ID}.wbfs || (echo "something went wrong wiimmfi-ing ${XD}/RMC${REG}${MY_ID}.wbfs" && exit 69)
+			echo "*** 8) storing game"
+		else	echo "*** 7) storing game"
 		fi
 
 		cd ${XD}
 
-		if [[ ${MY_ID} -lt 23 ]]; then
-			echo "*** 8) storing game"
-		else	echo "*** 7) storing game"
-		fi
 		echo "       ${DIST} saved as ${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs"
 		mv RMC${REG}${MY_ID}.wbfs \
 			${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs || exit 51
@@ -161,6 +168,7 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 		else
 			echo "*** 8) cleaning up workdir"
 		fi
+
 		rm -rf ${FILENAME/.7z}
 
 		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
