@@ -3,6 +3,7 @@ v6.2.0:
 - supply xdelta3 (32 and 64 bit versions)
 - supply titledumper (32 and 64 bit versions), for use with ddd
 - add support for Tokyo Mirage Sessions #FE US/EUR decensoring
+  - add --xdelta and --cpk parameters
 - use ${WIT} instead of wit when checking image region for
   MKWiimm and Kirbys Adventure Wii
 - minor internal changes
