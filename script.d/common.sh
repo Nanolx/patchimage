@@ -538,6 +538,14 @@ while [[ $xcount -lt $pcount ]]; do
 			PATCHIMAGE_BANNER_DOWNLOAD=TRUE
 		;;
 
+		--xdelta=* )
+			XDELTA_PATH=${1/*=}
+		;;
+
+		--cpk=* )
+			CPK_PATH=${1/*=}
+		;;
+
 		--help | -h )
 			echo -e "patchimage ${PATCHIMAGE_VERSION} (${PATCHIMAGE_RELEASE})
 
@@ -556,7 +564,9 @@ while [[ $xcount -lt $pcount ]]; do
 --covers				| download covers (if available)
 --only-covers=SMNP02			| download covers only (if available)
 --banner=<banner.bnr>			| use a custom banner (riivolution games)
---download-banner			| download a custom banner (if available)"
+--download-banner			| download a custom banner (if available)
+--xdelta=<path>				| path to xdelta patches
+--cpk=<path>				| path to unpatched xdelta patches"
 			exit 0
 		;;
 	esac

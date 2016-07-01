@@ -20,29 +20,30 @@ Supported Versions:	EUR, US
 
 menu () {
 
-	echo -e "
+	echo -e "\nTokyo Mirage Sessions #FE restoration patcher\n"
 
-	Tokyo Mirage Sessions #FE restoration patcher
+	if [[ ! ${XDELTA_PATH} ]]; then
+		echo -e "Enter path to the directory containing the delta patches:\n"
+		read XDELTA_PATH
+	fi
 
-	Enter path to the directory containing the delta patches:
-	"
-
-	read XDELTA_PATH
-
-	echo -e "
-	Enter path to the directory containing the game files (cpk):
-	"
-
-	read CPK_PATH
+	if [[ ! ${CPK_PATH} ]]; then
+		echo -e "\nEnter path to the directory containing the game files (cpk):\n"
+		read CPK_PATH
+	fi
 
 	if [[ ! -d ${XDELTA_PATH} ]]; then
-		echo "PATH \"${XDELTA_PATH}\" does not exist!" || exit 1
+		echo "PATH \"${XDELTA_PATH}\" does not exist!"
+		exit 1
 	elif [[ ! -f ${XDELTA_PATH}/patch_000_map.xdelta ]]; then
-		echo "PATH \"${XDELTA_PATH}\" does not contain the xdelta patches!" || exit 1
+		echo "PATH \"${XDELTA_PATH}\" does not contain the xdelta patches!"
+		exit 1
 	elif [[ ! -d ${CPK_PATH} ]]; then
-		echo "PATH \"${CPK_PATH}\" does not exist!" || exit 1
+		echo "PATH \"${CPK_PATH}\" does not exist!"
+		exit 1
 	elif [[ ! -f ${CPK_PATH}/pack_000_map.cpk ]]; then
-		echo "PATH \"${CPK_PATH}\" does not contain the game files (cpk)!" || exit 1
+		echo "PATH \"${CPK_PATH}\" does not contain the game files (cpk)!"
+		exit 1
 	fi
 
 }
