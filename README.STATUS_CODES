@@ -4,6 +4,8 @@ While the script executes you will see some status codes, below you will find th
 	*** 1)		0		neither BASE.iso nor BASE.wbfs found
 			1		BASE.iso found in ${PWD}
 			2		BASE.wbfs found in ${PWD}
+			3		xdelta/cpk found based on interactive user-input
+			4		xdelta/cpk found based on non-interactive user-input
 
 	*** 2)		0		no <GAMEID>.iso/.wbfs found (or required if *** 1) exited with 1 or 2)
 			1		<GAMEID>.iso found in ${PWD}

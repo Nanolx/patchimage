@@ -20,16 +20,20 @@ Supported Versions:	EUR, US
 
 menu () {
 
-	echo -e "\nTokyo Mirage Sessions #FE restoration patcher\n"
+	echo -e "\nTokyo Mirage Sessions #FE restoration patcher"
+
+	status=3
 
 	if [[ ! ${XDELTA_PATH} ]]; then
-		echo -e "Enter path to the directory containing the delta patches:\n"
+		echo -e "\nEnter path to the directory containing the delta patches:\n"
 		read XDELTA_PATH || exit 75
+	else	status=4
 	fi
 
 	if [[ ! ${CPK_PATH} ]]; then
 		echo -e "\nEnter path to the directory containing the game files (cpk):\n"
 		read CPK_PATH || exit 75
+	else	status=4
 	fi
 
 	if [[ ! -d ${XDELTA_PATH} ]]; then
@@ -45,6 +49,8 @@ menu () {
 		echo "PATH \"${CPK_PATH}\" does not contain the game files (cpk)!"
 		exit 15
 	fi
+
+	echo ">>> status: ${status}"
 
 }
 

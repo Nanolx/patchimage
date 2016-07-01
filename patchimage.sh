@@ -285,7 +285,11 @@ case ${GAME_TYPE} in
 
 	"DELTA" )
 		show_notes
+
+		echo -e "\n*** 1) menu"
 		menu || exit 1
+
+		echo -e "\n*** 2) patch"
 		patch || exit 1
 	;;
 
