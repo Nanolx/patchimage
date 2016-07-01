@@ -1,5 +1,7 @@
 v6.2.0:
 - code improvements for MKWiimm
+- supply xdelta3 (32 and 64 bit versions)
+- add support for Tokyo Mirage Sessions #FE US/EUR decensoring
 - use ${WIT} instead of wit when checking image region for
   MKWiimm and Kirbys Adventure Wii
 

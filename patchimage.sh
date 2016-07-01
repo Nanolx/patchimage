@@ -171,6 +171,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh
 	;;
 
+	TMS1 | TokyoMirageSessions )
+		source ${PATCHIMAGE_SCRIPT_DIR}/tokyomiragesessionsfe.sh
+	;;
+
 	ZEL1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;
@@ -277,6 +281,12 @@ case ${GAME_TYPE} in
 		else
 			echo -e "error: patch (${PATCH}) could not be found"
 		fi
+	;;
+
+	"DELTA" )
+		show_notes
+		menu || exit 1
+		patch || exit 1
 	;;
 
 esac

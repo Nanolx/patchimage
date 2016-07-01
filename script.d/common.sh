@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PATCHIMAGE_VERSION=6.1.0
-PATCHIMAGE_RELEASE=2016-05-16
+PATCHIMAGE_VERSION=6.2.0
+PATCHIMAGE_RELEASE=2016-07-01
 
 setup_tools () {
 
@@ -16,6 +16,7 @@ setup_tools () {
 	IPS=${PATCHIMAGE_TOOLS_DIR}/uips.${SUFFIX}
 	UNP=${PATCHIMAGE_TOOLS_DIR}/unp
 	SZS=${PATCHIMAGE_TOOLS_DIR}/wszst.${SUFFIX}
+	XD3=${PATCHIMAGE_TOOLS_DIR}/xdelta3.${SUFFIX}
 	GDOWN=${PATCHIMAGE_TOOLS_DIR}/gdown.pl
 
 }
@@ -67,6 +68,9 @@ MKW6	Custom Karts. Replace characters in the game
 
 <<<<<< Kirby's Adventure Wii >>>>>>
 KAW1	Change first player's character
+
+<<<<<< Tokyo Mirage Sessions #FE >>>>>>
+TMS1	Uncensor US/EUR version
 
 <<<<<< ROMS >>>>>>
 ZEL1	The Legend of Zelda: Parallel Worlds
@@ -537,7 +541,7 @@ while [[ $xcount -lt $pcount ]]; do
 		--help | -h )
 			echo -e "patchimage ${PATCHIMAGE_VERSION} (${PATCHIMAGE_RELEASE})
 
-	(c) 2013-2014 Christopher Roy Bratusek <nano@jpberlin.de>
+	(c) 2013-2016 Christopher Roy Bratusek <nano@jpberlin.de>
 	patchimage creates wbfs images from riivolution patches.
 
 --game=<gamename/gameletter>		| specify game you want to create
