@@ -37,3 +37,9 @@ specify a custom banner to use
 
 --download-banner
 download a custom banner (if available)
+
+--xdelta=<path>
+path to xdelta patches (Tokyo Mirage Sessions #FE)
+
+--cpk=<path>
+path to unmodified cpk files (Tokyo Mirage Sessions #FE)
