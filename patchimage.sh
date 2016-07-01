@@ -27,11 +27,11 @@ if [[ -e $HOME/.patchimage.rc ]]; then
 fi
 
 source ${PATCHIMAGE_SCRIPT_DIR}/common.sh
+optparse "${@}"
+
 check_directories
 
 setup_tools
-
-optparse "${@}"
 
 if [[ ! ${GAME} ]]; then
 	ask_game

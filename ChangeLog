@@ -5,6 +5,7 @@ v6.2.0:
 - add support for Tokyo Mirage Sessions #FE US/EUR decensoring
 - use ${WIT} instead of wit when checking image region for
   MKWiimm and Kirbys Adventure Wii
+- minor internal changes
 
 v6.1.0:
 - update szs to version 1.50a
