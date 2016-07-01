@@ -13,7 +13,7 @@ right after the failure will you show the following:
 	33		custom banner specified from command line is not a .bnr file
 	39		custom game id specified from command line is not a 6 digit alphanumeric
 	45		error copying new game files
-	51		wit/ips/applyppf/szs caught an error processing files
+	51		wit/ips/applyppf/szs/xdelta3 caught an error processing files
 	57		wget caught an error while downloading
 	63		unp caught an error while unpacking a file
 	69		wiimmfi caught an error patching the image

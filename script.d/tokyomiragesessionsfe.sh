@@ -24,26 +24,26 @@ menu () {
 
 	if [[ ! ${XDELTA_PATH} ]]; then
 		echo -e "Enter path to the directory containing the delta patches:\n"
-		read XDELTA_PATH
+		read XDELTA_PATH || exit 75
 	fi
 
 	if [[ ! ${CPK_PATH} ]]; then
 		echo -e "\nEnter path to the directory containing the game files (cpk):\n"
-		read CPK_PATH
+		read CPK_PATH || exit 75
 	fi
 
 	if [[ ! -d ${XDELTA_PATH} ]]; then
 		echo "PATH \"${XDELTA_PATH}\" does not exist!"
-		exit 1
+		exit 21
 	elif [[ ! -f ${XDELTA_PATH}/patch_000_map.xdelta ]]; then
 		echo "PATH \"${XDELTA_PATH}\" does not contain the xdelta patches!"
-		exit 1
+		exit 21
 	elif [[ ! -d ${CPK_PATH} ]]; then
 		echo "PATH \"${CPK_PATH}\" does not exist!"
-		exit 1
+		exit 15
 	elif [[ ! -f ${CPK_PATH}/pack_000_map.cpk ]]; then
 		echo "PATH \"${CPK_PATH}\" does not contain the game files (cpk)!"
-		exit 1
+		exit 15
 	fi
 
 }
@@ -55,7 +55,7 @@ patch () {
 		echo ">> pack_${patch}.cpk"
 		${XD3} -d -f -s ${CPK_PATH}/pack_${patch}.cpk \
 			${XDELTA_PATH}/patch_${patch}.xdelta \
-			${CPK_PATH}/pack_${patch}.cpk_new || exit 1
+			${CPK_PATH}/pack_${patch}.cpk_new || exit 51
 
 		mv ${CPK_PATH}/pack_${patch}.cpk_new \
 			${CPK_PATH}/pack_${patch}.cpk
