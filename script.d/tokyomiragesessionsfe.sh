@@ -81,6 +81,17 @@ patch () {
 
 	echo -e "\n< Done patching
 << Find your modified cpk files in:
-	\n\t${PWD}/TMSxFE-Uncensored\n"
+	\n\t${PWD}/TMSxFE-Uncensored
+
+Copy your complete dump (content, code, meta folders) to your SD-Card in
+
+	<sd-card-path>/wiiu/games/Tokyo Mirage Sessions FE [ASEP01]
+
+then copy the modified cpk files into
+
+	<sd-card-path>/wiiu/games/Tokyo Mirage Sessions FE [ASEP01]/content/Pack/
+
+keep a copy of the unmodified cpk files, in case the patches are being updated!
+"
 
 }
