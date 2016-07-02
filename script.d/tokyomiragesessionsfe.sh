@@ -56,17 +56,31 @@ menu () {
 
 patch () {
 
+	if [[ -d ${PWD}/TMSxFE-Uncensored ]]; then
+		echo -e "\nremoving old files"
+		rm -rf ${PWD}/TMSxFE-Uncensored
+	fi
+
+	echo -e "\n> copying cpk files"
+	mkdir ${PWD}/TMSxFE-Uncensored
+	for file in ${PATCH_FILES[@]}; do
+		cp ${CPK_PATH}/pack_${file}.cpk \
+			${PWD}/TMSxFE-Uncensored
+	done
+
 	echo -e "\n> Patching Files"
 	for patch in ${PATCH_FILES[@]}; do
 		echo ">> pack_${patch}.cpk"
-		${XD3} -d -f -s ${CPK_PATH}/pack_${patch}.cpk \
+		${XD3} -d -f -s ${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk \
 			${XDELTA_PATH}/patch_${patch}.xdelta \
-			${CPK_PATH}/pack_${patch}.cpk_new || exit 51
+			${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk_new || exit 51
 
-		mv ${CPK_PATH}/pack_${patch}.cpk_new \
-			${CPK_PATH}/pack_${patch}.cpk
+		mv ${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk_new \
+			${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk
 	done
 
-	echo -e "\n< Done!\n"
+	echo -e "\n< Done patching
+<< Find your modified cpk files in:
+	\n\t${PWD}/TMSxFE-Uncensored\n"
 
 }
