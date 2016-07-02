@@ -1,3 +1,6 @@
+v6.3.0:
+- support for MKWiimm 2016-07
+
 v6.2.0:
 - code improvements for MKWiimm
 - supply xdelta3 (32 and 64 bit versions)
