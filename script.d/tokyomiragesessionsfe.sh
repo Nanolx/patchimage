@@ -68,9 +68,12 @@ patch () {
 			${PWD}/TMSxFE-Uncensored
 	done
 
+	cur=0
+	all=${#PACH_FILES[@]}
 	echo -e "\n> Patching Files"
 	for patch in ${PATCH_FILES[@]}; do
-		echo ">> pack_${patch}.cpk"
+		cur=$((cur+1)
+		echo ">> [${cur}/${all}] pack_${patch}.cpk"
 		${XD3} -d -f -s ${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk \
 			${XDELTA_PATH}/patch_${patch}.xdelta \
 			${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk_new || exit 51
