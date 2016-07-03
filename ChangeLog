@@ -1,3 +1,9 @@
+v6.2.2:
+- when running patchimage from git, use it's tools, scripts and stuff,
+  instead of system-wide (if) installed
+- simple progress [x/y] visualization for Tokyo Mirage Sessions #FE
+- minor internal changes
+
 v6.2.1:
 - support for MKWiimm 2016-07
 - update MKWiimm 2016-02 to v2
