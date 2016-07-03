@@ -69,7 +69,7 @@ patch () {
 	cur=0
 	for file in ${PATCH_FILES[@]}; do
 		cur=$((cur+1))
-		echo ">> [${cur}/${all}] pack_${patch}.cpk"
+		echo ">> [${cur}/${all}] pack_${file}.cpk"
 		cp ${CPK_PATH}/pack_${file}.cpk \
 			${PWD}/TMSxFE-Uncensored
 	done
