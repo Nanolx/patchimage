@@ -1,14 +1,15 @@
 #!/bin/bash
 
-PATCHIMAGE_VERSION=6.2.1
+PATCHIMAGE_VERSION=6.3.0
 PATCHIMAGE_RELEASE=2016-07-03
+
+[[ -e $HOME/.patchimage.rc ]] && source $HOME/.patchimage.rc
 
 setup_tools () {
 
 	if [[ $(uname -m) == "x86_64" ]]; then
 		SUFFIX=64
-	else
-		SUFFIX=32
+	else	SUFFIX=32
 	fi
 
 	WIT=${PATCHIMAGE_TOOLS_DIR}/wit.${SUFFIX}

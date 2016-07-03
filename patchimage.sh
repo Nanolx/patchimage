@@ -6,25 +6,24 @@
 #
 # License: GPL v3
 
-if [[ -d ${PWD}/script.d ]]; then
-	PATCHIMAGE_SCRIPT_DIR=${PWD}/script.d
-	PATCHIMAGE_PATCH_DIR=${PWD}/patches
-	PATCHIMAGE_TOOLS_DIR=${PWD}/tools
+basedir=$(readlink -m "${BASH_SOURCE[0]}")
+basedir=$(dirname ${basedir})
+
+if [[ -d ${basedir}/script.d ]]; then
+	PATCHIMAGE_SCRIPT_DIR=${basedir}/script.d
+	PATCHIMAGE_PATCH_DIR=${basedir}/patches
+	PATCHIMAGE_TOOLS_DIR=${basedir}/tools
 else
 	PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/script.d
 	PATCHIMAGE_PATCH_DIR=/usr/share/patchimage/patches
 	PATCHIMAGE_TOOLS_DIR=/usr/share/patchimage/tools
 fi
 
-PATCHIMAGE_RIIVOLUTION_DIR=${PWD}
-PATCHIMAGE_WBFS_DIR=${PWD}
-PATCHIMAGE_AUDIO_DIR=${PWD}
-PATCHIMAGE_GAME_DIR=${PWD}
-PATCHIMAGE_COVER_DIR=${PWD}
-
-if [[ -e $HOME/.patchimage.rc ]]; then
-	source $HOME/.patchimage.rc
-fi
+PATCHIMAGE_RIIVOLUTION_DIR=${basedir}
+PATCHIMAGE_WBFS_DIR=${basedir}
+PATCHIMAGE_AUDIO_DIR=${basedir}
+PATCHIMAGE_GAME_DIR=${basedir}
+PATCHIMAGE_COVER_DIR=${basedir}
 
 source ${PATCHIMAGE_SCRIPT_DIR}/common.sh
 optparse "${@}"
