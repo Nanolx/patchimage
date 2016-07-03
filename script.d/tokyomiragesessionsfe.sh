@@ -72,7 +72,7 @@ patch () {
 	all=${#PACH_FILES[@]}
 	echo -e "\n> Patching Files"
 	for patch in ${PATCH_FILES[@]}; do
-		cur=$((cur+1)
+		cur=$((cur+1))
 		echo ">> [${cur}/${all}] pack_${patch}.cpk"
 		${XD3} -d -f -s ${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk \
 			${XDELTA_PATH}/patch_${patch}.xdelta \
