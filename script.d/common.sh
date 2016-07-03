@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATCHIMAGE_VERSION=6.3.0
+PATCHIMAGE_VERSION=6.2.2
 PATCHIMAGE_RELEASE=2016-07-03
 
 [[ -e $HOME/.patchimage.rc ]] && source $HOME/.patchimage.rc

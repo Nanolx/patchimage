@@ -61,15 +61,20 @@ patch () {
 		rm -rf ${PWD}/TMSxFE-Uncensored
 	fi
 
+	all=${#PATCH_FILES[@]}
+
 	echo -e "\n> copying cpk files"
 	mkdir ${PWD}/TMSxFE-Uncensored
+
+	cur=0
 	for file in ${PATCH_FILES[@]}; do
+		cur=$((cur+1))
+		echo ">> [${cur}/${all}] pack_${patch}.cpk"
 		cp ${CPK_PATH}/pack_${file}.cpk \
 			${PWD}/TMSxFE-Uncensored
 	done
 
 	cur=0
-	all=${#PACH_FILES[@]}
 	echo -e "\n> Patching Files"
 	for patch in ${PATCH_FILES[@]}; do
 		cur=$((cur+1))
