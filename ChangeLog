@@ -1,6 +1,8 @@
-v6.3.0:
+v6.2.1:
 - support for MKWiimm 2016-07
 - update MKWiimm 2016-02 to v2
+- update Tokyo Mirage Sessions #FE patcher for version
+  0.9.4 of the patch
 
 v6.2.0:
 - code improvements for MKWiimm

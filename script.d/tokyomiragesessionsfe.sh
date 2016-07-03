@@ -3,7 +3,7 @@
 GAMENAME="Tokyo Mirage Sessions #FE Uncensored"
 GAME_TYPE=DELTA
 
-PATCH_FILES=( 000_map 010_character 030_etc 031_message 050_movie 999_lua )
+PATCH_FILES=( 000_map 010_character 030_etc 031_message 050_movie 999_etc_om 999_lua )
 
 show_notes () {
 
