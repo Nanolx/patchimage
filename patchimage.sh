@@ -29,12 +29,9 @@ source ${PATCHIMAGE_SCRIPT_DIR}/common.sh
 optparse "${@}"
 
 check_directories
-
 setup_tools
 
-if [[ ! ${GAME} ]]; then
-	ask_game
-fi
+[[ ! ${GAME} ]] && ask_game
 
 case ${GAME} in
 
@@ -170,7 +167,7 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh
 	;;
 
-	TMS1 | TokyoMirageSessions )
+	TMSFE | TokyoMirageSessions )
 		source ${PATCHIMAGE_SCRIPT_DIR}/tokyomiragesessionsfe.sh
 	;;
 
@@ -279,6 +276,7 @@ case ${GAME_TYPE} in
 			${IPS} a "${PATCH}" "${GAMENAME}.${ext}" || exit 51
 		else
 			echo -e "error: patch (${PATCH}) could not be found"
+			exit 21
 		fi
 	;;
 
@@ -286,10 +284,10 @@ case ${GAME_TYPE} in
 		show_notes
 
 		echo -e "\n*** 1) menu"
-		menu || exit 1
+		menu || exit 9
 
 		echo -e "\n*** 2) patch"
-		patch || exit 1
+		patch || exit 51
 	;;
 
 esac

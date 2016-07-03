@@ -150,25 +150,15 @@ apply_banner () {
 
 check_directories () {
 
-	if [[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR} ]]; then
-		mkdir -p ${PATCHIMAGE_RIIVOLUTION_DIR}
-	fi
+	[[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR} ]] && mkdir -p ${PATCHIMAGE_RIIVOLUTION_DIR}
 
-	if [[ ! -d ${PATCHIMAGE_WBFS_DIR} ]]; then
-		mkdir -p ${PATCHIMAGE_WBFS_DIR}
-	fi
+	[[ ! -d ${PATCHIMAGE_WBFS_DIR} ]] && mkdir -p ${PATCHIMAGE_WBFS_DIR}
 
-	if [[ ! -d ${PATCHIMAGE_GAME_DIR} ]]; then
-		mkdir -p ${PATCHIMAGE_GAME_DIR}
-	fi
+	[[ ! -d ${PATCHIMAGE_GAME_DIR} ]] && mkdir -p ${PATCHIMAGE_GAME_DIR}
 
-	if [[ ! -d ${PATCHIMAGE_AUDIO_DIR} ]]; then
-		mkdir -p ${PATCHIMAGE_AUDIO_DIR}
-	fi
+	[[ ! -d ${PATCHIMAGE_AUDIO_DIR} ]] && mkdir -p ${PATCHIMAGE_AUDIO_DIR}
 
-	if [[ ! -d ${PATCHIMAGE_COVER_DIR} ]]; then
-		mkdir -p ${PATCHIMAGE_COVER_DIR}
-	fi
+	[[ ! -d ${PATCHIMAGE_COVER_DIR} ]] && mkdir -p ${PATCHIMAGE_COVER_DIR}
 
 }
 
