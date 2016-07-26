@@ -12,10 +12,12 @@ basedir=$(dirname ${basedir})
 if [[ -d ${basedir}/script.d ]]; then
 	PATCHIMAGE_SCRIPT_DIR=${basedir}/script.d
 	PATCHIMAGE_PATCH_DIR=${basedir}/patches
+	PATCHIMAGE_DATA_DIR=${basedir}/data
 	PATCHIMAGE_TOOLS_DIR=${basedir}/tools
 else
 	PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/script.d
 	PATCHIMAGE_PATCH_DIR=/usr/share/patchimage/patches
+	PATCHIMAGE_DATA_DIR=/usr/share/patchimage/data
 	PATCHIMAGE_TOOLS_DIR=/usr/share/patchimage/tools
 fi
 
@@ -171,6 +173,14 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/tokyomiragesessionsfe.sh
 	;;
 
+	PKMN1 | NeoX )
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonneox.sh
+	;;
+
+	PKMN2 | NeoY )
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonneoy.sh
+	;;
+
 	ZEL1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;
@@ -278,6 +288,42 @@ case ${GAME_TYPE} in
 			echo -e "error: patch (${PATCH}) could not be found"
 			exit 21
 		fi
+	;;
+
+	"HANS" )
+		show_notes
+		echo -e "\n*** 1) check_input_rom"
+		check_input_rom
+
+		rm -rf romfs/ romfs.bin ${RFS}
+
+		echo -e "\n*** 2) check_hans_files"
+		check_hans_files
+
+		echo -e "\n*** 3) unpack_3dsrom"
+		unpack_3dsrom "${CXI}" || exit 51
+
+		echo -e "\n*** 4) unpack_3dsromfs"
+		unpack_3dsromfs romfs.bin || exit 51
+
+		echo -e "\n*** 5) patch_romfs"
+		patch_romfs
+
+		echo -e "\n*** 6) repack_romfs"
+		repack_3dsromfs romfs/ "${RFS}" || exit 51
+
+		echo "
+	*** succesfully created new romfs as \"${RFS}\"
+
+	1) place \"${RFS}\" into sd card > hans/ folder
+	2) place all files from
+
+		${DAT}
+
+	   into the root of your sd card
+
+	3) select the game from Homebrew Launcher
+"
 	;;
 
 	"DELTA" )

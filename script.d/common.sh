@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PATCHIMAGE_VERSION=6.2.2
-PATCHIMAGE_RELEASE=2016-07-03
+PATCHIMAGE_VERSION=6.3.0
+PATCHIMAGE_RELEASE=2016/07/25
 
 [[ -e $HOME/.patchimage.rc ]] && source $HOME/.patchimage.rc
 
@@ -19,6 +19,8 @@ setup_tools () {
 	SZS=${PATCHIMAGE_TOOLS_DIR}/wszst.${SUFFIX}
 	XD3=${PATCHIMAGE_TOOLS_DIR}/xdelta3.${SUFFIX}
 	GDOWN=${PATCHIMAGE_TOOLS_DIR}/gdown.pl
+	CTRTOOL=${PATCHIMAGE_TOOLS_DIR}/ctrtool.${SUFFIX}
+	FDSTOOL=${PATCHIMAGE_TOOLS_DIR}/3dstool.${SUFFIX}
 
 }
 
@@ -72,6 +74,10 @@ KAW1	Change first player's character
 
 <<<<<< Tokyo Mirage Sessions #FE >>>>>>
 TMS1	Uncensor US/EUR version
+
+<<<<<< 3DS ROMS >>>>>>
+PKMN1	Pokemon Neo X
+PKMN2	Pokemon Neo Y
 
 <<<<<< ROMS >>>>>>
 ZEL1	The Legend of Zelda: Parallel Worlds
@@ -393,13 +399,31 @@ download_covers () {
 
 }
 
+unpack_3dsrom () {
+
+	${CTRTOOL} -p --romfs=romfs.bin "${1}" &>/dev/null
+
+}
+
+unpack_3dsromfs () {
+
+	${CTRTOOL} -t romfs --romfsdir=romfs "${1}" &>/dev/null
+
+}
+
+repack_3dsromfs () {
+
+	${FDSTOOL} -ctf romfs "${2}" --romfs-dir "${1}" &>/dev/null
+
+}
+
 optparse () {
 
 xcount=0
 pcount=$#
 
 while [[ $xcount -lt $pcount ]]; do
-	case $1 in
+	case ${1} in
 
 		--iso* )
 			ISO_PATH=${1/*=}
