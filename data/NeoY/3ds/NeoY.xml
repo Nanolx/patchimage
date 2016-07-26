@@ -1,0 +1,9 @@
+<shortcut>
+	<executable>/3ds/hans/hans.3dsx</executable>
+	<icon>/3ds/NeoY.smdh</icon>
+	<arg>-f/3ds/hans/titles/neoy.txt</arg>
+</shortcut>
+<targets selectable="false">
+	<title mediatype="2">0004000000055E00</title>
+	<title mediatype="1">0004000000055E00</title>
+</targets>
