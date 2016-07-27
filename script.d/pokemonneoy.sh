@@ -23,7 +23,7 @@ wild Pokemon encounters along with a plethora of other features.
 NeoX & NeoY are pretty much identical at this stage.​
 
 Source:			https://gbatemp.net/threads/pokemon-neo-x-neo-y.388272/
-Base ROM:		Pokemon X / Pokemon Y
+Base ROM:		Pokemon Y
 Supported Versions:	US, EU, JAP
 ************************************************"
 
