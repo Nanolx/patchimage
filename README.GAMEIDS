@@ -67,6 +67,11 @@ RMC?32		Wiimms MKW-Fun 2016-07
 SUK?01		Kirby's Adventure Wii (only exchanging first
 		player's character is supported)
 
+### Pokemon ###
+
+0000055D	Pokemon X
+0000055E	Pokemon Y
+
 ### Toyko Mirage Sessions #FE ###
 
 ASE?01		De-Censoring the game
