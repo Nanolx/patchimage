@@ -181,6 +181,14 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonneoy.sh
 	;;
 
+	PKMN3 | RutileRuby )
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonrutileruby.sh
+	;;
+
+	PKMN4 | AlphaSapphire )
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonstarsapphire.sh
+	;;
+
 	ZEL1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;

@@ -78,6 +78,8 @@ TMS1	Uncensor US/EUR version
 <<<<<< 3DS ROMS >>>>>>
 PKMN1	Pokemon Neo X
 PKMN2	Pokemon Neo Y
+PKMN3	Pokemon Rutile Ruby
+PKMN4	Pokemon Star Sapphire
 
 <<<<<< ROMS >>>>>>
 ZEL1	The Legend of Zelda: Parallel Worlds

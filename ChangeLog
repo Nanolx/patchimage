@@ -1,8 +1,10 @@
 v6.3.0:
 - supply ctrtool (32 and 64 bit versions)
 - supply 3dstool (32 and 64 bit versions)
-- support for Pokemon Neo X
-- support for Pokemon Neo Y
+- add support for Pokemon Neo X
+- add support for Pokemon Neo Y
+- add support for Pokemon Rutile Ruby
+- add support for Pokemon Star Sapphire
 
 v6.2.2:
 - when running patchimage from git, use it's tools, scripts and stuff,
