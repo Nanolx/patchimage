@@ -97,7 +97,6 @@ read GAME
 download_soundtrack () {
 
 	if [[ ${SOUNDTRACK_LINK} ]]; then
-		[[ ! -d ${PATCHIMAGE_AUDIO_DIR} ]] && mkdir -p ${PATCHIMAGE_AUDIO_DIR}
 		wget --no-check-certificate "${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_AUDIO_DIR}"/${SOUNDTRACK_ZIP} || exit 57
 		echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
 	else
@@ -160,18 +159,28 @@ apply_banner () {
 
 check_directories () {
 
-	[[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR} ]] && mkdir -p ${PATCHIMAGE_RIIVOLUTION_DIR}
+	[[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR} && -w $(dirname ${PATCHIMAGE_RIIVOLUTION_DIR}) ]] && \
+		( mkdir -p ${PATCHIMAGE_RIIVOLUTION_DIR} || PATCHIMAGE_RIIVOLUTION_DIR=${HOME} )
 
-	[[ ! -d ${PATCHIMAGE_WBFS_DIR} ]] && mkdir -p ${PATCHIMAGE_WBFS_DIR}
+	[[ ! -d ${PATCHIMAGE_WBFS_DIR} && -w $(dirname ${PATCHIMAGE_WBFS_DIR}) ]] && \
+		( mkdir -p ${PATCHIMAGE_WBFS_DIR} || PATCHIMAGE_WBFS_DIR=${HOME} )
 
-	[[ ! -d ${PATCHIMAGE_GAME_DIR} ]] && mkdir -p ${PATCHIMAGE_GAME_DIR}
+	[[ ! -d ${PATCHIMAGE_GAME_DIR} && -w $(dirname ${PATCHIMAGE_GAME_DIR}) ]] && \
+		( mkdir -p ${PATCHIMAGE_GAME_DIR} || PATCHIMAGE_GAME_DIR=${HOME} )
 
-	[[ ! -d ${PATCHIMAGE_AUDIO_DIR} ]] && mkdir -p ${PATCHIMAGE_AUDIO_DIR}
+	[[ ! -d ${PATCHIMAGE_3DS_DIR} && -w $(dirname ${PATCHIMAGE_3DS_DIR}) ]] && \
+		( mkdir -p ${PATCHIMAGE_3DS_DIR} || PATCHIMAGE_3DS_DIR=${HOME} )
 
-	[[ ! -d ${PATCHIMAGE_COVER_DIR} ]] && mkdir -p ${PATCHIMAGE_COVER_DIR}
+	[[ ! -d ${PATCHIMAGE_ROM_DIR} && -w $(dirname ${PATCHIMAGE_ROM_DIR}) ]] && \
+		( mkdir -p ${PATCHIMAGE_ROM_DIR} || PATCHIMAGE_ROM_DIR=${HOME} )
+
+	[[ ! -d ${PATCHIMAGE_AUDIO_DIR} && -w $(dirname ${PATCHIMAGE_AUDIO_DIR}) ]] && \
+		( mkdir -p ${PATCHIMAGE_AUDIO_DIR} || PATCHIMAGE_AUDIO_DIR=${HOME} )
+
+	[[ ! -d ${PATCHIMAGE_COVER_DIR} && -w $(dirname ${PATCHIMAGE_COVER_DIR}) ]] && \
+		( mkdir -p ${PATCHIMAGE_COVER_DIR} || PATCHIMAGE_COVER_DIR=${HOME} )
 
 }
-
 
 check_input_image () {
 
@@ -262,6 +271,30 @@ check_input_image_mkwiimm () {
 	fi
 	echo "*** >> status: ${x}"
 
+}
+
+check_input_rom () {
+
+	x=5
+	if [[ ! ${CXI} ]]; then
+		CXI=$(find . -name ${CXI_MASK} | sed -e 's,./,,')
+		if [[ -f ${CXI} ]]; then
+			x=6
+			CXI=${CXI}
+			RFS=${ROMFS}
+		else
+			CXI=$(find ${PATCHIMAGE_3DS_DIR} -name ${CXI_MASK})
+			if [[ -f ${CXI} ]]; then
+				x=7
+				CXI=${CXI}
+				RFS=${ROMFS}
+			else
+				echo -e "error: could not find suitable ROM, specify using --rom"
+				exit 15
+			fi
+		fi
+	fi
+	echo "*** >> status: ${x}"
 }
 
 show_nsmb_db () {

@@ -330,10 +330,12 @@ case ${GAME_TYPE} in
 		echo -e "\n*** 6) repack_romfs"
 		repack_3dsromfs romfs/ "${RFS}" || exit 51
 
-		echo "
-	*** succesfully created new romfs as \"${RFS}\"
+		mv "${RFS}" "${RIIVOLUTION_ROM_DIR}"
 
-	1) place \"${RFS}\" into sd card > hans/ folder
+		echo "
+	*** succesfully created new romfs as \"${RIIVOLUTION_ROM_DIR}/${RFS}\"
+
+	1) place \"${RIIVOLUTION_ROM_DIR}/${RFS}\" into sd card > hans/ folder
 	2) place all files from
 
 		$(readlink -m "${DAT}")

@@ -29,22 +29,6 @@ Supported Versions:	US, EU, JAP
 
 }
 
-check_input_rom () {
-
-	if [[ ! ${CXI} ]]; then
-		CXI=$(find . -name ${CXI_MASK} | sed -e 's,./,,')
-		if [[ -f ${CXI} ]]; then
-			CXI=${CXI}
-			RFS=${ROMFS}
-			DAT=${PATCHIMAGE_DATA_DIR}/${DATA}
-		else
-			echo -e "error: could not find suitable ROM, specify using --rom"
-			exit 15
-		fi
-	fi
-
-}
-
 check_hans_files () {
 
 	check_riivolution_patch
