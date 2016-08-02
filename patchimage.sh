@@ -335,14 +335,11 @@ case ${GAME_TYPE} in
 		echo "
 	*** succesfully created new romfs as \"${RIIVOLUTION_ROM_DIR}/${RFS}\"
 
-	1) place \"${RIIVOLUTION_ROM_DIR}/${RFS}\" into sd card > hans/ folder
-	2) place all files from
+	>> for Hans Banners / Launchers, place all files from
 
 		$(readlink -m "${DAT}")
 
 	   into the root of your sd card
-
-	3) select the game from Homebrew Launcher
 "
 	;;
 
