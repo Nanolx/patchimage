@@ -1,10 +1,25 @@
+v6.4.0:
+- add PATCHIMAGE_DIR new internal directory
+- fix telling user path to Hans Files for Pokemon Rutile Ruby
+- fix telling user path to Hans Files for Pokemon Star Sapphire
+- add support for Pokemon Eternal X
+  - choose between legal, rebalanced and insanity version
+  - for legal and rebalanced, choose whether to nerf first gym leader
+- add support for Pokemon Wilting Y
+  - choose between legal, rebalanced and insanity version
+  - for legal and rebalanced, choose whether to nerf first gym leader
+
 v6.3.0:
 - supply ctrtool (32 and 64 bit versions)
 - supply 3dstool (32 and 64 bit versions)
 - add support for Pokemon Neo X
+   - choose between full and lite version
 - add support for Pokemon Neo Y
+   - choose between full and lite version
 - add support for Pokemon Rutile Ruby
+  - choose between legit, leveled and 679 build
 - add support for Pokemon Star Sapphire
+  - choose between legit, leveled and 679 build
 
 v6.2.2:
 - when running patchimage from git, use it's tools, scripts and stuff,

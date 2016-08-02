@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PATCHIMAGE_VERSION=6.3.0
-PATCHIMAGE_RELEASE=2016/07/25
+PATCHIMAGE_VERSION=6.4.0
+PATCHIMAGE_RELEASE=2016/08/02
 
 [[ -e $HOME/.patchimage.rc ]] && source $HOME/.patchimage.rc
 
@@ -80,6 +80,8 @@ PKMN1	Pokemon Neo X
 PKMN2	Pokemon Neo Y
 PKMN3	Pokemon Rutile Ruby
 PKMN4	Pokemon Star Sapphire
+PKMN5	Pokemon Eternal X
+PKMN6	Pokemon Wilting Y
 
 <<<<<< ROMS >>>>>>
 ZEL1	The Legend of Zelda: Parallel Worlds

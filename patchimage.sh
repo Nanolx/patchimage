@@ -9,6 +9,8 @@
 basedir=$(readlink -m "${BASH_SOURCE[0]}")
 basedir=$(dirname ${basedir})
 
+PATCHIMAGE_DIR=${basedir}
+
 if [[ -d ${basedir}/script.d ]]; then
 	PATCHIMAGE_SCRIPT_DIR=${basedir}/script.d
 	PATCHIMAGE_PATCH_DIR=${basedir}/patches
@@ -187,6 +189,14 @@ case ${GAME} in
 
 	PKMN4 | AlphaSapphire )
 		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonstarsapphire.sh
+	;;
+
+	PKMN5 | EternalX )
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemoneternalx.sh
+	;;
+
+	PKMN6 | WiltingY )
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonwiltingy.sh
 	;;
 
 	ZEL1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
