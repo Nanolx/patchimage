@@ -330,10 +330,10 @@ case ${GAME_TYPE} in
 		echo -e "\n*** 6) repack_romfs"
 		repack_3dsromfs romfs/ "${RFS}" || exit 51
 
-		mv "${RFS}" "${RIIVOLUTION_ROM_DIR}"
+		mv "${RFS}" "${PATCHIMAGE_ROM_DIR}"
 
 		echo "
-	*** succesfully created new romfs as \"${RIIVOLUTION_ROM_DIR}/${RFS}\"
+	*** succesfully created new romfs as \"${PATCHIMAGE_ROM_DIR}/${RFS}\"
 
 	>> for Hans Banners / Launchers, place all files from
 
