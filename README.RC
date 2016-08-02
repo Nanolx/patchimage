@@ -18,6 +18,12 @@ PATCHIMAGE_WBFS_DIR=/media/chris/WiiHDDX/wbfs
 # global directory your wbfs files will be saved to
 PATCHIMAGE_GAME_DIR=/media/chris/WiiHDDX/wbfs
 
+# global directory where your rom files will be saved to
+PATCHIMAGE_3DS_DIR=/media/sde1/
+
+# global directory where your rom files will be saved to
+PATCHIMAGE_ROM_DIR=/media/sde1/hans/
+
 # global directory soundtracks will be saved to
 PATCHIMAGE_AUDIO_DIR=${HOME}/Music
 

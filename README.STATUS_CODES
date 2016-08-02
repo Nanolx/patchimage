@@ -11,7 +11,10 @@ While the script executes you will see some status codes, below you will find th
 			1		<GAMEID>.iso found in ${PWD}
 			2		<GAMEID>.wbfs found in ${PWD}
 			3		<GAMEID>.iso found in ${PATCHIMAGE_WBFS_DIR}
-			4		<GAMEID>.iso found in ${PATCHIMAGE_WBFS_DIR}
+			4		<GAMEID>.wbfs found in ${PATCHIMAGE_WBFS_DIR}
+			5		no <MASK>.cxi found (3DS ROM)
+			6		<MASK>.cxi found in ${PWD}
+			7		<MASK>.cxi found in ${PATCHIMAGE_3DS_DIR}
 
 	*** 3)		0		no riivolution files found unpacked in ${PWD}
 			1		riivolution files/archive not found in ${PWD}
