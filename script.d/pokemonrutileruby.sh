@@ -39,7 +39,7 @@ check_input_rom () {
 		if [[ -f ${CXI} ]]; then
 			CXI=${CXI}
 			RFS=${ROMFS}
-			DAT=${PATCHIMAGE_DATA_DIR}/${DATA}
+			DAT=${PATCHIMAGE_DIR}/${DATA}
 		else
 			echo -e "error: could not find suitable ROM, specify using --rom"
 			exit 15
