@@ -336,7 +336,7 @@ case ${GAME_TYPE} in
 	1) place \"${RFS}\" into sd card > hans/ folder
 	2) place all files from
 
-		${DAT}
+		$(readlink -m "${DAT}")
 
 	   into the root of your sd card
 

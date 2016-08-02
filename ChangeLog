@@ -2,6 +2,7 @@ v6.4.0:
 - add PATCHIMAGE_DIR new internal directory
 - fix telling user path to Hans Files for Pokemon Rutile Ruby
 - fix telling user path to Hans Files for Pokemon Star Sapphire
+- show full path for Hans Files for all games, instead of relative
 - add support for Pokemon Eternal X
   - choose between legal, rebalanced and insanity version
   - for legal and rebalanced, choose whether to nerf first gym leader
