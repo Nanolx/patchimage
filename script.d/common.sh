@@ -413,7 +413,7 @@ check_riivolution_patch () {
 			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
 		elif [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
 			x=4
-			if [[ ${DOWNLOAD_LINK} == *docs.google* ]]; then
+			if [[ ${DOWNLOAD_LINK} == *docs.google* || ${DOWNLOAD_LINK} == *drive.google*  ]]; then
 				if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
 					x=5
 					echo "*** >> downloading"
@@ -422,6 +422,18 @@ check_riivolution_patch () {
 					echo "*** >> unpacking"
 					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
 				fi
+			elif [[ ${DOWNLOAD_LINK} == *mega.nz* ]]; then
+				echo "can not download from Mega, download manually from:
+
+	${DOWNLOAD_LINK}
+"
+				exit 21
+			elif [[ ${DOWNLOAD_LINK} == *mediafire* ]]; then
+				echo "can not download from Mediafire, download manually from:
+
+	${DOWNLOAD_LINK}
+"
+				exit 21
 			elif [[ ${DOWNLOAD_LINK} ]]; then
 				if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
 					x=5

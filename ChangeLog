@@ -12,6 +12,9 @@ v7.0.0:
   writeable, else fallback to ${HOME}
 - fix telling user path to Hans Files for all Pokemon game hacks
 - make the script more robust against directories with spaces in their names
+- use gdown.pl for drive.google.* download links
+- for download links on Mega tell user where to download manually
+- for download links on Mediafire tell user where to download manually
 
 ::configuration file changes
 - new configuration variable PATCHIMAGE_3DS_DIR, global directory
