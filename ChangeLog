@@ -1,18 +1,33 @@
 v6.4.0:
+::internal changes
 - add PATCHIMAGE_DIR new internal variable
 - add UNP_EXTRA_ARGS new internal variable
-- before creating any of the directories defined in ${HOME}/.patchimage.rc
-  check whether the parent directory is writeable, else fallback to ${HOME}
-- new ${HOME}/.patchimage.rc variable PATCHIMAGE_3DS_DIR, global directory
-  where to look for unmodified 3DS ROM files
-- new ${HOME}/.patchimage.rc variable PATCHIMAGE_ROM_DIR, global directory
-  where to store your modified 3DS ROM files
 - make check_input_rom search in both ${PATCHIMAGE_3DS_DIR} and ${PWD}
 - make check_input_rom a common.sh function, prevent duplicated code
-- update README.RC, README.STATUS_CODES, README.GAMEIDS
+
+::bug fixes
+- before creating any of the directories defined in ${HOME}/.patchimage.rc
+  check whether the parent directory is writeable, else fallback to ${HOME}
+- when setting destination directory for created files, check if they are
+  writeable, else fallback to ${HOME}
 - fix telling user path to Hans Files for all Pokemon game hacks
+
+::configuration file changes
+- new configuration variable PATCHIMAGE_3DS_DIR, global directory
+  where to look for unmodified 3DS ROM files
+- new configuration variable PATCHIMAGE_ROM_DIR, global directory
+  where to store your modified 3DS ROM files
+
+::documentation
+- update README.RC
+- update README.STATUS_CODES
+- update README.GAMEIDS
+
+::misc. changes
 - show full path for Hans Files for all games, instead of relative
 - only show path to Hans files if they exist
+
+::game additions
 - add support for Pokemon Eternal X
   - choose between legal, rebalanced and insanity version
   - for legal and rebalanced, choose whether to nerf first gym leader
@@ -20,9 +35,11 @@ v6.4.0:
   - choose between legal, rebalanced and insanity version
   - for legal and rebalanced, choose whether to nerf first gym leader
 - add support for Pokemon Rising Ruby
-  - provide custom HANS banner and launcher
+  - provide custom Hans banner and launcher
 - add support for Pokemon Sinking Sapphire
-  - provide custom HANS banner and launcher
+  - provide custom Hans banner and launcher
+
+::game changes and updates
 - update download link for Pokemon Rutile Ruby to v2.1
 - update download link for Pokemon Star Sapphire to v2.1
 
