@@ -1,5 +1,6 @@
 v6.4.0:
 - add PATCHIMAGE_DIR new internal variable
+- add UNP_EXTRA_ARGS new internal variable
 - before creating any of the directories defined in ${HOME}/.patchimage.rc
   check whether the parent directory is writeable, else fallback to ${HOME}
 - new ${HOME}/.patchimage.rc variable PATCHIMAGE_3DS_DIR, global directory
@@ -11,6 +12,7 @@ v6.4.0:
 - update README.RC, README.STATUS_CODES, README.GAMEIDS
 - fix telling user path to Hans Files for all Pokemon game hacks
 - show full path for Hans Files for all games, instead of relative
+- only show path to Hans files if they exist
 - add support for Pokemon Eternal X
   - choose between legal, rebalanced and insanity version
   - for legal and rebalanced, choose whether to nerf first gym leader
