@@ -1,4 +1,4 @@
-region : 1
+region : -1
 language : -1
 clock : 1
 romfs : 0
