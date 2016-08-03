@@ -1,9 +1,9 @@
 #!/bin/bash
 
-PATCHIMAGE_VERSION=6.4.0
+PATCHIMAGE_VERSION=7.0.0
 PATCHIMAGE_RELEASE=2016/08/03
 
-[[ -e $HOME/.patchimage.rc ]] && source $HOME/.patchimage.rc
+[[ -e ${HOME}/.patchimage.rc ]] && source ${HOME}/.patchimage.rc
 
 setup_tools () {
 
