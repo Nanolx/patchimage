@@ -139,6 +139,10 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/ghostlysuperghostbooswii.sh
 	;;
 
+	NSMB26 | RevisedSuperMarioBrosWii )
+		source ${PATCHIMAGE_SCRIPT_DIR}/revisedsupermariobroswii.sh
+	;;
+
 	NSMB99 | NSMBWCharacters )
 		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw_characters.sh
 	;;
@@ -205,6 +209,10 @@ case ${GAME} in
 
 	PKMN8 | SinkingSapphire )
 		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonsinkingsapphire.sh
+	;;
+
+	BSECU | BravelySecondUncensored )
+		source ${PATCHIMAGE_SCRIPT_DIR}/bravelyseconduncensored.sh
 	;;
 
 	ZEL1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
@@ -274,8 +282,9 @@ case ${GAME_TYPE} in
 		echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_GAME_DIR}/${GAMEID}.wbfs\n"
 
 		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
-			echo -e "\n*** Z) download_covers"
+			echo -e "*** Z) download_covers"
 			download_covers ${GAMEID}
+			echo -e "\nCovers downloaded to ${PATCHIMAGE_COVER_DIR}"
 		fi
 
 	;;

@@ -11,6 +11,7 @@ v6.4.0:
 - when setting destination directory for created files, check if they are
   writeable, else fallback to ${HOME}
 - fix telling user path to Hans Files for all Pokemon game hacks
+- make the script more robust against directories with spaces in their names
 
 ::configuration file changes
 - new configuration variable PATCHIMAGE_3DS_DIR, global directory
@@ -26,8 +27,16 @@ v6.4.0:
 ::misc. changes
 - show full path for Hans Files for all games, instead of relative
 - only show path to Hans files if they exist
+- when downloading covers for Wii games fail, retry with the US cover
+- don't re-download covers that already exist
+- don't re-download soundtracks that already exist
 
 ::game additions
+
+::::New Super Mario Bros. Wii
+- add support for Revised Super Mario Bros. Wii
+
+::::Pokemon
 - add support for Pokemon Eternal X
   - choose between legal, rebalanced and insanity version
   - for legal and rebalanced, choose whether to nerf first gym leader
@@ -38,6 +47,9 @@ v6.4.0:
   - provide custom Hans banner and launcher
 - add support for Pokemon Sinking Sapphire
   - provide custom Hans banner and launcher
+
+::::Other
+- add support for Bravely Second Uncensored
 
 ::game changes and updates
 - update download link for Pokemon Rutile Ruby to v2.1

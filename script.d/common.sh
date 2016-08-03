@@ -12,15 +12,15 @@ setup_tools () {
 	else	SUFFIX=32
 	fi
 
-	WIT=${PATCHIMAGE_TOOLS_DIR}/wit.${SUFFIX}
-	PPF=${PATCHIMAGE_TOOLS_DIR}/applyppf3.${SUFFIX}
-	IPS=${PATCHIMAGE_TOOLS_DIR}/uips.${SUFFIX}
-	UNP=${PATCHIMAGE_TOOLS_DIR}/unp
-	SZS=${PATCHIMAGE_TOOLS_DIR}/wszst.${SUFFIX}
-	XD3=${PATCHIMAGE_TOOLS_DIR}/xdelta3.${SUFFIX}
-	GDOWN=${PATCHIMAGE_TOOLS_DIR}/gdown.pl
-	CTRTOOL=${PATCHIMAGE_TOOLS_DIR}/ctrtool.${SUFFIX}
-	FDSTOOL=${PATCHIMAGE_TOOLS_DIR}/3dstool.${SUFFIX}
+	WIT="${PATCHIMAGE_TOOLS_DIR}"/wit.${SUFFIX}
+	PPF="${PATCHIMAGE_TOOLS_DIR}"/applyppf3.${SUFFIX}
+	IPS="${PATCHIMAGE_TOOLS_DIR}"/uips.${SUFFIX}
+	UNP="${PATCHIMAGE_TOOLS_DIR}"/unp
+	SZS="${PATCHIMAGE_TOOLS_DIR}"/wszst.${SUFFIX}
+	XD3="${PATCHIMAGE_TOOLS_DIR}"/xdelta3.${SUFFIX}
+	GDOWN="${PATCHIMAGE_TOOLS_DIR}"/gdown.pl
+	CTRTOOL="${PATCHIMAGE_TOOLS_DIR}"/ctrtool.${SUFFIX}
+	FDSTOOL="${PATCHIMAGE_TOOLS_DIR}"/3dstool.${SUFFIX}
 
 }
 
@@ -58,6 +58,7 @@ NSMB22	New Super Mario Bros. Wii - Other World
 NSMB23	The Legend of Yoshi
 NSMB24	Remixed Super Mario Bros. Wii
 NSMB25	Ghostly Super Ghost Boos. Wii
+NSMB26	Revised Super Mario Bros. Wii
 
 NSMB99	Customize Characters
 
@@ -85,6 +86,8 @@ PKMN6	Pokemon Wilting Y
 PKMN7	Pokemon Rising Ruby
 PKMN8	Pokemon Sinking Sapphire
 
+BSECU	Bravely Second Uncensored
+
 <<<<<< ROMS >>>>>>
 ZEL1	The Legend of Zelda: Parallel Worlds
 
@@ -98,8 +101,8 @@ read GAME
 
 download_soundtrack () {
 
-	if [[ ${SOUNDTRACK_LINK} ]]; then
-		wget --no-check-certificate "${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_AUDIO_DIR}"/${SOUNDTRACK_ZIP} || exit 57
+	if [[ ${SOUNDTRACK_LINK} && ! -f "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" ]]; then
+		wget --no-check-certificate "${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" || exit 57
 		echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
 	else
 		echo -e "no soundtrack for ${GAMENAME} available."
@@ -162,37 +165,37 @@ apply_banner () {
 check_directories () {
 
 	[[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR} && -w $(dirname ${PATCHIMAGE_RIIVOLUTION_DIR}) ]] && \
-		( mkdir -p ${PATCHIMAGE_RIIVOLUTION_DIR} || PATCHIMAGE_RIIVOLUTION_DIR=${HOME} )
+		( mkdir -p "${PATCHIMAGE_RIIVOLUTION_DIR}" || PATCHIMAGE_RIIVOLUTION_DIR=${HOME} )
 
 	[[ ! -w ${PATCHIMAGE_RIIVOLUTION_DIR} ]] && PATCHIMAGE_RIIVOLUTION_DIR=${HOME}
 
 	[[ ! -d ${PATCHIMAGE_WBFS_DIR} && -w $(dirname ${PATCHIMAGE_WBFS_DIR}) ]] && \
-		( mkdir -p ${PATCHIMAGE_WBFS_DIR} || PATCHIMAGE_WBFS_DIR=${HOME} )
+		( mkdir -p "${PATCHIMAGE_WBFS_DIR}" || PATCHIMAGE_WBFS_DIR=${HOME} )
 
-	[[ ! -w ${PATCHIMAGE_WBFS_DIR} ]] && PATCHIMAGE_WBFS_DIR=${HOME}
+	[[ ! -w "${PATCHIMAGE_WBFS_DIR}" ]] && PATCHIMAGE_WBFS_DIR=${HOME}
 
 	[[ ! -d ${PATCHIMAGE_GAME_DIR} && -w $(dirname ${PATCHIMAGE_GAME_DIR}) ]] && \
-		( mkdir -p ${PATCHIMAGE_GAME_DIR} || PATCHIMAGE_GAME_DIR=${HOME} )
+		( mkdir -p "${PATCHIMAGE_GAME_DIR}" || PATCHIMAGE_GAME_DIR=${HOME} )
 
 	[[ ! -w ${PATCHIMAGE_GAME_DIR} ]] && PATCHIMAGE_GAME_DIR=${HOME}
 
 	[[ ! -d ${PATCHIMAGE_3DS_DIR} && -w $(dirname ${PATCHIMAGE_3DS_DIR}) ]] && \
-		( mkdir -p ${PATCHIMAGE_3DS_DIR} || PATCHIMAGE_3DS_DIR=${HOME} )
+		( mkdir -p "${PATCHIMAGE_3DS_DIR}" || PATCHIMAGE_3DS_DIR=${HOME} )
 
 	[[ ! -w ${PATCHIMAGE_3DS_DIR} ]] && PATCHIMAGE_3DS_DIR=${HOME}
 
 	[[ ! -d ${PATCHIMAGE_ROM_DIR} && -w $(dirname ${PATCHIMAGE_ROM_DIR}) ]] && \
-		( mkdir -p ${PATCHIMAGE_ROM_DIR} || PATCHIMAGE_ROM_DIR=${HOME} )
+		( mkdir -p "${PATCHIMAGE_ROM_DIR}" || PATCHIMAGE_ROM_DIR=${HOME} )
 
 	[[ ! -w ${PATCHIMAGE_ROM_DIR} ]] && PATCHIMAGE_ROM_DIR=${HOME}
 
 	[[ ! -d ${PATCHIMAGE_AUDIO_DIR} && -w $(dirname ${PATCHIMAGE_AUDIO_DIR}) ]] && \
-		( mkdir -p ${PATCHIMAGE_AUDIO_DIR} || PATCHIMAGE_AUDIO_DIR=${HOME} )
+		( mkdir -p "${PATCHIMAGE_AUDIO_DIR}" || PATCHIMAGE_AUDIO_DIR=${HOME} )
 
 	[[ ! -w ${PATCHIMAGE_AUDIO_DIR} ]] && PATCHIMAGE_AUDIO_DIR=${HOME}
 
-	[[ ! -d ${PATCHIMAGE_COVER_DIR} && -w $(dirname ${PATCHIMAGE_COVER_DIR}) ]] && \
-		( mkdir -p ${PATCHIMAGE_COVER_DIR} || PATCHIMAGE_COVER_DIR=${HOME} )
+	[[ ! -d ${PATCHIMAGE_COVER_DIR} && -w $(dirname "${PATCHIMAGE_COVER_DIR}") ]] && \
+		( mkdir -p "${PATCHIMAGE_COVER_DIR}" || PATCHIMAGE_COVER_DIR=${HOME} )
 
 	[[ ! -w ${PATCHIMAGE_COVER_DIR} ]] && PATCHIMAGE_COVER_DIR=${HOME}
 
@@ -224,12 +227,12 @@ check_input_image_nsmb () {
 		elif test -f SMN?01.iso; then
 			x=2
 			IMAGE=SMN?01.iso
-		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.iso; then
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/SMN?01.iso; then
 			x=3
-			IMAGE=${PATCHIMAGE_WBFS_DIR}/SMN?01.iso
-		elif test -f ${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs; then
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/SMN?01.iso
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/SMN?01.wbfs; then
 			x=4
-			IMAGE=${PATCHIMAGE_WBFS_DIR}/SMN?01.wbfs
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/SMN?01.wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 15
@@ -249,12 +252,12 @@ check_input_image_kirby () {
 		elif test -f SMN?01.iso; then
 			x=2
 			IMAGE=SMN?01.iso
-		elif test -f ${PATCHIMAGE_WBFS_DIR}/SUK?01.iso; then
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/SUK?01.iso; then
 			x=3
-			IMAGE=${PATCHIMAGE_WBFS_DIR}/SUK?01.iso
-		elif test -f ${PATCHIMAGE_WBFS_DIR}/SUK?01.wbfs; then
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/SUK?01.iso
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/SUK?01.wbfs; then
 			x=4
-			IMAGE=${PATCHIMAGE_WBFS_DIR}/SUK?01.wbfs
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/SUK?01.wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 15
@@ -274,12 +277,12 @@ check_input_image_mkwiimm () {
 		elif test -f RMC?01.iso; then
 			x=2
 			IMAGE=RMC?01.iso
-		elif test -f ${PATCHIMAGE_WBFS_DIR}/RMC?01.iso; then
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/RMC?01.iso; then
 			x=3
-			IMAGE=${PATCHIMAGE_WBFS_DIR}/RMC?01.iso
-		elif test -f ${PATCHIMAGE_WBFS_DIR}/RMC?01.wbfs; then
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/RMC?01.iso
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/RMC?01.wbfs; then
 			x=4
-			IMAGE=${PATCHIMAGE_WBFS_DIR}/RMC?01.wbfs
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/RMC?01.wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 15
@@ -318,7 +321,7 @@ show_nsmb_db () {
 	ID1=${1:0:3}
 	ID2=${1:4:2}
 	gawk -F \: "/^${ID1}\*${ID2}/"'{print $2}' \
-		< ${PATCHIMAGE_SCRIPT_DIR}/nsmbw.db || echo "** Unknown **"
+		< "${PATCHIMAGE_SCRIPT_DIR}"/nsmbw.db || echo "** Unknown **"
 
 }
 
@@ -326,7 +329,7 @@ show_mkwiimm_db () {
 
 	ID=${1:4:2}
 	[[ ${ID} == [0-9][0-9] ]] && gawk -F \: "/^${ID}/"'{print $2}' \
-		< ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db || echo "** Unknown **"
+		< "${PATCHIMAGE_SCRIPT_DIR}"/mkwiimm.db || echo "** Unknown **"
 
 }
 
@@ -366,14 +369,14 @@ show_titles_db () {
 
 	ID=${1/.*}
 	gawk -F \: "/^${ID}/"'{print $2}' \
-		< ${PATCHIMAGE_SCRIPT_DIR}/titles.db || echo "** Unknown **"
+		< "${PATCHIMAGE_SCRIPT_DIR}"/titles.db || echo "** Unknown **"
 
 }
 
 check_wfc () {
 
 	ID=${1/.*}
-	if [[ $(grep ${ID} ${PATCHIMAGE_SCRIPT_DIR}/wfc.db) ]]; then
+	if [[ $(grep ${ID} "${PATCHIMAGE_SCRIPT_DIR}"/wfc.db) ]]; then
 		echo TRUE
 	else
 		echo FALSE
@@ -443,11 +446,24 @@ check_riivolution_patch () {
 
 download_covers () {
 
+	alt=$(echo $1 | sed s/./E/4)
+
 	for path in cover cover3D coverfull disc disccustom; do
-		wget -O ${PATCHIMAGE_COVER_DIR}/${1}_${path}.png \
-			http://art.gametdb.com/wii/${path}/EN/${1}.png &>/dev/null \
-			|| ( echo "Cover (${path}) does not exist for gameid ${1}." && \
-			rm ${PATCHIMAGE_COVER_DIR}/${1}_${path}.png )
+		if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png ]]; then
+			wget -O "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png \
+				http://art.gametdb.com/wii/${path}/EN/${1}.png &>/dev/null \
+				|| rm "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png
+
+			if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png ]]; then
+				wget -O "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png \
+					http://art.gametdb.com/wii/${path}/US/${alt}.png &>/dev/null \
+				|| rm "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png
+			fi
+
+			[[ ! -f "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png ]] && \
+				echo "Cover (${path}) does not exist for gameid ${1}."
+		fi
+
 	done
 
 }
