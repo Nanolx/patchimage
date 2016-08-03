@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PATCHIMAGE_VERSION=6.4.0
-PATCHIMAGE_RELEASE=2016/08/02
+PATCHIMAGE_RELEASE=2016/08/03
 
 [[ -e $HOME/.patchimage.rc ]] && source $HOME/.patchimage.rc
 
@@ -82,6 +82,8 @@ PKMN3	Pokemon Rutile Ruby
 PKMN4	Pokemon Star Sapphire
 PKMN5	Pokemon Eternal X
 PKMN6	Pokemon Wilting Y
+PKMN7	Pokemon Rising Ruby
+PKMN8	Pokemon Sinking Sapphire
 
 <<<<<< ROMS >>>>>>
 ZEL1	The Legend of Zelda: Parallel Worlds

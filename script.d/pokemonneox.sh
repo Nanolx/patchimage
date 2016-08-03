@@ -8,7 +8,7 @@ GAME_TYPE=HANS
 
 CXI_MASK="*0004000000055[dD]00*cxi"
 ROMFS="neox.romfs"
-DATA="NeoX"
+DATA="${PATCHIMAGE_DATA_DIR}/NeoX"
 
 show_notes () {
 

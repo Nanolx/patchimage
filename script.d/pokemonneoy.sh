@@ -8,7 +8,7 @@ GAME_TYPE=HANS
 
 CXI_MASK="*0004000000055[eE]00*cxi"
 ROMFS="neoy.romfs"
-DATA="NeoY"
+DATA="${PATCHIMAGE_DATA_DIR}/NeoY"
 
 show_notes () {
 

@@ -9,8 +9,7 @@ v6.4.0:
 - make check_input_rom search in both ${PATCHIMAGE_3DS_DIR} and ${PWD}
 - make check_input_rom a common.sh function, prevent duplicated code
 - update README.RC, README.STATUS_CODES, README.GAMEIDS
-- fix telling user path to Hans Files for Pokemon Rutile Ruby
-- fix telling user path to Hans Files for Pokemon Star Sapphire
+- fix telling user path to Hans Files for all Pokemon game hacks
 - show full path for Hans Files for all games, instead of relative
 - add support for Pokemon Eternal X
   - choose between legal, rebalanced and insanity version
@@ -18,14 +17,20 @@ v6.4.0:
 - add support for Pokemon Wilting Y
   - choose between legal, rebalanced and insanity version
   - for legal and rebalanced, choose whether to nerf first gym leader
+- add support for Pokemon Rising Ruby
+  - provide custom HANS banner and launcher
+- add support for Pokemon Sinking Sapphire
+  - provide custom HANS banner and launcher
 
 v6.3.0:
 - supply ctrtool (32 and 64 bit versions)
 - supply 3dstool (32 and 64 bit versions)
 - add support for Pokemon Neo X
-   - choose between full and lite version
+  - choose between full and lite version
+  - provide custom HANS banner and launcher
 - add support for Pokemon Neo Y
-   - choose between full and lite version
+  - choose between full and lite version
+  - provide custom HANS banner and launcher
 - add support for Pokemon Rutile Ruby
   - choose between legit, leveled and 679 build
 - add support for Pokemon Star Sapphire

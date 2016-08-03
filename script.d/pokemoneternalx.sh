@@ -8,7 +8,6 @@ GAME_TYPE=HANS
 
 CXI_MASK="*0004000000055[dD]00*cxi"
 ROMFS="EternalX.romfs"
-DATA=""
 
 show_notes () {
 
@@ -68,18 +67,16 @@ enter either 'legal', 'rebalanced' or 'insanity':
 
 	case ${choice} in
 		[lL]egal ) HANS_PATH="${RIIVOLUTION_DIR}/Legal version"
-			   DAT="${HANS_PATH}/Hans Files/"
 			   viola_nerf ;;
 		[rR]ebalanced ) HANS_PATH="${RIIVOLUTION_DIR}/Rebalanced version"
-				DAT="${HANS_PATH}/Hans Files"
 				viola_nerf ;;
 		[iI]nsanity ) HANS_PATH="${RIIVOLUTION_DIR}/Insanity Mode"
-			      DAT="${HANS_PATH}/Hans Files" ;;
 		* ) echo "invalid choice made, using 'Rebalanced version'."
 		    HANS_PATH="${RIIVOLUTION_DIR}/Rebalanced version"
-		    DAT="${HANS_PATH}/Hans Files"
 		    viola_nerf ;;
 	esac
+
+	DATA="${HANS_PATH}/Hans Files"
 
 }
 

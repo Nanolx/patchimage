@@ -1,0 +1,10 @@
+<shortcut>
+    <executable>/3ds/hans/hans.3dsx</executable>
+    <icon>/3ds/RisingRuby.smdh</icon>
+    <arg>-f/3ds/hans/titles/RisingRuby.txt</arg>  <author>Drayano</author>
+</shortcut>
+
+<targets selectable="0">
+    <title mediatype="1">000400000011C400</title>
+    <title mediatype="2">000400000011C400</title>
+</targets>

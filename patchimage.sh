@@ -199,6 +199,14 @@ case ${GAME} in
 		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonwiltingy.sh
 	;;
 
+	PKMN7 | RisingRuby )
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonrisingruby.sh
+	;;
+
+	PKMN8 | SinkingSapphire )
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonsinkingsapphire.sh
+	;;
+
 	ZEL1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
 		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
 	;;
@@ -337,7 +345,7 @@ case ${GAME_TYPE} in
 
 	>> for Hans Banners / Launchers, place all files from
 
-		$(readlink -m "${DAT}")
+		$(readlink -m "${DATA}")
 
 	   into the root of your sd card
 "
