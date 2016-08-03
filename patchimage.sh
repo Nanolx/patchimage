@@ -342,8 +342,10 @@ case ${GAME_TYPE} in
 
 		echo "
 	*** succesfully created new romfs as \"${PATCHIMAGE_ROM_DIR}/${RFS}\"
+"
 
-	>> for Hans Banners / Launchers, place all files from
+	[[ ${DATA} ]] && echo \
+	">> for Hans Banners / Launchers, place all files from
 
 		$(readlink -m "${DATA}")
 
