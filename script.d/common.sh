@@ -164,23 +164,37 @@ check_directories () {
 	[[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR} && -w $(dirname ${PATCHIMAGE_RIIVOLUTION_DIR}) ]] && \
 		( mkdir -p ${PATCHIMAGE_RIIVOLUTION_DIR} || PATCHIMAGE_RIIVOLUTION_DIR=${HOME} )
 
+	[[ ! -w ${PATCHIMAGE_RIIVOLUTION_DIR} ]] && PATCHIMAGE_RIIVOLUTION_DIR=${HOME}
+
 	[[ ! -d ${PATCHIMAGE_WBFS_DIR} && -w $(dirname ${PATCHIMAGE_WBFS_DIR}) ]] && \
 		( mkdir -p ${PATCHIMAGE_WBFS_DIR} || PATCHIMAGE_WBFS_DIR=${HOME} )
+
+	[[ ! -w ${PATCHIMAGE_WBFS_DIR} ]] && PATCHIMAGE_WBFS_DIR=${HOME}
 
 	[[ ! -d ${PATCHIMAGE_GAME_DIR} && -w $(dirname ${PATCHIMAGE_GAME_DIR}) ]] && \
 		( mkdir -p ${PATCHIMAGE_GAME_DIR} || PATCHIMAGE_GAME_DIR=${HOME} )
 
+	[[ ! -w ${PATCHIMAGE_GAME_DIR} ]] && PATCHIMAGE_GAME_DIR=${HOME}
+
 	[[ ! -d ${PATCHIMAGE_3DS_DIR} && -w $(dirname ${PATCHIMAGE_3DS_DIR}) ]] && \
 		( mkdir -p ${PATCHIMAGE_3DS_DIR} || PATCHIMAGE_3DS_DIR=${HOME} )
+
+	[[ ! -w ${PATCHIMAGE_3DS_DIR} ]] && PATCHIMAGE_3DS_DIR=${HOME}
 
 	[[ ! -d ${PATCHIMAGE_ROM_DIR} && -w $(dirname ${PATCHIMAGE_ROM_DIR}) ]] && \
 		( mkdir -p ${PATCHIMAGE_ROM_DIR} || PATCHIMAGE_ROM_DIR=${HOME} )
 
+	[[ ! -w ${PATCHIMAGE_ROM_DIR} ]] && PATCHIMAGE_ROM_DIR=${HOME}
+
 	[[ ! -d ${PATCHIMAGE_AUDIO_DIR} && -w $(dirname ${PATCHIMAGE_AUDIO_DIR}) ]] && \
 		( mkdir -p ${PATCHIMAGE_AUDIO_DIR} || PATCHIMAGE_AUDIO_DIR=${HOME} )
 
+	[[ ! -w ${PATCHIMAGE_AUDIO_DIR} ]] && PATCHIMAGE_AUDIO_DIR=${HOME}
+
 	[[ ! -d ${PATCHIMAGE_COVER_DIR} && -w $(dirname ${PATCHIMAGE_COVER_DIR}) ]] && \
 		( mkdir -p ${PATCHIMAGE_COVER_DIR} || PATCHIMAGE_COVER_DIR=${HOME} )
+
+	[[ ! -w ${PATCHIMAGE_COVER_DIR} ]] && PATCHIMAGE_COVER_DIR=${HOME}
 
 }
 
