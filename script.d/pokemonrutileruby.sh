@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DOWNLOAD_LINK="https://mega.nz/#!NAJkTDrS!-YzgUJUgOGZs6FgvSiNneZjFDIpZMTHO9rcXp0h4dBQ"
-RIIVOLUTION_ZIP="Rutile Ruby 2.0 - Distribution.zip"
+DOWNLOAD_LINK="https://mega.nz/#!hRYSkRBL!Z234hycJ96y2aTbyPpyUO0JcloMadgPVdGuinRHVqQc"
+RIIVOLUTION_ZIP="Rutile Ruby 2.1 - Distribution.zip"
 RIIVOLUTION_DIR="Rutile Ruby - Distribution"
 GAMENAME="Pokemon Rutile Ruby"
 GAME_TYPE=HANS

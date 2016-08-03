@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DOWNLOAD_LINK="https://mega.nz/#!JQpjzZSK!NFJjbRHMtM_q3UaFKGdn_aGqvxfZYsyUxSABeXb_ySo"
-RIIVOLUTION_ZIP="Star Sapphire 2.0 - Distribution.zip"
+DOWNLOAD_LINK="https://mega.nz/#!9Ex0gazC!SAr8RZi3TuZxdrKvvcpW8hfgfSki7GkBqh1dMVSJoW8"
+RIIVOLUTION_ZIP="Star Sapphire 2.1 - Distribution.zip"
 RIIVOLUTION_DIR="Star Sapphire - Distribution"
 GAMENAME="Pokemon Star Sapphire"
 GAME_TYPE=HANS
