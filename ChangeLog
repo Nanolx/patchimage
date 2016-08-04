@@ -40,6 +40,9 @@ v7.0.0:
 - when downloading covers for Wii games fail, retry with the US cover
 - don't re-download covers that already exist
 - don't re-download soundtracks that already exist
+- for NSMBW character mods, Mario Kart Wii font, item and kart mods,
+  don't download the files from the interwebs, instead use files supplied
+  and installed with patchimage
 
 ::game additions
 

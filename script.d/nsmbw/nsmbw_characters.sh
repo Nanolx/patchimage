@@ -2,7 +2,6 @@
 
 GAME_TYPE="WII_GENERIC"
 GAME_NAME="New Super Mario Bros. Wii"
-ITEMS_BASE="http://riivolution.nanolx.org/nsmbw_characters"
 
 show_notes () {
 
@@ -56,12 +55,9 @@ pi_action () {
 		read PLAYERS
 
 		for player in ${PLAYERS[@]}; do
-			if [[ ! -f ${PATCHIMAGE_RIIVOLUTION_DIR}/nsmbw_player_${player} ]]; then
-				wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/nsmbw_player_${player} \
-					${ITEMS_BASE}/${player} &>/dev/null \
-					|| (echo "download of ${player} failed." \
-					&& rm ${PATCHIMAGE_RIIVOLUTION_DIR}/${player} \
-					&& exit 57)
+			if [[ ! -f "${PATCHIMAGE_DATA_DIR}"/nsmbw_characters/${player} ]]; then
+				echo "unkown character ${player}"
+				exit 75
 			fi
 			slot=$(gawk -F \: "/^${player}/"'{print $2}' ${PATCHIMAGE_DATABASE_DIR}/nsmbw_characters.db)
 			choosenplayers=( ${choosenplayers[@]} ${player}:${slot} )
@@ -88,7 +84,7 @@ pi_action () {
 
 	echo "*** 5) replacing characters"
 	for player in ${choosenplayers[@]}; do
-		cp "${PATCHIMAGE_RIIVOLUTION_DIR}"/nsmbw_player_${player/:*} \
+		cp "${PATCHIMAGE_DATA_DIR}"/nsmbw_characters/${player/:*} \
 			workdir/files/Object/${player/*:}
 	done
 

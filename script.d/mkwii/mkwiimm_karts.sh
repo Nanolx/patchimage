@@ -2,7 +2,6 @@
 
 GAME_TYPE="MKWIIMM"
 GAME_NAME="Mario Kart Wiimm"
-ITEMS_BASE="http://riivolution.nanolx.org/mkwiimm_karts"
 
 show_notes () {
 
@@ -70,12 +69,9 @@ download_wiimm () {
 		read KART
 
 		for kart in ${KART[@]}; do
-			if [[ ! -f ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_kart_${kart} ]]; then
-				wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_kart_${kart} \
-					${ITEMS_BASE}/${kart} &>/dev/null \
-					|| (echo "download of ${kart} failed." \
-					&& rm ${PATCHIMAGE_RIIVOLUTION_DIR}/${KART} \
-					&& exit 57)
+			if [[ ! -f ${PATCHIMAGE_DATA_DIR}/mkwiimm_karts/${kart} ]]; then
+				echo "unknown Kart ${kart}"
+				exit 75
 			fi
 		done
 		ask_slot
@@ -109,11 +105,11 @@ build_mkwiimm () {
 		source=${kart/*:}
 		dest=${kart/:*}
 		echo "       old: ${dest}.szs	new: ${source}"
-		cp "${PATCHIMAGE_RIIVOLUTION_DIR}"/mkwiimm_kart_${source} \
+		cp "${PATCHIMAGE_DATA_DIR}"/mkwiimm_karts/${source} \
 			workdir/files/Race/Kart/${dest}.szs
-		cp "${PATCHIMAGE_RIIVOLUTION_DIR}"/mkwiimm_kart_${source} \
+		cp "${PATCHIMAGE_DATA_DIR}"/mkwiimm_karts/${source} \
 			workdir/files/Race/Kart/${dest}_2.szs
-		cp "${PATCHIMAGE_RIIVOLUTION_DIR}"/mkwiimm_kart_${source} \
+		cp "${PATCHIMAGE_DATA_DIR}"/mkwiimm_karts/${source} \
 			workdir/files/Race/Kart/${dest}_4.szs
 	done
 

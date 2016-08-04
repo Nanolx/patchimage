@@ -2,7 +2,6 @@
 
 GAME_TYPE="MKWIIMM"
 GAME_NAME="Mario Kart Wiimm"
-ITEMS_BASE="http://riivolution.nanolx.org/mkwiimm_fonts"
 FSZS="files/Scene/UI/Font.szs"
 
 show_notes () {
@@ -46,12 +45,9 @@ orig		Original Mario Kart Wii Font"
 	read FONT
 
 	if [[ ${FONT} != orig ]]; then
-		if [[ ! -f ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_font_${FONT} ]]; then
-			wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/mkwiimm_font_${FONT} \
-				${ITEMS_BASE}/${FONT} &>/dev/null \
-				|| (echo "download of ${FONT} failed." \
-				&& rm ${PATCHIMAGE_RIIVOLUTION_DIR}/${FONT} \
-				&& exit 57)
+		if [[ ! -f ${PATCHIMAGE_DATA_DIR}/mkwiimm_fonts/${FONT} ]]; then
+			echo "Font ${FONT} unknown"
+			exit 75
 		fi
 	fi
 
@@ -73,7 +69,7 @@ build_mkwiimm () {
 	fi
 
 	echo "*** 7) replacing font"
-	cp "${PATCHIMAGE_RIIVOLUTION_DIR}"/mkwiimm_font_${FONT} workdir/${FSZS}
+	cp "${PATCHIMAGE_DATA_DIR}"/mkwiimm_fonts/${FONT} workdir/${FSZS}
 
 	echo "*** 8) rebuilding game"
 	echo "       (storing game in ${PATCHIMAGE_GAME_DIR}/${ID})"
