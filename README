@@ -1,47 +1,58 @@
-Based on DMMs and Wiimms excellent work, I've created a flexible
-patchscript for GNU/Linux. Additionally to riivolution patches, this
-one will also allow patching ROMs using ips/ppf patches. And more...
+Based on DMMs and Wiimms excellent work, I've created a flexible patchscript
+for GNU/Linux. Additionally to applying riivolution patches to Wii games, it
+also allows patching 3DS games and Wii U games.
 
-patchimage allows choosing a custom GAMEID, aswell as downloading
-riivolution-files, patches and soundtrack (if available).
+features include:
+ - downloading riivolution files or patches
+ - downloading soundtracks (if available)
+ - downloading custom banners for Wii games (if available)
+ - downloading covers for Wii games (if available)
+ - automatic storing of patched games into desired destination (see README.RC)
+ - automatic patching of Wii games, 3DS games, Wii U games
 
-NOTE: don't fiddle around with sub-folders in riivolution-files, the
-script uses files as "unzip" creates them. No need to modify whatever.
+NOTE: don't fiddle around with sub-folders in riivolution-files, the script uses
+files as "unzip" creates them. No need to modify anything.
 
-... Well, you need the original game to do this legally, if you don't
-own the original, you can't blame me. patchimage is 100% legal, as it
-does not contain any propritary contents, nor is able to grab them.
+You need the original games to do this legally, if you don't own the original,
+you can't blame me. patchimage is 100% legal, as it does not contain any
+propritary contents, nor is able to grab them.
 
-Starting with versions 4.90 and up, patchimage support Mario Kart Wiimm
-and Wimmfi (custom server for Mario Kart Wii and other games after the
-official server's shutdown).
+patchimage supports the following base games:
+	* New Super Mario Bros. Wii
+	* Kirby's Adventure Wii
+	* Mario Kart Wii
+	* Tokyo Mirage Sessions #FE
+	* Pokemon X
+	* Pokemon Y
+	* Pokemon Omega Ruby
+	* Pokemon Alpha Sapphire
+	* Bravely Second
 
 More information:
-	* supported games: 		see file README.GAMEIDS
-	* supported commandline flags:	see file README.CMD_OPTS
-	* configuration file example:	see file README.RC
-	* status code while processing:	see file README.STATUS_CODES
-	* exit codes (for debugging):	see file README.EXIT_CODES
+	* supported game modifcations, search paths and expecte file names
+		see README.GAMEIDS
+	* supported commandline flags
+		see README.CMD_OPTS
+	* configuration file example
+		see README.RC
+	* status code while processing
+		see README.STATUS_CODES
+	* exit codes (for debugging)
+		see README.EXIT_CODES
 
-Default searchpaths:
+Example usages:
 
-    ISO: BASE.iso / BASE.wbfs / GAMEID.iso / GAMEID.wbfs
-    Riivolution: Original name of the zip / unpacked folder
-    ROM: some mask matching the file (eg: "*[Ll]ink*[Pp]ast*smc" for Zelda: Parallel Worlds)
+	Newer Super Mario Bros Wii
+	$ patchimage --game=NewerSMBW --iso=/home/test/SMNP01.iso --download
 
-Example usage:
+	Zelda: Parallel Worlds
+	$ patchimage --game=ParallelWorlds --rom=/home/test/ALTTP.smc --download
 
-NewerSMBW:
-$ patchimage --game=NewerSMBW --iso=/home/test/SMNP01.iso --download
-
-Zelda: Parallel Worlds
-$ patchimage --game=ParallelWorlds --rom=/home/test/ALTTP.smc --download
+	Toyko Mirage Sessions #FE Restoration
+	$ patchimage --game=TMSFE --xdelta=/home/test/xdelta/ --cpk=/home/test/ASEP01/content/Pack/
 
 License: GNU GPLv3
 Extra Licenses:
-
-> wit GNU GPL v2
-> szs GNU GPL v2
-> uips GNU GPL v2
-> applyppf3 as-is
-> xml-patchfiles as-is
+> applyppf3	as-is
+> xml patches	as-is
+> other tools	GNU GPL v2 / GNU GPL v3

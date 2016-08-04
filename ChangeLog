@@ -23,9 +23,12 @@ v7.0.0:
   where to store your modified 3DS ROM files
 
 ::documentation
+- update REAMDE
 - update README.RC
 - update README.STATUS_CODES
 - update README.GAMEIDS
+  - now includes game search paths
+  - now includes expected filenames
 
 ::misc. changes
 - show full path for Hans Files for all games, instead of relative
