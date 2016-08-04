@@ -49,7 +49,8 @@ Example usages:
 	$ patchimage --game=ParallelWorlds --rom=/home/test/ALTTP.smc --download
 
 	Toyko Mirage Sessions #FE Restoration
-	$ patchimage --game=TMSFE --xdelta=/home/test/xdelta/ --cpk=/home/test/ASEP01/content/Pack/
+	$ patchimage --game=TMSFE --xdelta=/home/test/xdelta/ \
+		--cpk=/home/test/ASEP01/content/Pack/
 
 License: GNU GPLv3
 Extra Licenses:
