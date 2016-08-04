@@ -406,11 +406,11 @@ check_riivolution_patch () {
 		if [[ -f "${PWD}/${RIIVOLUTION_DIR}" ]]; then
 			echo "*** >> unpacking"
 			x=2
-			${UNP} "${PWD}/${RIIVOLUTION_ZIP}" "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
+			${UNP} "${PWD}/${RIIVOLUTION_ZIP}" ${UNP_EXTRA_ARGS} >/dev/null || exit 63
 		elif [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
 			echo "*** >> unpacking"
 			x=3
-			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
+			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ${UNP_EXTRA_ARGS} >/dev/null || exit 63
 		elif [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
 			x=4
 			if [[ ${DOWNLOAD_LINK} == *docs.google* || ${DOWNLOAD_LINK} == *drive.google*  ]]; then
@@ -420,7 +420,7 @@ check_riivolution_patch () {
 					${GDOWN} "${DOWNLOAD_LINK}" "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
 					mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 					echo "*** >> unpacking"
-					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
+					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ${UNP_EXTRA_ARGS} >/dev/null || exit 63
 				fi
 			elif [[ ${DOWNLOAD_LINK} == *mega.nz* ]]; then
 				echo "can not download from Mega, download manually from:
@@ -441,7 +441,7 @@ check_riivolution_patch () {
 					wget --no-check-certificate "${DOWNLOAD_LINK}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
 					mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 					echo "*** >> unpacking"
-					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
+					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ${UNP_EXTRA_ARGS} >/dev/null || exit 63
 				fi
 			else
 				echo "no download link for ${GAMENAME} available."
