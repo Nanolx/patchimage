@@ -62,8 +62,6 @@ check_input_rom_special () {
 		;;
 	esac
 
-	exit 0
-
 }
 
 check_hans_files () {
