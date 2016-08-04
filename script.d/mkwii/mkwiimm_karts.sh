@@ -36,12 +36,12 @@ check_input_image_special () {
 ask_slot () {
 
 	echo -e "\nFirst choose a vehicle to be replaced\n"
-	gawk -F \: '{print $1 "\t\t" $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_vehicles.db
+	gawk -F \: '{print $1 "\t\t" $2}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm_vehicles.db
 	echo -e "\ntype in ??_??? as in first column\n"
 	read VEHICLE
 
 	echo -e "\nNow choose a character to be replaced\n"
-	gawk -F \: '{print $1 "\t\t" $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_characters.db
+	gawk -F \: '{print $1 "\t\t" $2}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm_characters.db
 	echo -e "\ntype in -?? as in first column\n"
 	read CHARACTER
 
@@ -64,7 +64,7 @@ download_wiimm () {
 	if [[ ${choosenkarts[@]} == "" ]]; then
 		echo -e "Choose a character to add to the game\n"
 
-		gawk -F \: '{print $1 "\t\t" $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_karts.db
+		gawk -F \: '{print $1 "\t\t" $2}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm_karts.db
 
 		echo -e "\ntype ???.szs (multiple possible, space separated)"
 		read KART

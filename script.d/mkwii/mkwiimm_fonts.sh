@@ -40,7 +40,7 @@ download_wiimm () {
 
 orig		Original Mario Kart Wii Font"
 
-	gawk -F \: '{print $1 "\t\t" $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_fonts.db
+	gawk -F \: '{print $1 "\t\t" $2}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm_fonts.db
 
 	echo -e "\ntype ???.szs or orig"
 	read FONT

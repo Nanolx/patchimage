@@ -30,7 +30,7 @@ download_wiimm () {
 	echo "Choose a Mario Kart Wiimm Distribution
 
 ALL	Build all distributions."
-	gawk -F \: 'NR>1 {print $1 "\t" $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db
+	gawk -F \: 'NR>1 {print $1 "\t" $2}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm.db
 	echo "
 type in ALL or an ID (multiple separated by space)"
 	read ID
@@ -119,9 +119,9 @@ PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
 build_mkwiimm () {
 
 		MY_ID=${1}
-		DIST=$(gawk -F \: "/^${MY_ID}/"'{print $2}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
-		DOWNLOAD=$(gawk -F \: "/^${MY_ID}/"'{print $3}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
-		FILENAME=$(gawk -F \: "/^${MY_ID}/"'{split($3, a, "/") ; print a[3]}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.db)
+		DIST=$(gawk -F \: "/^${MY_ID}/"'{print $2}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm.db)
+		DOWNLOAD=$(gawk -F \: "/^${MY_ID}/"'{print $3}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm.db)
+		FILENAME=$(gawk -F \: "/^${MY_ID}/"'{split($3, a, "/") ; print a[3]}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm.db)
 
 		if [[ ${FILENAME} != mkw* ]]; then
 			echo "wrong ID passed from user-input, exiting."
@@ -143,7 +143,7 @@ build_mkwiimm () {
 		ln -s "${IMAGE}" .
 		chmod +x *.sh
 
-		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" ]] && cp -r ${PATCHIMAGE_SCRIPT_DIR}/../override/* ${PWD}/bin/
+		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" ]] && cp -r ${PATCHIMAGE_OVERRIDE_DIR}/* ${PWD}/bin/
 
 		if [[ ${MY_ID} -lt 27 ]]; then
 			mkwiimm_olddist

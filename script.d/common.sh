@@ -321,7 +321,7 @@ show_nsmb_db () {
 	ID1=${1:0:3}
 	ID2=${1:4:2}
 	gawk -F \: "/^${ID1}\*${ID2}/"'{print $2}' \
-		< "${PATCHIMAGE_SCRIPT_DIR}"/nsmbw.db || echo "** Unknown **"
+		< "${PATCHIMAGE_DATABASE_DIR}"/nsmbw.db || echo "** Unknown **"
 
 }
 
@@ -329,7 +329,7 @@ show_mkwiimm_db () {
 
 	ID=${1:4:2}
 	[[ ${ID} == [0-9][0-9] ]] && gawk -F \: "/^${ID}/"'{print $2}' \
-		< "${PATCHIMAGE_SCRIPT_DIR}"/mkwiimm.db || echo "** Unknown **"
+		< "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm.db || echo "** Unknown **"
 
 }
 
@@ -369,14 +369,14 @@ show_titles_db () {
 
 	ID=${1/.*}
 	gawk -F \: "/^${ID}/"'{print $2}' \
-		< "${PATCHIMAGE_SCRIPT_DIR}"/titles.db || echo "** Unknown **"
+		< "${PATCHIMAGE_DATABASE_DIR}"/titles.db || echo "** Unknown **"
 
 }
 
 check_wfc () {
 
 	ID=${1/.*}
-	if [[ $(grep ${ID} "${PATCHIMAGE_SCRIPT_DIR}"/wfc.db) ]]; then
+	if [[ $(grep ${ID} "${PATCHIMAGE_DATABASE_DIR}"/wfc.db) ]]; then
 		echo TRUE
 	else
 		echo FALSE

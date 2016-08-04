@@ -76,7 +76,7 @@ ask_items () {
 
 orig		Original item"
 
-			gawk -F \: "/${slot}/"'{print $1 "\t" $3}' < ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_items.db
+			gawk -F \: "/${slot}/"'{print $1 "\t" $3}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm_items.db
 			echo -e "\ntype orig or ???.brres"
 			read slotid
 			echo "<<<<<<>>>>>>"

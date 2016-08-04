@@ -1,9 +1,12 @@
 v7.0.0:
 ::internal changes
 - add PATCHIMAGE_DIR new internal variable
+- add PATCHIMAGE_DATABASE_DIR new internal variable
+- add PATCHIMAGE_OVERRIDE_DIR new internal variable
 - add UNP_EXTRA_ARGS new internal variable
-- make check_input_rom search in both ${PATCHIMAGE_3DS_DIR} and ${PWD}
 - make check_input_rom a common.sh function, prevent duplicated code
+- shift around some paths
+- update database with New Super Mario Bros. Wii mods
 
 ::bug fixes
 - before creating any of the directories defined in ${HOME}/.patchimage.rc
@@ -31,6 +34,7 @@ v7.0.0:
   - now includes expected filenames
 
 ::misc. changes
+- make check_input_rom search in both ${PATCHIMAGE_3DS_DIR} and ${PWD}
 - show full path for Hans Files for all games, instead of relative
 - only show path to Hans files if they exist
 - when downloading covers for Wii games fail, retry with the US cover

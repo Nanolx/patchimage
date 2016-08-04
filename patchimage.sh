@@ -16,11 +16,15 @@ if [[ -d ${basedir}/script.d ]]; then
 	PATCHIMAGE_PATCH_DIR=${basedir}/patches
 	PATCHIMAGE_DATA_DIR=${basedir}/data
 	PATCHIMAGE_TOOLS_DIR=${basedir}/tools
+	PATCHIMAGE_OVERRIDE_DIR=${basedir}/override
+	PATCHIMAGE_DATABASE_DIR=${basedir}/database
 else
 	PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/script.d
 	PATCHIMAGE_PATCH_DIR=/usr/share/patchimage/patches
 	PATCHIMAGE_DATA_DIR=/usr/share/patchimage/data
 	PATCHIMAGE_TOOLS_DIR=/usr/share/patchimage/tools
+	PATCHIMAGE_OVERRIDE_DIR=/usr/share/patchimage/override
+	PATCHIMAGE_DATABASE_DIR=/usr/share/patchimage/database
 fi
 
 PATCHIMAGE_RIIVOLUTION_DIR=${basedir}
@@ -40,115 +44,115 @@ setup_tools
 case ${GAME} in
 
 	NSMB1 | NewerSMB | NewerSMBW )
-		source ${PATCHIMAGE_SCRIPT_DIR}/newersmb.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newersmb.sh
 	;;
 
 	NSMB2 | NewerSummerSun )
-		source ${PATCHIMAGE_SCRIPT_DIR}/newersummersun.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newersummersun.sh
 	;;
 
 	NSMB3 | ASMBW | AnotherSMBW )
-		source ${PATCHIMAGE_SCRIPT_DIR}/anothersmb.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/anothersmb.sh
 	;;
 
 	NSMB4 | HolidaySpecial | "Newer: Holiday Special" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/newerholiday.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newerholiday.sh
 	;;
 
 	NSMB5 | Cannon | "Cannon SMBW" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/cannon.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/cannon.sh
 	;;
 
 	NSMB6 | ESBW | "Epic Super Bowser World" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/epicbowserworld.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/epicbowserworld.sh
 	;;
 
 	NSMB7 | Koopa | "Koopa Country" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/koopacountry.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/koopacountry.sh
 	;;
 
 	NSMB8 | "New Super Mario Bros. 4" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw4.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw4.sh
 	;;
 
 	NSMB9 | Retro | "Retro Remix" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/retroremix.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/retroremix.sh
 	;;
 
 	NSMB10 | WinterMoon | "Super Mario: Mushroom Adventure PLUS - Winter Moon" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/wintermoon.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/wintermoon.sh
 	;;
 
 	NSMB11 | NSMBW3 | "NSMBW3: The Final Levels" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw3.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw3.sh
 	;;
 
 	NSMB12 | SMV | "Super Mario Vacation" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/summervacation.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/summervacation.sh
 	;;
 
 	NSMB13 | ASLM | "Awesomer Super Luigi Mini" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/awesomersuperluigi.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/awesomersuperluigi.sh
 	;;
 
 	NSMB14 | Sykland )
-		source ${PATCHIMAGE_SCRIPT_DIR}/skyland.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/skyland.sh
 	;;
 
 	NSMB15 | RVLution )
-		source ${PATCHIMAGE_SCRIPT_DIR}/rvlution.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/rvlution.sh
 	;;
 
 	NSMB16 | Midi )
-		source ${PATCHIMAGE_SCRIPT_DIR}/midissupermariowii.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/midissupermariowii.sh
 	;;
 
 	NSMB17 | DarkUmbra )
-		source ${PATCHIMAGE_SCRIPT_DIR}/darkumbrasmb.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/darkumbrasmb.sh
 	;;
 
 	NSMB18 | NewerApocalypse )
-		source ${PATCHIMAGE_SCRIPT_DIR}/newerapocalypse.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newerapocalypse.sh
 	;;
 
 	NSMB19 | LuigisSuperYoshiBros )
-		source ${PATCHIMAGE_SCRIPT_DIR}/luigissuperyoshibros.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/luigissuperyoshibros.sh
 	;;
 
 	NSMB20 | NewerFallingLeaf )
-		source ${PATCHIMAGE_SCRIPT_DIR}/newerfallingleaf.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newerfallingleaf.sh
 	;;
 
 	NSMB21 | DevilMarioWinterSpecial )
-		source ${PATCHIMAGE_SCRIPT_DIR}/devilmariowinterspecial.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/devilmariowinterspecial.sh
 	;;
 
 	NSMB22 | NewSMBWOtherWorld )
-		source ${PATCHIMAGE_SCRIPT_DIR}/newsmbwotherworld.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newsmbwotherworld.sh
 	;;
 
 	NSMB23 | TheLegendOfYoshi )
-		source ${PATCHIMAGE_SCRIPT_DIR}/thelegendofyoshi.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/thelegendofyoshi.sh
 	;;
 
 	NSMB24 | RemixedSuperMarioBrosWii )
-		source ${PATCHIMAGE_SCRIPT_DIR}/remixedsupermariobroswii.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/remixedsupermariobroswii.sh
 	;;
 
 	NSMB25 | GhostlySuperGhostBoosWii )
-		source ${PATCHIMAGE_SCRIPT_DIR}/ghostlysuperghostbooswii.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/ghostlysuperghostbooswii.sh
 	;;
 
 	NSMB26 | RevisedSuperMarioBrosWii )
-		source ${PATCHIMAGE_SCRIPT_DIR}/revisedsupermariobroswii.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/revisedsupermariobroswii.sh
 	;;
 
 	NSMB99 | NSMBWCharacters )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw_characters.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw_characters.sh
 	;;
 
 	MKW1 | Wiimmfi )
-		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/wiimmfi.sh
 	;;
 
 	MKW2 | Wiimmpatch )
@@ -156,19 +160,19 @@ case ${GAME} in
 	;;
 
 	MKW3 | Mkwiimm )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm.sh
 	;;
 
 	MKW4 | MkwiimmItems )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_items.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm_items.sh
 	;;
 
 	MKW5 | MkwiimmFonts )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_fonts.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm_fonts.sh
 	;;
 
 	MKW6 | MkwiimmKarts )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwiimm_karts.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm_karts.sh
 	;;
 
 	KAW1 | Kirby )
@@ -180,35 +184,35 @@ case ${GAME} in
 	;;
 
 	PKMN1 | NeoX )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonneox.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonneox.sh
 	;;
 
 	PKMN2 | NeoY )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonneoy.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonneoy.sh
 	;;
 
 	PKMN3 | RutileRuby )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonrutileruby.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonrutileruby.sh
 	;;
 
 	PKMN4 | AlphaSapphire )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonstarsapphire.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonstarsapphire.sh
 	;;
 
 	PKMN5 | EternalX )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemoneternalx.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemoneternalx.sh
 	;;
 
 	PKMN6 | WiltingY )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonwiltingy.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonwiltingy.sh
 	;;
 
 	PKMN7 | RisingRuby )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonrisingruby.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonrisingruby.sh
 	;;
 
 	PKMN8 | SinkingSapphire )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemonsinkingsapphire.sh
+		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonsinkingsapphire.sh
 	;;
 
 	BSECU | BravelySecondUncensored )

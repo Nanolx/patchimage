@@ -50,7 +50,7 @@ pi_action () {
 	if [[ ${choosenplayers[@]} == "" ]]; then
 		echo -e "Choose a Player to add to the game\n"
 
-		gawk -F \: '{print $1 "\t\t" $2 "\t\t" $3}' < ${PATCHIMAGE_SCRIPT_DIR}/nsmbw_characters.db
+		gawk -F \: '{print $1 "\t\t" $2 "\t\t" $3}' < ${PATCHIMAGE_DATABASE_DIR}/nsmbw_characters.db
 
 		echo -e "\ntype ???.arc (only one per slot (second column) possible, space separated)"
 		read PLAYERS
@@ -63,7 +63,7 @@ pi_action () {
 					&& rm ${PATCHIMAGE_RIIVOLUTION_DIR}/${player} \
 					&& exit 57)
 			fi
-			slot=$(gawk -F \: "/^${player}/"'{print $2}' ${PATCHIMAGE_SCRIPT_DIR}/nsmbw_characters.db)
+			slot=$(gawk -F \: "/^${player}/"'{print $2}' ${PATCHIMAGE_DATABASE_DIR}/nsmbw_characters.db)
 			choosenplayers=( ${choosenplayers[@]} ${player}:${slot} )
 		done
 
