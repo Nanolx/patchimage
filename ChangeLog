@@ -56,6 +56,9 @@ v7.0.0:
 
 ::::Other
 - add support for Bravely Second Uncensored
+  - fully supports both EUR and USA game version
+  - auto-detects provided game version in ${PWD} or ${PATCHIMAGE_3DS_DIR}
+  - provide Hans configuration
 
 ::game changes and updates
 - update download link for Pokemon Rutile Ruby to v2.1
