@@ -9,6 +9,8 @@ CXI_MASK_USA="*000400000017[bB][aA]00*cxi"
 
 UNP_EXTRA_ARGS="-- -pAsia81"
 
+DATA="${PATCHIMAGE_DATA_DIR}/BravelySecondUncensored/"
+
 show_notes () {
 
 echo -e \
