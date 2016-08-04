@@ -328,9 +328,12 @@ case ${GAME_TYPE} in
 	"HANS" )
 		show_notes
 		echo -e "\n*** 1) check_input_rom"
-		check_input_rom
+		if [[ ${HANS_MULTI_SOURCE} ]]; then
+			check_input_rom_special
+		else	check_input_rom
+		fi
 
-		rm -rf romfs/ romfs.bin ${RFS}
+		rm -rf romfs/ romfs.bin "${ROMFS}"
 
 		echo -e "\n*** 2) check_hans_files"
 		check_hans_files
@@ -345,12 +348,12 @@ case ${GAME_TYPE} in
 		patch_romfs
 
 		echo -e "\n*** 6) repack_romfs"
-		repack_3dsromfs romfs/ "${RFS}" || exit 51
+		repack_3dsromfs romfs/ "${ROMFS}" || exit 51
 
-		mv "${RFS}" "${PATCHIMAGE_ROM_DIR}"
+		mv "${ROMFS}" "${PATCHIMAGE_ROM_DIR}"
 
 		echo "
-	*** succesfully created new romfs as \"${PATCHIMAGE_ROM_DIR}/${RFS}\"
+	*** succesfully created new romfs as \"${PATCHIMAGE_ROM_DIR}/${ROMFS}\"
 "
 
 	[[ ${DATA} ]] && echo \

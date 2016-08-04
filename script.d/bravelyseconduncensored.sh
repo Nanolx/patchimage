@@ -2,9 +2,10 @@
 
 GAMENAME="Bravely Second Uncensored"
 GAME_TYPE=HANS
+HANS_MULTI_SOURCE=TRUE
 
-CXI_MASK="*000400000017[bB][bB]00*cxi"
-ROMFS="0017BB00.romfs"
+CXI_MASK_EUR="*000400000017[bB][bB]00*cxi"
+CXI_MASK_USA="*000400000017[bB][aA]00*cxi"
 
 UNP_EXTRA_ARGS="-- -pAsia81"
 
@@ -21,35 +22,49 @@ Supported Versions:	US, EU
 
 }
 
-check_hans_files () {
+check_input_rom_special () {
 
-	echo "
-*** Game Version ***
-	EU	patch European version of Bravely Second
-	US	patch US version of Bravely Second
+	GAME_VERSION=EUR
+	CXI_MASK=${CXI_MASK_EUR}
+	echo "<< trying EUR game version"
+	check_input_rom
 
-enter either 'EU' or 'US':
-"
 
-	read choice
+	if [[ ! ${CXI} ]]; then
+		GAME_VERSION=USA
+		CXI_MASK=${CXI_MASK_USA}
+		echo "<< trying USA game version"
+		check_input_rom
+	fi
 
-	case ${choice} in
-		eu | EU )
+	if [[ ! ${CXI} ]]; then
+		echo -e "\nneither EUR nor USA version of Bravely Second found."
+		exit 15
+	fi
+
+	case ${GAME_VERSION} in
+		EUR )
+			echo ">> found EUR game version"
+			ROMFS="0017BB00.romfs"
 			DOWNLOAD_LINK="mega:///#!N0QEHLRB!g_Wy5dngt4xgVXtk1BhQaqSSRj0phjP6xMp776OSEo8"
 			RIIVOLUTION_ZIP="Bravely_Second_Uncensored_EUR_MINI_Asia81.rar"
 			RIIVOLUTION_DIR="Bravely_Second_Uncensored_EUR_MINI_Asia81/ExtractedRomFS"
 		;;
 
-		us | US )
+		USA )
+			echo ">> found USA game version"
+			ROMFS="0017BA00.romfs"
 			DOWNLOAD_LINK="mega:///#!9sx1QKRQ!A6qzCkvY9HmPGu4VIy1TiikTRgbE-vUho99LOYWxA84"
 			RIIVOLUTION_ZIP="Bravely_Second_Uncensored_USA_MINI_Asia81.rar"
 			RIIVOLUTION_DIR="Bravely_Second_Uncensored_USA_MINI_Asia81/ExtractedRomFS"
 		;;
-
-		* ) echo "invalid choice made, exiting!"
-		    exit 75
-		;;
 	esac
+
+	exit 0
+
+}
+
+check_hans_files () {
 
 	check_riivolution_patch
 

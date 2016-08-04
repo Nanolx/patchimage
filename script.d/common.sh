@@ -300,16 +300,16 @@ check_input_rom () {
 		if [[ -f ${CXI} ]]; then
 			x=6
 			CXI=${CXI}
-			RFS=${ROMFS}
 		else
 			CXI=$(find ${PATCHIMAGE_3DS_DIR} -name ${CXI_MASK})
 			if [[ -f ${CXI} ]]; then
 				x=7
 				CXI=${CXI}
-				RFS=${ROMFS}
 			else
-				echo -e "error: could not find suitable ROM, specify using --rom"
-				exit 15
+				if [[ ! ${HANS_MULTI_SOURCE} ]]; then
+					echo -e "error: could not find suitable ROM, specify using --rom"
+					exit 15
+				fi
 			fi
 		fi
 	fi
