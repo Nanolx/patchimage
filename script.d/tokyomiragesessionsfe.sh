@@ -26,13 +26,13 @@ menu () {
 
 	if [[ ! ${XDELTA_PATH} ]]; then
 		echo -e "\nEnter path to the directory containing the delta patches:\n"
-		read XDELTA_PATH || exit 75
+		read -r XDELTA_PATH || exit 75
 	else	status=9
 	fi
 
 	if [[ ! ${CPK_PATH} ]]; then
 		echo -e "\nEnter path to the directory containing the game files (cpk):\n"
-		read CPK_PATH || exit 75
+		read -r CPK_PATH || exit 75
 	else	status=9
 	fi
 
@@ -58,33 +58,33 @@ patch () {
 
 	if [[ -d ${PWD}/TMSxFE-Uncensored ]]; then
 		echo -e "\nremoving old files"
-		rm -rf ${PWD}/TMSxFE-Uncensored
+		rm -rf "${PWD}"/TMSxFE-Uncensored
 	fi
 
 	all=${#PATCH_FILES[@]}
 
 	echo -e "\n> copying cpk files"
-	mkdir ${PWD}/TMSxFE-Uncensored
+	mkdir "${PWD}"/TMSxFE-Uncensored
 
 	cur=0
-	for file in ${PATCH_FILES[@]}; do
+	for file in "${PATCH_FILES[@]}"; do
 		cur=$((cur+1))
 		echo ">> [${cur}/${all}] pack_${file}.cpk"
-		cp ${CPK_PATH}/pack_${file}.cpk \
-			${PWD}/TMSxFE-Uncensored
+		cp "${CPK_PATH}"/pack_"${file}".cpk \
+			"${PWD}"/TMSxFE-Uncensored
 	done
 
 	cur=0
 	echo -e "\n> Patching Files"
-	for patch in ${PATCH_FILES[@]}; do
+	for patch in "${PATCH_FILES[@]}"; do
 		cur=$((cur+1))
 		echo ">> [${cur}/${all}] pack_${patch}.cpk"
-		${XD3} -d -f -s ${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk \
-			${XDELTA_PATH}/patch_${patch}.xdelta \
-			${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk_new || exit 51
+		"${XD3}" -d -f -s "${PWD}"/TMSxFE-Uncensored/pack_"${patch}".cpk \
+			"${XDELTA_PATH}"/patch_"${patch}".xdelta \
+			"${PWD}"/TMSxFE-Uncensored/pack_"${patch}".cpk_new || exit 51
 
-		mv ${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk_new \
-			${PWD}/TMSxFE-Uncensored/pack_${patch}.cpk
+		mv "${PWD}"/TMSxFE-Uncensored/pack_"${patch}".cpk_new \
+			"${PWD}"/TMSxFE-Uncensored/pack_"${patch}".cpk
 	done
 
 	echo -e "\n< Done patching
