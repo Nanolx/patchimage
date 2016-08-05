@@ -1,13 +1,13 @@
 #!/bin/bash
 
 GAME_TYPE="WII_GENERIC"
-GAME_NAME="New Super Mario Bros. Wii"
+GAMENAME="New Super Mario Bros. Wii"
 
 show_notes () {
 
 echo -e \
 "************************************************
-${GAME_NAME}
+${GAMENAME}
 
 Custom New Super Mario Bros. Wii
 

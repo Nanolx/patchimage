@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GAME_TYPE="WII_GENERIC"
-GAME_NAME="Kirby's Adventure Wii"
+GAMENAME="Kirby's Adventure Wii"
 WBFS_MASK="SUK[PUJ]01"
 PATH_HERO="files/g3d/step/chara/hero/"
 
@@ -9,7 +9,7 @@ show_notes () {
 
 echo -e \
 "************************************************
-${GAME_NAME}
+${GAMENAME}
 
 Base Image:		Kirby's Adventure Wii (SUK?01)
 Supported Versions:	EUR, JAP, USA

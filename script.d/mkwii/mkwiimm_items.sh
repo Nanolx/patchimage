@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GAME_TYPE="WII_GENERIC"
-GAME_NAME="Mario Kart Wiimm"
+GAMENAME="Mario Kart Wiimm"
 CSZS="files/Race/Common.szs"
 CSZD="files/Race/Common.d"
 
@@ -9,7 +9,7 @@ show_notes () {
 
 echo -e \
 "************************************************
-${GAME_NAME}
+${GAMENAME}
 
 Custom Mario Kart Wii
 

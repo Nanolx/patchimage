@@ -2,13 +2,13 @@
 
 DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/patcher/wiimmfi-patcher-v3.7z"
 GAME_TYPE="WII_GENERIC"
-GAME_NAME="Mario Kart Wiimmfi"
+GAMENAME="Mario Kart Wiimmfi"
 
 show_notes () {
 
 echo -e \
 "************************************************
-${GAME_NAME}
+${GAMENAME}
 
 Patches Mario Kart Wii to use Wiimm's custom server
 

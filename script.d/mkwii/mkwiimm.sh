@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GAME_TYPE="MKWIIMM"
-GAME_NAME="Mario Kart Wiimm"
+GAMENAME="Mario Kart Wiimm"
 DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/patcher/mkw-wiimmfi-patcher-v3.7z"
 WBFS_MASK="RMC[PUJ]01"
 
@@ -9,7 +9,7 @@ show_notes () {
 
 echo -e \
 "************************************************
-${GAME_NAME}
+${GAMENAME}
 
 Custom Mario Kart Wii
 
