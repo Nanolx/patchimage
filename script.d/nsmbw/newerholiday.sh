@@ -43,43 +43,43 @@ detect_game_version () {
 
 place_files () {
 
-	NEW_DIRS=( ${WORKDIR}/files/EU/NedEU/Message )
-	for dir in ${NEW_DIRS[@]}; do
-		mkdir -p ${dir}
+	NEW_DIRS=( "${WORKDIR}"/files/EU/NedEU/Message )
+	for dir in "${NEW_DIRS[@]}"; do
+		mkdir -p "${dir}"
 	done
 
 	case ${VERSION} in
 		EURv* )
 
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
-			for dir in ${LANGDIRS[@]}; do
-				cp "${RIIVOLUTION_DIR}"/MessageEN/* ${WORKDIR}/files/EU/${dir}/Message/
+			for dir in "${LANGDIRS[@]}"; do
+				cp "${RIIVOLUTION_DIR}"/MessageEN/* "${WORKDIR}"/files/EU/"${dir}"/Message/
 			done
-			cp "${RIIVOLUTION_DIR}"/OpeningP/* ${WORKDIR}/files/EU/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/OpeningP/* "${WORKDIR}"/files/EU/Layout/openingTitle/
 
 		;;
 
 		USAv* )
 
 			LANGDIRS=( FraUS EngUS SpaUS )
-			for dir in ${LANGDIRS[@]}; do
-				cp "${RIIVOLUTION_DIR}"/MessageEN/* ${WORKDIR}/files/US/${dir}/Message/
+			for dir in "${LANGDIRS[@]}"; do
+				cp "${RIIVOLUTION_DIR}"/MessageEN/* "${WORKDIR}"/files/US/"${dir}"/Message/
 			done
-			cp "${RIIVOLUTION_DIR}"/OpeningE/* ${WORKDIR}/files/US/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/OpeningE/* "${WORKDIR}"/files/US/Layout/openingTitle/
 		;;
 
 		JPNv* )
-			cp "${RIIVOLUTION_DIR}"/MessageEN/* ${WORKDIR}/files/JP/Message/
-			cp "${RIIVOLUTION_DIR}"/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/MessageEN/* "${WORKDIR}"/files/JP/Message/
+			cp "${RIIVOLUTION_DIR}"/OpeningJ/* "${WORKDIR}"/files/JP/Layout/openingTitle/
 		;;
 	esac
 
-	cp "${RIIVOLUTION_DIR}"/Sound/Stream/* ${WORKDIR}/files/Sound/stream/
-	cp "${RIIVOLUTION_DIR}"/Layout/preGame/* ${WORKDIR}/files/Layout/preGame/
-	cp "${RIIVOLUTION_DIR}"/Layout/textures/* ${WORKDIR}/files/Layout/textures/
-	cp "${RIIVOLUTION_DIR}"/Sound/*.brsar ${WORKDIR}/files/Sound/
-	cp "${RIIVOLUTION_DIR}"/WorldMap/* ${WORKDIR}/files/WorldMap/
-	cp "${RIIVOLUTION_DIR}"/Object/* ${WORKDIR}/files/Object/
+	cp "${RIIVOLUTION_DIR}"/Sound/Stream/* "${WORKDIR}"/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/Layout/preGame/* "${WORKDIR}"/files/Layout/preGame/
+	cp "${RIIVOLUTION_DIR}"/Layout/textures/* "${WORKDIR}"/files/Layout/textures/
+	cp "${RIIVOLUTION_DIR}"/Sound/*.brsar "${WORKDIR}"/files/Sound/
+	cp "${RIIVOLUTION_DIR}"/WorldMap/* "${WORKDIR}"/files/WorldMap/
+	cp "${RIIVOLUTION_DIR}"/Object/* "${WORKDIR}"/files/Object/
 
 }
 

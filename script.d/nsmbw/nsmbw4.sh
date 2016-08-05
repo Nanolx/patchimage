@@ -29,7 +29,6 @@ Supported Versions:	EURv1, EURv2, USAv1, USAv2, JPNv1
 detect_game_version () {
 
 	nsmbw_version
-
 	GAMEID=SMN${REG_LETTER}11
 
 }
@@ -38,24 +37,19 @@ place_files () {
 
 	case ${VERSION} in
 		EURv* )
-			cp ${PATCHIMAGE_PATCH_DIR}/openingTitle_nsmbw4.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
+			cp "${PATCHIMAGE_PATCH_DIR}"/openingTitle_nsmbw4.arc "${WORKDIR}"/files/EU/Layout/openingTitle/openingTitle.arc
 		;;
 
 		USAv* )
-			cp ${PATCHIMAGE_PATCH_DIR}/openingTitle_nsmbw4.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
+			cp "${PATCHIMAGE_PATCH_DIR}"/openingTitle_nsmbw4.arc "${WORKDIR}"/files/US/Layout/openingTitle/openingTitle.arc
 		;;
-
-#		JPNv* )
-#			cp "${RIIVOLUTION_DIR}"/openingTitle.arc ${WORKDIR}/files/JP/Layout/openingTitle/
-#		;;
 	esac
 
-	cp "${RIIVOLUTION_DIR}"/*.brstm ${WORKDIR}/files/Sound/stream/
-	cp "${RIIVOLUTION_DIR}"/0*.arc ${WORKDIR}/files/Stage/
-	cp "${RIIVOLUTION_DIR}"/*.brsar ${WORKDIR}/files/Sound/
-	cp "${RIIVOLUTION_DIR}"/bgA*.arc ${WORKDIR}/files/Object/
-	# fix
-	cp ${PATCHIMAGE_PATCH_DIR}/05-04.arc ${WORKDIR}/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/*.brstm "${WORKDIR}"/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/0*.arc "${WORKDIR}"/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/*.brsar "${WORKDIR}"/files/Sound/
+	cp "${RIIVOLUTION_DIR}"/bgA*.arc "${WORKDIR}"/files/Object/
+	cp "${PATCHIMAGE_PATCH_DIR}"/05-04.arc "${WORKDIR}"/files/Stage/
 
 
 }

@@ -41,9 +41,9 @@ detect_game_version () {
 
 place_files () {
 
-	NEW_DIRS=( ${WORKDIR}/files/NewerRes ${WORKDIR}/files/EU/NedEU )
-	for dir in ${NEW_DIRS[@]}; do
-		mkdir -p ${dir}
+	NEW_DIRS=( "${WORKDIR}"/files/NewerRes "${WORKDIR}"/files/EU/NedEU )
+	for dir in "${NEW_DIRS[@]}"; do
+		mkdir -p "${dir}"
 	done
 
 	cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{m,M}essage
@@ -51,37 +51,37 @@ place_files () {
 	case ${VERSION} in
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
-			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/EU/${dir}/
+			for dir in "${LANGDIRS[@]}"; do
+				cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{Message,staffroll}/ "${WORKDIR}"/files/EU/"${dir}"/
 			done
-			cp "${RIIVOLUTION_DIR}"/SumSun/OpeningP/* ${WORKDIR}/files/EU/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/SumSun/OpeningP/* "${WORKDIR}"/files/EU/Layout/openingTitle/
 		;;
 
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
-			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/US/${dir}/
+			for dir in "${LANGDIRS[@]}"; do
+				cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{Message,staffroll}/ "${WORKDIR}"/files/US/"${dir}"/
 			done
-			cp "${RIIVOLUTION_DIR}"/SumSun/OpeningE/* ${WORKDIR}/files/US/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/SumSun/OpeningE/* "${WORKDIR}"/files/US/Layout/openingTitle/
 		;;
 
 		JPNv1 )
-			cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/JP/
-			cp "${RIIVOLUTION_DIR}"/SumSun/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
+			cp -r "${RIIVOLUTION_DIR}"/SumSun/EU/EngEU/{Message,staffroll}/ "${WORKDIR}"/files/JP/
+			cp "${RIIVOLUTION_DIR}"/SumSun/OpeningJ/* "${WORKDIR}"/files/JP/Layout/openingTitle/
 		;;
 	esac
 
-	cp "${RIIVOLUTION_DIR}"/SumSun/Stage/Texture/* ${WORKDIR}/files/Stage/Texture/
-	cp "${RIIVOLUTION_DIR}"/SumSun/NewerRes/* ${WORKDIR}/files/NewerRes/
-	cp "${RIIVOLUTION_DIR}"/SumSun/Stage/*.arc ${WORKDIR}/files/Stage/
-	cp "${RIIVOLUTION_DIR}"/SumSun/Env/* ${WORKDIR}/files/Env/
-	cp "${RIIVOLUTION_DIR}"/SumSun/sound/stream/* ${WORKDIR}/files/Sound/stream/
-	cp "${RIIVOLUTION_DIR}"/SumSun/sound/*.brsar ${WORKDIR}/files/Sound/
-	cp "${RIIVOLUTION_DIR}"/SumSun/WorldMap/* ${WORKDIR}/files/WorldMap/
-	cp "${RIIVOLUTION_DIR}"/SumSun/Object/* ${WORKDIR}/files/Object/
-	cp "${RIIVOLUTION_DIR}"/SumSun/Layout/preGame.arc ${WORKDIR}/files/Layout/preGame/pregame.arc
-	cp "${RIIVOLUTION_DIR}"/SumSun/Layout/sequenceBG.arc ${WORKDIR}/files/Layout/sequenceBG/sequenceBG.arc
-	cp "${RIIVOLUTION_DIR}"/SumSun/Layout/sequenceBGTexture.arc ${WORKDIR}/files/Layout/textures/sequenceBGTexture.arc
+	cp "${RIIVOLUTION_DIR}"/SumSun/Stage/Texture/* "${WORKDIR}"/files/Stage/Texture/
+	cp "${RIIVOLUTION_DIR}"/SumSun/NewerRes/* "${WORKDIR}"/files/NewerRes/
+	cp "${RIIVOLUTION_DIR}"/SumSun/Stage/*.arc "${WORKDIR}"/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/SumSun/Env/* "${WORKDIR}"/files/Env/
+	cp "${RIIVOLUTION_DIR}"/SumSun/sound/stream/* "${WORKDIR}"/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/SumSun/sound/*.brsar "${WORKDIR}"/files/Sound/
+	cp "${RIIVOLUTION_DIR}"/SumSun/WorldMap/* "${WORKDIR}"/files/WorldMap/
+	cp "${RIIVOLUTION_DIR}"/SumSun/Object/* "${WORKDIR}"/files/Object/
+	cp "${RIIVOLUTION_DIR}"/SumSun/Layout/preGame.arc "${WORKDIR}"/files/Layout/preGame/pregame.arc
+	cp "${RIIVOLUTION_DIR}"/SumSun/Layout/sequenceBG.arc "${WORKDIR}"/files/Layout/sequenceBG/sequenceBG.arc
+	cp "${RIIVOLUTION_DIR}"/SumSun/Layout/sequenceBGTexture.arc "${WORKDIR}"/files/Layout/textures/sequenceBGTexture.arc
 
 }
 

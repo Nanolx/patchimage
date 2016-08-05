@@ -39,36 +39,36 @@ detect_game_version () {
 
 place_files () {
 
-	cp -r "${RIIVOLUTION_DIR}"/{Env,Layout,Object,Stage,WorldMap} ${WORKDIR}/files
+	cp -r "${RIIVOLUTION_DIR}"/{Env,Layout,Object,Stage,WorldMap} "${WORKDIR}"/files
 
-	NEW_DIRS=( ${WORKDIR}/files/EU/NedEU/Message )
-	for dir in ${NEW_DIRS[@]}; do
-		mkdir -p ${dir}
+	NEW_DIRS=( "${WORKDIR}"/files/EU/NedEU/Message )
+	for dir in "${NEW_DIRS[@]}"; do
+		mkdir -p "${dir}"
 	done
 
 	case ${VERSION} in
 		EURv* )
 
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
-			for dir in ${LANGDIRS[@]}; do
-				cp "${RIIVOLUTION_DIR}"/MessageEN/* ${WORKDIR}/files/EU/${dir}/Message/
+			for dir in "${LANGDIRS[@]}"; do
+				cp "${RIIVOLUTION_DIR}"/MessageEN/* "${WORKDIR}"/files/EU/"${dir}"/Message/
 			done
-			cp "${RIIVOLUTION_DIR}"/OpeningP/* ${WORKDIR}/files/EU/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/OpeningP/* "${WORKDIR}"/files/EU/Layout/openingTitle/
 
 		;;
 
 		USAv* )
 
 			LANGDIRS=( FraUS EngUS SpaUS )
-			for dir in ${LANGDIRS[@]}; do
-				cp "${RIIVOLUTION_DIR}"/MessageEN/* ${WORKDIR}/files/US/${dir}/Message/
+			for dir in "${LANGDIRS[@]}"; do
+				cp "${RIIVOLUTION_DIR}"/MessageEN/* "${WORKDIR}"/files/US/"${dir}"/Message/
 			done
-			cp "${RIIVOLUTION_DIR}"/OpeningE/* ${WORKDIR}/files/US/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/OpeningE/* "${WORKDIR}"/files/US/Layout/openingTitle/
 		;;
 
 		JPNv* )
-			cp "${RIIVOLUTION_DIR}"/MessageEN/* ${WORKDIR}/files/JP/Message/
-			cp "${RIIVOLUTION_DIR}"/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/MessageEN/* "${WORKDIR}"/files/JP/Message/
+			cp "${RIIVOLUTION_DIR}"/OpeningJ/* "${WORKDIR}"/files/JP/Layout/openingTitle/
 		;;
 	esac
 

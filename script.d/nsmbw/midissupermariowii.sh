@@ -38,13 +38,13 @@ place_files () {
 
 	case ${VERSION} in
 		USAv* )
-			cp "${RIIVOLUTION_DIR}"/Title/US/openingTitle.arc ${WORKDIR}/files/US/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/Title/US/openingTitle.arc "${WORKDIR}"/files/US/Layout/openingTitle/
 		;;
 	esac
 
-	cp -r "${RIIVOLUTION_DIR}"/Texture/ ${WORKDIR}/files/Stage/
-	cp -r "${RIIVOLUTION_DIR}"/AnotherRes/ ${WORKDIR}/files/
-	cp "${RIIVOLUTION_DIR}"/*.arc ${WORKDIR}/files/Stage/
+	cp -r "${RIIVOLUTION_DIR}"/Texture/ "${WORKDIR}"/files/Stage/
+	cp -r "${RIIVOLUTION_DIR}"/AnotherRes/ "${WORKDIR}"/files/
+	cp "${RIIVOLUTION_DIR}"/*.arc "${WORKDIR}"/files/Stage/
 
 }
 

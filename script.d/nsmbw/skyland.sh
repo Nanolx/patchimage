@@ -40,17 +40,17 @@ detect_game_version () {
 
 place_files () {
 
-	cp "${RIIVOLUTION_DIR}"/Stage/*.arc ${WORKDIR}/files/Stage/
-	cp "${RIIVOLUTION_DIR}"/Stage/Texture/* ${WORKDIR}/files/Stage/Texture/
-	cp "${RIIVOLUTION_DIR}"/Sound/*.brsar ${WORKDIR}/files/Sound/
-	cp "${RIIVOLUTION_DIR}"/Sound/Stream/* ${WORKDIR}/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/Stage/*.arc "${WORKDIR}"/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/Stage/Texture/* "${WORKDIR}"/files/Stage/Texture/
+	cp "${RIIVOLUTION_DIR}"/Sound/*.brsar "${WORKDIR}"/files/Sound/
+	cp "${RIIVOLUTION_DIR}"/Sound/Stream/* "${WORKDIR}"/files/Sound/stream/
 
 }
 
 
 dolpatch () {
 
-	${WIT} dolpatch ${DOL}	\
+	${WIT} dolpatch ${DOL} \
 		"802F148C=53756D6D53756E#7769696D6A3264" \
 		"802F118C=53756D6D53756E#7769696D6A3264" \
 		"802F0F8C=53756D6D53756E#7769696D6A3264" \

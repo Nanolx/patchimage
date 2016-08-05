@@ -41,29 +41,28 @@ place_files () {
 	case ${VERSION} in
 		EURv* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
-			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/US/EngUS/Message/ ${WORKDIR}/files/EU/${dir}/
+			for dir in "${LANGDIRS[@]}"; do
+				cp -r "${RIIVOLUTION_DIR}"/US/EngUS/Message/ "${WORKDIR}"/files/EU/"${dir}"/
 			done
-			cp ${PATCHIMAGE_PATCH_DIR}/openingTitle_retromix.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
+			cp "${PATCHIMAGE_PATCH_DIR}"/openingTitle_retromix.arc "${WORKDIR}"/files/EU/Layout/openingTitle/openingTitle.arc
 		;;
 
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
-			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/US/EngUS/Message/ ${WORKDIR}/files/US/${dir}/
+			for dir in "${LANGDIRS[@]}"; do
+				cp -r "${RIIVOLUTION_DIR}"/US/EngUS/Message/ "${WORKDIR}"/files/US/"${dir}"/
 			done
-			cp ${PATCHIMAGE_PATCH_DIR}/openingTitle_retromix.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
+			cp "${PATCHIMAGE_PATCH_DIR}"/openingTitle_retromix.arc "${WORKDIR}"/files/US/Layout/openingTitle/openingTitle.arc
 		;;
 
 		JPNv* )
-			cp "${RIIVOLUTION_DIR}"/US/EngUS/Message/* ${WORKDIR}/files/JP/Message/
-			#cp "${RIIVOLUTION_DIR}"/US/Layout/openingTitle/openingTitle.arc ${WORKDIR}/files/JP/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/US/EngUS/Message/* "${WORKDIR}"/files/JP/Message/
 		;;
 	esac
 
-	cp "${RIIVOLUTION_DIR}"/Layout/MultiCorseSelect/MultiCorseSelect.arc ${WORKDIR}/files/Layout/MultiCourseSelect/MultiCourseSelect.arc
-	cp -r "${RIIVOLUTION_DIR}"/{Layout,MovieDemo,Object,Sound,Stage,WorldMap}/ ${WORKDIR}/files/
-	rm -rf ${WORKDIR}/files/Layout/MultiCorseSelect/
+	cp "${RIIVOLUTION_DIR}"/Layout/MultiCorseSelect/MultiCorseSelect.arc "${WORKDIR}"/files/Layout/MultiCourseSelect/MultiCourseSelect.arc
+	cp -r "${RIIVOLUTION_DIR}"/{Layout,MovieDemo,Object,Sound,Stage,WorldMap}/ "${WORKDIR}"/files/
+	rm -rf "${WORKDIR}"/files/Layout/MultiCorseSelect/
 
 }
 

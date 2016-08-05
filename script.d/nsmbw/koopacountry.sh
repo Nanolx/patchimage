@@ -45,9 +45,9 @@ detect_game_version () {
 
 place_files () {
 
-	NEW_DIRS=( ${WORKDIR}/files/NewerRes ${WORKDIR}/files/EU/NedEU )
-	for dir in ${NEW_DIRS[@]}; do
-		mkdir -p ${dir}
+	NEW_DIRS=( "${WORKDIR}"/files/NewerRes "${WORKDIR}"/files/EU/NedEU )
+	for dir in "${NEW_DIRS[@]}"; do
+		mkdir -p "${dir}"
 	done
 
 	cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/{m,M}essage
@@ -55,38 +55,37 @@ place_files () {
 	case ${VERSION} in
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
-			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message/ ${WORKDIR}/files/EU/${dir}/
+			for dir in "${LANGDIRS[@]}"; do
+				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message/ "${WORKDIR}"/files/EU/"${dir}"/
 			done
-			cp "${RIIVOLUTION_DIR}"/OpeningP/* ${WORKDIR}/files/EU/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/OpeningP/* "${WORKDIR}"/files/EU/Layout/openingTitle/
 		;;
 
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
-			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message/ ${WORKDIR}/files/US/${dir}/
+			for dir in "${LANGDIRS[@]}"; do
+				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message/ "${WORKDIR}"/files/US/"${dir}"/
 			done
-			cp "${RIIVOLUTION_DIR}"/OpeningE/* ${WORKDIR}/files/US/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/OpeningE/* "${WORKDIR}"/files/US/Layout/openingTitle/
 		;;
 
 		JPNv1 )
-			cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message/ ${WORKDIR}/files/JP/
-			cp "${RIIVOLUTION_DIR}"/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
+			cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/Message/ "${WORKDIR}"/files/JP/
+			cp "${RIIVOLUTION_DIR}"/OpeningJ/* "${WORKDIR}"/files/JP/Layout/openingTitle/
 		;;
 	esac
 
-	cp "${RIIVOLUTION_DIR}"/Stage/Texture/* ${WORKDIR}/files/Stage/Texture/
-	cp "${RIIVOLUTION_DIR}"/NewerRes/* ${WORKDIR}/files/NewerRes/
-	cp "${RIIVOLUTION_DIR}"/Stage/*.arc ${WORKDIR}/files/Stage/
-	cp "${RIIVOLUTION_DIR}"/Env/* ${WORKDIR}/files/Env/
-	cp "${RIIVOLUTION_DIR}"/sound/stream/* ${WORKDIR}/files/Sound/stream/
-	cp "${RIIVOLUTION_DIR}"/sound/*.brsar ${WORKDIR}/files/Sound/
-	cp "${RIIVOLUTION_DIR}"/WorldMap/* ${WORKDIR}/files/WorldMap/
-	cp "${RIIVOLUTION_DIR}"/Object/* ${WORKDIR}/files/Object/
-	cp -r "${RIIVOLUTION_DIR}"/Layout/preGame.arc ${WORKDIR}/files/Layout/preGame/
-	# fixes
-	cp ${PATCHIMAGE_PATCH_DIR}/01-03.arc ${WORKDIR}/files/Stage/
-	cp ${PATCHIMAGE_PATCH_DIR}/08-01.arc ${WORKDIR}/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/Stage/Texture/* "${WORKDIR}"/files/Stage/Texture/
+	cp "${RIIVOLUTION_DIR}"/NewerRes/* "${WORKDIR}"/files/NewerRes/
+	cp "${RIIVOLUTION_DIR}"/Stage/*.arc "${WORKDIR}"/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/Env/* "${WORKDIR}"/files/Env/
+	cp "${RIIVOLUTION_DIR}"/sound/stream/* "${WORKDIR}"/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/sound/*.brsar "${WORKDIR}"/files/Sound/
+	cp "${RIIVOLUTION_DIR}"/WorldMap/* "${WORKDIR}"/files/WorldMap/
+	cp "${RIIVOLUTION_DIR}"/Object/* "${WORKDIR}"/files/Object/
+	cp -r "${RIIVOLUTION_DIR}"/Layout/preGame.arc "${WORKDIR}"/files/Layout/preGame/
+	cp "${PATCHIMAGE_PATCH_DIR}"/01-03.arc "${WORKDIR}"/files/Stage/
+	cp "${PATCHIMAGE_PATCH_DIR}"/08-01.arc "${WORKDIR}"/files/Stage/
 
 }
 

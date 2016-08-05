@@ -40,37 +40,36 @@ detect_game_version () {
 
 place_files () {
 
-	NEW_DIRS=( ${WORKDIR}/files/EU/NedEU/Message ${WORKDIR}/files/EU/PolEU/Message ${WORKDIR}/files/Sample/)
-	for dir in ${NEW_DIRS[@]}; do
-		mkdir -p ${dir}
+	NEW_DIRS=( "${WORKDIR}"/files/EU/NedEU/Message "${WORKDIR}"/files/EU/PolEU/Message "${WORKDIR}"/files/Sample/)
+	for dir in "${NEW_DIRS[@]}"; do
+		mkdir -p "${dir}"
 	done
 
 	case ${VERSION} in
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU PolEU )
-			for dir in ${LANGDIRS[@]}; do
-				cp "${RIIVOLUTION_DIR}"/AwesomerSLM/MessageEN/Message/Message.arc ${WORKDIR}/files/EU/${dir}/Message/Message.arc
+			for dir in "${LANGDIRS[@]}"; do
+				cp "${RIIVOLUTION_DIR}"/AwesomerSLM/MessageEN/Message/Message.arc "${WORKDIR}"/files/EU/"${dir}"/Message/Message.arc
 			done
 		;;
 
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
-			for dir in ${LANGDIRS[@]}; do
-				cp "${RIIVOLUTION_DIR}"/AwesomerSLM/MessageEN/Message/Message.arc ${WORKDIR}/files/US/${dir}/Message/Message.arc
+			for dir in "${LANGDIRS[@]}"; do
+				cp "${RIIVOLUTION_DIR}"/AwesomerSLM/MessageEN/Message/Message.arc "${WORKDIR}"/files/US/"${dir}"/Message/Message.arc
 			done
-			cp -r "${RIIVOLUTION_DIR}"/AwesomerSLM/OpeningUS/openingTitle/ ${WORKDIR}/files/US/Layout/
+			cp -r "${RIIVOLUTION_DIR}"/AwesomerSLM/OpeningUS/openingTitle/ "${WORKDIR}"/files/US/Layout/
 		;;
 
 		JPNv1 )
-			cp "${RIIVOLUTION_DIR}"/AwesomerSLM/MessageEN/Message/Message.arc ${WORKDIR}/files/JP/
+			cp "${RIIVOLUTION_DIR}"/AwesomerSLM/MessageEN/Message/Message.arc "${WORKDIR}"/files/JP/
 		;;
 	esac
 
-	cp -r "${RIIVOLUTION_DIR}"/AwesomerSLM/Stages/* ${WORKDIR}/files/Stage/
-	cp "${RIIVOLUTION_DIR}"/AwesomerSLM/Sound/*.brstm ${WORKDIR}/files/Sound/stream/
-	cp "${RIIVOLUTION_DIR}"/AwesomerSLM/Sound/BRSAR/* ${WORKDIR}/files/Sound/
-	cp -r "${RIIVOLUTION_DIR}"/AwesomerSLM/Object/ ${WORKDIR}/files/Object/
-	#cp -r "${RIIVOLUTION_DIR}"/AwesomerSLM/Layout/ ${WORKDIR}/files/
+	cp -r "${RIIVOLUTION_DIR}"/AwesomerSLM/Stages/* "${WORKDIR}"/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/AwesomerSLM/Sound/*.brstm "${WORKDIR}"/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/AwesomerSLM/Sound/BRSAR/* "${WORKDIR}"/files/Sound/
+	cp -r "${RIIVOLUTION_DIR}"/AwesomerSLM/Object/ "${WORKDIR}"/files/Object/
 
 }
 

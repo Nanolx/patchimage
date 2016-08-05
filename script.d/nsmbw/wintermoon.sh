@@ -48,48 +48,46 @@ detect_game_version () {
 
 place_files () {
 
-	NEW_DIRS=( ${WORKDIR}/files/EU/NedEU/Message ${WORKDIR}/files/EU/PolEU/Message ${WORKDIR}/files/Sample/)
-	for dir in ${NEW_DIRS[@]}; do
-		mkdir -p ${dir}
+	NEW_DIRS=( "${WORKDIR}"/files/EU/NedEU/Message "${WORKDIR}"/files/EU/PolEU/Message "${WORKDIR}"/files/Sample/)
+	for dir in "${NEW_DIRS[@]}"; do
+		mkdir -p "${dir}"
 	done
 
 	case ${VERSION} in
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU PolEU )
-			for dir in ${LANGDIRS[@]}; do
-				cp "${RIIVOLUTION_DIR}"/Others/Text.arc ${WORKDIR}/files/EU/${dir}/Message/Message.arc
+			for dir in "${LANGDIRS[@]}"; do
+				cp "${RIIVOLUTION_DIR}"/Others/Text.arc "${WORKDIR}"/files/EU/"${dir}"/Message/Message.arc
 			done
-			#cp "${RIIVOLUTION_DIR}"/Others/Title/Logo.arc ${WORKDIR}/files/EU/Layout/openingTitle/openingTitle.arc
 		;;
 
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
-			for dir in ${LANGDIRS[@]}; do
-				cp "${RIIVOLUTION_DIR}"/Others/Text.arc ${WORKDIR}/files/US/${dir}/Message/Message.arc
+			for dir in "${LANGDIRS[@]}"; do
+				cp "${RIIVOLUTION_DIR}"/Others/Text.arc "${WORKDIR}"/files/US/"${dir}"/Message/Message.arc
 			done
-			cp "${RIIVOLUTION_DIR}"/Others/Title/Logo.arc ${WORKDIR}/files/US/Layout/openingTitle/openingTitle.arc
+			cp "${RIIVOLUTION_DIR}"/Others/Title/Logo.arc "${WORKDIR}"/files/US/Layout/openingTitle/openingTitle.arc
 		;;
 
 		JPNv1 )
-			cp "${RIIVOLUTION_DIR}"/Others/Text.arc ${WORKDIR}/files/JP/
-			#cp "${RIIVOLUTION_DIR}"/Others/Title/Logo.arc ${WORKDIR}/files/JP/Layout/openingTitle/openingTitle.arc
+			cp "${RIIVOLUTION_DIR}"/Others/Text.arc "${WORKDIR}"/files/JP/
 		;;
 	esac
 
-	cp "${RIIVOLUTION_DIR}"/Levels/*.arc ${WORKDIR}/files/Stage/
-	cp "${RIIVOLUTION_DIR}"/Tilesets/* ${WORKDIR}/files/Stage/Texture/
-	cp "${RIIVOLUTION_DIR}"/Backgrounds/* ${WORKDIR}/files/Object/
-	cp "${RIIVOLUTION_DIR}"/Music/BRSTM/* ${WORKDIR}/files/Sound/stream/
-	cp "${RIIVOLUTION_DIR}"/Music/BRSAR/* ${WORKDIR}/files/Sound/
-	cp "${RIIVOLUTION_DIR}"/Map/* ${WORKDIR}/files/WorldMap/
-	cp "${RIIVOLUTION_DIR}"/Others/Env/NwrXmas_env.arc ${WORKDIR}/files/Env/Env_world.arc
-	cp "${RIIVOLUTION_DIR}"/Others/Title/Level.arc ${WORKDIR}/files/Stage/01-40.arc
-	cp "${RIIVOLUTION_DIR}"/Others/UI/MMTex.arc ${WORKDIR}/files/Layout/textures/sequenceBGTexture.arc
-	cp "${RIIVOLUTION_DIR}"/Others/UI/MM.arc ${WORKDIR}/files/Layout/sequenceBG/sequenceBG.arc
-	cp "${RIIVOLUTION_DIR}"/Others/UI/MMMain.arc ${WORKDIR}/files/Layout/dateFile/dateFile.arc
-	cp "${RIIVOLUTION_DIR}"/Others/UI/Banners.arc ${WORKDIR}/files/Layout/preGame/preGame.arc
-	cp "${RIIVOLUTION_DIR}"/Others/UI/Players.arc ${WORKDIR}/files/Layout/fileSelectPlayer/fileSelectPlayer.arc
-	cp "${RIIVOLUTION_DIR}"/Sample/tobira.bti ${WORKDIR}/files/Sample/tobira.bti
+	cp "${RIIVOLUTION_DIR}"/Levels/*.arc "${WORKDIR}"/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/Tilesets/* "${WORKDIR}"/files/Stage/Texture/
+	cp "${RIIVOLUTION_DIR}"/Backgrounds/* "${WORKDIR}"/files/Object/
+	cp "${RIIVOLUTION_DIR}"/Music/BRSTM/* "${WORKDIR}"/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/Music/BRSAR/* "${WORKDIR}"/files/Sound/
+	cp "${RIIVOLUTION_DIR}"/Map/* "${WORKDIR}"/files/WorldMap/
+	cp "${RIIVOLUTION_DIR}"/Others/Env/NwrXmas_env.arc "${WORKDIR}"/files/Env/Env_world.arc
+	cp "${RIIVOLUTION_DIR}"/Others/Title/Level.arc "${WORKDIR}"/files/Stage/01-40.arc
+	cp "${RIIVOLUTION_DIR}"/Others/UI/MMTex.arc "${WORKDIR}"/files/Layout/textures/sequenceBGTexture.arc
+	cp "${RIIVOLUTION_DIR}"/Others/UI/MM.arc "${WORKDIR}"/files/Layout/sequenceBG/sequenceBG.arc
+	cp "${RIIVOLUTION_DIR}"/Others/UI/MMMain.arc "${WORKDIR}"/files/Layout/dateFile/dateFile.arc
+	cp "${RIIVOLUTION_DIR}"/Others/UI/Banners.arc "${WORKDIR}"/files/Layout/preGame/preGame.arc
+	cp "${RIIVOLUTION_DIR}"/Others/UI/Players.arc "${WORKDIR}"/files/Layout/fileSelectPlayer/fileSelectPlayer.arc
+	cp "${RIIVOLUTION_DIR}"/Sample/tobira.bti "${WORKDIR}"/files/Sample/tobira.bti
 
 }
 

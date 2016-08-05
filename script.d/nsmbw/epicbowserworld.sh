@@ -37,9 +37,9 @@ detect_game_version () {
 
 place_files () {
 
-	NEW_DIRS=( ${WORKDIR}/files/NewerRes )
-	for dir in ${NEW_DIRS[@]}; do
-		mkdir -p ${dir}
+	NEW_DIRS=( "${WORKDIR}"/files/NewerRes )
+	for dir in "${NEW_DIRS[@]}"; do
+		mkdir -p "${dir}"
 	done
 
 	cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{m,M}essage
@@ -47,39 +47,39 @@ place_files () {
 	case ${VERSION} in
 		EUR* )
 			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU )
-			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/EU/${dir}/
-				cp -r "${RIIVOLUTION_DIR}"/ESBW/Font/ ${WORKDIR}/files/EU/${dir}/
+			for dir in "${LANGDIRS[@]}"; do
+				cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{Message,staffroll}/ "${WORKDIR}"/files/EU/"${dir}"/
+				cp -r "${RIIVOLUTION_DIR}"/ESBW/Font/ "${WORKDIR}"/files/EU/"${dir}"/
 			done
-			cp "${RIIVOLUTION_DIR}"/ESBW/OpeningP/* ${WORKDIR}/files/EU/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/ESBW/OpeningP/* "${WORKDIR}"/files/EU/Layout/openingTitle/
 		;;
 
 		USAv* )
 			LANGDIRS=( FraUS EngUS SpaUS )
-			for dir in ${LANGDIRS[@]}; do
-				cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/US/${dir}/
-				cp -r "${RIIVOLUTION_DIR}"/ESBW/Font/ ${WORKDIR}/files/US/${dir}/
+			for dir in "${LANGDIRS[@]}"; do
+				cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{Message,staffroll}/ "${WORKDIR}"/files/US/"${dir}"/
+				cp -r "${RIIVOLUTION_DIR}"/ESBW/Font/ "${WORKDIR}"/files/US/"${dir}"/
 			done
-			cp "${RIIVOLUTION_DIR}"/ESBW/OpeningE/* ${WORKDIR}/files/US/Layout/openingTitle/
+			cp "${RIIVOLUTION_DIR}"/ESBW/OpeningE/* "${WORKDIR}"/files/US/Layout/openingTitle/
 		;;
 
 		JPNv1 )
-			cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{Message,staffroll}/ ${WORKDIR}/files/JP/
-			cp -r "${RIIVOLUTION_DIR}"/ESBW/Font/ ${WORKDIR}/files/JP/
-			cp "${RIIVOLUTION_DIR}"/ESBW/OpeningJ/* ${WORKDIR}/files/JP/Layout/openingTitle/
+			cp -r "${RIIVOLUTION_DIR}"/ESBW/EU/EngEU/{Message,staffroll}/ "${WORKDIR}"/files/JP/
+			cp -r "${RIIVOLUTION_DIR}"/ESBW/Font/ "${WORKDIR}"/files/JP/
+			cp "${RIIVOLUTION_DIR}"/ESBW/OpeningJ/* "${WORKDIR}"/files/JP/Layout/openingTitle/
 		;;
 	esac
 
-	cp "${RIIVOLUTION_DIR}"/ESBW/Stage/Texture/* ${WORKDIR}/files/Stage/Texture/
-	cp "${RIIVOLUTION_DIR}"/ESBW/NewerRes/* ${WORKDIR}/files/NewerRes/
-	cp "${RIIVOLUTION_DIR}"/ESBW/Stage/*.arc ${WORKDIR}/files/Stage/
-	cp "${RIIVOLUTION_DIR}"/ESBW/Env/* ${WORKDIR}/files/Env/
-	cp "${RIIVOLUTION_DIR}"/ESBW/Sound/stream/* ${WORKDIR}/files/Sound/stream/
-	cp "${RIIVOLUTION_DIR}"/ESBW/Sound/*.brsar ${WORKDIR}/files/Sound/
-	cp "${RIIVOLUTION_DIR}"/ESBW/WorldMap/* ${WORKDIR}/files/WorldMap/
-	cp "${RIIVOLUTION_DIR}"/ESBW/Object/* ${WORKDIR}/files/Object/
-	cp "${RIIVOLUTION_DIR}"/ESBW/MovieDemo/* ${WORKDIR}/files/MovieDemo/
-	cp -r "${RIIVOLUTION_DIR}"/ESBW/Layout/ ${WORKDIR}/files/
+	cp "${RIIVOLUTION_DIR}"/ESBW/Stage/Texture/* "${WORKDIR}"/files/Stage/Texture/
+	cp "${RIIVOLUTION_DIR}"/ESBW/NewerRes/* "${WORKDIR}"/files/NewerRes/
+	cp "${RIIVOLUTION_DIR}"/ESBW/Stage/*.arc "${WORKDIR}"/files/Stage/
+	cp "${RIIVOLUTION_DIR}"/ESBW/Env/* "${WORKDIR}"/files/Env/
+	cp "${RIIVOLUTION_DIR}"/ESBW/Sound/stream/* "${WORKDIR}"/files/Sound/stream/
+	cp "${RIIVOLUTION_DIR}"/ESBW/Sound/*.brsar "${WORKDIR}"/files/Sound/
+	cp "${RIIVOLUTION_DIR}"/ESBW/WorldMap/* "${WORKDIR}"/files/WorldMap/
+	cp "${RIIVOLUTION_DIR}"/ESBW/Object/* "${WORKDIR}"/files/Object/
+	cp "${RIIVOLUTION_DIR}"/ESBW/MovieDemo/* "${WORKDIR}"/files/MovieDemo/
+	cp -r "${RIIVOLUTION_DIR}"/ESBW/Layout/ "${WORKDIR}"/files/
 
 }
 
