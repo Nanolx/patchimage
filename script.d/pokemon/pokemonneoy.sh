@@ -41,7 +41,7 @@ check_hans_files () {
 enter either 'full' or 'lite':
 "
 
-	read choice
+	read -r choice
 
 	case ${choice} in
 		[fF]ull ) HANS_PATH="${RIIVOLUTION_DIR}"/Full/romfs ;;

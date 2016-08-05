@@ -36,9 +36,9 @@ viola_nerf () {
 enter either 'nerf' or press [Enter] to keep:
 "
 
-	read choice
+	read -r choice
 
-	case choice in
+	case ${choice} in
 		[nN]erf ) HANS_EXTRA_PATH="${HANS_PATH}/Viola Nerf Files" ;;
 		* ) echo "invalid choice made, keeping first gym leader's team strength" ;;
 	esac
@@ -63,14 +63,14 @@ Encounter type changes the wild Pokemon availability:
 enter either 'legal', 'rebalanced' or 'insanity':
 "
 
-	read choice
+	read -r choice
 
 	case ${choice} in
 		[lL]egal ) HANS_PATH="${RIIVOLUTION_DIR}/Legal version"
 			   viola_nerf ;;
 		[rR]ebalanced ) HANS_PATH="${RIIVOLUTION_DIR}/Rebalanced version"
 				viola_nerf ;;
-		[iI]nsanity ) HANS_PATH="${RIIVOLUTION_DIR}/Insanity Mode"
+		[iI]nsanity ) HANS_PATH="${RIIVOLUTION_DIR}/Insanity Mode" ;;
 		* ) echo "invalid choice made, using 'Rebalanced version'."
 		    HANS_PATH="${RIIVOLUTION_DIR}/Rebalanced version"
 		    viola_nerf ;;

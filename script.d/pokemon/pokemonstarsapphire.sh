@@ -25,7 +25,7 @@ edited, and the level curve expects use of the Experience Share, which means
 that you level up very quickly. You should be hitting Level 100 by the time you
 get to the Elite Four.
 
-Source:			https://projectpokemon.org/forums/showthread.php?46315
+Source:			https://projectpokemon.org/forums/showthread -r.php?46315
 Base ROM:		Pokemon Alpha Sapphire
 Supported Versions:	US, EU, JAP
 ************************************************"
@@ -52,7 +52,7 @@ Encounter type changes the wild Pokemon availability:
 enter either 'legit', 'leveled' or '679':
 "
 
-	read choice
+	read -r choice
 
 	case ${choice} in
 		[lL]egit ) HANS_EXTRA_PATH="${RIIVOLUTION_DIR}/Encounter Type/Legit Build" ;;
