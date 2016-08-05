@@ -26,7 +26,7 @@ Supported Versions:	US
 check_input_rom () {
 
 	if [[ ! ${ROM} ]]; then
-		ROM=$(find . -name ${ROM_MASK} | sed -e 's,./,,')
+		ROM=$(find . -name "${ROM_MASK}" | sed -e 's,./,,')
 		if [[ ${ROM} == "" ]]; then
 			echo -e "error: could not find suitable ROM, specify using --rom"
 			exit 15
