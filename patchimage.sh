@@ -7,33 +7,33 @@
 # License: GPL v3
 
 basedir=$(readlink -m "${BASH_SOURCE[0]}")
-basedir=$(dirname ${basedir})
+basedir=$(dirname "${basedir}")
 
-PATCHIMAGE_DIR=${basedir}
+export PATCHIMAGE_DIR=${basedir}
 
 if [[ -d ${basedir}/script.d ]]; then
-	PATCHIMAGE_SCRIPT_DIR=${basedir}/script.d
-	PATCHIMAGE_PATCH_DIR=${basedir}/patches
-	PATCHIMAGE_DATA_DIR=${basedir}/data
-	PATCHIMAGE_TOOLS_DIR=${basedir}/tools
-	PATCHIMAGE_OVERRIDE_DIR=${basedir}/override
-	PATCHIMAGE_DATABASE_DIR=${basedir}/database
+	export PATCHIMAGE_SCRIPT_DIR=${basedir}/script.d
+	export PATCHIMAGE_PATCH_DIR=${basedir}/patches
+	export PATCHIMAGE_DATA_DIR=${basedir}/data
+	export PATCHIMAGE_TOOLS_DIR=${basedir}/tools
+	export PATCHIMAGE_OVERRIDE_DIR=${basedir}/override
+	export PATCHIMAGE_DATABASE_DIR=${basedir}/database
 else
-	PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/script.d
-	PATCHIMAGE_PATCH_DIR=/usr/share/patchimage/patches
-	PATCHIMAGE_DATA_DIR=/usr/share/patchimage/data
-	PATCHIMAGE_TOOLS_DIR=/usr/share/patchimage/tools
-	PATCHIMAGE_OVERRIDE_DIR=/usr/share/patchimage/override
-	PATCHIMAGE_DATABASE_DIR=/usr/share/patchimage/database
+	export PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/script.d
+	export PATCHIMAGE_PATCH_DIR=/usr/share/patchimage/patches
+	export PATCHIMAGE_DATA_DIR=/usr/share/patchimage/data
+	export PATCHIMAGE_TOOLS_DIR=/usr/share/patchimage/tools
+	export PATCHIMAGE_OVERRIDE_DIR=/usr/share/patchimage/override
+	export PATCHIMAGE_DATABASE_DIR=/usr/share/patchimage/database
 fi
 
-PATCHIMAGE_RIIVOLUTION_DIR=${basedir}
-PATCHIMAGE_WBFS_DIR=${basedir}
-PATCHIMAGE_AUDIO_DIR=${basedir}
-PATCHIMAGE_GAME_DIR=${basedir}
-PATCHIMAGE_COVER_DIR=${basedir}
+export PATCHIMAGE_RIIVOLUTION_DIR="${basedir}"
+export PATCHIMAGE_WBFS_DIR="${basedir}"
+export PATCHIMAGE_AUDIO_DIR="${basedir}"
+export PATCHIMAGE_GAME_DIR="${basedir}"
+export PATCHIMAGE_COVER_DIR="${basedir}"
 
-source ${PATCHIMAGE_SCRIPT_DIR}/common.sh
+source "${PATCHIMAGE_SCRIPT_DIR}/common.sh"
 optparse "${@}"
 
 check_directories
@@ -43,184 +43,184 @@ setup_tools
 
 case ${GAME} in
 
-	NSMB1 | NewerSMB | NewerSMBW )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newersmb.sh
+	NSMB1 | NewerSMB )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newersmb.sh"
 	;;
 
 	NSMB2 | NewerSummerSun )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newersummersun.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newersummersun.sh"
 	;;
 
-	NSMB3 | ASMBW | AnotherSMBW )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/anothersmb.sh
+	NSMB3 | AnotherSMB )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/anothersmb.sh"
 	;;
 
-	NSMB4 | HolidaySpecial | "Newer: Holiday Special" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newerholiday.sh
+	NSMB4 | HolidaySpecial )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newerholiday.sh"
 	;;
 
-	NSMB5 | Cannon | "Cannon SMBW" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/cannon.sh
+	NSMB5 | Cannon )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/cannon.sh"
 	;;
 
-	NSMB6 | ESBW | "Epic Super Bowser World" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/epicbowserworld.sh
+	NSMB6 | BowserWorld )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/epicbowserworld.sh"
 	;;
 
-	NSMB7 | Koopa | "Koopa Country" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/koopacountry.sh
+	NSMB7 | KoopaCountry )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/koopacountry.sh"
 	;;
 
-	NSMB8 | "New Super Mario Bros. 4" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw4.sh
+	NSMB8 | NewSuperMarioBros4 )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw4.sh"
 	;;
 
-	NSMB9 | Retro | "Retro Remix" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/retroremix.sh
+	NSMB9 | RetroRemix )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/retroremix.sh"
 	;;
 
-	NSMB10 | WinterMoon | "Super Mario: Mushroom Adventure PLUS - Winter Moon" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/wintermoon.sh
+	NSMB10 | WinterMoon )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/wintermoon.sh"
 	;;
 
-	NSMB11 | NSMBW3 | "NSMBW3: The Final Levels" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw3.sh
+	NSMB11 | NSMBW3 )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw3.sh"
 	;;
 
-	NSMB12 | SMV | "Super Mario Vacation" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/summervacation.sh
+	NSMB12 | Vacation )
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/summervacation.sh"
 	;;
 
 	NSMB13 | ASLM | "Awesomer Super Luigi Mini" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/awesomersuperluigi.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/awesomersuperluigi.sh"
 	;;
 
 	NSMB14 | Sykland )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/skyland.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/skyland.sh"
 	;;
 
 	NSMB15 | RVLution )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/rvlution.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/rvlution.sh"
 	;;
 
 	NSMB16 | Midi )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/midissupermariowii.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/midissupermariowii.sh"
 	;;
 
 	NSMB17 | DarkUmbra )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/darkumbrasmb.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/darkumbrasmb.sh"
 	;;
 
 	NSMB18 | NewerApocalypse )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newerapocalypse.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newerapocalypse.sh"
 	;;
 
 	NSMB19 | LuigisSuperYoshiBros )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/luigissuperyoshibros.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/luigissuperyoshibros.sh"
 	;;
 
 	NSMB20 | NewerFallingLeaf )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newerfallingleaf.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newerfallingleaf.sh"
 	;;
 
 	NSMB21 | DevilMarioWinterSpecial )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/devilmariowinterspecial.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/devilmariowinterspecial.sh"
 	;;
 
 	NSMB22 | NewSMBWOtherWorld )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newsmbwotherworld.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/newsmbwotherworld.sh"
 	;;
 
 	NSMB23 | TheLegendOfYoshi )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/thelegendofyoshi.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/thelegendofyoshi.sh"
 	;;
 
 	NSMB24 | RemixedSuperMarioBrosWii )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/remixedsupermariobroswii.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/remixedsupermariobroswii.sh"
 	;;
 
 	NSMB25 | GhostlySuperGhostBoosWii )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/ghostlysuperghostbooswii.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/ghostlysuperghostbooswii.sh"
 	;;
 
 	NSMB26 | RevisedSuperMarioBrosWii )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/revisedsupermariobroswii.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/revisedsupermariobroswii.sh"
 	;;
 
 	NSMB99 | NSMBWCharacters )
-		source ${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw_characters.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw_characters.sh"
 	;;
 
 	MKW1 | Wiimmfi )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/wiimmfi.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/mkwii/wiimmfi.sh"
 	;;
 
 	MKW2 | Wiimmpatch )
-		source ${PATCHIMAGE_SCRIPT_DIR}/wiimmfi_generic.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/wiimmfi_generic.sh"
 	;;
 
 	MKW3 | Mkwiimm )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm.sh"
 	;;
 
 	MKW4 | MkwiimmItems )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm_items.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm_items.sh"
 	;;
 
 	MKW5 | MkwiimmFonts )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm_fonts.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm_fonts.sh"
 	;;
 
 	MKW6 | MkwiimmKarts )
-		source ${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm_karts.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/mkwii/mkwiimm_karts.sh"
 	;;
 
 	KAW1 | Kirby )
-		source ${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh"
 	;;
 
 	TMSFE | TokyoMirageSessions )
-		source ${PATCHIMAGE_SCRIPT_DIR}/tokyomiragesessionsfe.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/tokyomiragesessionsfe.sh"
 	;;
 
 	PKMN1 | NeoX )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonneox.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonneox.sh"
 	;;
 
 	PKMN2 | NeoY )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonneoy.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonneoy.sh"
 	;;
 
 	PKMN3 | RutileRuby )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonrutileruby.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonrutileruby.sh"
 	;;
 
 	PKMN4 | AlphaSapphire )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonstarsapphire.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonstarsapphire.sh"
 	;;
 
 	PKMN5 | EternalX )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemoneternalx.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemoneternalx.sh"
 	;;
 
 	PKMN6 | WiltingY )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonwiltingy.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonwiltingy.sh"
 	;;
 
 	PKMN7 | RisingRuby )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonrisingruby.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonrisingruby.sh"
 	;;
 
 	PKMN8 | SinkingSapphire )
-		source ${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonsinkingsapphire.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonsinkingsapphire.sh"
 	;;
 
 	BSECU | BravelySecondUncensored )
-		source ${PATCHIMAGE_SCRIPT_DIR}/bravelyseconduncensored.sh
+		source "${PATCHIMAGE_SCRIPT_DIR}/bravelyseconduncensored.sh"
 	;;
 
-	ZEL1 | ParallelWorlds | "The Legend of Zelda: Parallel Worlds" )
-		source ${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh
+	ZEL1 | ParallelWorlds )
+		source "${PATCHIMAGE_SCRIPT_DIR}/parallelworlds.sh"
 	;;
 
 	* )
@@ -233,7 +233,7 @@ esac
 case ${GAME_TYPE} in
 	"RIIVOLUTION" )
 		show_notes
-		rm -rf ${WORKDIR}
+		rm -rf "${WORKDIR}"
 		if [[ ${PATCHIMAGE_SOUNDTRACK_DOWNLOAD} == TRUE ]]; then
 			echo -e "\n*** A) download_soundtrack"
 			download_soundtrack
@@ -250,11 +250,11 @@ case ${GAME_TYPE} in
 		check_riivolution_patch
 
 		echo "*** 4) extract game"
-		${WIT} extract ${IMAGE} ${WORKDIR} --psel=DATA -q || exit 51
+		${WIT} extract "${IMAGE}" "${WORKDIR}" --psel=DATA -q || exit 51
 
 		echo "*** 5) detect_game_version"
 		detect_game_version
-		rm -f ${GAMEID}.wbfs ${CUSTOMID}.wbfs
+		rm -f "${GAMEID}".wbfs "${CUSTOMID}".wbfs
 		echo "*** 6) place_files"
 		place_files || exit 45
 
@@ -267,7 +267,7 @@ case ${GAME_TYPE} in
 		dolpatch
 
 		if [[ ${CUSTOMID} ]]; then
-			GAMEID=${CUSTOMID}
+			GAMEID="${CUSTOMID}"
 		fi
 
 		if [[ ${PATCHIMAGE_SHARE_SAVE} == "TRUE" ]]; then
@@ -277,17 +277,17 @@ case ${GAME_TYPE} in
 		fi
 
 		echo "*** 10) rebuild and store game"
-		${WIT} cp -o -q --disc-id=${GAMEID} ${TMD_OPTS} --name "${GAMENAME}" \
-			-B ${WORKDIR} "${PATCHIMAGE_GAME_DIR}"/${GAMEID}.wbfs || exit 51
+		"${WIT}" cp -o -q --disc-id="${GAMEID}" "${TMD_OPTS}" --name "${GAMENAME}" \
+			-B "${WORKDIR}" "${PATCHIMAGE_GAME_DIR}"/"${GAMEID}".wbfs || exit 51
 
 		echo "*** 12) remove workdir"
-		rm -rf ${WORKDIR}
+		rm -rf "${WORKDIR}"
 
 		echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_GAME_DIR}/${GAMEID}.wbfs\n"
 
 		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
 			echo -e "*** Z) download_covers"
-			download_covers ${GAMEID}
+			download_covers "${GAMEID}"
 			echo -e "\nCovers downloaded to ${PATCHIMAGE_COVER_DIR}"
 		fi
 
@@ -318,9 +318,9 @@ case ${GAME_TYPE} in
 		check_input_rom
 
 		if [[ -f ${PATCH} ]]; then
-			ext=${ROM/*.}
+			ext="${ROM/*.}"
 			cp "${ROM}" "${GAMENAME}.${ext}"
-			${IPS} a "${PATCH}" "${GAMENAME}.${ext}" || exit 51
+			"${IPS}" a "${PATCH}" "${GAMENAME}.${ext}" || exit 51
 		else
 			echo -e "error: patch (${PATCH}) could not be found"
 			exit 21
