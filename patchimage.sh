@@ -298,11 +298,9 @@ case ${GAME_TYPE} in
 
 		echo -e "\n*** 1) check_input_image"
 		check_input_image
-		echo -e "\n*** 2) check_input_image_special"
-		check_input_image_special
-		echo -e "\n*** 3) download_wiimm"
+		echo -e "\n*** 2) download_wiimm"
 		download_wiimm
-		echo -e "\n*** 4) patch_wiimm"
+		echo -e "\n*** 3) patch_wiimm"
 		patch_wiimm
 	;;
 
@@ -310,7 +308,7 @@ case ${GAME_TYPE} in
 		show_notes
 
 		echo -e "\n*** 1) check_input_image"
-		check_input_image
+		check_input_image_special
 		echo -e "\n*** 2) pi_action"
 		pi_action
 	;;

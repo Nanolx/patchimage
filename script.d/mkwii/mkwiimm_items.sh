@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GAME_TYPE="MKWIIMM"
+GAME_TYPE="WII_GENERIC"
 GAME_NAME="Mario Kart Wiimm"
 CSZS="files/Race/Common.szs"
 CSZD="files/Race/Common.d"
@@ -22,14 +22,16 @@ Supported Versions:	EUR, JAP, USA
 
 check_input_image_special () {
 
-	check_input_image_mkwiimm
-	ask_input_image_mkwiimm ${IMAGE%/*}
-	echo -e "type RMC???.wbfs:\n"
+	ask_input_image_mkwiimm
+	echo -e "type ALL or RMC???.wbfs:\n"
 	read ID
 
-	if [[ ! -f ${IMAGE%/*}/${ID} ]]; then
-		echo "wrong id from user-input given."
-		exit 1
+	if [[ -f ${PWD}/${ID} ]]; then
+		GAMEDIR=${PWD}
+	elif [[ -f ${PATCHIMAGE_WBFS_DIR}/${ID} ]]; then
+		GAMEDIR=${PATCHIMAGE_WBFS_DIR}
+	else	echo "invalid user input."
+		exit 75
 	fi
 
 }
@@ -144,8 +146,9 @@ build_mkwiimm () {
 
 }
 
-patch_wiimm () {
+pi_action () {
 
+	download_wiimm
 	build_mkwiimm
 
 }

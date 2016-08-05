@@ -2,6 +2,8 @@
 
 GAME_TYPE="WII_GENERIC"
 GAME_NAME="Kirby's Adventure Wii"
+WBFS_MASK="SUK[PUJ]01"
+PATH_HERO="files/g3d/step/chara/hero/"
 
 show_notes () {
 
@@ -15,7 +17,11 @@ Supported Versions:	EUR, JAP, USA
 
 }
 
-PATH_HERO="files/g3d/step/chara/hero/"
+check_input_image_special () {
+
+	check_input_image
+
+}
 
 exchange_kirby () {
 
@@ -46,8 +52,6 @@ exchange_hero () {
 }
 
 pi_action () {
-
-	check_input_image_kirby
 
 	echo "Choose character for first player
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/patcher/mkw-wiimmfi-patcher-v3.7z"
-GAME_TYPE="MKWIIMM"
+GAME_TYPE="WII_GENERIC"
 GAME_NAME="Mario Kart Wiimmfi"
 
 show_notes () {
@@ -21,10 +21,18 @@ Supported Versions:	EUR, JAP, USA
 
 check_input_image_special () {
 
-	check_input_image_mkwiimm
-	ask_input_image_mkwiimm ${IMAGE%/*}
+	ask_input_image_mkwiimm
 	echo -e "type ALL or RMC???.wbfs:\n"
 	read ID
+
+	if [[ -f ${PWD}/${ID} ]]; then
+		GAMEDIR=${PWD}
+	elif [[ -f ${PATCHIMAGE_WBFS_DIR}/${ID} ]]; then
+		GAMEDIR=${PATCHIMAGE_WBFS_DIR}
+	else	echo "invalid user input."
+		exit 75
+	fi
+
 
 }
 
@@ -68,4 +76,11 @@ patch_wiimm () {
 	fi
 
 	rm -rf ${HOME}/.patchimage/tools/wiimfi-patcher/
+}
+
+pi_action () {
+
+	download_wiimm
+	patch_wiimm
+
 }

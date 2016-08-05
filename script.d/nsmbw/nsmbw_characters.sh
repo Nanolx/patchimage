@@ -20,21 +20,22 @@ Supported Versions:	EUR, JAP, USA
 
 check_input_image_special () {
 
-	check_input_image_nsmb
-	ask_input_image_nsmb ${IMAGE%/*}
-	echo -e "type SMN???.wbfs:\n"
+	ask_input_image_nsmb
+
+	echo -e "type ??????.wbfs (or ??????.iso):\n"
 	read ID
 
-	if [[ ! -f ${IMAGE%/*}/${ID} ]]; then
-		echo "wrong id from user-input given."
+	if [[ -f ${PWD}/${ID} ]]; then
+		GAMEDIR=${PWD}
+	elif [[ -f ${PATCHIMAGE_WBFS_DIR}/${ID} ]]; then
+		GAMEDIR=${PATCHIMAGE_WBFS_DIR}
+	else	echo "invalid user input."
 		exit 75
 	fi
 
 }
 
 pi_action () {
-
-	check_input_image_special
 
 	if [[ -f ${HOME}/.patchimage.choice ]]; then
 		echo "Your choices from last time can be re-used."

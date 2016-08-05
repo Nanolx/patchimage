@@ -12,6 +12,7 @@ XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="Riivolution/Another.xml"
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
+WBFS_MASK="SMN[PUJ]01"
 
 show_notes () {
 
@@ -27,12 +28,6 @@ Source:			http://www.newerteam.com/specials.html
 Base Image:		New Super Mario Bros. Wii (SMN?01)
 Supported Versions:	EURv1, USAv1, USAv2
 ************************************************"
-
-}
-
-check_input_image_special () {
-
-	check_input_image_nsmb
 
 }
 

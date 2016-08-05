@@ -10,6 +10,7 @@ XML_SOURCE="${RIIVOLUTION_DIR}"/Vacation
 XML_FILE="${RIIVOLUTION_DIR}"/riivolution/Vacation
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
+WBFS_MASK="SMN[PUJ]01"
 
 show_notes () {
 
@@ -23,12 +24,6 @@ Source:			http://rvlution.net/forums/viewtopic.php?f=53&t=1839
 Base Image:		New Super Mario Bros. Wii (SMN?01)
 Supported Versions:	EURv1, EURv2, USAv1, USAv2, JPNv1
 ************************************************"
-
-}
-
-check_input_image_special () {
-
-	check_input_image_nsmb
 
 }
 

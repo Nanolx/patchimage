@@ -201,88 +201,23 @@ check_directories () {
 
 }
 
+
 check_input_image () {
 
 	x=0
 	if [[ ! ${IMAGE} ]]; then
-		if [[ -f BASE.wbfs ]]; then
+		if test -f ${WBFS_MASK}.wbfs; then
 			x=1
-			IMAGE=BASE.wbfs
-		elif [[ -f BASE.iso ]]; then
-			x=1
-			IMAGE=BASE.iso
-		fi
-	fi
-	echo "*** >> status: ${x}"
-
-}
-
-check_input_image_nsmb () {
-
-	x=0
-	if [[ ! ${IMAGE} ]]; then
-		if test -f SMN?01.wbfs; then
-			x=1
-			IMAGE=SMN?01.wbfs
-		elif test -f SMN?01.iso; then
+			IMAGE=${WBFS_MASK}.wbfs
+		elif test -f ${WBFS_MASK}.iso; then
 			x=2
-			IMAGE=SMN?01.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/SMN?01.iso; then
+			IMAGE=${WBFS_MASK}.iso
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.iso; then
 			x=3
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/SMN?01.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/SMN?01.wbfs; then
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.iso
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.wbfs; then
 			x=4
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/SMN?01.wbfs
-		else
-			echo -e "please specify image to use with --iso=<path>"
-			exit 15
-		fi
-	fi
-	echo "*** >> status: ${x}"
-
-}
-
-check_input_image_kirby () {
-
-	x=0
-	if [[ ! ${IMAGE} ]]; then
-		if test -f SMN?01.wbfs; then
-			x=1
-			IMAGE=SMN?01.wbfs
-		elif test -f SMN?01.iso; then
-			x=2
-			IMAGE=SMN?01.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/SUK?01.iso; then
-			x=3
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/SUK?01.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/SUK?01.wbfs; then
-			x=4
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/SUK?01.wbfs
-		else
-			echo -e "please specify image to use with --iso=<path>"
-			exit 15
-		fi
-	fi
-	echo "*** >> status: ${x}"
-
-}
-
-check_input_image_mkwiimm () {
-
-	x=0
-	if [[ ! ${IMAGE} ]]; then
-		if test -f RMC?01.wbfs; then
-			x=1
-			IMAGE=RMC?01.wbfs
-		elif test -f RMC?01.iso; then
-			x=2
-			IMAGE=RMC?01.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/RMC?01.iso; then
-			x=3
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/RMC?01.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/RMC?01.wbfs; then
-			x=4
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/RMC?01.wbfs
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 15
@@ -339,10 +274,8 @@ ask_input_image_mkwiimm () {
 
 	ALL		patch all images"
 
-	for image in ${1}/RMC???.{iso,wbfs}; do
-		if [[ -e ${image} ]]; then
-			echo "	${image##*/}	$(show_mkwiimm_db ${image##*/})"
-		fi
+	for image in ${1}/RMC???.{iso,wbfs} ${PATCHIMAGE_WBFS_DIR}/RMC???.{iso,wbfs}; do
+		[[ -f ${image} ]] && echo "	${image##*/}	$(show_mkwiimm_db ${image##*/})"
 	done
 
 	echo ""
@@ -355,10 +288,17 @@ ask_input_image_nsmb () {
 
 	ALL		patch all images"
 
-	for image in ${1}/SMN???.{iso,wbfs} ${1}/SLF???.{iso,wbfs} ${1}/SMM???.{iso,wbfs} ${1}/SMV???.{iso,wbfs} ${1}/MRR???.{iso,wbfs}; do
-		if [[ -e ${image} ]]; then
-			echo "	${image##*/}	$(show_nsmb_db ${image##*/})"
-		fi
+	for image in ${1}/SMN???.{iso,wbfs} \
+		${1}/SLF???.{iso,wbfs} \
+		${1}/SMM???.{iso,wbfs} \
+		${1}/SMV???.{iso,wbfs} \
+		${1}/MRR???.{iso,wbfs} \
+		${PATCHIMAGE_WBFS_DIR}/SMN???.{iso,wbfs} \
+		${PATCHIMAGE_WBFS_DIR}/SLF???.{iso,wbfs} \
+		${PATCHIMAGE_WBFS_DIR}/SMM???.{iso,wbfs} \
+		${PATCHIMAGE_WBFS_DIR}/SMV???.{iso,wbfs} \
+		${PATCHIMAGE_WBFS_DIR}/MRR???.{iso,wbfs}; do
+		[[ -f ${image} ]] && echo "	${image##*/}	$(show_nsmb_db ${image##*/})"
 	done
 
 	echo ""
@@ -388,7 +328,7 @@ ask_input_image_wiimmfi () {
 
 	echo "Choose Wii Game Image to wiimmfi"
 
-	for image in ${1}/*.{iso,wbfs}; do
+	for image in ${PWD}/*.{iso,wbfs} ${PATCHIMAGE_WBFS_DIR}/*.${iso,wbfs}; do
 		if [[ -e ${image} && ! ${image} == "*/RMC*" && $(check_wfc ${image##*/}) == TRUE ]]; then
 			echo "	${image##*/}	$(show_titles_db ${image##*/})"
 		fi

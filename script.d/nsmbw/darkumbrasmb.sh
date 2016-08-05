@@ -10,6 +10,7 @@ XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="${RIIVOLUTION_DIR}"/dusmbaePAL.xml
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
+WBFS_MASK="SMN[PUJ]01"
 
 show_notes () {
 
@@ -21,12 +22,6 @@ Source:			http://rvlution.net/thread/2232-darkumbra-smb-anniversary-edition-rev1
 Base Image:		New Super Mario Bros. Wii (SMN?01)
 Supported Versions:	EURv1, EURv2
 ************************************************"
-
-}
-
-check_input_image_special () {
-
-	check_input_image_nsmb
 
 }
 

@@ -3,6 +3,7 @@
 GAME_TYPE="MKWIIMM"
 GAME_NAME="Mario Kart Wiimm"
 DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/patcher/mkw-wiimmfi-patcher-v3.7z"
+WBFS_MASK="RMC[PUJ]01"
 
 show_notes () {
 
@@ -16,12 +17,6 @@ Source:			http://wiiki.wii-homebrew.com/Wiimms_Mario_Kart_Fun
 Base Image:		Mario Kart Wii (RMC?01)
 Supported Versions:	EUR, JAP, USA
 ************************************************"
-
-}
-
-check_input_image_special () {
-
-	check_input_image_mkwiimm
 
 }
 
