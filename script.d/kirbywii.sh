@@ -9,7 +9,7 @@ show_notes () {
 
 echo -e \
 "************************************************
-${GAMENAME}
+${GAME_NAME}
 
 Base Image:		Kirby's Adventure Wii (SUK?01)
 Supported Versions:	EUR, JAP, USA
@@ -25,28 +25,27 @@ check_input_image_special () {
 
 exchange_kirby () {
 
-	cp workdir/${PATH_HERO}/kirby/base/${1}.brres.cmp{,_tmp}
-	cp workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp \
-		workdir/${PATH_HERO}/kirby/base/${1}.brres.cmp
-	mv workdir/${PATH_HERO}/kirby/base/${1}.brres.cmp_tmp \
-		workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp
+	cp workdir/"${PATH_HERO}"/kirby/base/"${1}".brres.cmp{,_tmp}
+	cp workdir/"${PATH_HERO}"/kirby/base/Pink.brres.cmp \
+		workdir/"${PATH_HERO}"/kirby/base/"${1}".brres.cmp
+	mv workdir/"${PATH_HERO}"/kirby/base/"${1}".brres.cmp_tmp \
+		workdir/"${PATH_HERO}"/kirby/base/Pink.brres.cmp
 
 }
 
 exchange_hero () {
 
-	cp workdir/${PATH_HERO}/${1}/base/Default.brres.cmp \
-		workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp_temp
-	cp workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp \
-		workdir/${PATH_HERO}/${1}/base/Default.brres.cmp
-	mv workdir/${PATH_HERO}/kirby/base/Pink.brres.cmp{_temp,}
-	for brres in workdir/${PATH_HERO}/${1}/normal/*.cmp ; do
-		xfile=${brres##*/}
-		xpath=${brres%/*}
-		cp ${brres} workdir/${PATH_HERO}/kirby/normal/${xfile}_temp
-		cp workdir/${PATH_HERO}/kirby/normal/${xfile} \
-			workdir/${PATH_HERO}/${1}/normal/
-		mv workdir/${PATH_HERO}/kirby/normal/${xfile}{_temp,}
+	cp workdir/"${PATH_HERO}"/"${1}"/base/Default.brres.cmp \
+		workdir/"${PATH_HERO}"/kirby/base/Pink.brres.cmp_temp
+	cp workdir/"${PATH_HERO}"/kirby/base/Pink.brres.cmp \
+		workdir/"${PATH_HERO}"/"${1}"/base/Default.brres.cmp
+	mv workdir/"${PATH_HERO}"/kirby/base/Pink.brres.cmp{_temp,}
+	for brres in workdir/"${PATH_HERO}"/"${1}"/normal/*.cmp ; do
+		xfile="${brres##*/}"
+		cp "${brres}" workdir/"${PATH_HERO}"/kirby/normal/"${xfile}"_temp
+		cp workdir/"${PATH_HERO}"/kirby/normal/"${xfile}" \
+			workdir/"${PATH_HERO}"/"${1}"/normal/
+		mv workdir/"${PATH_HERO}"/kirby/normal/"${xfile}"{_temp,}
 	done
 
 }
@@ -66,28 +65,28 @@ pi_action () {
 
 7	Restore to original
 
-type in an number."
-read ID
+type in a number."
+read -r ID
 
 	[[ ${ID} != [0-9] ]] && echo "invalid number provided from user-input." && exit 1
 
 	rm -rf workdir
 
 	echo -e "\n*** 3) extracting image"
-	${WIT} extract ${IMAGE} --psel=data -d workdir -q || exit 51
+	"${WIT}" extract "${IMAGE}" --psel=data -d workdir -q || exit 51
 
-	if [[ ! -d "${PATCHIMAGE_RIIVOLUTION_DIR}"/hero/ ]]; then
+	if [[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR}/hero/ ]]; then
 		echo "*** 4) this is the first run, so backing up all characters
 (in ${PATCHIMAGE_RIIVOLUTION_DIR}) for future customizations"
-		cp -r workdir/${PATH_HERO}/ "${PATCHIMAGE_RIIVOLUTION_DIR}"
+		cp -r workdir/"${PATH_HERO}"/ "${PATCHIMAGE_RIIVOLUTION_DIR}"
 	else
 		echo "*** 4) restoring original characters"
-		cp -r "${PATCHIMAGE_RIIVOLUTION_DIR}"/hero/* workdir/${PATH_HERO}/
+		cp -r "${PATCHIMAGE_RIIVOLUTION_DIR}"/hero/* workdir/"${PATH_HERO}"/
 	fi
 
-	REG=$(gawk '/^SUK/{print $3}' <(${WIT} ll ${IMAGE}))
+	REG=$(gawk '/^SUK/{print $3}' <("${WIT}" ll "${IMAGE}"))
 
-	case $REG in
+	case ${REG} in
 		PAL)	REG=P	;;
 		NTSC-J)	REG=J	;;
 		NTSC-U)	REG=E	;;
@@ -105,7 +104,7 @@ read ID
 
 	echo "*** 6) rebuilding the game "
 	echo "       (storing game in ${PATCHIMAGE_GAME_DIR}/SUK${REG}01.wbfs)"
-	${WIT} cp -o -q -B workdir ${PATCHIMAGE_GAME_DIR}/SUK${REG}01.wbfs || exit 51
+	"${WIT}" cp -o -q -B workdir "${PATCHIMAGE_GAME_DIR}"/SUK"${REG}"01.wbfs || exit 51
 
 	rm -rf workdir
 
