@@ -1,13 +1,8 @@
 While the script executes you will see some status codes, below you will find the meaning:
 
 	phase		code		meaning
-	*** 1)		0		neither BASE.iso nor BASE.wbfs found
-			1		BASE.iso found in ${PWD}
-			2		BASE.wbfs found in ${PWD}
-			3		xdelta/cpk found based on interactive user-input
-			4		xdelta/cpk found based on non-interactive user-input
 
-	*** 2)		0		no <GAMEID>.iso/.wbfs found (or required if *** 1) exited with 1 or 2)
+	*** 1)		0		no <GAMEID>.iso/.wbfs found (or required if *** 1) exited with 1 or 2)
 			1		<GAMEID>.iso found in ${PWD}
 			2		<GAMEID>.wbfs found in ${PWD}
 			3		<GAMEID>.iso found in ${PATCHIMAGE_WBFS_DIR}
@@ -15,8 +10,10 @@ While the script executes you will see some status codes, below you will find th
 			5		no <MASK>.cxi found (3DS ROM)
 			6		<MASK>.cxi found in ${PWD}
 			7		<MASK>.cxi found in ${PATCHIMAGE_3DS_DIR}
+			8		xdelta/cpk found based on interactive user-input
+			9		xdelta/cpk found based on non-interactive user-input
 
-	*** 3)		0		no riivolution files found unpacked in ${PWD}
+	*** 2)		0		no riivolution files found unpacked in ${PWD}
 			1		riivolution files/archive not found in ${PWD}
 			2		riivolution archive found in ${PWD}
 			3		riivolution archive found in ${PATCHIMAGE_RIIVOLUTION_DIR}

@@ -9,10 +9,8 @@ b) ${PATCHIMAGE_WBFS_DIR}
 
 >> expected filenames
 
-a) BASE.iso
-b) BASE.wbfs
-c) SMN?01.iso
-d) SMN?01.wbfs
+a) SMN?01.iso
+b) SMN?01.wbfs
 
 SLF?01		NSMBW3: The Final Levels
 SMN?03		Newer Super Mario Bros. Wii
@@ -50,10 +48,8 @@ b) ${PATCHIMAGE_WBFS_DIR}
 
 >> expected filenames
 
-a) BASE.iso
-b) BASE.wbfs
-c) RMC?01.iso
-d) RMC?01.wbfs
+a) RMC?01.iso
+b) RMC?01.wbfs
 
 RMC?06		Wiimms MKW Fun 2010-12
 RMC?07		Wiimms MKW Retro 2011-02
@@ -92,10 +88,8 @@ b) ${PATCHIMAGE_WBFS_DIR}
 
 >> expected filenames
 
-a) BASE.iso
-b) BASE.wbfs
-c) SUK?01.iso
-d) SUK?01.wbfs
+a) SUK?01.iso
+b) SUK?01.wbfs
 
 SUK?01		Kirby's Adventure Wii
 		* exchange first player's character

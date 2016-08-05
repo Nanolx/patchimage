@@ -450,9 +450,8 @@ while [[ $xcount -lt $pcount ]]; do
 			ISO_PATH=${1/*=}
 			ISO_EXT=${ISO_PATH//*./}
 
-			if [[ -e "${ISO_PATH}" ]]; then
-				ln -sf "${ISO_PATH}" BASE.${ISO_EXT}
-				IMAGE=BASE.${ISO_EXT}
+			if [[ -f "${ISO_PATH}" ]]; then
+				IMAGE="${ISO_PATH}"
 			else
 				echo -e "ISO not found"
 				exit 15
@@ -463,9 +462,8 @@ while [[ $xcount -lt $pcount ]]; do
 			ROM_PATH=${1/*=}
 			ROM_EXT=${ROM_PATH//*./}
 
-			if [[ -e "${ROM_PATH}" ]]; then
-				ln -sf "${ROM_PATH}" BASE.${ROM_EXT}
-				IMAGE=BASE.${ROM_EXT}
+			if [[ -f "${ROM_PATH}" ]]; then
+				IMAGE="${ROM_PATH}"
 			else
 				echo -e "ROM not found"
 				exit 15

@@ -22,18 +22,18 @@ menu () {
 
 	echo -e "\nTokyo Mirage Sessions #FE restoration patcher"
 
-	status=3
+	status=8
 
 	if [[ ! ${XDELTA_PATH} ]]; then
 		echo -e "\nEnter path to the directory containing the delta patches:\n"
 		read XDELTA_PATH || exit 75
-	else	status=4
+	else	status=9
 	fi
 
 	if [[ ! ${CPK_PATH} ]]; then
 		echo -e "\nEnter path to the directory containing the game files (cpk):\n"
 		read CPK_PATH || exit 75
-	else	status=4
+	else	status=9
 	fi
 
 	if [[ ! -d ${XDELTA_PATH} ]]; then
