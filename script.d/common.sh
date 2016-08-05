@@ -3,7 +3,7 @@
 PATCHIMAGE_VERSION=7.0.0
 PATCHIMAGE_RELEASE=2016/08/03
 
-[[ -e ${HOME}/.patchimage.rc ]] && source ${HOME}/.patchimage.rc
+[[ -e ${HOME}/.patchimage.rc ]] && source "${HOME}"/.patchimage.rc
 
 setup_tools () {
 
@@ -12,15 +12,15 @@ setup_tools () {
 	else	SUFFIX=32
 	fi
 
-	WIT="${PATCHIMAGE_TOOLS_DIR}"/wit.${SUFFIX}
-	PPF="${PATCHIMAGE_TOOLS_DIR}"/applyppf3.${SUFFIX}
-	IPS="${PATCHIMAGE_TOOLS_DIR}"/uips.${SUFFIX}
-	UNP="${PATCHIMAGE_TOOLS_DIR}"/unp
-	SZS="${PATCHIMAGE_TOOLS_DIR}"/wszst.${SUFFIX}
-	XD3="${PATCHIMAGE_TOOLS_DIR}"/xdelta3.${SUFFIX}
-	GDOWN="${PATCHIMAGE_TOOLS_DIR}"/gdown.pl
-	CTRTOOL="${PATCHIMAGE_TOOLS_DIR}"/ctrtool.${SUFFIX}
-	FDSTOOL="${PATCHIMAGE_TOOLS_DIR}"/3dstool.${SUFFIX}
+	export WIT="${PATCHIMAGE_TOOLS_DIR}"/wit."${SUFFIX}"
+	export PPF="${PATCHIMAGE_TOOLS_DIR}"/applyppf3."${SUFFIX}"
+	export IPS="${PATCHIMAGE_TOOLS_DIR}"/uips."${SUFFIX}"
+	export UNP="${PATCHIMAGE_TOOLS_DIR}"/unp
+	export SZS="${PATCHIMAGE_TOOLS_DIR}"/wszst."${SUFFIX}"
+	export XD3="${PATCHIMAGE_TOOLS_DIR}"/xdelta3."${SUFFIX}"
+	export GDOWN="${PATCHIMAGE_TOOLS_DIR}"/gdown.pl
+	export CTRTOOL="${PATCHIMAGE_TOOLS_DIR}"/ctrtool."${SUFFIX}"
+	export FDSTOOL="${PATCHIMAGE_TOOLS_DIR}"/3dstool."${SUFFIX}"
 
 }
 
@@ -95,14 +95,15 @@ ID	Name
 Enter ID for the Game you want to create:
 "
 
-read GAME
+read -r GAME
 
 }
 
 download_soundtrack () {
 
-	if [[ ${SOUNDTRACK_LINK} && ! -f "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" ]]; then
-		wget --no-check-certificate "${SOUNDTRACK_LINK}" -O "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" || exit 57
+	if [[ ${SOUNDTRACK_LINK} && ! -f ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP} ]]; then
+		wget --no-check-certificate "${SOUNDTRACK_LINK}" \
+			-O "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" || exit 57
 		echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
 	else
 		echo -e "no soundtrack for ${GAMENAME} available."
@@ -114,11 +115,13 @@ download_banner () {
 
 	if [[ ${PATCHIMAGE_BANNER_DOWNLOAD} == "TRUE" ]]; then
 		if [[ ${CUSTOM_BANNER} ]]; then
-			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr ]]; then
-				wget --no-check-certificate "${CUSTOM_BANNER}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr__tmp || exit 57
-				mv "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr
+			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr ]]; then
+				wget --no-check-certificate "${CUSTOM_BANNER}" \
+					-O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr__tmp || exit 57
+				mv "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr__tmp \
+					"${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr
 			fi
-			BANNER="${PATCHIMAGE_RIIVOLUTION_DIR}"/${GAMEID}-custom-banner.bnr
+			BANNER="${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr
 		else
 			echo "*** >> no custom banner available"
 		fi
@@ -130,19 +133,19 @@ nsmbw_version () {
 
 	if [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_232911 ]]; then
 		VERSION=EURv1
-		REG_LETTER=P
+		export REG_LETTER=P
 	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2010-01-05_152101 ]]; then
 		VERSION=EURv2
-		REG_LETTER=P
+		export REG_LETTER=P
 	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_232303 ]]; then
 		VERSION=USAv1
-		REG_LETTER=E
+		export REG_LETTER=E
 	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2010-01-05_143554 ]]; then
 		VERSION=USAv2
-		REG_LETTER=E
+		export REG_LETTER=E
 	elif [[ -f ${WORKDIR}/files/COPYDATE_LAST_2009-10-03_231655 ]]; then
 		VERSION=JPNv1
-		REG_LETTER=J
+		export REG_LETTER=J
 	elif [[ ! ${VERSION} ]]; then
 		echo -e "please specify your games version using --version={EURv1,EURv2,USAv1,USAv2,JPNv1}"
 		exit 27
@@ -164,40 +167,47 @@ apply_banner () {
 
 check_directories () {
 
-	[[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR} && -w $(dirname ${PATCHIMAGE_RIIVOLUTION_DIR}) ]] && \
-		( mkdir -p "${PATCHIMAGE_RIIVOLUTION_DIR}" || PATCHIMAGE_RIIVOLUTION_DIR=${HOME} )
+	if [[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR} && -w $(dirname "${PATCHIMAGE_RIIVOLUTION_DIR}") ]]; then
+		mkdir -p "${PATCHIMAGE_RIIVOLUTION_DIR}" || PATCHIMAGE_RIIVOLUTION_DIR="${HOME}"
+	fi
 
-	[[ ! -w ${PATCHIMAGE_RIIVOLUTION_DIR} ]] && PATCHIMAGE_RIIVOLUTION_DIR=${HOME}
+	[[ ! -w ${PATCHIMAGE_RIIVOLUTION_DIR} ]] && PATCHIMAGE_RIIVOLUTION_DIR="${HOME}"
 
-	[[ ! -d ${PATCHIMAGE_WBFS_DIR} && -w $(dirname ${PATCHIMAGE_WBFS_DIR}) ]] && \
-		( mkdir -p "${PATCHIMAGE_WBFS_DIR}" || PATCHIMAGE_WBFS_DIR=${HOME} )
+	if [[ ! -d ${PATCHIMAGE_WBFS_DIR} && -w $(dirname "${PATCHIMAGE_WBFS_DIR}") ]]; then
+		mkdir -p "${PATCHIMAGE_WBFS_DIR}" || PATCHIMAGE_WBFS_DIR="${HOME}"
+	fi
 
-	[[ ! -w "${PATCHIMAGE_WBFS_DIR}" ]] && PATCHIMAGE_WBFS_DIR=${HOME}
+	[[ ! -w "${PATCHIMAGE_WBFS_DIR}" ]] && PATCHIMAGE_WBFS_DIR="${HOME}"
 
-	[[ ! -d ${PATCHIMAGE_GAME_DIR} && -w $(dirname ${PATCHIMAGE_GAME_DIR}) ]] && \
-		( mkdir -p "${PATCHIMAGE_GAME_DIR}" || PATCHIMAGE_GAME_DIR=${HOME} )
+	if [[ ! -d ${PATCHIMAGE_GAME_DIR} && -w $(dirname "${PATCHIMAGE_GAME_DIR}") ]]; then
+		mkdir -p "${PATCHIMAGE_GAME_DIR}" || PATCHIMAGE_GAME_DIR="${HOME}"
+	fi
 
-	[[ ! -w ${PATCHIMAGE_GAME_DIR} ]] && PATCHIMAGE_GAME_DIR=${HOME}
+	[[ ! -w ${PATCHIMAGE_GAME_DIR} ]] && PATCHIMAGE_GAME_DIR="${HOME}"
 
-	[[ ! -d ${PATCHIMAGE_3DS_DIR} && -w $(dirname ${PATCHIMAGE_3DS_DIR}) ]] && \
-		( mkdir -p "${PATCHIMAGE_3DS_DIR}" || PATCHIMAGE_3DS_DIR=${HOME} )
+	if [[ ! -d ${PATCHIMAGE_3DS_DIR} && -w $(dirname "${PATCHIMAGE_3DS_DIR}") ]]; then
+		mkdir -p "${PATCHIMAGE_3DS_DIR}" || PATCHIMAGE_3DS_DIR="${HOME}"
+	fi
 
-	[[ ! -w ${PATCHIMAGE_3DS_DIR} ]] && PATCHIMAGE_3DS_DIR=${HOME}
+	[[ ! -w ${PATCHIMAGE_3DS_DIR} ]] && PATCHIMAGE_3DS_DIR="${HOME}"
 
-	[[ ! -d ${PATCHIMAGE_ROM_DIR} && -w $(dirname ${PATCHIMAGE_ROM_DIR}) ]] && \
-		( mkdir -p "${PATCHIMAGE_ROM_DIR}" || PATCHIMAGE_ROM_DIR=${HOME} )
+	if [[ ! -d ${PATCHIMAGE_ROM_DIR} && -w $(dirname "${PATCHIMAGE_ROM_DIR}") ]]; then
+		mkdir -p "${PATCHIMAGE_ROM_DIR}" || PATCHIMAGE_ROM_DIR="${HOME}"
+	fi
 
-	[[ ! -w ${PATCHIMAGE_ROM_DIR} ]] && PATCHIMAGE_ROM_DIR=${HOME}
+	[[ ! -w ${PATCHIMAGE_ROM_DIR} ]] && PATCHIMAGE_ROM_DIR="${HOME}"
 
-	[[ ! -d ${PATCHIMAGE_AUDIO_DIR} && -w $(dirname ${PATCHIMAGE_AUDIO_DIR}) ]] && \
-		( mkdir -p "${PATCHIMAGE_AUDIO_DIR}" || PATCHIMAGE_AUDIO_DIR=${HOME} )
+	if [[ ! -d ${PATCHIMAGE_AUDIO_DIR} && -w $(dirname "${PATCHIMAGE_AUDIO_DIR}") ]]; then
+		mkdir -p "${PATCHIMAGE_AUDIO_DIR}" || PATCHIMAGE_AUDIO_DIR="${HOME}"
+	fi
 
-	[[ ! -w ${PATCHIMAGE_AUDIO_DIR} ]] && PATCHIMAGE_AUDIO_DIR=${HOME}
+	[[ ! -w ${PATCHIMAGE_AUDIO_DIR} ]] && PATCHIMAGE_AUDIO_DIR="${HOME}"
 
-	[[ ! -d ${PATCHIMAGE_COVER_DIR} && -w $(dirname "${PATCHIMAGE_COVER_DIR}") ]] && \
-		( mkdir -p "${PATCHIMAGE_COVER_DIR}" || PATCHIMAGE_COVER_DIR=${HOME} )
+	if [[ ! -d ${PATCHIMAGE_COVER_DIR} && -w $(dirname "${PATCHIMAGE_COVER_DIR}") ]]; then
+		mkdir -p "${PATCHIMAGE_COVER_DIR}" || PATCHIMAGE_COVER_DIR="${HOME}"
+	fi
 
-	[[ ! -w ${PATCHIMAGE_COVER_DIR} ]] && PATCHIMAGE_COVER_DIR=${HOME}
+	[[ ! -w ${PATCHIMAGE_COVER_DIR} ]] && PATCHIMAGE_COVER_DIR="${HOME}"
 
 }
 
@@ -206,18 +216,18 @@ check_input_image () {
 
 	x=0
 	if [[ ! ${IMAGE} ]]; then
-		if test -f ${WBFS_MASK}.wbfs; then
+		if test -f "${WBFS_MASK}".wbfs; then
 			x=1
-			IMAGE=${WBFS_MASK}.wbfs
-		elif test -f ${WBFS_MASK}.iso; then
+			IMAGE="${WBFS_MASK}".wbfs
+		elif test -f "${WBFS_MASK}".iso; then
 			x=2
-			IMAGE=${WBFS_MASK}.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.iso; then
+			IMAGE="${WBFS_MASK}".iso
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".iso; then
 			x=3
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.wbfs; then
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".iso
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".wbfs; then
 			x=4
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.wbfs
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 15
@@ -231,15 +241,15 @@ check_input_rom () {
 
 	x=5
 	if [[ ! ${CXI} ]]; then
-		CXI=$(find . -name ${CXI_MASK} | sed -e 's,./,,')
+		CXI=$(find . -name "${CXI_MASK}" | sed -e 's,./,,')
 		if [[ -f ${CXI} ]]; then
 			x=6
-			CXI=${CXI}
+			CXI="${CXI}"
 		else
-			CXI=$(find ${PATCHIMAGE_3DS_DIR} -name ${CXI_MASK})
+			CXI=$(find "${PATCHIMAGE_3DS_DIR}" -name "${CXI_MASK}")
 			if [[ -f ${CXI} ]]; then
 				x=7
-				CXI=${CXI}
+				CXI="${CXI}"
 			else
 				if [[ ! ${HANS_MULTI_SOURCE} ]]; then
 					echo -e "error: could not find suitable ROM, specify using --rom"
@@ -255,7 +265,7 @@ show_nsmb_db () {
 
 	ID1=${1:0:3}
 	ID2=${1:4:2}
-	gawk -F \: "/^${ID1}\*${ID2}/"'{print $2}' \
+	gawk -F : "/^${ID1}\*${ID2}/"'{print $2}' \
 		< "${PATCHIMAGE_DATABASE_DIR}"/nsmbw.db || echo "** Unknown **"
 
 }
@@ -263,8 +273,10 @@ show_nsmb_db () {
 show_mkwiimm_db () {
 
 	ID=${1:4:2}
-	[[ ${ID} == [0-9][0-9] ]] && gawk -F \: "/^${ID}/"'{print $2}' \
-		< "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm.db || echo "** Unknown **"
+	[[ ${ID} == [0-9][0-9] ]] && \
+		gawk -F : "/^${ID}/"'{print $2}' \
+			< "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm.db \
+			|| echo "** Unknown **"
 
 }
 
@@ -274,8 +286,8 @@ ask_input_image_mkwiimm () {
 
 	ALL		patch all images"
 
-	for image in ${1}/RMC???.{iso,wbfs} ${PATCHIMAGE_WBFS_DIR}/RMC???.{iso,wbfs}; do
-		[[ -f ${image} ]] && echo "	${image##*/}	$(show_mkwiimm_db ${image##*/})"
+	for image in "${PWD}"/RMC???.{iso,wbfs} "${PATCHIMAGE_WBFS_DIR}"/RMC???.{iso,wbfs}; do
+		[[ -f ${image} ]] && echo "	${image##*/}	$(show_mkwiimm_db "${image##*/}")"
 	done
 
 	echo ""
@@ -288,17 +300,17 @@ ask_input_image_nsmb () {
 
 	ALL		patch all images"
 
-	for image in ${1}/SMN???.{iso,wbfs} \
-		${1}/SLF???.{iso,wbfs} \
-		${1}/SMM???.{iso,wbfs} \
-		${1}/SMV???.{iso,wbfs} \
-		${1}/MRR???.{iso,wbfs} \
-		${PATCHIMAGE_WBFS_DIR}/SMN???.{iso,wbfs} \
-		${PATCHIMAGE_WBFS_DIR}/SLF???.{iso,wbfs} \
-		${PATCHIMAGE_WBFS_DIR}/SMM???.{iso,wbfs} \
-		${PATCHIMAGE_WBFS_DIR}/SMV???.{iso,wbfs} \
-		${PATCHIMAGE_WBFS_DIR}/MRR???.{iso,wbfs}; do
-		[[ -f ${image} ]] && echo "	${image##*/}	$(show_nsmb_db ${image##*/})"
+	for image in "${PWD}"/SMN???.{iso,wbfs} \
+		"${PWD}"/SLF???.{iso,wbfs} \
+		"${PWD}"/SMM???.{iso,wbfs} \
+		"${PWD}"/SMV???.{iso,wbfs} \
+		"${PWD}"/MRR???.{iso,wbfs} \
+		"${PATCHIMAGE_WBFS_DIR}"/SMN???.{iso,wbfs} \
+		"${PATCHIMAGE_WBFS_DIR}"/SLF???.{iso,wbfs} \
+		"${PATCHIMAGE_WBFS_DIR}"/SMM???.{iso,wbfs} \
+		"${PATCHIMAGE_WBFS_DIR}"/SMV???.{iso,wbfs} \
+		"${PATCHIMAGE_WBFS_DIR}"/MRR???.{iso,wbfs}; do
+		[[ -f ${image} ]] && echo "	${image##*/}	$(show_nsmb_db "${image##*/}")"
 	done
 
 	echo ""
@@ -308,15 +320,16 @@ ask_input_image_nsmb () {
 show_titles_db () {
 
 	ID=${1/.*}
-	gawk -F \: "/^${ID}/"'{print $2}' \
-		< "${PATCHIMAGE_DATABASE_DIR}"/titles.db || echo "** Unknown **"
+	gawk -F : "/^${ID}/"'{print $2}' \
+		< "${PATCHIMAGE_DATABASE_DIR}"/titles.db \
+		|| echo "** Unknown **"
 
 }
 
 check_wfc () {
 
 	ID=${1/.*}
-	if [[ $(grep ${ID} "${PATCHIMAGE_DATABASE_DIR}"/wfc.db) ]]; then
+	if grep -q "${ID}" "${PATCHIMAGE_DATABASE_DIR}"/wfc.db; then
 		echo TRUE
 	else
 		echo FALSE
@@ -328,9 +341,10 @@ ask_input_image_wiimmfi () {
 
 	echo "Choose Wii Game Image to wiimmfi"
 
-	for image in ${PWD}/*.{iso,wbfs} ${PATCHIMAGE_WBFS_DIR}/*.${iso,wbfs}; do
-		if [[ -e ${image} && ! ${image} == "*/RMC*" && $(check_wfc ${image##*/}) == TRUE ]]; then
-			echo "	${image##*/}	$(show_titles_db ${image##*/})"
+	for image in "${PWD}"/*.{iso,wbfs} \
+		"${PATCHIMAGE_WBFS_DIR}"/*.{iso,wbfs}; do
+		if [[ -e ${image} && ! ${image} == "*/RMC*" && $(check_wfc "${image##*/}") == TRUE ]]; then
+			echo "	${image##*/}	$(show_titles_db "${image##*/}")"
 		fi
 	done
 
@@ -346,11 +360,11 @@ check_riivolution_patch () {
 		if [[ -f "${PWD}/${RIIVOLUTION_DIR}" ]]; then
 			echo "*** >> unpacking"
 			x=2
-			${UNP} "${PWD}/${RIIVOLUTION_ZIP}" ${UNP_EXTRA_ARGS} >/dev/null || exit 63
+			${UNP} "${PWD}/${RIIVOLUTION_ZIP}" -- "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
 		elif [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
 			echo "*** >> unpacking"
 			x=3
-			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ${UNP_EXTRA_ARGS} >/dev/null || exit 63
+			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" -- "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
 		elif [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
 			x=4
 			if [[ ${DOWNLOAD_LINK} == *docs.google* || ${DOWNLOAD_LINK} == *drive.google*  ]]; then
@@ -360,7 +374,7 @@ check_riivolution_patch () {
 					${GDOWN} "${DOWNLOAD_LINK}" "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
 					mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 					echo "*** >> unpacking"
-					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ${UNP_EXTRA_ARGS} >/dev/null || exit 63
+					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" -- "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
 				fi
 			elif [[ ${DOWNLOAD_LINK} == *mega.nz* ]]; then
 				echo "can not download from Mega, download manually from:
@@ -381,7 +395,7 @@ check_riivolution_patch () {
 					wget --no-check-certificate "${DOWNLOAD_LINK}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
 					mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 					echo "*** >> unpacking"
-					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ${UNP_EXTRA_ARGS} >/dev/null || exit 63
+					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" -- "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
 				fi
 			else
 				echo "no download link for ${GAMENAME} available."
@@ -398,21 +412,21 @@ check_riivolution_patch () {
 
 download_covers () {
 
-	alt=$(echo $1 | sed s/./E/4)
+	alt=$(echo "${1}" | sed s/./E/4)
 
 	for path in cover cover3D coverfull disc disccustom; do
-		if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png ]]; then
-			wget -O "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png \
-				http://art.gametdb.com/wii/${path}/EN/${1}.png &>/dev/null \
-				|| rm "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png
+		if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png ]]; then
+			wget -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
+				http://art.gametdb.com/wii/"${path}"/EN/"${1}".png &>/dev/null \
+				|| rm "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png
 
-			if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png ]]; then
-				wget -O "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png \
-					http://art.gametdb.com/wii/${path}/US/${alt}.png &>/dev/null \
-				|| rm "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png
+			if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png ]]; then
+				wget -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
+					http://art.gametdb.com/wii/"${path}"/US/"${alt}".png &>/dev/null \
+				|| rm "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png
 			fi
 
-			[[ ! -f "${PATCHIMAGE_COVER_DIR}"/${1}_${path}.png ]] && \
+			[[ ! -f "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png ]] && \
 				echo "Cover (${path}) does not exist for gameid ${1}."
 		fi
 
@@ -446,9 +460,8 @@ pcount=$#
 while [[ $xcount -lt $pcount ]]; do
 	case ${1} in
 
-		--iso* )
-			ISO_PATH=${1/*=}
-			ISO_EXT=${ISO_PATH//*./}
+		--iso=* )
+			ISO_PATH="${1/*=}"
 
 			if [[ -f "${ISO_PATH}" ]]; then
 				IMAGE="${ISO_PATH}"
@@ -458,9 +471,8 @@ while [[ $xcount -lt $pcount ]]; do
 			fi
 		;;
 
-		--rom* )
-			ROM_PATH=${1/*=}
-			ROM_EXT=${ROM_PATH//*./}
+		--rom=* )
+			ROM_PATH="${1/*=}"
 
 			if [[ -f "${ROM_PATH}" ]]; then
 				IMAGE="${ROM_PATH}"
@@ -470,18 +482,18 @@ while [[ $xcount -lt $pcount ]]; do
 			fi
 		;;
 
-		--riivolution* )
-			RIIVOLUTION=${1/*=}
+		--riivolution=* )
+			RIIVOLUTION="${1/*=}"
 			if [[ -e "${RIIVOLUTION}" ]]; then
-				${UNP} "${RIIVOLUTION}" >/dev/null
+				"${UNP}" "${RIIVOLUTION}" >/dev/null
 			else
 				echo -e "Riivolution patch ${RIIVOLUTION} not found."
 				exit 21
 			fi
 		;;
 
-		--patch*  )
-			PATCH=${1/*=}
+		--patch=*  )
+			PATCH="${1/*=}"
 			if [[ -e "${PATCH}" ]]; then
 				${UNP} "${PATCH}" >/dev/null
 			else
@@ -490,7 +502,7 @@ while [[ $xcount -lt $pcount ]]; do
 			fi
 		;;
 
-		--customid* )
+		--customid=* )
 			CUSTOMID=${1/*=}
 			if [[ ${#CUSTOMID} != 6 ]]; then
 				echo -e "CustomID ${CUSTOMID} needs to have 6 digits"
@@ -499,39 +511,39 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--download )
-			PATCHIMAGE_RIIVOLUTION_DOWNLOAD=TRUE
+			export PATCHIMAGE_RIIVOLUTION_DOWNLOAD=TRUE
 		;;
 
 		--soundtrack )
-			PATCHIMAGE_SOUNDTRACK_DOWNLOAD=TRUE
+			export PATCHIMAGE_SOUNDTRACK_DOWNLOAD=TRUE
 		;;
 
 		--only-soundtrack )
-			PATCHIMAGE_SOUNDTRACK_DOWNLOAD=TRUE
-			ONLY_SOUNDTRACK=TRUE
+			export PATCHIMAGE_SOUNDTRACK_DOWNLOAD=TRUE
+			export ONLY_SOUNDTRACK=TRUE
 		;;
 
 		--version=* )
-			VERSION=${1/*=}
+			VERSION="${1/*=}"
 			case ${VERSION} in
 				EURv1 )
-					REG_LETTER=P
+					export REG_LETTER=P
 				;;
 
 				EURv2 )
-					REG_LETTER=P
+					export REG_LETTER=P
 				;;
 
 				USAv1 )
-					REG_LETTER=E
+					export REG_LETTER=E
 				;;
 
 				USAv2 )
-					REG_LETTER=E
+					export REG_LETTER=E
 				;;
 
 				JPNv1 )
-					REG_LETTER=J
+					export REG_LETTER=J
 				;;
 
 				* )
@@ -542,26 +554,26 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--sharesave )
-			PATCHIMAGE_SHARE_SAVE=TRUE
+			export PATCHIMAGE_SHARE_SAVE=TRUE
 		;;
 
-		--game* )
-			GAME=${1/*=}
+		--game=* )
+			export GAME="${1/*=}"
 		;;
 
-		--covers* )
-			PATCHIMAGE_COVER_DOWNLOAD=TRUE
+		--covers )
+			export PATCHIMAGE_COVER_DOWNLOAD=TRUE
 		;;
 
-		--only-covers* )
-			PATCHIMAGE_COVER_DOWNLOAD=TRUE
-			download_covers ${1/*=}
+		--only-covers=* )
+			export PATCHIMAGE_COVER_DOWNLOAD=TRUE
+			download_covers "${1/*=}"
 			exit 0
 		;;
 
 		--banner=* )
-			BANNER=${1/*=}
-			BANNER_EXT=${BANNER//*./}
+			BANNER="${1/*=}"
+			BANNER_EXT="${BANNER//*./}"
 			if [[ ${BANNER_EXT} != "bnr" ]]; then
 				echo "given banner (${BANNER}) is not a .bnr file!"
 				exit 33
@@ -569,15 +581,15 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--download-banner )
-			PATCHIMAGE_BANNER_DOWNLOAD=TRUE
+			export PATCHIMAGE_BANNER_DOWNLOAD=TRUE
 		;;
 
 		--xdelta=* )
-			XDELTA_PATH=${1/*=}
+			export XDELTA_PATH="${1/*=}"
 		;;
 
 		--cpk=* )
-			CPK_PATH=${1/*=}
+			export CPK_PATH="${1/*=}"
 		;;
 
 		--help | -h )
@@ -605,7 +617,7 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 	esac
 	shift
-	xcount=$(($xcount+1))
+	xcount=$((xcount+1))
 done
 
 }
