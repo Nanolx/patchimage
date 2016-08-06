@@ -129,7 +129,7 @@ download_banner () {
 				mv "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr__tmp \
 					"${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr
 				BANNER="${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr
-			else	"*** >> could not download custom banner"
+			else	echo "*** >> could not download custom banner"
 			fi
 		else
 			echo "*** >> no custom banner available"
