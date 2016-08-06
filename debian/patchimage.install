@@ -3,7 +3,3 @@ usr/share/patchimage/data
 usr/share/patchimage/database
 usr/share/patchimage/patches
 usr/share/patchimage/scripts
-usr/share/patchimage/tools/gdown.pl
-usr/share/patchimage/tools/ignore_3dstool.txt
-usr/share/patchimage/tools/ucat
-usr/share/patchimage/tools/unp

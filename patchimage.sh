@@ -22,8 +22,13 @@ else
 	export PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/scripts
 	export PATCHIMAGE_PATCH_DIR=/usr/share/patchimage/patches
 	export PATCHIMAGE_DATA_DIR=/usr/share/patchimage/data
-	export PATCHIMAGE_TOOLS_DIR=/usr/share/patchimage/tools
-	export PATCHIMAGE_OVERRIDE_DIR=/usr/share/patchimage/override
+	if [[ $(uname -m) == "x86_64" ]]; then
+		export PATCHIMAGE_TOOLS_DIR=/usr/lib/x86_64-linux-gnu/patchimage/tools
+		export PATCHIMAGE_OVERRIDE_DIR=/usr/lib/x86_64-linux-gnu/patchimage/override
+	else
+		export PATCHIMAGE_TOOLS_DIR=/usr/lib/i386-linux-gnu/patchimage/tools
+		export PATCHIMAGE_OVERRIDE_DIR=/usr/lib/i386-linux-gnu/patchimage/override
+	fi
 	export PATCHIMAGE_DATABASE_DIR=/usr/share/patchimage/database
 fi
 
