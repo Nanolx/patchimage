@@ -47,7 +47,7 @@ More information:
 
 Example usages:
 
-	Newer Super Mario Bros Wii
+	Newer Super Mario Bros. Wii
 	$ patchimage --game=NewerSMBW --iso=/home/test/SMNP01.iso --download
 
 	Zelda: Parallel Worlds
@@ -56,6 +56,9 @@ Example usages:
 	Toyko Mirage Sessions #FE Restoration
 	$ patchimage --game=TMSFE --xdelta=/home/test/xdelta/ \
 		--cpk=/home/test/ASEP01/content/Pack/
+
+	Newer Super Mario Bros. Wii and Cannon Super Mario Bros. in one go:
+	$ patchimage --game="NewerSMB Cannon" --iso=/home/test/SMNP01.iso --download
 
 License: GNU GPLv3
 Extra Licenses:
