@@ -96,7 +96,7 @@ case ${GAME} in
 		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/summervacation.sh"
 	;;
 
-	NSMB13 | ASLM | "Awesomer Super Luigi Mini" )
+	NSMB13 | ASLM )
 		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/awesomersuperluigi.sh"
 	;;
 
@@ -140,15 +140,15 @@ case ${GAME} in
 		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/thelegendofyoshi.sh"
 	;;
 
-	NSMB24 | RemixedSuperMarioBrosWii )
+	NSMB24 | RemixedSuperMarioBros )
 		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/remixedsupermariobroswii.sh"
 	;;
 
-	NSMB25 | GhostlySuperGhostBoosWii )
+	NSMB25 | GhostlySuperGhostBoos )
 		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/ghostlysuperghostbooswii.sh"
 	;;
 
-	NSMB26 | RevisedSuperMarioBrosWii )
+	NSMB26 | RevisedSuperMarioBros )
 		source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/revisedsupermariobroswii.sh"
 	;;
 
@@ -184,7 +184,7 @@ case ${GAME} in
 		source "${PATCHIMAGE_SCRIPT_DIR}/kirbywii.sh"
 	;;
 
-	TMSFE | TokyoMirageSessions )
+	TMS1 | TokyoMirageSessions )
 		source "${PATCHIMAGE_SCRIPT_DIR}/tokyomiragesessionsfe.sh"
 	;;
 

@@ -24,75 +24,79 @@ setup_tools () {
 
 }
 
+SUPPORTED_GAMES="************************************************
+patchimage v${PATCHIMAGE_VERSION}
+
+ID	Short Name		Full Name
+
+<<<<<< New Super Mario Bros. Wii >>>>>>
+NSMB1	NewerSMB		NewerSMB
+NSMB2	NewerSummerSun		Newer Summer Sun
+NSMB3	AnotherSMB		AnotherSMB
+NSMB4	HolidaySpecial		Newer: Holiday Special
+NSMB5	Cannon			Cannon Super Mario Bros.
+NSMB6	BowserWorld		Epic Super Bowser World
+NSMB7	KoopaCountry		Koopa Country
+NSMB8	NewSuperMarioBros4	New Super Mario Bros. 4
+NSMB9	RetroRemix		New Super Mario Bros. Wii Retro Remix
+NSMB10	WinterMoon		Super Mario: Mushroom Adventure PLUS - Winter Moon
+NSMB11	NSMBW3			NSMBW3: The Final Levels
+NSMB12	Vacation		Super Mario Vacation
+NSMB13	ASLM			Awesomer Super Luigi Mini
+NSMB14	Sykland			Super Mario Skyland
+NSMB15	RVLution		RVLution Wii (NewSMB Mod)
+NSMB16	Midi			Midi's Super Mario Wii (Just A Little Adventure)
+NSMB17	DarkUmbra		DarkUmbra SMB Anniversary Edition
+NSMB18	NewerApocalypse		Newer Apocalypse
+NSMB19	LuigisSuperYoshiBros	Luigi's Super Yoshi Bros.
+NSMB20	NewerFallingLeaf	Newer: Falling Leaf
+NSMB21	DevilMarioWinterSpecial	Devil Mario Winter Special
+NSMB22	NewSMBWOtherWorld	New Super Mario Bros. Wii - Other World
+NSMB23	TheLegendOfYoshi	The Legend of Yoshi
+NSMB24	RemixedSuperMarioBros	Remixed Super Mario Bros. Wii
+NSMB25	GhostlySuperGhostBoos	Ghostly Super Ghost Boos. Wii
+NSMB26	RevisedSuperMarioBros	Revised Super Mario Bros. Wii
+
+NSMB99	NSMBWCharacters		Customize Characters
+
+<<<<<< Mario Kart Wii >>>>>>
+MKW1	Wiimmfi			Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
+MKW2	Wiimmpatch		Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
+MKW3	Mkwiimm			Mario Kart Wiimm. Custom Mario Kart Distribution
+MKW4	MkwiimmItems		Custom Items. Replace items in the game
+MKW5	MkwiimmFonts		Custom Font. Replace font in the game
+MKW6	MkwiimmKarts		Custom Karts. Replace characters in the game
+
+<<<<<< Kirby's Adventure Wii >>>>>>
+KAW1	Kirby			Change first player's character
+
+<<<<<< Tokyo Mirage Sessions #FE >>>>>>
+TMS1	TokyoMirageSessions	Uncensor US/EUR version
+
+<<<<<< 3DS ROMS >>>>>>
+PKMN1	NeoX			Pokemon Neo X
+PKMN2	NeoY			Pokemon Neo Y
+PKMN3	RutileRuby		Pokemon Rutile Ruby
+PKMN4	AlphaSapphire		Pokemon Star Sapphire
+PKMN5	EternalX		Pokemon Eternal X
+PKMN6	WiltingY		Pokemon Wilting Y
+PKMN7	RisingRuby		Pokemon Rising Ruby
+PKMN8	SinkingSapphire		Pokemon Sinking Sapphire
+
+BSECU	BravelySecondUncensored	Bravely Second Uncensored
+
+<<<<<< ROMS >>>>>>
+ZEL1	ParallelWorlds		The Legend of Zelda: Parallel Worlds
+
+ID	Short Name		Full Name
+"
+
 ask_game () {
 
 echo -e \
-"************************************************
-patchimage v${PATCHIMAGE_VERSION}
+"${SUPPORTED_GAMES}
 
-ID	Name
-
-<<<<<< New Super Mario Bros. Wii >>>>>>
-NSMB1	NewerSMB
-NSMB2	Newer Summer Sun
-NSMB3	AnotherSMB
-NSMB4	Newer: Holiday Special
-NSMB5	Cannon Super Mario Bros.
-NSMB6	Epic Super Bowser World
-NSMB7	Koopa Country
-NSMB8	New Super Mario Bros. 4
-NSMB9	New Super Mario Bros. Wii Retro Remix
-NSMB10	Super Mario: Mushroom Adventure PLUS - Winter Moon
-NSMB11	NSMBW3: The Final Levels
-NSMB12	Super Mario Vacation
-NSMB13	Awesomer Super Luigi Mini
-NSMB14	Super Mario Skyland
-NSMB15	RVLution Wii (NewSMB Mod)
-NSMB16	Midi's Super Mario Wii (Just A Little Adventure)
-NSMB17	DarkUmbra SMB Anniversary Edition
-NSMB18	Newer Apocalypse
-NSMB19	Luigi's Super Yoshi Bros.
-NSMB20	Newer: Falling Leaf
-NSMB21	Devil Mario Winter Special
-NSMB22	New Super Mario Bros. Wii - Other World
-NSMB23	The Legend of Yoshi
-NSMB24	Remixed Super Mario Bros. Wii
-NSMB25	Ghostly Super Ghost Boos. Wii
-NSMB26	Revised Super Mario Bros. Wii
-
-NSMB99	Customize Characters
-
-<<<<<< Mario Kart Wii >>>>>>
-MKW1	Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
-MKW2	Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
-MKW3	Mario Kart Wiimm. Custom Mario Kart Distribution
-MKW4	Custom Items. Replace items in the game
-MKW5	Custom Font. Replace font in the game
-MKW6	Custom Karts. Replace characters in the game
-
-<<<<<< Kirby's Adventure Wii >>>>>>
-KAW1	Change first player's character
-
-<<<<<< Tokyo Mirage Sessions #FE >>>>>>
-TMS1	Uncensor US/EUR version
-
-<<<<<< 3DS ROMS >>>>>>
-PKMN1	Pokemon Neo X
-PKMN2	Pokemon Neo Y
-PKMN3	Pokemon Rutile Ruby
-PKMN4	Pokemon Star Sapphire
-PKMN5	Pokemon Eternal X
-PKMN6	Pokemon Wilting Y
-PKMN7	Pokemon Rising Ruby
-PKMN8	Pokemon Sinking Sapphire
-
-BSECU	Bravely Second Uncensored
-
-<<<<<< ROMS >>>>>>
-ZEL1	The Legend of Zelda: Parallel Worlds
-
-ID	Name
-Enter ID for the Game you want to create:
+Enter ID or Short Name for the Game you want to build:
 "
 
 read -r GAME
@@ -561,6 +565,11 @@ while [[ $xcount -lt $pcount ]]; do
 			export GAME="${1/*=}"
 		;;
 
+		--list-games )
+			echo "${SUPPORTED_GAMES}"
+			exit 0
+		;;
+
 		--covers )
 			export PATCHIMAGE_COVER_DOWNLOAD=TRUE
 		;;
@@ -598,21 +607,37 @@ while [[ $xcount -lt $pcount ]]; do
 	(c) 2013-2016 Christopher Roy Bratusek <nano@jpberlin.de>
 	patchimage creates wbfs images from riivolution patches.
 
---game=<gamename/gameletter>		| specify game you want to create
---iso/--rom=/home/test/<Image>		| specify which ISO/ROM to use for building
---riivolution/--patch=<Patch>		| specify path to Riivolution/Patch files
---version=EURv1,EURv2,USAv1,USAv2,JPNv1	| specify your game version
---customdid=SMNP02			| specify a custom ID to use for the game
---sharesave				| let modified game share savegame with original game
---download				| download riivolution patchfiles
---soundtrack				| download soundtrack (if available)
---only-soundtrack			| download soundtrack only (if available) and exit
---covers				| download covers (if available)
---only-covers=SMNP02			| download covers only (if available)
---banner=<banner.bnr>			| use a custom banner (riivolution games)
---download-banner			| download a custom banner (if available)
---xdelta=<path>				| path to xdelta patches
---cpk=<path>				| path to unpatched xdelta patches"
+*** General parameters ***
+--help						| show this message
+--game=<ID/Short Name>				| specify game you want to create
+--list-games					| show possible options for --game
+
+*** Wii game parameters ***
+--iso=/home/test/RMCP01.iso			| specify path to Wii iso or wbfs image to use
+--riivolution=/home/test/MyMod.zip		| specify path to Wii Riivolution archive
+--version=EURv1,EURv2,USAv1,USAv2,JPNv1		| specify your game version (New Super Mario Bros. Wii)
+--customdid=SMNP02				| specify a custom ID to use for the modified Wii game
+--sharesave					| let modified Wii games share savegame with the original game
+--download					| download Riivolution or HANS patch archives (if possible)
+--soundtrack					| download soundtrack (if available)
+--only-soundtrack				| download soundtrack only (if available) and exit
+--covers					| download covers (if available)
+--only-covers=SMNP02				| download covers only (if available)
+--banner=<banner.bnr>				| use a custom banner (Riivolution games)
+--download-banner				| download a custom banner (if available)
+
+*** 3DS game parameters ***
+--rom=/home/test/0004000000055e00.cxi		| specify path to 3DS ROM to use for building
+--hans=/home/test/MyModdedGame.zip		| specify path to 3DS HANS archive
+
+*** Wii U game parameters ***
+--xdelta=/home/test/xdelta			| specify path to Tokyo Mirage Sessions #FE xdelta patches
+--cpk=/home/test/cpk				| specify path to original Tokyo Mirage Mirage Sessions #FE files
+
+*** Other game parameters ***
+--rom=/home/test/MyGame.rom			| specify path to ROM to use for building
+--patch=/home/test/MyModdedGame.ips		| specify path to IPS Patch file
+"
 			exit 0
 		;;
 	esac

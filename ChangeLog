@@ -10,6 +10,9 @@ v7.0.0:
 - code review and improvements
 - improved Debian GNU/Linux packaging
 - install pre-compiled tools to /usr/lib/ARCH/patchimage (FHS compliance)
+- improved --help message
+- add --list-games parameter (show buildable games)
+- --list-games and menu now show ID / Short Name and Full Name of all games
 
 ::bug fixes
 - several minor bugfixes and improvements
@@ -22,6 +25,9 @@ v7.0.0:
 - use gdown.pl for drive.google.* download links
 - for download links on Mega tell user where to download manually
 - for download links on Mediafire tell user where to download manually
+- patchimage menu showed TMS1 as ID for Tokyo Mirage Sessions #FE restoration
+  patcher, while TMSFE was the actual (but wrong ID), thus TMS1 was reported
+  as unknown game / wrong user input. Now TMS1 works as expected.
 
 ::configuration file changes
 - new configuration variable PATCHIMAGE_3DS_DIR, global directory
