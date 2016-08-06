@@ -527,6 +527,10 @@ while [[ $xcount -lt $pcount ]]; do
 			export ONLY_SOUNDTRACK=TRUE
 		;;
 
+		--override-szs )
+			export MKWIIMM_OVERRIDE_SZS=TRUE
+		;;
+
 		--version=* )
 			VERSION="${1/*=}"
 			case ${VERSION} in
@@ -625,6 +629,8 @@ while [[ $xcount -lt $pcount ]]; do
 --only-covers=SMNP02				| download covers only (if available)
 --banner=<banner.bnr>				| use a custom banner (Riivolution games)
 --download-banner				| download a custom banner (if available)
+--override-szs					| override wit and szs in Wiimms Mario Kart Fun distributions
+						| [use this if the originals fail due to incompatible library versions]
 
 *** 3DS game parameters ***
 --rom=/home/test/0004000000055e00.cxi		| specify path to 3DS ROM to use for building
