@@ -232,7 +232,7 @@ for game in ${GAME[@]}; do
 
 		* )
 			echo -e "specified Game ${game} not recognized"
-			exit 9
+			continue
 		;;
 
 	esac
