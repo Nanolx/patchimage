@@ -106,7 +106,7 @@ read -r GAME
 download_soundtrack () {
 
 	if [[ ${SOUNDTRACK_LINK} && ! -f ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP} ]]; then
-		wget --no-check-certificate "${SOUNDTRACK_LINK}" \
+		wget -q --no-check-certificate "${SOUNDTRACK_LINK}" \
 			-O "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" || exit 57
 		echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
 	else
@@ -120,8 +120,8 @@ download_banner () {
 	if [[ ${PATCHIMAGE_BANNER_DOWNLOAD} == "TRUE" ]]; then
 		if [[ ${CUSTOM_BANNER} ]]; then
 			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr ]]; then
-				wget --no-check-certificate "${CUSTOM_BANNER}" \
-					-O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr__tmp || exit 57
+				wget -q --no-check-certificate "${CUSTOM_BANNER}" \
+					-O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr__tmp
 				mv "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr__tmp \
 					"${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr
 			fi
@@ -364,19 +364,28 @@ ask_input_image_wiimmfi () {
 
 }
 
+unpack () {
+
+	if [[ ${UNP_EXTRA_ARGS} ]]; then
+		${UNP} "${1}" -- ${UNP_EXTRA_ARGS} >/dev/null || exit 63
+	else	${UNP} "${1}" >/dev/null || exit 63
+	fi
+
+}
+
 check_riivolution_patch () {
 
 	x=0
 	if [[ ! -d ${RIIVOLUTION_DIR} ]]; then
 		x=1
-		if [[ -f "${PWD}/${RIIVOLUTION_DIR}" ]]; then
+		if [[ -f "${PWD}/${RIIVOLUTION_ZIP}" ]]; then
 			echo "*** >> unpacking"
 			x=2
-			${UNP} "${PWD}/${RIIVOLUTION_ZIP}" -- "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
+			unpack "${PWD}/${RIIVOLUTION_ZIP}"
 		elif [[ -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
 			echo "*** >> unpacking"
 			x=3
-			${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" -- "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
+			unpack "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 		elif [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
 			x=4
 			if [[ ${DOWNLOAD_LINK} == *docs.google* || ${DOWNLOAD_LINK} == *drive.google*  ]]; then
@@ -386,7 +395,7 @@ check_riivolution_patch () {
 					${GDOWN} "${DOWNLOAD_LINK}" "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
 					mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 					echo "*** >> unpacking"
-					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" -- "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
+					unpack "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 				fi
 			elif [[ ${DOWNLOAD_LINK} == *mega.nz* ]]; then
 				echo "can not download from Mega, download manually from:
@@ -404,10 +413,10 @@ check_riivolution_patch () {
 				if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" ]]; then
 					x=5
 					echo "*** >> downloading"
-					wget --no-check-certificate "${DOWNLOAD_LINK}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
+					wget -q --no-check-certificate "${DOWNLOAD_LINK}" -O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
 					mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 					echo "*** >> unpacking"
-					${UNP} "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}" -- "${UNP_EXTRA_ARGS}" >/dev/null || exit 63
+					unpack "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 				fi
 			else
 				echo "no download link for ${GAMENAME} available."
@@ -428,13 +437,13 @@ download_covers () {
 
 	for path in cover cover3D coverfull disc disccustom; do
 		if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png ]]; then
-			wget -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
-				http://art.gametdb.com/wii/"${path}"/EN/"${1}".png &>/dev/null \
+			wget -q -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
+				http://art.gametdb.com/wii/"${path}"/EN/"${1}".png \
 				|| rm "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png
 
 			if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png ]]; then
-				wget -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
-					http://art.gametdb.com/wii/"${path}"/US/"${alt}".png &>/dev/null \
+				wget -q -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
+					http://art.gametdb.com/wii/"${path}"/US/"${alt}".png \
 				|| rm "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png
 			fi
 
