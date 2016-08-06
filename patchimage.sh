@@ -345,19 +345,19 @@ for game in ${GAME[@]}; do
 
 		rm -rf romfs/ romfs.bin "${ROMFS}"
 
-		echo -e "\n*** 2) check_hans_files"
+		echo "*** 2) check_hans_files"
 		check_hans_files
 
-		echo -e "\n*** 3) unpack_3dsrom"
+		echo "*** 3) unpack_3dsrom"
 		unpack_3dsrom "${ROM}" || exit 51
 
-		echo -e "\n*** 4) unpack_3dsromfs"
+		echo "*** 4) unpack_3dsromfs"
 		unpack_3dsromfs romfs.bin || exit 51
 
-		echo -e "\n*** 5) patch_romfs"
+		echo "*** 5) patch_romfs"
 		patch_romfs
 
-		echo -e "\n*** 6) repack_romfs"
+		echo "*** 6) repack_romfs"
 		repack_3dsromfs romfs/ "${ROMFS}" || exit 51
 
 		mv "${ROMFS}" "${PATCHIMAGE_ROM_DIR}"
