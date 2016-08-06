@@ -181,7 +181,7 @@ patch_wiimm () {
 			build_mkwiimm "${ID}"
 		done
 	else
-		for game in "${ID[@]}"; do
+		for game in ${ID[@]}; do
 			build_mkwiimm "${game}"
 		done
 	fi
