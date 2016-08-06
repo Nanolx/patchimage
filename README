@@ -1,6 +1,7 @@
 Based on DMMs and Wiimms excellent work, I've created a flexible patchscript
-for GNU/Linux. Additionally to applying riivolution patches to Wii games, it
-also allows patching 3DS games and Wii U games.
+for GNU/Linux. Patchimage is a script that allows to patch riivoluton, ips
+or xdelta patches into wbfs or iso images of legal game dumps, ROMs or dumped
+cpk files.
 
 features include:
  - downloading riivolution files or patches
@@ -9,6 +10,10 @@ features include:
  - downloading covers for Wii games (if available)
  - automatic storing of patched games into desired destination (see README.RC)
  - automatic patching of Wii games, 3DS games, Wii U games
+ - replacing characters, fonts and items in Mario Kart Wii
+ - replacing characters in New Super Mario Bros. Wii
+ - replacing first players Kirby in Kirby's Adventure Wii
+ - patch Nintendo WFC compatible games to use WiimmFi server
 
 NOTE: don't fiddle around with sub-folders in riivolution-files, the script uses
 files as "unzip" creates them. No need to modify anything.
