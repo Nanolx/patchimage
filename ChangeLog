@@ -7,8 +7,10 @@ v7.0.0:
 - make check_input_rom a common.sh function, prevent duplicated code
 - shift around some paths
 - update database with New Super Mario Bros. Wii mods
+- code review and improvements
 
 ::bug fixes
+- several minor bugfixes and improvements
 - before creating any of the directories defined in ${HOME}/.patchimage.rc
   check whether the parent directory is writeable, else fallback to ${HOME}
 - when setting destination directory for created files, check if they are
