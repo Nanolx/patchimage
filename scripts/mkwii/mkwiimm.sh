@@ -45,7 +45,7 @@ wiimmfi () {
 
 	ln -s "${1}" .
 	./patch-wiimmfi.sh >/dev/null || exit 51
-	echo "*** 8) storing game in ${PATCHIMAGE_GAME_DIR}/${1##*/}"
+	echo "*** 7) storing game in ${PATCHIMAGE_GAME_DIR}/${1##*/}"
 	mv ./wiimmfi-images/"${1##*/}" "${PATCHIMAGE_GAME_DIR}"/
 
 	rm -rf "${HOME}"/.patchimage/tools/*
@@ -55,15 +55,15 @@ wiimmfi () {
 mkwiimm_distfiles () {
 
 	if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ]]; then
-		echo "*** 5) extracting mkwiimm files"
+		echo "*** 4) extracting mkwiimm files"
 		"${UNP}" "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${FILENAME}" >/dev/null || \
 			( echo "something went wrong extracting files" && exit 63 )
 	elif [[ -f ${PWD}/${FILENAME} ]]; then
-		echo "*** 5) extracting mkwiimm files"
+		echo "*** 4) extracting mkwiimm files"
 		"${UNP}" "${PWD}"/"${FILENAME}" >/dev/null || \
 			( echo "something went wrong extracting files" && exit 63 )
 	else
-		echo "*** 5) downloading and extracting mkwiimm files"
+		echo "*** 4) downloading and extracting mkwiimm files"
 		wget -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${FILENAME}" "${DOWNLOAD}" >/dev/null || \
 			( echo "something went wrong downloading ${DOWNLOAD}" && exit 57 )
 		"${UNP}" "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${FILENAME}" >/dev/null || \
@@ -80,10 +80,10 @@ MSGLANG=${MKWIIMM_MSG_LANG}
 ISOMODE=wbfs
 SPLITISO=
 PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > "${PWD}"/config.def
-		echo "*** 6) creating >${DIST}< (can take some time)"
+		echo "*** 5) creating >${DIST}< (can take some time)"
 		./create-image.sh -a --dest="${XD}/RMC${REG}${MY_ID}".wbfs >/dev/null || exit 51
 	else
-		echo "*** 6) creating >${DIST}< (can take some time)"
+		echo "*** 5) creating >${DIST}< (can take some time)"
 		./create-image.sh --dest="${XD}/RMC${REG}${MY_ID}".wbfs || exit 51
 	fi
 
@@ -102,10 +102,10 @@ ISOMODE=wbfs
 SPLITISO=
 PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > "${PWD}"/config.def
 
-		echo "*** 6) creating >${DIST}< (can take some time)"
+		echo "*** 5) creating >${DIST}< (can take some time)"
 		./create-image.sh -a --dest="${XD}/RMC${REG}${MY_ID}".wbfs >/dev/null || exit 51
 	else
-		echo "*** 6) creating >${DIST}< (can take some time)"
+		echo "*** 5) creating >${DIST}< (can take some time)"
 		./create-image.sh --dest="${XD}/RMC${REG}${MY_ID}".wbfs || exit 51
 	fi
 
@@ -129,7 +129,7 @@ build_mkwiimm () {
 
 	REG=$(gawk '/^RMC/{print $3}' <("${WIT}" ll "${IMAGE}"))
 
-	case $REG in
+	case ${REG} in
 		PAL)	REG=P	;;
 		NTSC-J)	REG=J	;;
 		NTSC-U)	REG=E	;;
@@ -141,15 +141,15 @@ build_mkwiimm () {
 	[[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" ]] && cp -r "${PATCHIMAGE_OVERRIDE_DIR}"/* "${PWD}"/bin/
 
 	if [[ ${MY_ID} -lt 27 ]]; then
-		mkwiimm_olddist
-	else	mkwiimm_newdist
+		mkwiimm_build_olddist
+	else	mkwiimm_build_newdist
 	fi
 
 	if [[ ${MY_ID} -lt 23 ]]; then
-		echo "*** 7) patching >${DIST}< to use custom server"
+		echo "*** 6) patching >${DIST}< to use custom server"
 		wiimmfi "${XD}/RMC${REG}${MY_ID}".wbfs || (echo "something went wrong wiimmfi-ing ${XD}/RMC${REG}${MY_ID}.wbfs" && exit 69)
-		echo "*** 8) storing game"
-	else	echo "*** 7) storing game"
+		echo "*** 7) storing game"
+	else	echo "*** 6) storing game"
 	fi
 
 	cd "${XD}"
@@ -159,9 +159,9 @@ build_mkwiimm () {
 		"${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}".wbfs || exit 51
 
 	if [[ ${MY_ID} -lt 23 ]]; then
-		echo "*** 9) cleaning up workdir"
-	else
 		echo "*** 8) cleaning up workdir"
+	else
+		echo "*** 7) cleaning up workdir"
 	fi
 
 	rm -rf "${FILENAME/.7z}"
@@ -177,7 +177,7 @@ patch_wiimm () {
 
 	XD="${PWD}"
 	if [[ ${ID} == ALL ]]; then
-		for ID in {06..31}; do
+		for ID in {06..32}; do
 			build_mkwiimm "${ID}"
 		done
 	else
