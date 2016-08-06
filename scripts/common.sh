@@ -220,18 +220,23 @@ check_input_image () {
 
 	x=0
 	if [[ ! ${IMAGE} ]]; then
-		if test -f "${WBFS_MASK}".wbfs; then
+		WBFS0=$(find . -maxdepth 1 -name "${WBFS_MASK}".wbfs)
+		WBFS1=$(find "${PATCHIMAGE_WBFS_DIR}" -name "${WBFS_MASK}".wbfs)
+		ISO0=$(find . -maxdepth 1 -name "${WBFS_MASK}".iso)
+		ISO1=$(find "${PATCHIMAGE_WBFS_DIR}" -name "${WBFS_MASK}".iso)
+
+		if [[ -f ${WBFS0} ]]; then
 			x=1
-			IMAGE="${WBFS_MASK}".wbfs
-		elif test -f "${WBFS_MASK}".iso; then
+			IMAGE=${WBFS0}
+		elif [[ -f ${ISO0} ]]; then
 			x=2
-			IMAGE="${WBFS_MASK}".iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".iso; then
+			IMAGE=${ISO0}
+		elif [[ -f ${WBFS1} ]]; then
 			x=3
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".wbfs; then
+			IMAGE=${WBFS1}
+		elif [[ -f ${ISO1} ]]; then
 			x=4
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".wbfs
+			IMAGE=${ISO1}
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 15
@@ -239,30 +244,33 @@ check_input_image () {
 	fi
 	echo "*** >> status: ${x}"
 
+	IMAGE=$(readlink -m "${IMAGE}")
+
 }
 
 check_input_rom () {
 
 	x=5
 	if [[ ! ${ROM} ]]; then
-		ROM=$(find . -name "${ROM_MASK}" | sed -e 's,./,,')
-		if [[ -f ${ROM} ]]; then
+		ROM0=$(find . -maxdepth 1 -name "${ROM_MASK}")
+		ROM1=$(find "${PATCHIMAGE_3DS_DIR}" -name "${ROM_MASK}")
+
+		if [[ -f ${ROM0} ]]; then
 			x=6
-			ROM="${ROM}"
+			ROM=${ROM0}
+		elif [[ -f ${ROM1} ]]; then
+			x=7
+			ROM=${ROM1}
 		else
-			ROM=$(find "${PATCHIMAGE_3DS_DIR}" -name "${ROM_MASK}")
-			if [[ -f ${ROM} ]]; then
-				x=7
-				ROM="${ROM}"
-			else
-				if [[ ! ${HANS_MULTI_SOURCE} ]]; then
-					echo -e "error: could not find suitable ROM, specify using --rom"
-					exit 15
-				fi
+			if [[ ! ${HANS_MULTI_SOURCE} ]]; then
+				echo -e "error: could not find suitable ROM, specify using --rom"
+				exit 15
 			fi
 		fi
 	fi
 	echo "*** >> status: ${x}"
+
+	ROM=$(readlink -m "${ROM}")
 }
 
 show_nsmb_db () {
