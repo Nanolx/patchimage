@@ -6,7 +6,7 @@ RIIVOLUTION_DIR="RRSSFiles 18-11-2015"
 GAMENAME="Pokemon Sinking Sapphire"
 GAME_TYPE=HANS
 
-CXI_MASK="*000400000011[cC]500*cxi"
+ROM_MASK="*000400000011[cC]500*cxi"
 ROMFS="SinkingSapphire.romfs"
 DATA="${PATCHIMAGE_DATA_DIR}/SinkingSapphire/"
 

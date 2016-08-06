@@ -4,8 +4,8 @@ GAMENAME="Bravely Second Uncensored"
 GAME_TYPE=HANS
 HANS_MULTI_SOURCE=TRUE
 
-CXI_MASK_EUR="*000400000017[bB][bB]00*cxi"
-CXI_MASK_USA="*000400000017[bB][aA]00*cxi"
+ROM_MASK_EUR="*000400000017[bB][bB]00*cxi"
+ROM_MASK_USA="*000400000017[bB][aA]00*cxi"
 
 UNP_EXTRA_ARGS="-pAsia81"
 
@@ -27,19 +27,19 @@ Supported Versions:	US, EU
 check_input_rom_special () {
 
 	GAME_VERSION=EUR
-	CXI_MASK=${CXI_MASK_EUR}
+	ROM_MASK=${ROM_MASK_EUR}
 	echo "<< trying EUR game version"
 	check_input_rom
 
 
-	if [[ ! ${CXI} ]]; then
+	if [[ ! ${ROM} ]]; then
 		GAME_VERSION=USA
-		CXI_MASK=${CXI_MASK_USA}
+		ROM_MASK=${ROM_MASK_USA}
 		echo "<< trying USA game version"
 		check_input_rom
 	fi
 
-	if [[ ! ${CXI} ]]; then
+	if [[ ! ${ROM} ]]; then
 		echo -e "\nneither EUR nor USA version of Bravely Second found."
 		exit 15
 	fi

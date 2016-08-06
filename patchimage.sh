@@ -235,131 +235,134 @@ case ${GAME} in
 
 esac
 
-case ${GAME_TYPE} in
-	"RIIVOLUTION" )
-		show_notes
-		rm -rf "${WORKDIR}"
-		if [[ ${PATCHIMAGE_SOUNDTRACK_DOWNLOAD} == TRUE ]]; then
-			echo -e "\n*** A) download_soundtrack"
-			download_soundtrack
-			if [[ ${ONLY_SOUNDTRACK} == TRUE ]]; then
-				exit 0
-			fi
+patchimage_riivolution () {
+
+	show_notes
+	rm -rf "${WORKDIR}"
+	if [[ ${PATCHIMAGE_SOUNDTRACK_DOWNLOAD} == TRUE ]]; then
+		echo -e "\n*** A) download_soundtrack"
+		download_soundtrack
+		if [[ ${ONLY_SOUNDTRACK} == TRUE ]]; then
+			exit 0
 		fi
+	fi
 
-		echo -e "\n*** 1) check_input_image"
-		check_input_image
-		echo "*** 2) check_input_image_special"
-		check_input_image_special
-		echo "*** 3) check_riivolution_patch"
-		check_riivolution_patch
+	echo -e "\n*** 1) check_input_image"
+	check_input_image
+	echo "*** 2) check_input_image_special"
+	check_input_image_special
+	echo "*** 3) check_riivolution_patch"
+	check_riivolution_patch
 
-		echo "*** 4) extract game"
-		${WIT} extract "${IMAGE}" "${WORKDIR}" --psel=DATA -q || exit 51
+	echo "*** 4) extract game"
+	${WIT} extract "${IMAGE}" "${WORKDIR}" --psel=DATA -q || exit 51
 
-		echo "*** 5) detect_game_version"
-		detect_game_version
-		rm -f "${GAMEID}".wbfs "${CUSTOMID}".wbfs
-		echo "*** 6) place_files"
-		place_files || exit 45
+	echo "*** 5) detect_game_version"
+	detect_game_version
+	rm -f "${GAMEID}".wbfs "${CUSTOMID}".wbfs
+	echo "*** 6) place_files"
+	place_files || exit 45
 
-		echo "*** 7) download_banner"
-		download_banner
-		echo "*** 8) apply_banner"
-		apply_banner
+	echo "*** 7) download_banner"
+	download_banner
+	echo "*** 8) apply_banner"
+	apply_banner
 
-		echo "*** 9) dolpatch"
-		dolpatch
+	echo "*** 9) dolpatch"
+	dolpatch
 
-		if [[ ${CUSTOMID} ]]; then
-			GAMEID="${CUSTOMID}"
-		fi
+	if [[ ${CUSTOMID} ]]; then
+		GAMEID="${CUSTOMID}"
+	fi
 
-		if [[ ${PATCHIMAGE_SHARE_SAVE} == "TRUE" ]]; then
-			TMD_OPTS=""
-		else
-			TMD_OPTS="--tt-id=K"
-		fi
+	if [[ ${PATCHIMAGE_SHARE_SAVE} == "TRUE" ]]; then
+		TMD_OPTS=""
+	else
+		TMD_OPTS="--tt-id=K"
+	fi
 
-		echo "*** 10) rebuild and store game"
-		"${WIT}" cp -o -q --disc-id="${GAMEID}" "${TMD_OPTS}" --name "${GAMENAME}" \
-			-B "${WORKDIR}" "${PATCHIMAGE_GAME_DIR}"/"${GAMEID}".wbfs || exit 51
+	echo "*** 10) rebuild and store game"
+	"${WIT}" cp -o -q --disc-id="${GAMEID}" "${TMD_OPTS}" --name "${GAMENAME}" \
+		-B "${WORKDIR}" "${PATCHIMAGE_GAME_DIR}"/"${GAMEID}".wbfs || exit 51
 
-		echo "*** 12) remove workdir"
-		rm -rf "${WORKDIR}"
+	echo "*** 12) remove workdir"
+	rm -rf "${WORKDIR}"
 
-		echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_GAME_DIR}/${GAMEID}.wbfs\n"
+	echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_GAME_DIR}/${GAMEID}.wbfs\n"
 
-		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
-			echo -e "*** Z) download_covers"
-			download_covers "${GAMEID}"
-			echo -e "\nCovers downloaded to ${PATCHIMAGE_COVER_DIR}"
-		fi
+	if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
+		echo -e "*** Z) download_covers"
+		download_covers "${GAMEID}"
+		echo -e "\nCovers downloaded to ${PATCHIMAGE_COVER_DIR}"
+	fi
 
-	;;
+}
 
-	"MKWIIMM")
-		show_notes
+patchimage_mkwiimm () {
 
-		echo -e "\n*** 1) check_input_image"
-		check_input_image
-		echo -e "\n*** 2) download_wiimm"
-		download_wiimm
-		echo -e "\n*** 3) patch_wiimm"
-		patch_wiimm
-	;;
+	show_notes
+	echo -e "\n*** 1) check_input_image"
+	check_input_image
+	echo -e "\n*** 2) download_wiimm"
+	download_wiimm
+	echo -e "\n*** 3) patch_wiimm"
+	patch_wiimm
 
-	"WII_GENERIC")
-		show_notes
+}
 
-		echo -e "\n*** 1) check_input_image"
-		check_input_image_special
-		echo -e "\n*** 2) pi_action"
-		pi_action
-	;;
+patchimage_generic () {
 
-	"IPS" )
-		show_notes
-		check_input_rom
+	show_notes
+	echo -e "\n*** 1) check_input_image"
+	check_input_image_special
+	echo -e "\n*** 2) pi_action"
+	pi_action
 
-		if [[ -f ${PATCH} ]]; then
-			ext="${ROM/*.}"
-			cp "${ROM}" "${GAMENAME}.${ext}"
-			"${IPS}" a "${PATCH}" "${GAMENAME}.${ext}" || exit 51
-		else
-			echo -e "error: patch (${PATCH}) could not be found"
-			exit 21
-		fi
-	;;
+}
 
-	"HANS" )
-		show_notes
-		echo -e "\n*** 1) check_input_rom"
-		if [[ ${HANS_MULTI_SOURCE} ]]; then
-			check_input_rom_special
-		else	check_input_rom
-		fi
+patchimage_ips () {
+	show_notes
+	check_input_rom
 
-		rm -rf romfs/ romfs.bin "${ROMFS}"
+	if [[ -f ${PATCH} ]]; then
+		ext="${ROM/*.}"
+		cp "${ROM}" "${GAMENAME}.${ext}"
+		"${IPS}" a "${PATCH}" "${GAMENAME}.${ext}" || exit 51
+	else
+		echo -e "error: patch (${PATCH}) could not be found"
+		exit 21
+	fi
+}
 
-		echo -e "\n*** 2) check_hans_files"
-		check_hans_files
+patchimage_hans () {
 
-		echo -e "\n*** 3) unpack_3dsrom"
-		unpack_3dsrom "${CXI}" || exit 51
+	show_notes
+	echo -e "\n*** 1) check_input_rom"
+	if [[ ${HANS_MULTI_SOURCE} ]]; then
+		check_input_rom_special
+	else	check_input_rom
+	fi
 
-		echo -e "\n*** 4) unpack_3dsromfs"
-		unpack_3dsromfs romfs.bin || exit 51
+	rm -rf romfs/ romfs.bin "${ROMFS}"
 
-		echo -e "\n*** 5) patch_romfs"
-		patch_romfs
+	echo -e "\n*** 2) check_hans_files"
+	check_hans_files
 
-		echo -e "\n*** 6) repack_romfs"
-		repack_3dsromfs romfs/ "${ROMFS}" || exit 51
+	echo -e "\n*** 3) unpack_3dsrom"
+	unpack_3dsrom "${ROM}" || exit 51
 
-		mv "${ROMFS}" "${PATCHIMAGE_ROM_DIR}"
+	echo -e "\n*** 4) unpack_3dsromfs"
+	unpack_3dsromfs romfs.bin || exit 51
 
-		echo "
+	echo -e "\n*** 5) patch_romfs"
+	patch_romfs
+
+	echo -e "\n*** 6) repack_romfs"
+	repack_3dsromfs romfs/ "${ROMFS}" || exit 51
+
+	mv "${ROMFS}" "${PATCHIMAGE_ROM_DIR}"
+
+	echo "
 	*** succesfully created new romfs as \"${PATCHIMAGE_ROM_DIR}/${ROMFS}\"
 "
 
@@ -370,16 +373,43 @@ case ${GAME_TYPE} in
 
 	   into the root of your sd card
 "
+
+}
+
+patchimage_delta () {
+
+	show_notes
+	echo -e "\n*** 1) menu"
+	menu || exit 9
+
+	echo -e "\n*** 2) patch"
+	patch || exit 51
+
+}
+
+case ${GAME_TYPE} in
+	"RIIVOLUTION" )
+		patchimage_riivolution
+	;;
+
+	"MKWIIMM")
+		patchimage_mkwiimm
+	;;
+
+	"GENERIC")
+		patchimage_generic
+	;;
+
+	"IPS" )
+		patchimage_ips
+	;;
+
+	"HANS" )
+		patchimage_hans
 	;;
 
 	"DELTA" )
-		show_notes
-
-		echo -e "\n*** 1) menu"
-		menu || exit 9
-
-		echo -e "\n*** 2) patch"
-		patch || exit 51
+		patchimage_delta
 	;;
 
 esac

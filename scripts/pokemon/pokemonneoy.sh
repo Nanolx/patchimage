@@ -6,7 +6,7 @@ RIIVOLUTION_DIR="Neo X and Y Files/Pokemon NeoXY1.4/Installation hub/data/"
 GAMENAME="Pokemon Neo Y"
 GAME_TYPE=HANS
 
-CXI_MASK="*0004000000055[eE]00*cxi"
+ROM_MASK="*0004000000055[eE]00*cxi"
 ROMFS="neoy.romfs"
 DATA="${PATCHIMAGE_DATA_DIR}/NeoY"
 

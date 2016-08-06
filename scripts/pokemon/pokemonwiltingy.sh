@@ -6,7 +6,7 @@ RIIVOLUTION_DIR="Wilting Y V1.3/Game Files/"
 GAMENAME="Pokemon Wilting Y"
 GAME_TYPE=HANS
 
-CXI_MASK="*0004000000055[eE]00*cxi"
+ROM_MASK="*0004000000055[eE]00*cxi"
 ROMFS="WiltingY.romfs"
 
 show_notes () {

@@ -6,7 +6,7 @@ RIIVOLUTION_DIR="Eternal X V1.3/Game Files/"
 GAMENAME="Pokemon Eternal X"
 GAME_TYPE=HANS
 
-CXI_MASK="*0004000000055[dD]00*cxi"
+ROM_MASK="*0004000000055[dD]00*cxi"
 ROMFS="EternalX.romfs"
 
 show_notes () {

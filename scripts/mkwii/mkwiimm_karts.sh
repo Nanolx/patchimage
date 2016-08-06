@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GAME_TYPE="WII_GENERIC"
+GAME_TYPE="GENERIC"
 GAMENAME="Mario Kart Wiimm"
 
 show_notes () {

@@ -6,7 +6,7 @@ RIIVOLUTION_DIR="Star Sapphire - Distribution"
 GAMENAME="Pokemon Star Sapphire"
 GAME_TYPE=HANS
 
-CXI_MASK="*000400000011[cC]500*cxi"
+ROM_MASK="*000400000011[cC]500*cxi"
 ROMFS="ssapphire.romfs"
 DATA="${RIIVOLUTION_DIR}/HansPack/"
 

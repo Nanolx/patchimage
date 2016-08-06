@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/patcher/mkw-wiimmfi-patcher-v3.7z"
-GAME_TYPE="WII_GENERIC"
+GAME_TYPE="GENERIC"
 GAMENAME="Mario Kart Wiimmfi"
 
 show_notes () {

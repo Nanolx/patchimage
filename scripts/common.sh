@@ -240,16 +240,16 @@ check_input_image () {
 check_input_rom () {
 
 	x=5
-	if [[ ! ${CXI} ]]; then
-		CXI=$(find . -name "${CXI_MASK}" | sed -e 's,./,,')
-		if [[ -f ${CXI} ]]; then
+	if [[ ! ${ROM} ]]; then
+		ROM=$(find . -name "${ROM_MASK}" | sed -e 's,./,,')
+		if [[ -f ${ROM} ]]; then
 			x=6
-			CXI="${CXI}"
+			ROM="${ROM}"
 		else
-			CXI=$(find "${PATCHIMAGE_3DS_DIR}" -name "${CXI_MASK}")
-			if [[ -f ${CXI} ]]; then
+			ROM=$(find "${PATCHIMAGE_3DS_DIR}" -name "${ROM_MASK}")
+			if [[ -f ${ROM} ]]; then
 				x=7
-				CXI="${CXI}"
+				ROM="${ROM}"
 			else
 				if [[ ! ${HANS_MULTI_SOURCE} ]]; then
 					echo -e "error: could not find suitable ROM, specify using --rom"
@@ -475,7 +475,7 @@ while [[ $xcount -lt $pcount ]]; do
 			ROM_PATH="${1/*=}"
 
 			if [[ -f "${ROM_PATH}" ]]; then
-				IMAGE="${ROM_PATH}"
+				ROM="${ROM_PATH}"
 			else
 				echo -e "ROM not found"
 				exit 15

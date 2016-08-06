@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GAME_TYPE="WII_GENERIC"
+GAME_TYPE="GENERIC"
 GAMENAME="Mario Kart Wiimm"
 CSZS="files/Race/Common.szs"
 CSZD="files/Race/Common.d"

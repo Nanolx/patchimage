@@ -6,7 +6,7 @@ RIIVOLUTION_DIR="Rutile Ruby - Distribution"
 GAMENAME="Pokemon Rutile Ruby"
 GAME_TYPE=HANS
 
-CXI_MASK="*000400000011[cC]400*cxi"
+ROM_MASK="*000400000011[cC]400*cxi"
 ROMFS="rruby.romfs"
 DATA="${RIIVOLUTION_DIR}/HansPack/"
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GAME_TYPE="WII_GENERIC"
+GAME_TYPE="GENERIC"
 GAMENAME="Mario Kart Wiimm"
 FSZS="files/Scene/UI/Font.szs"
 WBFS_MASK="RMC[PUJ]01"

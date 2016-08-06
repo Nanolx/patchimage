@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GAME_TYPE="WII_GENERIC"
+GAME_TYPE="GENERIC"
 GAMENAME="Kirby's Adventure Wii"
 WBFS_MASK="SUK[PUJ]01"
 PATH_HERO="files/g3d/step/chara/hero/"
