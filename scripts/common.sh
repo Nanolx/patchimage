@@ -220,18 +220,18 @@ check_input_image () {
 
 	x=0
 	if [[ ! ${IMAGE} ]]; then
-		if test -f ${WBFS_MASK}.wbfs; then
+		if test -f "${WBFS_MASK}".wbfs; then
 			x=1
-			IMAGE=${WBFS_MASK}.wbfs
-		elif test -f ${WBFS_MASK}.iso; then
+			IMAGE="${WBFS_MASK}".wbfs
+		elif test -f "${WBFS_MASK}".iso; then
 			x=2
-			IMAGE=${WBFS_MASK}.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.iso; then
+			IMAGE="${WBFS_MASK}".iso
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".iso; then
 			x=3
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.iso
-		elif test -f "${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.wbfs; then
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".iso
+		elif test -f "${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".wbfs; then
 			x=4
-			IMAGE="${PATCHIMAGE_WBFS_DIR}"/${WBFS_MASK}.wbfs
+			IMAGE="${PATCHIMAGE_WBFS_DIR}"/"${WBFS_MASK}".wbfs
 		else
 			echo -e "please specify image to use with --iso=<path>"
 			exit 15
@@ -245,15 +245,21 @@ check_input_rom () {
 
 	x=5
 	if [[ ! ${ROM} ]]; then
-		if test -f ${ROM_MASK}.cxi; then
+		ROM=$(find . -name "${ROM_MASK}" | sed -e 's,./,,')
+		if [[ -f ${ROM} ]]; then
 			x=6
-			ROM=${ROM_MASK}.cxi
-		elif test -f "${PATCHROM_3DS_DIR}"/${ROM_MASK}.iso; then
-			x=7
-			ROM="${PATCHROM_3DS_DIR}"/${ROM_MASK}.iso
+			ROM="${ROM}"
 		else
-			echo -e "please specify rom to use with --rom=<path>"
-			exit 15
+			ROM=$(find "${PATCHIMAGE_3DS_DIR}" -name "${ROM_MASK}")
+			if [[ -f ${ROM} ]]; then
+				x=7
+				ROM="${ROM}"
+			else
+				if [[ ! ${HANS_MULTI_SOURCE} ]]; then
+					echo -e "error: could not find suitable ROM, specify using --rom"
+					exit 15
+				fi
+			fi
 		fi
 	fi
 	echo "*** >> status: ${x}"
