@@ -8,6 +8,8 @@ v7.0.0:
 - shift around some paths
 - update database with New Super Mario Bros. Wii mods
 - code review and improvements
+- improved Debian GNU/Linux packaging
+- install pre-compiled tools to /usr/lib/ARCH/patchimage (FHS compliance)
 
 ::bug fixes
 - several minor bugfixes and improvements
