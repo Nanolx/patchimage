@@ -251,8 +251,6 @@ for game in ${GAME[@]}; do
 
 		echo -e "\n*** 1) check_input_image"
 		check_input_image
-		echo "*** 2) check_input_image_special"
-		check_input_image_special
 		echo "*** 3) check_riivolution_patch"
 		check_riivolution_patch
 
