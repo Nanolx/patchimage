@@ -16,6 +16,7 @@ v7.0.0:
 - add --override-szs to override Wiims Mario Kart Fun wit and szs with
   the ones supplied by patchimage. Use this if building Wiims Mario Kart Fun
   fails due to incompatible library versions being installed.
+- add batch mode for generating more than one mod at once
 
 ::bug fixes
 - several minor bugfixes and improvements

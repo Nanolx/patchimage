@@ -96,7 +96,7 @@ ask_game () {
 echo -e \
 "${SUPPORTED_GAMES}
 
-Enter ID or Short Name for the Game you want to build:
+Enter ID or Short Name for the Game you want to build (multiple separated by space):
 "
 
 read -r GAME
@@ -622,6 +622,7 @@ while [[ $xcount -lt $pcount ]]; do
 *** General parameters ***
 --help						| show this message
 --game=<ID/Short Name>				| specify game you want to create
+--game=\"<ID1/Short Name1> <ID2/Short Name2>\"	| specify multiple games you want to create
 --list-games					| show possible options for --game
 
 *** Wii game parameters ***
