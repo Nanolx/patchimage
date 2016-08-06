@@ -363,15 +363,15 @@ for game in ${GAME[@]}; do
 		mv "${ROMFS}" "${PATCHIMAGE_ROM_DIR}"
 
 		echo "
-		*** succesfully created new romfs as \"${PATCHIMAGE_ROM_DIR}/${ROMFS}\"
+	*** succesfully created new romfs as \"${PATCHIMAGE_ROM_DIR}/${ROMFS}\"
 	"
 
 		[[ ${DATA} ]] && echo \
-		">> for Hans Banners / Launchers, place all files from
+		"	>> for Hans Banners / Launchers, place all files from
 
-			$(readlink -m "${DATA}")
+		$(readlink -m "${DATA}")
 
-		   into the root of your sd card
+	   into the root of your sd card
 	"
 
 	}
