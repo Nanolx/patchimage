@@ -11,15 +11,15 @@ basedir=$(dirname "${basedir}")
 
 export PATCHIMAGE_DIR=${basedir}
 
-if [[ -d ${basedir}/script.d ]]; then
-	export PATCHIMAGE_SCRIPT_DIR=${basedir}/script.d
+if [[ -d ${basedir}/scripts ]]; then
+	export PATCHIMAGE_SCRIPT_DIR=${basedir}/scripts
 	export PATCHIMAGE_PATCH_DIR=${basedir}/patches
 	export PATCHIMAGE_DATA_DIR=${basedir}/data
 	export PATCHIMAGE_TOOLS_DIR=${basedir}/tools
 	export PATCHIMAGE_OVERRIDE_DIR=${basedir}/override
 	export PATCHIMAGE_DATABASE_DIR=${basedir}/database
 else
-	export PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/script.d
+	export PATCHIMAGE_SCRIPT_DIR=/usr/share/patchimage/scripts
 	export PATCHIMAGE_PATCH_DIR=/usr/share/patchimage/patches
 	export PATCHIMAGE_DATA_DIR=/usr/share/patchimage/data
 	export PATCHIMAGE_TOOLS_DIR=/usr/share/patchimage/tools
