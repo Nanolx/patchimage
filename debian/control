@@ -8,8 +8,8 @@ Homepage: http://www.nanolx.org/nanolx/patchimage
 
 Package: patchimage
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Wii image patcher
+Depends: ${shlibs:Depends}, ${misc:Depends}, patchimage-tools
+Description: Wii, Wii U, 3DS image patcher
  Patchimage is a script that allows to patch riivoluton, ips or xdelta patches
  into wbfs or iso images of legal game dumps, ROMs or dumped cpk files.
  .
@@ -29,3 +29,41 @@ Description: Wii image patcher
    - applying decensoring patches to Tokyo Mirage Sessions #FE
  .
  Be sure to read the supplied README-files for a full overview.
+
+Package: patchimage-tools-i386
+Architecture: i386
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: patchimage-tools
+Description: Pre-compiled tools for patchimage
+ pre-compiled tools for patchimage:
+   - 3dstool		Tool for re-packing 3DS ROMs
+   - ctrtool		Tool for un-packing 3DS ROMs
+   - applyppf3		Tool for applying PPF patches
+   - titledumper	Tool for receiving Wii U game dumps over network
+   - uips		Tool for applying IPS patches
+   - wit		Tool for managing Wii game dumps
+   - wszst		Tool for manipulating Mario Kart Wii files
+   - xdelta3		Tool for applying DELTA patches [beta version]
+   - overrides for Wiims Mario Kart Fun tools (new versions of wit and wszst
+     that allow creating older custom track distributions on newer versions
+     of Debian GNU/Linux, which have newer versions of the libraries the
+     originally provided wit and wszst were linked against)
+
+Package: patchimage-tools-amd64
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: patchimage-tools
+Description: Pre-compiled tools for patchimage
+ pre-compiled tools for patchimage:
+   - 3dstool		Tool for re-packing 3DS ROMs
+   - ctrtool		Tool for un-packing 3DS ROMs
+   - applyppf3		Tool for applying PPF patches
+   - titledumper	Tool for receiving Wii U game dumps over network
+   - uips		Tool for applying IPS patches
+   - wit		Tool for managing Wii game dumps
+   - wszst		Tool for manipulating Mario Kart Wii files
+   - xdelta3		Tool for applying DELTA patches [beta version]
+   - overrides for Wiims Mario Kart Fun tools (new versions of wit and wszst
+     that allow creating older custom track distributions on newer versions
+     of Debian GNU/Linux, which have newer versions of the libraries the
+     originally provided wit and wszst were linked against)
