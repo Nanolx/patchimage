@@ -4,7 +4,7 @@ patchimage (7.0.0-1nano) unstable; urgency=low
   * install 32bit pre-compiled tools into patchimage-tools-i386 package
   * install 64bit pre-compiled tools into patchimage-tools-amd64 package
 
- -- Christopher Roy Bratusek <nano@jpberlin.de>  Sat, 06 Aug 2016 09:59:46 +0200
+ -- Christopher Roy Bratusek <nano@jpberlin.de>  Sat, 06 Aug 2016 22:00:50 +0200
 
 patchimage (6.3.0-1nano) unstable; urgency=low
 
