@@ -32,6 +32,7 @@ v7.0.0:
 - patchimage menu showed TMS1 as ID for Tokyo Mirage Sessions #FE restoration
   patcher, while TMSFE was the actual (but wrong ID), thus TMS1 was reported
   as unknown game / wrong user input. Now TMS1 works as expected.
+- archive name for Newer Super Mario Bros. Wii has changed
 
 ::configuration file changes
 - new configuration variable PATCHIMAGE_3DS_DIR, global directory
