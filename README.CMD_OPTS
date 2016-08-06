@@ -1,31 +1,32 @@
-Parameters
 *** General parameters ***
---help					| show this message
---game=<gamename/gameletter>		| specify game you want to create
---list-games				| show possible options for --game
+--help						| show this message
+--game=<ID/Short Name>				| specify game you want to create
+--list-games					| show possible options for --game
 
 *** Wii game parameters ***
---iso=/home/test/RMCP01.iso		| specify path to Wii iso or wbfs image to use
---riivolution=/home/test/MyMod.zip	| specify path to Wii Riivolution archive
---version=EURv1,EURv2,USAv1,USAv2,JPNv1	| specify your game version (New Super Mario Bros. Wii)
---customdid=SMNP02			| specify a custom ID to use for the modified Wii game
---sharesave				| let modified Wii games share savegame with the original game
---download				| download Riivolution or HANS patch archives (if possible)
---soundtrack				| download soundtrack (if available)
---only-soundtrack			| download soundtrack only (if available) and exit
---covers				| download covers (if available)
---only-covers=SMNP02			| download covers only (if available)
---banner=<banner.bnr>			| use a custom banner (Riivolution games)
---download-banner			| download a custom banner (if available)
+--iso=/home/test/RMCP01.iso			| specify path to Wii iso or wbfs image to use
+--riivolution=/home/test/MyMod.zip		| specify path to Wii Riivolution archive
+--version=EURv1,EURv2,USAv1,USAv2,JPNv1		| specify your game version (New Super Mario Bros. Wii)
+--customdid=SMNP02				| specify a custom ID to use for the modified Wii game
+--sharesave					| let modified Wii games share savegame with the original game
+--download					| download Riivolution or HANS patch archives (if possible)
+--soundtrack					| download soundtrack (if available)
+--only-soundtrack				| download soundtrack only (if available) and exit
+--covers					| download covers (if available)
+--only-covers=SMNP02				| download covers only (if available)
+--banner=<banner.bnr>				| use a custom banner (Riivolution games)
+--download-banner				| download a custom banner (if available)
+--override-szs					| override wit and szs in Wiimms Mario Kart Fun distributions
+						| [use this if the originals fail due to incompatible library versions]
 
 *** 3DS game parameters ***
---rom=/home/test/0004000000055e00.cxi	| specify path to 3DS ROM to use for building
---hans=/home/test/MyModdedGame.zip	| specify path to 3DS HANS archive
+--rom=/home/test/0004000000055e00.cxi		| specify path to 3DS ROM to use for building
+--hans=/home/test/MyModdedGame.zip		| specify path to 3DS HANS archive
 
 *** Wii U game parameters ***
---xdelta=/home/test/xdelta		| specify path to Tokyo Mirage Sessions #FE xdelta patches
---cpk=/home/test/cpk			| specify path to original Tokyo Mirage Mirage Sessions #FE files
+--xdelta=/home/test/xdelta			| specify path to Tokyo Mirage Sessions #FE xdelta patches
+--cpk=/home/test/cpk				| specify path to original Tokyo Mirage Mirage Sessions #FE files
 
 *** Other game parameters ***
---rom=/home/test/MyGame.rom		| specify path to ROM to use for building
---patch=/home/test/MyModdedGame.ips	| specify path to IPS Patch file
+--rom=/home/test/MyGame.rom			| specify path to ROM to use for building
+--patch=/home/test/MyModdedGame.ips		| specify path to IPS Patch file
