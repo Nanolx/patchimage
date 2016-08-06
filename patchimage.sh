@@ -360,6 +360,7 @@ for game in ${GAME[@]}; do
 		echo "*** 6) repack_romfs"
 		repack_3dsromfs romfs/ "${ROMFS}" || exit 51
 
+		echo "*** 7) storing game"
 		mv "${ROMFS}" "${PATCHIMAGE_ROM_DIR}"
 
 		echo "
@@ -373,6 +374,9 @@ for game in ${GAME[@]}; do
 
 	   into the root of your sd card
 	"
+
+		echo "*** 8) remove workdir"
+		rm -rf romfs/ romfs.bin
 
 	}
 
