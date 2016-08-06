@@ -25,20 +25,20 @@ download_wiimm () {
 	echo "Choose a Mario Kart Wiimm Distribution
 
 ALL	Build all distributions."
-	gawk -F \: 'NR>1 {print $1 "\t" $2}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm.db
+	gawk -F : 'NR>1 {print $1 "\t" $2}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm.db
 	echo "
 type in ALL or an ID (multiple separated by space)"
-	read ID
+	read -r ID
 
 }
 
 wiimmfi () {
 
 	mkdir -p "${HOME}/.patchimage/tools/"
-	cd ${HOME}/.patchimage/tools
-	rm -rf wiimmfi-patcher/ *.7z*
+	cd "${HOME}"/.patchimage/tools
+	rm -rf wiimmfi-patcher/ ./*.7z*
 	wget "${DOWNLOAD_LINK}" &>/dev/null || ( echo "something went wrong downloading ${DOWNLOAD_LINK}" && exit 57 )
-	${UNP} mkw-wiimmfi-patcher.7z >/dev/null || ( echo "something went wrong extracting files" && exit 63 )
+	"${UNP}" mkw-wiimmfi-patcher.7z >/dev/null || ( echo "something went wrong extracting files" && exit 63 )
 	mv mkw-wiimmfi-patcher*/ wiimmfi-patcher
 	chmod +x wiimmfi-patcher/*.sh
 	cd wiimmfi-patcher/
@@ -46,9 +46,9 @@ wiimmfi () {
 	ln -s "${1}" .
 	./patch-wiimmfi.sh >/dev/null || exit 51
 	echo "*** 8) storing game in ${PATCHIMAGE_GAME_DIR}/${1##*/}"
-	mv ./wiimmfi-images/${1##*/} "${PATCHIMAGE_GAME_DIR}"/
+	mv ./wiimmfi-images/"${1##*/}" "${PATCHIMAGE_GAME_DIR}"/
 
-	rm -rf ${HOME}/.patchimage/tools/*
+	rm -rf "${HOME}"/.patchimage/tools/*
 
 }
 
@@ -56,17 +56,17 @@ mkwiimm_distfiles () {
 
 	if [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ]]; then
 		echo "*** 5) extracting mkwiimm files"
-		${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null || \
+		"${UNP}" "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${FILENAME}" >/dev/null || \
 			( echo "something went wrong extracting files" && exit 63 )
 	elif [[ -f ${PWD}/${FILENAME} ]]; then
 		echo "*** 5) extracting mkwiimm files"
-		${UNP} ${PWD}/${FILENAME} >/dev/null || \
+		"${UNP}" "${PWD}"/"${FILENAME}" >/dev/null || \
 			( echo "something went wrong extracting files" && exit 63 )
 	else
 		echo "*** 5) downloading and extracting mkwiimm files"
-		wget -O ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} ${DOWNLOAD} >/dev/null || \
+		wget -O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${FILENAME}" "${DOWNLOAD}" >/dev/null || \
 			( echo "something went wrong downloading ${DOWNLOAD}" && exit 57 )
-		${UNP} ${PATCHIMAGE_RIIVOLUTION_DIR}/${FILENAME} >/dev/null || \
+		"${UNP}" "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${FILENAME}" >/dev/null || \
 			( echo "something went wrong extracting files" && exit 63 )
 	fi
 
@@ -79,12 +79,12 @@ mkwiimm_build_olddist () {
 MSGLANG=${MKWIIMM_MSG_LANG}
 ISOMODE=wbfs
 SPLITISO=
-PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
+PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > "${PWD}"/config.def
 		echo "*** 6) creating >${DIST}< (can take some time)"
-		./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
+		./create-image.sh -a --dest="${XD}/RMC${REG}${MY_ID}".wbfs >/dev/null || exit 51
 	else
 		echo "*** 6) creating >${DIST}< (can take some time)"
-		./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+		./create-image.sh --dest="${XD}/RMC${REG}${MY_ID}".wbfs || exit 51
 	fi
 
 }
@@ -100,89 +100,89 @@ CTRENAME=${MKWIIMM_CTRENAME}
 REORDER=${MKWIIMM_CTREORDER}
 ISOMODE=wbfs
 SPLITISO=
-PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > ${PWD}/config.def
+PRIV_SAVEGAME=${MKWIIMM_OWN_SAVE}" > "${PWD}"/config.def
 
 		echo "*** 6) creating >${DIST}< (can take some time)"
-		./create-image.sh -a --dest=${XD}/RMC${REG}${MY_ID}.wbfs >/dev/null || exit 51
+		./create-image.sh -a --dest="${XD}/RMC${REG}${MY_ID}".wbfs >/dev/null || exit 51
 	else
 		echo "*** 6) creating >${DIST}< (can take some time)"
-		./create-image.sh --dest=${XD}/RMC${REG}${MY_ID}.wbfs || exit 51
+		./create-image.sh --dest="${XD}/RMC${REG}${MY_ID}".wbfs || exit 51
 	fi
 
 }
 
 build_mkwiimm () {
 
-		MY_ID=${1}
-		DIST=$(gawk -F \: "/^${MY_ID}/"'{print $2}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm.db)
-		DOWNLOAD=$(gawk -F \: "/^${MY_ID}/"'{print $3}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm.db)
-		FILENAME=$(gawk -F \: "/^${MY_ID}/"'{split($3, a, "/") ; print a[3]}' < ${PATCHIMAGE_DATABASE_DIR}/mkwiimm.db)
+	MY_ID=${1}
+	DIST=$(gawk -F : "/^${MY_ID}/"'{print $2}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm.db)
+	DOWNLOAD=$(gawk -F : "/^${MY_ID}/"'{print $3}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm.db)
+	FILENAME=$(gawk -F : "/^${MY_ID}/"'{split($3, a, "/") ; print a[3]}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm.db)
 
-		if [[ ${FILENAME} != mkw* ]]; then
-			echo "wrong ID passed from user-input, exiting."
-			exit 75
-		fi
+	if [[ ${FILENAME} != mkw* ]]; then
+		echo "wrong ID passed from user-input, exiting."
+		exit 75
+	fi
 
-		rm -rf ${FILENAME/.7z}
-		mkwiimm_distfiles
-		cd ${FILENAME/.7z}
+	rm -rf "${FILENAME/.7z}"
+	mkwiimm_distfiles
+	cd "${FILENAME/.7z}"
 
-		REG=$(gawk '/^RMC/{print $3}' <(${WIT} ll ${IMAGE}))
+	REG=$(gawk '/^RMC/{print $3}' <("${WIT}" ll "${IMAGE}"))
 
-		case $REG in
-			PAL)	REG=P	;;
-			NTSC-J)	REG=J	;;
-			NTSC-U)	REG=E	;;
-		esac
+	case $REG in
+		PAL)	REG=P	;;
+		NTSC-J)	REG=J	;;
+		NTSC-U)	REG=E	;;
+	esac
 
-		ln -s "${IMAGE}" .
-		chmod +x *.sh
+	ln -s "${IMAGE}" .
+	chmod +x ./*.sh
 
-		if [[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" ]] && cp -r ${PATCHIMAGE_OVERRIDE_DIR}/* ${PWD}/bin/
+	[[ ${MKWIIMM_OVERRIDE_SZS} == "TRUE" ]] && cp -r "${PATCHIMAGE_OVERRIDE_DIR}"/* "${PWD}"/bin/
 
-		if [[ ${MY_ID} -lt 27 ]]; then
-			mkwiimm_olddist
-		else	mkwiimm_newdist
-		fi
+	if [[ ${MY_ID} -lt 27 ]]; then
+		mkwiimm_olddist
+	else	mkwiimm_newdist
+	fi
 
-		if [[ ${MY_ID} -lt 23 ]]; then
-			echo "*** 7) patching >${DIST}< to use custom server"
-			wiimmfi ${XD}/RMC${REG}${MY_ID}.wbfs || (echo "something went wrong wiimmfi-ing ${XD}/RMC${REG}${MY_ID}.wbfs" && exit 69)
-			echo "*** 8) storing game"
-		else	echo "*** 7) storing game"
-		fi
+	if [[ ${MY_ID} -lt 23 ]]; then
+		echo "*** 7) patching >${DIST}< to use custom server"
+		wiimmfi "${XD}/RMC${REG}${MY_ID}".wbfs || (echo "something went wrong wiimmfi-ing ${XD}/RMC${REG}${MY_ID}.wbfs" && exit 69)
+		echo "*** 8) storing game"
+	else	echo "*** 7) storing game"
+	fi
 
-		cd ${XD}
+	cd "${XD}"
 
-		echo "       ${DIST} saved as ${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs"
-		mv RMC${REG}${MY_ID}.wbfs \
-			${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs || exit 51
+	echo "       ${DIST} saved as ${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}.wbfs"
+	mv "RMC${REG}${MY_ID}".wbfs \
+		"${PATCHIMAGE_GAME_DIR}/RMC${REG}${MY_ID}".wbfs || exit 51
 
-		if [[ ${MY_ID} -lt 23 ]]; then
-			echo "*** 9) cleaning up workdir"
-		else
-			echo "*** 8) cleaning up workdir"
-		fi
+	if [[ ${MY_ID} -lt 23 ]]; then
+		echo "*** 9) cleaning up workdir"
+	else
+		echo "*** 8) cleaning up workdir"
+	fi
 
-		rm -rf ${FILENAME/.7z}
+	rm -rf "${FILENAME/.7z}"
 
-		if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
-			echo -e "*** Z) download_covers\n"
-			download_covers RMC${REG}${MY_ID}
-		fi
+	if [[ ${PATCHIMAGE_COVER_DOWNLOAD} == TRUE ]]; then
+		echo -e "*** Z) download_covers\n"
+		download_covers "RMC${REG}${MY_ID}"
+	fi
 
 }
 
 patch_wiimm () {
 
-	XD=${PWD}
+	XD="${PWD}"
 	if [[ ${ID} == ALL ]]; then
 		for ID in {06..31}; do
-			build_mkwiimm ${ID}
+			build_mkwiimm "${ID}"
 		done
 	else
-		for game in ${ID[@]}; do
-			build_mkwiimm ${game}
+		for game in "${ID[@]}"; do
+			build_mkwiimm "${game}"
 		done
 	fi
 }
