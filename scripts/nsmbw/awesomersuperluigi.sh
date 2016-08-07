@@ -2,7 +2,6 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://www.dropbox.com/s/t3b3fvycm1ufu46/AwesomerSLM.zip"
 RIIVOLUTION_ZIP="AwesomerSLM.zip"
 RIIVOLUTION_DIR="AwesomerSLM"
 GAMENAME="Awesomer Super Luigi Mini"
