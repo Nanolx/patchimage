@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="http://www.nanolx.org/riivolution/MSBWii.rar"
+DOWNLOAD_LINK="http://nanolx.org/riivolution/MSMBWii.zip"
 RIIVOLUTION_ZIP="MSMBWii.zip"
 RIIVOLUTION_DIR="msmbwiijala"
 GAMENAME="Midi's Super Mario Wii - Just A Little Adventure"
