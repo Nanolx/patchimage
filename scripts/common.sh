@@ -399,7 +399,7 @@ download_riivolution_patch () {
 
 	${DOWNLOAD_LINK}
 "
-		exit 21
+			exit 21
 		;;
 
 		*medafire* )
@@ -408,7 +408,7 @@ download_riivolution_patch () {
 
 	${DOWNLOAD_LINK}
 "
-		exit 21
+			exit 21
 		;;
 
 		*romhacking* )
@@ -418,7 +418,7 @@ download_riivolution_patch () {
 	${DOWNLOAD_LINK}
 "
 
-		exit 21
+			exit 21
 		;;
 
 		"" )
