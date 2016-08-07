@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://dl.dropbox.com/s/klzhvu5aviwqp77/RVLution%20Wii.zip"
+DOWNLOAD_LINK="http://riivolution.nanolx.org/RVLution%20Wii.zip"
 RIIVOLUTION_ZIP="RVLution Wii.zip"
 RIIVOLUTION_DIR="rvlwii"
 GAMENAME="RVLution Wii"
