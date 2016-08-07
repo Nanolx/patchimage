@@ -19,3 +19,5 @@ While the script executes you will see some status codes, below you will find th
 			3		riivolution archive found in ${PATCHIMAGE_RIIVOLUTION_DIR}
 			4		patchimage was told to download riivolution archive, but no link is available
 			5		patchimage is downloading riivolution archive
+			6		patchimage was told to download riivolution archive, but manual download is required
+					[for websites like mediafire, mega that don't work (well) with wget]
