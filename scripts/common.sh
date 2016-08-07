@@ -56,6 +56,7 @@ NSMB23	TheLegendOfYoshi	The Legend of Yoshi
 NSMB24	RemixedSuperMarioBros	Remixed Super Mario Bros. Wii
 NSMB25	GhostlySuperGhostBoos	Ghostly Super Ghost Boos. Wii
 NSMB26	RevisedSuperMarioBros	Revised Super Mario Bros. Wii
+NSMB27	MLGSuperLuigi		MLG Super Luigi Bros. Wii
 
 NSMB99	NSMBWCharacters		Customize Characters
 

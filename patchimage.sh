@@ -322,6 +322,10 @@ for game in ${GAME[@]}; do
 			source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/revisedsupermariobroswii.sh"
 		;;
 
+		NSMB27 | MLGSuperLuigi )
+			source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/mlgsuperluigibroswii.sh"
+		;;
+
 		NSMB99 | NSMBWCharacters )
 			source "${PATCHIMAGE_SCRIPT_DIR}/nsmbw/nsmbw_characters.sh"
 		;;

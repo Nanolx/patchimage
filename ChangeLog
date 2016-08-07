@@ -8,6 +8,14 @@ v7.1.0:
 - fixup The Legend of Zelda - Parallel Worlds patcher
 - fixup --patch command line parameter
 
+::misc. changes
+- removed download link for Awesomer Super Luigi Mini (down)
+
+::game additions
+
+:::New Super Mario Bros. Wii
+- add support for MLG Super Luigi Bros. Wii
+
 v7.0.0:
 ::internal changes
 - add PATCHIMAGE_DIR new internal variable
