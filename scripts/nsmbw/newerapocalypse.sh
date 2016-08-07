@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="http://newerteam.com/getNewerFile.php"
+DOWNLOAD_LINK="http://nanolx.org/riivolution/NewerApocalypse%201.0.zip"
 RIIVOLUTION_ZIP="NewerApocalypse 1.0.zip"
 RIIVOLUTION_DIR="NewerApocalypse"
 GAMENAME="Newer Apocalypse"
