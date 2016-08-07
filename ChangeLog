@@ -1,3 +1,13 @@
+v7.1.0:
+::internal changes
+- rewrite downloader function
+- add (yet unused) patching functions for PPF patches
+- code cleanup, remove duplicated code
+
+::bugfixes
+- fixup The Legend of Zelda - Parallel Worlds patcher
+- fixup --patch command line parameter
+
 v7.0.0:
 ::internal changes
 - add PATCHIMAGE_DIR new internal variable
