@@ -58,24 +58,24 @@ patchimage_riivolution () {
 
 	echo -e "\n*** 1) check_input_image"
 	check_input_image
-	echo "*** 3) check_riivolution_patch"
+	echo "*** 2) check_riivolution_patch"
 	check_riivolution_patch
 
-	echo "*** 4) extract game"
+	echo "*** 3) extract game"
 	${WIT} extract "${IMAGE}" "${WORKDIR}" --psel=DATA -q || exit 51
 
-	echo "*** 5) detect_game_version"
+	echo "*** 4) detect_game_version"
 	detect_game_version
 	rm -f "${GAMEID}".wbfs "${CUSTOMID}".wbfs
-	echo "*** 6) place_files"
+	echo "*** 5) place_files"
 	place_files || exit 45
 
-	echo "*** 7) download_banner"
+	echo "*** 6) download_banner"
 	download_banner
-	echo "*** 8) apply_banner"
+	echo "*** 7) apply_banner"
 	apply_banner
 
-	echo "*** 9) dolpatch"
+	echo "*** 8) dolpatch"
 	dolpatch
 
 	if [[ ${CUSTOMID} ]]; then
@@ -88,11 +88,11 @@ patchimage_riivolution () {
 		TMD_OPTS="--tt-id=K"
 	fi
 
-	echo "*** 10) rebuild and store game"
+	echo "*** 9) rebuild and store game"
 	"${WIT}" cp -o -q --disc-id="${GAMEID}" "${TMD_OPTS}" --name "${GAMENAME}" \
 		-B "${WORKDIR}" "${PATCHIMAGE_GAME_DIR}"/"${GAMEID}".wbfs || exit 51
 
-	echo "*** 12) remove workdir"
+	echo "*** 10) remove workdir"
 	rm -rf "${WORKDIR}"
 
 	echo -e "\n >>> ${GAMENAME} saved as: ${PATCHIMAGE_GAME_DIR}/${GAMEID}.wbfs\n"
