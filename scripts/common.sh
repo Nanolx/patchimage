@@ -320,11 +320,13 @@ ask_input_image_nsmb () {
 
 	for image in "${PWD}"/SMN???.{iso,wbfs} \
 		"${PWD}"/SLF???.{iso,wbfs} \
+		"${PWD}"/SLB???.{iso,wbfs} \
 		"${PWD}"/SMM???.{iso,wbfs} \
 		"${PWD}"/SMV???.{iso,wbfs} \
 		"${PWD}"/MRR???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SMN???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SLF???.{iso,wbfs} \
+		"${PATCHIMAGE_WBFS_DIR}"/SLB???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SMM???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SMV???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/MRR???.{iso,wbfs}; do
