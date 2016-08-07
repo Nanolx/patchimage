@@ -512,7 +512,7 @@ while [[ $xcount -lt $pcount ]]; do
 
 		--riivolution=* )
 			RIIVOLUTION="${1/*=}"
-			if [[ -e "${RIIVOLUTION}" ]]; then
+			if [[ -f "${RIIVOLUTION}" ]]; then
 				"${UNP}" "${RIIVOLUTION}" >/dev/null
 			else
 				echo -e "Riivolution patch ${RIIVOLUTION} not found."
@@ -522,10 +522,10 @@ while [[ $xcount -lt $pcount ]]; do
 
 		--patch=*  )
 			PATCH="${1/*=}"
-			if [[ -e "${PATCH}" ]]; then
-				${UNP} "${PATCH}" >/dev/null
+			if [[ -f "${PATCH}" ]]; then
+				PATCH="${PATCH}"
 			else
-				echo -e "PATCH patch ${PATCH} not found."
+				echo -e "IPS/PPF patch ${PATCH} not found."
 				exit 21
 			fi
 		;;
