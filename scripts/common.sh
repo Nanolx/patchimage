@@ -387,7 +387,8 @@ download_riivolution_patch () {
 			x=5
 			echo "*** >> downloading"
 			${GDOWN} "${DOWNLOAD_LINK}" \
-				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || exit 57
+				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || \
+				( echo -e "\nDownload failed!" && exit 57 )
 			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 			echo "*** >> unpacking"
@@ -431,7 +432,8 @@ download_riivolution_patch () {
 			x=5
 			echo "*** >> downloading"
 			wget -q --no-check-certificate "${DOWNLOAD_LINK}" \
-				-O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp || exit 57
+				-O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp || \
+				( echo -e "\nDownload failed!" && exit 57 )
 			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 			echo "*** >> unpacking"
