@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://dl.dropboxusercontent.com/u/4558852/Newer_FALLING_LEAF.zip"
+DOWNLOAD_LINK="https://docs.google.com/uc?id=0B-HeBvPjqJ74eGh3T1huZXNOenM&export=download"
 RIIVOLUTION_ZIP="Newer_FALLING_LEAF.zip"
 RIIVOLUTION_DIR="NewerFL/"
 GAMENAME="Newer: Falling Leaf"
