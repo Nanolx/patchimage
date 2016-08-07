@@ -141,20 +141,6 @@ patchimage_ips () {
 	fi
 }
 
-patchimage_ips () {
-	show_notes
-	check_input_rom
-
-	if [[ -f ${PATCH} ]]; then
-		ext="${ROM/*.}"
-		cp "${ROM}" "${GAMENAME}.${ext}"
-		"${IPS}" a "${PATCH}" "${GAMENAME}.${ext}" || exit 51
-	else
-		echo -e "error: patch (${PATCH}) could not be found"
-		exit 21
-	fi
-}
-
 patchimage_hans () {
 
 	show_notes
