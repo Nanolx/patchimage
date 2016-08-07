@@ -436,6 +436,7 @@ download_riivolution_patch () {
 			echo "*** >> unpacking"
 			unpack "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 		;;
+	esac
 
 }
 
