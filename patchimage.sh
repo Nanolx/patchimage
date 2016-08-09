@@ -141,6 +141,20 @@ patchimage_ips () {
 	fi
 }
 
+patchimage_bps () {
+	show_notes
+	check_input_rom
+
+	if [[ -f ${PATCH} ]]; then
+		ext="${ROM/*.}"
+		cp "${ROM}" "${GAMENAME}.${ext}"
+		"${BPS}" -decode -t "${GAMENAME}.${ext}" "${PATCH}" || exit 51
+	else
+		echo -e "error: patch (${PATCH}) could not be found"
+		exit 21
+	fi
+}
+
 patchimage_ppf () {
 	show_notes
 	check_input_rom
@@ -424,6 +438,10 @@ for game in ${GAME[@]}; do
 
 		"IPS" )
 			patchimage_ips
+		;;
+
+		"BPS" )
+			patchimage_bps
 		;;
 
 		"PPF" )

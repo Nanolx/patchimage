@@ -1,7 +1,9 @@
 v7.1.0:
 ::internal changes
 - rewrite downloader function
+- supply beat BPS patcher (32 and 64 bit)
 - add (yet unused) patching functions for PPF patches
+- add (yet unused) patching functions for BPS patches
 - code cleanup, remove duplicated code
 
 ::bugfixes
