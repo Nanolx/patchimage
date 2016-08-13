@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOWNLOAD_LINK="mega:///#!z9oEwB4R!8Ab1mp23iEYnAdekP-rH3VrWNe_kUAoTgrh5_oU9BdE"
+DOWNLOAD_LINK="https://mega.nz/#!z9oEwB4R!8Ab1mp23iEYnAdekP-rH3VrWNe_kUAoTgrh5_oU9BdE"
 RIIVOLUTION_ZIP="Pokemon Delta Emerald.zip"
 GAMENAME="Pokemon Delta Emerald (Alpha Saphhire)"
 PATCH="Pokemon - Delta Emerald.xdelta"
