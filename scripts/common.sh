@@ -83,6 +83,7 @@ PKMN5	EternalX		Pokemon Eternal X
 PKMN6	WiltingY		Pokemon Wilting Y
 PKMN7	RisingRuby		Pokemon Rising Ruby
 PKMN8	SinkingSapphire		Pokemon Sinking Sapphire
+PKMN9	DeltaEmeraldAS		Pokemon Delta Emerald (Alpha Sapphire)
 
 BSECU	BravelySecondUncensored	Bravely Second Uncensored
 
@@ -461,8 +462,12 @@ check_riivolution_patch () {
 		elif [[ ${PATCHIMAGE_RIIVOLUTION_DOWNLOAD} == "TRUE" ]]; then
 			download_riivolution_patch
 		else
-			echo -e "please specify zip/rar to use with --riivolution=<path>"
-			exit 21
+			if [[ ${1} == --nofail ]]; then
+				echo -e "no zip archive found. Skipping to bare patch file detection"
+			else
+				echo -e "please specify zip/rar to use with --riivolution=<path>"
+				exit 21
+			fi
 		fi
 	fi
 	echo "*** >> status: ${x}"
