@@ -10,23 +10,20 @@ Package: patchimage
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, patchimage-tools
 Description: Wii, Wii U, 3DS image patcher
- Patchimage is a script that allows to patch riivoluton, ips or xdelta patches
- into wbfs or iso images of legal game dumps, ROMs or dumped cpk files.
+ Patchimage is a script that allows to patch riivoluton, ips, ppf, bps or xdelta
+ patches into wbfs or iso images of legal game dumps, ROMs or dumped cpk files.
  .
- Current features of Patchimage:
-   - 25 user made modifications of New Super Mario Bros. Wii
-     - replacing characters
-     - downloading soundtrack (if available)
-     - downloading cover (if available)
-     - downloading [custom] banner (if available)
-   - Wiimmfi-ying Wii games (community online playing server)
-   - all Wiimm's Mario Kart Wii distributions supported
-     - replacing characters
-     - replacing fonts
-     - replacing items
-   - choose a different Kirby for Player 1 in Kirby's Adventure Wii
-   - The Legend of Zelda: Parallel Words (modification of A Link to the Past)
-   - applying decensoring patches to Tokyo Mirage Sessions #FE
+ Features include:
+  - downloading riivolution files or patches
+  - downloading soundtracks (if available)
+  - downloading custom banners for Wii games (if available)
+  - downloading covers for Wii games (if available)
+  - automatic storing of patched games into desired destination (see README.RC)
+  - automatic patching of Wii games, 3DS games, Wii U games
+  - replacing characters, fonts and items in Mario Kart Wii
+  - replacing characters in New Super Mario Bros. Wii
+  - replacing first players Kirby in Kirby's Adventure Wii
+  - patch Nintendo WFC compatible games to use WiimmFi server
  .
  Be sure to read the supplied README-files for a full overview.
 
