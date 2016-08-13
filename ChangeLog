@@ -1,3 +1,23 @@
+v7.2.0:
+::internal changes
+- functions for applying IPS, PPF and BPS patches now check for patch zip files
+  in ${PWD} and ${PACHIMAGE_RIIVOLUTION_DIR}, just like all other functions and
+  unpack them, if found
+- functions for applying IPS, PPF and BPS patches now look in ${PWD} and
+  ${PATCHIMAGE_RIIVOLUTION_DIR} for patch files
+- functions for applying IPS, PPF and BPS patches thus only fail with they neither
+  find a zip archive containing the patch, or the bare patch file
+- HANS patcher now supports applying DELTA patches
+
+::game additions
+
+:::Pokemon
+- add support for Pokemon Delta Emerald (patch for Alpha Sapphire)
+  - supply HANS configuration files for Delta Emerald
+  - since the author of Delta Emerald is working on a patch for Omega Ruby
+    aswell, the game and created files are called "DeltaEmerald-AS"
+    [obviously they will be "DeltaEmerald-OR" for patched Omega Ruby]
+
 v7.1.0:
 ::internal changes
 - rewrite downloader function
