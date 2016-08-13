@@ -130,11 +130,17 @@ patchimage_generic () {
 patchimage_ips () {
 	show_notes
 	check_input_rom
+	check_riivolution_patch --nofail
 
 	if [[ -f ${PATCH} ]]; then
 		ext="${ROM/*.}"
 		cp "${ROM}" "${GAMENAME}.${ext}"
 		"${IPS}" a "${PATCH}" "${GAMENAME}.${ext}" || exit 51
+	elif [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${PATCH} ]]; then
+		ext="${ROM/*.}"
+		cp "${ROM}" "${GAMENAME}.${ext}"
+		"${IPS}" a "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${PATCH}" \
+			"${GAMENAME}.${ext}" || exit 51
 	else
 		echo -e "error: patch (${PATCH}) could not be found"
 		exit 21
@@ -144,11 +150,17 @@ patchimage_ips () {
 patchimage_bps () {
 	show_notes
 	check_input_rom
+	check_riivolution_patch --nofail
 
 	if [[ -f ${PATCH} ]]; then
 		ext="${ROM/*.}"
 		cp "${ROM}" "${GAMENAME}.${ext}"
 		"${BPS}" -decode -t "${GAMENAME}.${ext}" "${PATCH}" || exit 51
+	elif [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${PATCH} ]]; then
+		ext="${ROM/*.}"
+		cp "${ROM}" "${GAMENAME}.${ext}"
+		"${BPS}" -decode -t "${GAMENAME}.${ext}" \
+			"${PATCHIMAGE_RIIVOLUTION_DIR}"/"${PATCH}" || exit 51
 	else
 		echo -e "error: patch (${PATCH}) could not be found"
 		exit 21
@@ -158,11 +170,17 @@ patchimage_bps () {
 patchimage_ppf () {
 	show_notes
 	check_input_rom
+	check_riivolution_patch --nofail
 
 	if [[ -f ${PATCH} ]]; then
 		ext="${ROM/*.}"
 		cp "${ROM}" "${GAMENAME}.${ext}"
 		"${PPF}" a "${PATCH}" "${GAMENAME}.${ext}" || exit 51
+	elif [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${PATCH} ]]; then
+		ext="${ROM/*.}"
+		cp "${ROM}" "${GAMENAME}.${ext}"
+		"${PPF}" a "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${PATCH}" \
+			"${GAMENAME}.${ext}" || exit 51
 	else
 		echo -e "error: patch (${PATCH}) could not be found"
 		exit 21
@@ -186,16 +204,35 @@ patchimage_hans () {
 	echo "*** 3) unpack_3dsrom"
 	unpack_3dsrom "${ROM}" || exit 51
 
-	echo "*** 4) unpack_3dsromfs"
-	unpack_3dsromfs romfs.bin || exit 51
+	if [[ ${HANS_DELTA} ]]; then
+		echo "*** 4) apply_delta"
 
-	echo "*** 5) patch_romfs"
-	patch_romfs
+		if [[ -f ${PATCH} ]]; then
+			"${XD3}" -d -f -s romfs.bin \
+				"${PATCH}" "${ROMFS}" || exit 51
+		elif [[ -f ${PATCHIMAGE_RIIVOLUTION_DIR}/${PATCH} ]]; then
+			"${XD3}" -d -f -s romfs.bin \
+				"${PATCHIMAGE_RIIVOLUTION_DIR}"/"${PATCH}" \
+				"${ROMFS}" || exit 51
+		else
+			echo -e "error: patch (${PATCH}) could not be found"
+			exit 21
+		fi
 
-	echo "*** 6) repack_romfs"
-	repack_3dsromfs romfs/ "${ROMFS}" || exit 51
+		echo "*** 5) storing game"
+	else
+		echo "*** 4) unpack_3dsromfs"
+		unpack_3dsromfs romfs.bin || exit 51
 
-	echo "*** 7) storing game"
+		echo "*** 5) patch_romfs"
+		patch_romfs
+
+		echo "*** 6) repack_romfs"
+		repack_3dsromfs romfs/ "${ROMFS}" || exit 51
+
+		echo "*** 7) storing game"
+	fi
+
 	mv "${ROMFS}" "${PATCHIMAGE_ROM_DIR}"
 
 	echo "
@@ -210,7 +247,11 @@ patchimage_hans () {
 	   into the root of your sd card
 	"
 
-	echo "*** 8) remove workdir"
+	if [[ ${HANS_DELTA} ]]; then
+		echo "*** 6) remove workdir"
+	else	echo "*** 8) remove workdir"
+	fi
+
 	rm -rf romfs/ romfs.bin
 
 }
@@ -406,6 +447,10 @@ for game in ${GAME[@]}; do
 
 		PKMN8 | SinkingSapphire )
 			source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonsinkingsapphire.sh"
+		;;
+
+		PKMN9 | DeltaEmeraldAS )
+			source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemondeltaemerald-as.sh"
 		;;
 
 		BSECU | BravelySecondUncensored )
