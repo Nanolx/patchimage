@@ -1,0 +1,11 @@
+<shortcut>
+    <executable>/3ds/hans/hans.3dsx</executable>
+    <icon></icon>
+    <arg>-f/3ds/hans/titles/DeltaEmerald-AS.txt</arg>
+    <author>zakeblast</author>
+</shortcut>
+
+<targets selectable="0">
+    <title mediatype="1">000400000011C500</title>
+    <title mediatype="2">000400000011C500</title>
+</targets>
