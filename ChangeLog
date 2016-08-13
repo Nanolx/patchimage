@@ -5,8 +5,8 @@ v7.2.0:
   unpack them, if found
 - functions for applying IPS, PPF and BPS patches now look in ${PWD} and
   ${PATCHIMAGE_RIIVOLUTION_DIR} for patch files
-- functions for applying IPS, PPF and BPS patches thus only fail with they neither
-  find a zip archive containing the patch, or the bare patch file
+- functions for applying IPS, PPF and BPS patches thus only fail when they
+  neither find a zip archive containing the patch, or the bare patch file
 - HANS patcher now supports applying DELTA patches
 
 ::game additions
