@@ -270,6 +270,36 @@ patchimage_delta () {
 [[ ! ${GAME} ]] && ask_game
 
 for game in ${GAME[@]}; do
+	case ${game} in
+		NSMB_ALL )
+			NEW_GAME=(${NEW_GAME[@]} NSMB{1..12} NSMB{13..27})
+		;;
+
+		PKMN_ALL )
+			NEW_GAME=(${NEW_GAME[@]} PKMN{1..9})
+		;;
+
+		PKMN_Y )
+			NEW_GAME=(${NEW_GAME[@]} PKMN2 PKMN6)
+		;;
+
+		PKMN_X )
+			NEW_GAME=(${NEW_GAME[@]} PKMN1 PKMN5)
+		;;
+
+		PKMN_OR )
+			NEW_GAME=(${NEW_GAME[@]} PKMN3 PKMN7)
+		;;
+
+		PKMN_AS )
+			NEW_GAME=(${NEW_GAME[@]} PKMN4 PKMN8 PKMN9)
+		;;
+	esac
+
+	[[ ${NEW_GAME} ]] && GAME=(${NEW_GAME[@]})
+done
+
+for game in ${GAME[@]}; do
 
 	case ${game} in
 

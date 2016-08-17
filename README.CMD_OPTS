@@ -31,3 +31,12 @@
 *** Other game parameters ***
 --rom=/home/test/MyGame.rom			| specify path to ROM to use for building
 --patch=/home/test/MyModdedGame.ips		| specify path to IPS Patch file
+
+*** Batch-Building shortcuts ***
+--game=NSMB_ALL					| build all mods of New Super Mario Bros. Wii
+--game=PKMN_ALL					| build all mods of Pokemon X, Y, Omega Ruby, Alpha Sapphire
+--game=PKMN_X					| build all mods of Pokemon X
+--game=PKMN_Y					| build all mods of Pokemon Y
+--game=PKMN_OR					| build all mods of Pokemon Omega Ruby
+--game=PKMN_AS					| build all mods of Pokemon Alpha Sapphire
+

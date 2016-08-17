@@ -24,6 +24,9 @@ setup_tools () {
 
 }
 
+ALL_NSMB=(NSMB{1..12} NSMB{13..27})
+ALL_PKMN=(PKMN{1..9})
+
 SUPPORTED_GAMES="************************************************
 patchimage v${PATCHIMAGE_VERSION}
 
@@ -60,6 +63,8 @@ NSMB27	MLGSuperLuigi		MLG Super Luigi Bros. Wii
 
 NSMB99	NSMBWCharacters		Customize Characters
 
+NSMB_ALL			All Mods of New Super Mario Bros. Wii
+
 <<<<<< Mario Kart Wii >>>>>>
 MKW1	Wiimmfi			Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
 MKW2	Wiimmpatch		Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
@@ -84,6 +89,12 @@ PKMN6	WiltingY		Pokemon Wilting Y
 PKMN7	RisingRuby		Pokemon Rising Ruby
 PKMN8	SinkingSapphire		Pokemon Sinking Sapphire
 PKMN9	DeltaEmeraldAS		Pokemon Delta Emerald (Alpha Sapphire)
+
+PKMN_ALL			All Mods of Pokemon X, Y, Omega Ruy, Alpha Sapphire
+PKMN_X				All Mods of Pokemon X
+PKMN_Y				All Mods of Pokemon Y
+PKMN_OR				All Mods of Pokemon Omega Ruby
+PKMN_AS				All Mods of Pokemon Alpha Sapphire
 
 BSECU	BravelySecondUncensored	Bravely Second Uncensored
 
@@ -704,6 +715,14 @@ while [[ $xcount -lt $pcount ]]; do
 *** Other game parameters ***
 --rom=/home/test/MyGame.rom			| specify path to ROM to use for building
 --patch=/home/test/MyModdedGame.ips		| specify path to IPS Patch file
+
+*** Batch-Building shortcuts ***
+--game=NSMB_ALL					| build all mods of New Super Mario Bros. Wii
+--game=PKMN_ALL					| build all mods of Pokemon X, Y, Omega Ruby, Alpha Sapphire
+--game=PKMN_X					| build all mods of Pokemon X
+--game=PKMN_Y					| build all mods of Pokemon Y
+--game=PKMN_OR					| build all mods of Pokemon Omega Ruby
+--game=PKMN_AS					| build all mods of Pokemon Alpha Sapphire
 "
 			exit 0
 		;;
