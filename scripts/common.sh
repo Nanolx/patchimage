@@ -65,7 +65,7 @@ NSMB99	NSMBWCharacters		Customize Characters
 
 NSMB_ALL			All Mods of New Super Mario Bros. Wii
 
-<<<<<< Mario Kart Wii >>>>>>
+<<<<<< Mario Kart Wii / Wiimmfi >>>>>>
 MKW1	Wiimmfi			Wiimfi Patcher. Patch Mario Kart to use Wiimm's server
 MKW2	Wiimmpatch		Wiimfi Patcher. Patch WFC games to use Wiimm's server (exp)
 MKW3	Mkwiimm			Mario Kart Wiimm. Custom Mario Kart Distribution
@@ -79,11 +79,11 @@ KAW1	Kirby			Change first player's character
 <<<<<< Tokyo Mirage Sessions #FE >>>>>>
 TMS1	TokyoMirageSessions	Uncensor US/EUR version
 
-<<<<<< 3DS ROMS >>>>>>
+<<<<<< Pokemon >>>>>>
 PKMN1	NeoX			Pokemon Neo X
 PKMN2	NeoY			Pokemon Neo Y
 PKMN3	RutileRuby		Pokemon Rutile Ruby
-PKMN4	AlphaSapphire		Pokemon Star Sapphire
+PKMN4	StarSapphire		Pokemon Star Sapphire
 PKMN5	EternalX		Pokemon Eternal X
 PKMN6	WiltingY		Pokemon Wilting Y
 PKMN7	RisingRuby		Pokemon Rising Ruby
@@ -96,6 +96,8 @@ PKMN_Y				All Mods of Pokemon Y
 PKMN_OR				All Mods of Pokemon Omega Ruby
 PKMN_AS				All Mods of Pokemon Alpha Sapphire
 
+<<<<<< 3DS ROMS >>>>>>
+
 BSECU	BravelySecondUncensored	Bravely Second Uncensored
 
 <<<<<< ROMS >>>>>>
@@ -103,6 +105,165 @@ ZEL1	ParallelWorlds		The Legend of Zelda: Parallel Worlds
 
 ID	Short Name		Full Name
 "
+
+REQUIRED_FILES="************************************************
+patchimage v${PATCHIMAGE_VERSION}
+
+<<<<<< New Super Mario Bros. Wii >>>>>>
+
+Required Image:
+	SMN[+]01.iso or SMN[+]01.wbfs
+
+where [+] is:
+	E	for US version
+	P	for EU/Ozeania version
+	J	for JP version
+
+NSMB1	NewerSMB		Newer_Mario_Wii.zip
+NSMB2	NewerSummerSun		Newer_Summer_Sun.zip
+NSMB3	AnotherSMB		Another_Super_Mario_Brothers_Wii_2.0.zip
+NSMB4	HolidaySpecial		Newer_Super_Mario_Bros._Wii_HS.zip
+NSMB5	Cannon			Cannon_Super_Mario_Bros._Wii_v1.1.zip
+NSMB6	BowserWorld		Epic_Super_Bowser_World_v1.00.zip
+NSMB7	KoopaCountry		Koopa country.rar
+NSMB8	NewSuperMarioBros4	New Super Mario Bros. Wii 4 made by Orange-Yoshi3.3.zip
+NSMB9	RetroRemix		Retro Remix.rar
+NSMB10	WinterMoon		WinterMoon.rar
+NSMB11	NSMBW3			NSMBW3_The final levels.zip
+NSMB12	Vacation		Super_Mario_Vacation_v1.00.zip
+NSMB13	ASLM			AwesomerSLM.zip
+NSMB14	Sykland			Skyland.zip
+NSMB15	RVLution		RVLution Wii.zip
+NSMB16	Midi			MSMBWii.zip
+NSMB17	DarkUmbra		DUSMBAE Riivo Release Pack rev1.rar
+NSMB18	NewerApocalypse		NewerApocalypse 1.0.zip
+NSMB19	LuigisSuperYoshiBros	Luigis Super Yoshi Bros.
+NSMB20	NewerFallingLeaf	Newer_FALLING_LEAF.zip
+NSMB21	DevilMarioWinterSpecial	Devil Mario Winter Special collabo Frozen.zip
+NSMB22	NewSMBWOtherWorld	New Super Mario Bros. Wii - Other World
+NSMB23	TheLegendOfYoshi	The Legend of Zelda.zip [yes, really!]
+NSMB24	RemixedSuperMarioBros	Remixed v1.5.zi
+NSMB25	GhostlySuperGhostBoos	GSGBW v1.0.2.zip
+NSMB26	RevisedSuperMarioBros	RSMBW Version 1.0.zip
+NSMB27	MLGSuperLuigi		MLGLuigiWii.zip
+
+NSMB99	NSMBWCharacters		Alternative Character Files are supplied
+
+<<<<<< Mario Kart Wii / Wiimmfi >>>>>>
+
+Required Image:
+	RMC[+]01.iso or RMC[+]01.wbfs
+
+where [+] is:
+	E	for US version
+	P	for EU/Ozeania version
+	J	for JP version
+
+MKW1	Wiimmfi			Any iso or wbfs image of a Nintendo WFC game
+MKW2	Wiimmpatch		Any iso or wbfs image of Wiimm's Mario Kart Wii
+MKW3	Mkwiimm			Any Wiimm's Mario Kart Wii Distribution archive
+MKW4	MkwiimmItems		Alternative Item Files are supplied
+MKW5	MkwiimmFonts		Alternative Font Files are supplied
+MKW6	MkwiimmKarts		Alternative Kart Files are supplied
+
+<<<<<< Tokyo Mirage Sessions #FE >>>>>>
+
+Required files dumped with ddd in subfolder
+	<dumpfolder>/vol/content/Pack :
+
+	- pack_000_map.cpk
+	- pack_010_character.cpk
+	- pack_030_etc.cpk
+	- pack_031_message.cpk
+	- pack_050_movie.cpk
+	- pack_999_etc_om.cpk
+	- pack_999_lua.cpk
+
+Required patch files:
+
+	- patch_000_map.xdelta
+	- patch_010_character.xdelta
+	- patch_030_etc.xdelta
+	- patch_031_message.xdelta
+	- patch_050_movie.xdelta
+	- patch_999_etc_om.xdelta
+	- patch_999_lua.xdelta
+
+<<<<<< Kirby's Adventure Wii >>>>>>
+KAW1	Kirby			
+
+<<<<<< Pokemon X >>>>>>
+
+required cxi ROM:
+
+	0004000000055DD00.cxi
+
+PKMN1	NeoX			Neo X and Y Files.rar
+PKMN5	EternalX		Eternal X V1.3.zip
+
+<<<<<< Pokemon Y >>>>>>
+
+required cxi ROM:
+
+	0004000000055EE00.cxi
+
+PKMN2	NeoY			Neo X and Y Files.rar
+PKMN6	WiltingY		Wilting Y V1.3.zip
+
+<<<<<< Pokemon Omega Ruby >>>>>>
+
+required cxi ROM:
+
+	000400000011CC400.cxi
+
+PKMN3	RutileRuby		Rutile Ruby 2.1 - Distribution.zip
+PKMN7	RisingRuby		RRSSFiles 18-11-2015.zip
+
+<<<<<< Pokemon Alpha Sapphire >>>>>>
+
+required cxi ROM:
+
+	000400000011CC500.cxi
+
+PKMN4	StarSapphire		Star Sapphire 2.1 - Distribution.zip
+PKMN8	SinkingSapphire		RRSSFiles 18-11-2015.zip
+PKMN9	DeltaEmeraldAS		Pokemon Delta Emerald.zip
+
+<<<<<< 3DS ROMs >>>>>>
+
+required cxi ROM:
+
+	000400000017BA00.cxi	US Version
+	000400000017BB00.cxi	EU Version
+
+BSECU	BravelySecondUncensored
+	US Version:	Bravely_Second_Uncensored_USA_MINI_Asia81.rar
+	EU Version:	Bravely_Second_Uncensored_EUR_MINI_Asia81.rar
+
+<<<<<< ROMS >>>>>>
+
+required smc ROM:
+
+	The Legend of Zelda - A Link to the Past.smc	US Version
+
+ZEL1	ParallelWorlds		lozpw110.rar
+
+ID	Short Name		Full Name
+
+Download Links can be obtained using:
+
+	patchimage --game=\"<ID1> <ID2> ...\" --show-download
+
+Files not hosted on Mediafire, Mega or the like can be
+auto-downloaded for the build using:
+
+	patchimage --game=\"<ID1> <ID2> ...\" --download
+
+if the file can not automatically be downloaded the link will
+be shown and you'll be told to download on your own.
+
+"
+
 
 ask_game () {
 
@@ -589,6 +750,10 @@ while [[ $xcount -lt $pcount ]]; do
 			export PATCHIMAGE_RIIVOLUTION_DOWNLOAD=TRUE
 		;;
 
+		--show-downloadlink )
+			export PATCHIMAGE_SHOW_DOWNLOAD=TRUE
+		;;
+
 		--soundtrack )
 			export PATCHIMAGE_SOUNDTRACK_DOWNLOAD=TRUE
 		;;
@@ -645,6 +810,11 @@ while [[ $xcount -lt $pcount ]]; do
 			exit 0
 		;;
 
+		--list-requirements )
+			echo "${REQUIRED_FILES}"
+			exit 0
+		;;
+
 		--covers )
 			export PATCHIMAGE_COVER_DOWNLOAD=TRUE
 		;;
@@ -687,6 +857,8 @@ while [[ $xcount -lt $pcount ]]; do
 --game=<ID/Short Name>				| specify game you want to create
 --game=\"<ID1/Short Name1> <ID2/Short Name2>\"	| specify multiple games you want to create
 --list-games					| show possible options for --game
+--show-download					| only show download link for required files
+--list-requirements				| show required image and patch files
 
 *** Wii game parameters ***
 --iso=/home/test/RMCP01.iso			| specify path to Wii iso or wbfs image to use

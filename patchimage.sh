@@ -459,7 +459,7 @@ for game in ${GAME[@]}; do
 			source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonrutileruby.sh"
 		;;
 
-		PKMN4 | AlphaSapphire )
+		PKMN4 | StarSapphire )
 			source "${PATCHIMAGE_SCRIPT_DIR}/pokemon/pokemonstarsapphire.sh"
 		;;
 
@@ -497,6 +497,11 @@ for game in ${GAME[@]}; do
 		;;
 
 	esac
+
+	if [[ ${PATCHIMAGE_SHOW_DOWNLOAD} ]]; then
+		echo -e "\nDownloadlink for required files of Game ${GAMENAME} (${game}):\n\t${DOWNLOAD_LINK}\n"
+		continue
+	fi
 
 	case ${GAME_TYPE} in
 		"RIIVOLUTION" )

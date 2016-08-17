@@ -9,6 +9,26 @@ v7.2.0:
   neither find a zip archive containing the patch, or the bare patch file
 - HANS patcher now supports applying DELTA patches
 
+::bug fixes
+- Pokemon Star Sapphire was accidently called Alpha Sapphire in the menu,
+  also had wrong Short ID
+
+::command line parameters
+- add batch building short cuts for --game parameter:
+  * NSMB_ALL	build all NSMB Mods
+  * PKMN_ALL	build all Pokemon X, Y, Omega Ruby and Alpha Sapphire Mod
+  * PKMN_X	build all Pokemon X Mods
+  * PKMN_Y	build all Pokemon Y Mods
+  * PKMN_OR	build all Pokemon Omega Ruby Mods
+  * PKMN_AS	build all Pokemon Alpha Sapphire Mods
+- add --list-requirements ; show a detailed list of expected game images and
+  Riivolution or HANS archives or Patches required for building
+- add --show-download ; only show download like for games choosen in menu or
+  given using --game parameter
+
+::misc. changes
+- new download link for The Legend of Yoshi
+
 ::game additions
 
 :::Pokemon

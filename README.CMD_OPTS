@@ -3,6 +3,8 @@
 --game=<ID/Short Name>				| specify game you want to create
 --game="<ID1/Short Name1> <ID2/Short Name2>"	| specify multiple games you want to create
 --list-games					| show possible options for --game
+--show-download					| only show download link for required files
+--list-requirements				| show required image and patch files
 
 *** Wii game parameters ***
 --iso=/home/test/RMCP01.iso			| specify path to Wii iso or wbfs image to use
