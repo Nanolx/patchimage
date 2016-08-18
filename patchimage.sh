@@ -39,6 +39,7 @@ export PATCHIMAGE_GAME_DIR="${basedir}"
 export PATCHIMAGE_COVER_DIR="${basedir}"
 
 source "${PATCHIMAGE_SCRIPT_DIR}/common.sh"
+source "${PATCHIMAGE_SCRIPT_DIR}/messages.sh"
 optparse "${@}"
 
 check_directories

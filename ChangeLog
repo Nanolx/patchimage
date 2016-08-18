@@ -8,6 +8,7 @@ v7.2.0:
 - functions for applying IPS, PPF and BPS patches thus only fail when they
   neither find a zip archive containing the patch, or the bare patch file
 - HANS patcher now supports applying DELTA patches
+- split out messages into message.sh
 
 ::bug fixes
 - Pokemon Star Sapphire was accidently called Alpha Sapphire in the menu,
@@ -23,8 +24,16 @@ v7.2.0:
   * PKMN_AS	build all Pokemon Alpha Sapphire Mods
 - add --list-requirements ; show a detailed list of expected game images and
   Riivolution or HANS archives or Patches required for building
+- add --list-requirements-nsmb, --list-requirements-mkwiimmfi,
+  --list-requirements-tokyo, --list-requirements-kirby,
+  --list-requirements-pokemon, --list-requirements-3ds,
+  --list-requirements-other, to show only requirements for mods of specific
+  base games
 - add --show-download ; only show download like for games choosen in menu or
   given using --game parameter
+- added --list-games-nsmb, --list-games-mkwiimmfi, --list-games-tokyo,
+  --list-games-kirby, --list-games-pokemon, --list-games-3ds, --list-games-other
+  to show only mods for specific base games
 
 ::misc. changes
 - new download link for The Legend of Yoshi
