@@ -47,7 +47,7 @@ place_files () {
 				cp "${RIIVOLUTION_DIR}"/US/EngUS/Font/* "${WORKDIR}"/files/EU/"${dir}"/Font/
 				cp "${RIIVOLUTION_DIR}"/US/EngUS/staffroll/* "${WORKDIR}"/files/EU/"${dir}"/staffroll/
 			done
-			cp "${RIIVOLUTION_DIR}"/US/Layout/openingTitle/* "${WORKDIR}"/files/EU/Layout/openingTitle/
+			#cp "${RIIVOLUTION_DIR}"/US/Layout/openingTitle/* "${WORKDIR}"/files/EU/Layout/openingTitle/
 		;;
 
 		USAv* )
@@ -61,7 +61,7 @@ place_files () {
 		;;
 
 		JPNv1 )
-			cp "${RIIVOLUTION_DIR}"/US/Layout/openingTitle/* "${WORKDIR}"/files/JP/Layout/openingTitle/
+			#cp "${RIIVOLUTION_DIR}"/US/Layout/openingTitle/* "${WORKDIR}"/files/JP/Layout/openingTitle/
 			cp "${RIIVOLUTION_DIR}"/US/EngUS/Message/* "${WORKDIR}"/files/JP/Message/
 			cp "${RIIVOLUTION_DIR}"/US/EngUS/Font/* "${WORKDIR}"/files/JP/Font/
 			cp "${RIIVOLUTION_DIR}"/US/EngUS/staffroll/* "${WORKDIR}"/files/JP/staffroll/
@@ -85,8 +85,8 @@ dolpatch () {
 	sed -e 's/80001800/803482C0/g' -i "${XML_FILE}".new
 	XML_FILE="${XML_FILE}".new
 
-	${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" \
-		xml="${PATCHIMAGE_PATCH_DIR}/NewerSMBW-Loader.xml" -q
-	${WIT} dolpatch ${DOL} xml="${PATCHIMAGE_PATCH_DIR}/NSMBW_AP.xml" -q
+	#${WIT} dolpatch ${DOL} xml="${XML_FILE}" -s "${XML_SOURCE}" \
+	#	xml="${PATCHIMAGE_PATCH_DIR}/NewerSMBW-Loader.xml" -q
+	#${WIT} dolpatch ${DOL} xml="${PATCHIMAGE_PATCH_DIR}/NSMBW_AP.xml" -q
 
 }

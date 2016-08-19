@@ -20,6 +20,8 @@ v7.2.0:
   ID SMNU01 instead of correct ID SMNE01
 - fixed black screen in Devil Mario Winter Special by not applying the custom
   openingTitle.arc for PAL New Super Mario Bros. Wii
+- fixed black screen in Remixed Super Mario Bros. Wii by not applying the custom
+  openingTitle.arc for PAL and JAP New Super Mario Bros. Wii
 
 ::command line parameters
 - add batch building short cuts for --game parameter:
