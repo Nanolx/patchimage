@@ -48,7 +48,7 @@ place_files () {
 			for dir in "${LANGDIRS[@]}"; do
 				cp -r "${RIIVOLUTION_DIR}"/EU/EngEU/{Message,staffroll}/ "${WORKDIR}"/files/EU/"${dir}"/
 			done
-			cp "${RIIVOLUTION_DIR}"/OpeningP/* "${WORKDIR}"/files/EU/Layout/openingTitle/
+			#cp "${RIIVOLUTION_DIR}"/OpeningP/* "${WORKDIR}"/files/EU/Layout/openingTitle/
 		;;
 
 		USAv* )

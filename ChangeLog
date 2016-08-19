@@ -18,6 +18,8 @@ v7.2.0:
 - fixed regression from version 7.1.0 that made it impossible to patch
   US version of New Super Mario Bros. Wii because it was looking for wrong
   ID SMNU01 instead of correct ID SMNE01
+- fixed black screen in Devil Mario Winter Special by not applying the custom
+  openingTitle.arc for PAL New Super Mario Bros. Wii
 
 ::command line parameters
 - add batch building short cuts for --game parameter:
