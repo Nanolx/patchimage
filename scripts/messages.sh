@@ -66,6 +66,7 @@ PKMN6	WiltingY		Pokemon Wilting Y
 PKMN7	RisingRuby		Pokemon Rising Ruby
 PKMN8	SinkingSapphire		Pokemon Sinking Sapphire
 PKMN9	DeltaEmeraldAS		Pokemon Delta Emerald (Alpha Sapphire)
+PKMN10	RedRuby			Pokemon Red Ruby
 
 PKMN_ALL			All Mods of Pokemon X, Y, Omega Ruy, Alpha Sapphire
 PKMN_X				All Mods of Pokemon X
@@ -209,6 +210,7 @@ required cxi ROM:
 
 PKMN3	RutileRuby		Rutile Ruby 2.1 - Distribution.zip
 PKMN7	RisingRuby		RRSSFiles 18-11-2015.zip
+PKMN10	RedRuby			Pokemon Red Ruby.rar
 
 <<<<<< Pokemon Alpha Sapphire >>>>>>
 

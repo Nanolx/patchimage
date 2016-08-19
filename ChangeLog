@@ -41,6 +41,8 @@ v7.2.0:
 ::game additions
 
 :::Pokemon
+- add support for Pokemon Red Ruby
+  - supply HANS configuration files for Red Ruby
 - add support for Pokemon Delta Emerald (patch for Alpha Sapphire)
   - supply HANS configuration files for Delta Emerald
   - since the author of Delta Emerald is working on a patch for Omega Ruby

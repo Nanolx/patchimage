@@ -273,7 +273,7 @@ patchimage_delta () {
 for game in ${GAME[@]}; do
 	case ${game} in
 		NSMB_ALL )
-			NEW_GAME=(${NEW_GAME[@]} NSMB{1..12} NSMB{13..27})
+			NEW_GAME=(${NEW_GAME[@]} NSMB{1..12} NSMB{14..27})
 		;;
 
 		PKMN_ALL )
@@ -289,7 +289,7 @@ for game in ${GAME[@]}; do
 		;;
 
 		PKMN_OR )
-			NEW_GAME=(${NEW_GAME[@]} PKMN3 PKMN7)
+			NEW_GAME=(${NEW_GAME[@]} PKMN3 PKMN7 PKMN10)
 		;;
 
 		PKMN_AS )
@@ -304,7 +304,6 @@ for game in ${GAME[@]}; do
 
 	script=$(gawk -F : "/\<${game}\>/"'{print $3}' ${PATCHIMAGE_DATABASE_DIR}/scripts.db)
 	if [[ -f ${PATCHIMAGE_SCRIPT_DIR}/${script} ]]; then
-		echo ${PATCHIMAGE_SCRIPT_DIR}/${script}
 		source ${PATCHIMAGE_SCRIPT_DIR}/${script}
 	else	echo -e "specified Game ${game} not recognized"
 		continue

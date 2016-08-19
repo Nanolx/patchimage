@@ -31,7 +31,6 @@ check_input_rom_special () {
 	echo "<< trying EUR game version"
 	check_input_rom
 
-
 	if [[ ! ${ROM} ]]; then
 		GAME_VERSION=USA
 		ROM_MASK=${ROM_MASK_USA}

@@ -24,9 +24,6 @@ setup_tools () {
 
 }
 
-ALL_NSMB=(NSMB{1..12} NSMB{13..27})
-ALL_PKMN=(PKMN{1..9})
-
 ask_game () {
 
 echo "${SUPPORTED_GAMES_ALL}
