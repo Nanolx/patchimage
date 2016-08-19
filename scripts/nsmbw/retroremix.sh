@@ -8,7 +8,7 @@ RIIVOLUTION_DIR="Retro Remix"
 GAMENAME="New Super Mario Bros. Wii Retro Remix"
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
-WBFS_MASK="SMN[PUJ]01"
+WBFS_MASK="SMN[PEJ]01"
 
 show_notes () {
 

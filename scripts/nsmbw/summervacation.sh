@@ -10,7 +10,7 @@ XML_SOURCE="${RIIVOLUTION_DIR}"/Vacation
 XML_FILE="${RIIVOLUTION_DIR}"/riivolution/Vacation
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
-WBFS_MASK="SMN[PUJ]01"
+WBFS_MASK="SMN[PEJ]01"
 
 show_notes () {
 
