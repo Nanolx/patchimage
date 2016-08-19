@@ -33,6 +33,7 @@ NSMB24	RemixedSuperMarioBros	Remixed Super Mario Bros. Wii
 NSMB25	GhostlySuperGhostBoos	Ghostly Super Ghost Boos. Wii
 NSMB26	RevisedSuperMarioBros	Revised Super Mario Bros. Wii
 NSMB27	MLGSuperLuigi		MLG Super Luigi Bros. Wii
+NSMB28	Cliff			Cliff Super Mario Bros. Wii
 
 NSMB99	NSMBWCharacters		Customize Characters
 
@@ -134,6 +135,7 @@ NSMB24	RemixedSuperMarioBros	Remixed v1.5.zi
 NSMB25	GhostlySuperGhostBoos	GSGBW v1.0.2.zip
 NSMB26	RevisedSuperMarioBros	RSMBW Version 1.0.zip
 NSMB27	MLGSuperLuigi		MLGLuigiWii.zip
+NSMB28	Cliff			Cliff_Super_Mario_Brothers_Wiiv1.0b.zip
 
 NSMB99	NSMBWCharacters		Alternative Character Files are supplied
 "

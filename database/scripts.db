@@ -25,6 +25,7 @@ NSMB24:RemixedSuperMarioBros:nsmbw/remixedsupermariobroswii.sh
 NSMB25:GhostlySuperGhostBoos:nsmbw/ghostlysuperghostbooswii.sh
 NSMB26:RevisedSuperMarioBros:nsmbw/revisedsupermariobroswii.sh
 NSMB27:MLGSuperLuigi:nsmbw/mlgsuperluigibroswii.sh
+NSMB28:Cliff:nsmbw/cliffsmb.sh
 NSMB99:NSMBWCharacters:nsmbw/nsmbw_characters.sh
 MKW1:Wiimmfi:mkwii/wiimmfi.sh
 MKW2:Wiimmpatch:wiimmfi_generic.sh

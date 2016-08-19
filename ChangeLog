@@ -13,6 +13,11 @@ v7.2.0:
 ::bug fixes
 - Pokemon Star Sapphire was accidently called Alpha Sapphire in the menu,
   also had wrong Short ID
+- fixed that Opening Title for US version was applied to EU version in
+  MLG Super Mario Bros. Wii (fixes black screen on start)
+- fixed regression from version 7.1.0 that made it impossible to patch
+  US version of New Super Mario Bros. Wii because it was looking for wrong
+  ID SMNU01 instead of correct ID SMNE01
 
 ::command line parameters
 - add batch building short cuts for --game parameter:
@@ -39,6 +44,9 @@ v7.2.0:
 - new download link for The Legend of Yoshi
 
 ::game additions
+
+:::New Super Mario Bros. Wii
+- add support for Cliff Super Mario Bros. Wii (SCL[PUJ]01)
 
 :::Pokemon
 - add support for Pokemon Red Ruby
