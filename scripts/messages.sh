@@ -281,6 +281,9 @@ PATCHIMAGE_HELP="patchimage ${PATCHIMAGE_VERSION} (${PATCHIMAGE_RELEASE})
 --help						| show this message
 --game=<ID/Short Name>				| specify game you want to create
 --game=\"<ID1/Short Name1> <ID2/Short Name2>\"	| specify multiple games you want to create
+--show-download					| only show download link for required files
+
+*** List games ***
 --list-games					| show possible options for --game
 --list-games-nsmb				| show possible New Super Mario Bros. Wii options for --game
 --list-games-mkwiimmfi				| show possible Mario Kart Wii / Wiimmfi options for --game
@@ -289,6 +292,8 @@ PATCHIMAGE_HELP="patchimage ${PATCHIMAGE_VERSION} (${PATCHIMAGE_RELEASE})
 --list-games-pokemon				| show possible Pokemon options for --game
 --list-games-3ds				| show possible 3DS options for --game
 --list-games-other				| show possible other options for --game
+
+*** List requirements ***
 --list-requirements				| show required image and patch files all games
 --list-requirements-nsmb			| show required image and patch files for New Super Mario Bros. Wii
 --list-requirements-mkwiimmfi			| show required image and patch files for Mario Kart Wii / Wiimmfi
@@ -297,7 +302,6 @@ PATCHIMAGE_HELP="patchimage ${PATCHIMAGE_VERSION} (${PATCHIMAGE_RELEASE})
 --list-requirements-pokemon			| show required image and patch files for Pokemon games
 --list-requirements-3ds				| show required image and patch files for other 3DS games
 --list-requirements-other			| show required image and patch files for other games
---show-download					| only show download link for required files
 
 *** Wii game parameters ***
 --iso=/home/test/RMCP01.iso			| specify path to Wii iso or wbfs image to use
