@@ -37,7 +37,7 @@ place_files () {
 
 	case ${VERSION} in
 		EUR* )
-			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU NedEU PolEU )
+			LANGDIRS=( EngEU FraEU GerEU ItaEU SpaEU )
 			for dir in "${LANGDIRS[@]}"; do
 				cp "${RIIVOLUTION_DIR}"/MessageEN/Message.arc "${WORKDIR}"/files/EU/"${dir}"/Message/Message.arc
 			done
