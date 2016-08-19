@@ -10,7 +10,7 @@ XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="${RIIVOLUTION_DIR}"/../riivolution/MLGLuigiE.xml
 GAME_TYPE=RIIVOLUTION
 BANNER_LOCATION=${WORKDIR}/files/opening.bnr
-WBFS_MASK="SMN[PUJ]01"
+WBFS_MASK="SMN[PEJ]01"
 
 show_notes () {
 
@@ -68,7 +68,7 @@ place_files () {
 				cp "${RIIVOLUTION_DIR}"/EU/EngEU/staffroll/staffroll.bin "${WORKDIR}"/files/EU/"${dir}"/staffroll/staffroll.bin
 				cp "${RIIVOLUTION_DIR}"/Font/* "${WORKDIR}"/files/EU/"${dir}"/Font/
 			done
-			cp -r "${RIIVOLUTION_DIR}"/OpeningE/openingTitle.arc "${WORKDIR}"/files/EU/Layout/openingTitle/
+			#cp -r "${RIIVOLUTION_DIR}"/OpeningE/openingTitle.arc "${WORKDIR}"/files/EU/Layout/openingTitle/
 		;;
 
 		USAv* )
@@ -78,7 +78,7 @@ place_files () {
 				cp "${RIIVOLUTION_DIR}"/EU/EngEU/staffroll/staffroll.bin "${WORKDIR}"/files/US/"${dir}"/staffroll/staffroll.bin
 				cp "${RIIVOLUTION_DIR}"/Font/* "${WORKDIR}"/files/US/"${dir}"/Font/
 			done
-			#cp -r "${RIIVOLUTION_DIR}"/OpeningE/openingTitle.arc "${WORKDIR}"/files/US/Layout/openingTitle/
+			cp -r "${RIIVOLUTION_DIR}"/OpeningE/openingTitle.arc "${WORKDIR}"/files/US/Layout/openingTitle/
 		;;
 
 		JPNv1 )
