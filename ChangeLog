@@ -9,6 +9,8 @@ v7.2.0:
   neither find a zip archive containing the patch, or the bare patch file
 - HANS patcher now supports applying DELTA patches
 - split out messages into message.sh
+- automatic downloading is not possible from SendSpace, update downloader
+  function to inform user to manually download from there
 
 ::bug fixes
 - Pokemon Star Sapphire was accidently called Alpha Sapphire in the menu,
@@ -22,6 +24,8 @@ v7.2.0:
   openingTitle.arc for PAL New Super Mario Bros. Wii
 - fixed black screen in Remixed Super Mario Bros. Wii by not applying the custom
   openingTitle.arc for PAL and JAP New Super Mario Bros. Wii
+- fixed that the script did try to automatically download from mediafire instead
+  of informing user to manually download
 
 ::command line parameters
 - add batch building short cuts for --game parameter:
@@ -51,6 +55,7 @@ v7.2.0:
 
 :::New Super Mario Bros. Wii
 - add support for Cliff Super Mario Bros. Wii (SCL[PUJ]01)
+- add support for Challenging Super Mario Bros. Wii: Virtual Special (SMN[PUJ]ZC)
 
 :::Pokemon
 - add support for Pokemon Red Ruby

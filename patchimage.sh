@@ -273,11 +273,11 @@ patchimage_delta () {
 for game in ${GAME[@]}; do
 	case ${game} in
 		NSMB_ALL )
-			NEW_GAME=(${NEW_GAME[@]} NSMB{1..12} NSMB{14..27})
+			NEW_GAME=(${NEW_GAME[@]} NSMB{1..12} NSMB{14..29})
 		;;
 
 		PKMN_ALL )
-			NEW_GAME=(${NEW_GAME[@]} PKMN{1..9})
+			NEW_GAME=(${NEW_GAME[@]} PKMN{1..10})
 		;;
 
 		PKMN_Y )
