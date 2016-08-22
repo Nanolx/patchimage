@@ -127,12 +127,12 @@ NSMB15	RVLution		RVLution Wii.zip
 NSMB16	Midi			MSMBWii.zip
 NSMB17	DarkUmbra		DUSMBAE Riivo Release Pack rev1.rar
 NSMB18	NewerApocalypse		NewerApocalypse 1.0.zip
-NSMB19	LuigisSuperYoshiBros	Luigis Super Yoshi Bros.
+NSMB19	LuigisSuperYoshiBros	Luigis Super Yoshi Bros.zip
 NSMB20	NewerFallingLeaf	Newer_FALLING_LEAF.zip
 NSMB21	DevilMarioWinterSpecial	Devil Mario Winter Special collabo Frozen.zip
-NSMB22	NewSMBWOtherWorld	New Super Mario Bros. Wii - Other World
-NSMB23	TheLegendOfYoshi	The Legend of Zelda.zip [yes, really!]
-NSMB24	RemixedSuperMarioBros	Remixed v1.5.zi
+NSMB22	NewSMBWOtherWorld	Riivolution Other WorldR v1.02.zip
+NSMB23	TheLegendOfYoshi	The Legend Of Yoshi.zip
+NSMB24	RemixedSuperMarioBros	Remixed v1.5.zip
 NSMB25	GhostlySuperGhostBoos	GSGBW v1.0.2.zip
 NSMB26	RevisedSuperMarioBros	RSMBW Version 1.0.zip
 NSMB27	MLGSuperLuigi		MLGLuigiWii.zip
