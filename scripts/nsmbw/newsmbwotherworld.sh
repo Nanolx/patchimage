@@ -2,8 +2,8 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="http://riivolution.nanolx.org/Riivolution%20Other%20WorldR%20v1.01.zip"
-RIIVOLUTION_ZIP="Riivolution Other WorldR v1.01.zip"
+DOWNLOAD_LINK="https://docs.google.com/uc?id=0B1vUum-n5kqOR2V3SEpZcE5waEU&export=download"
+RIIVOLUTION_ZIP="Riivolution Other WorldR v1.02.zip"
 RIIVOLUTION_DIR="Riivolution Other WorldR/Other World/"
 GAMENAME="New Super Mario Bros. Wii - Other World"
 XML_SOURCE="${RIIVOLUTION_DIR}"
