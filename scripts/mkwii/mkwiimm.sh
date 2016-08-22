@@ -3,7 +3,7 @@
 GAME_TYPE="MKWIIMM"
 GAMENAME="Mario Kart Wiimm"
 DOWNLOAD_LINK="http://download.wiimm.de/wiimmfi/patcher/mkw-wiimmfi-patcher-v3.7z"
-WBFS_MASK="RMC[PUJ]01"
+WBFS_MASK="RMC[PEJ]01"
 
 show_notes () {
 

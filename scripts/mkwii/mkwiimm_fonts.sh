@@ -3,7 +3,7 @@
 GAME_TYPE="GENERIC"
 GAMENAME="Mario Kart Wiimm"
 FSZS="files/Scene/UI/Font.szs"
-WBFS_MASK="RMC[PUJ]01"
+WBFS_MASK="RMC[PEJ]01"
 
 show_notes () {
 
