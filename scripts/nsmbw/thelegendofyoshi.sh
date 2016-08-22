@@ -2,9 +2,9 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="http://riivolution.nanolx.org/The%20Legend%20of%20Zelda.zip"
-RIIVOLUTION_ZIP="The Legend of Zelda.zip"
-RIIVOLUTION_DIR="TLOY (Riivolution) [P] [J] [E] (05-14-2016)  [no custom logo]/The Legend Of Yoshi/tloy"
+DOWNLOAD_LINK="https://www.dropbox.com/s/tfypq5j3t85v6dv/The%20Legend%20Of%20Yoshi.zip"
+RIIVOLUTION_ZIP="The Legend Of Yoshi.zip"
+RIIVOLUTION_DIR="TLOY (Riivolution) [P] [J] [E] (05-28-2016)  [no custom logo]/The Legend Of Yoshi/tloy"
 GAMENAME="The Legend of Yoshi"
 XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="${RIIVOLUTION_DIR}/../riivolution/TLOY ("
@@ -18,7 +18,7 @@ echo -e \
 "************************************************
 ${GAMENAME}
 
-Source:			http://rvlution.net/thread/4349-the-legend-of-yoshi-05-14-16-important-message/
+Source:			http://rvlution.net/thread/4349-the-legend-of-yoshi-05-28-16-dlc/
 Base Image:		New Super Mario Bros. Wii (SMN?01)
 Supported Versions:	EURv1, EURv2, USAv1, USAv2, JPNv1
 ************************************************"
