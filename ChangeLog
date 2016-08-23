@@ -1,4 +1,4 @@
-v7.2.2:
+v7.2.2 (20160823):
 ::bug fixes
 - fix PATCHIMAGE_3DS_DIR setup when no ${HOME}/.patchimage.rc exists
 - fix PATCHIMAGE_ROM_DIR setup when no ${HOME}/.patchimage.rc exists
@@ -16,11 +16,11 @@ v7.2.2:
 - in game information fix link to Pokemon Star Sapphire Thread
 - update Cliff Super Mario Bros. to version 1.0.4
 
-v7.2.1:
+v7.2.1 (20160822):
 ::bug fixes
 - fix ID for Kirby's Adventure Wii and Mario Kart Wii for US versions
 
-v7.2.0:
+v7.2.0 (20160822):
 ::internal changes
 - functions for applying IPS, PPF and BPS patches now check for patch zip files
   in ${PWD} and ${PACHIMAGE_RIIVOLUTION_DIR}, just like all other functions and
