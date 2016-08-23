@@ -12,6 +12,7 @@ v7.2.2:
 - use 'read -er' instead of 'read -r' so that during user-input readline
   features like path-completion can be used.
 - in game information fix link to Pokemon Star Sapphire Thread
+- update Cliff Super Mario Bros. to version 1.0.4
 
 v7.2.1:
 ::bug fixes

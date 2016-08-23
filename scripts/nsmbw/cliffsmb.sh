@@ -2,8 +2,8 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="http://www.mediafire.com/download/tmjzbyf3q7v3u7f/Cliff_Super_Mario_Brothers_Wiiv1.0b.zip"
-RIIVOLUTION_ZIP="Cliff_Super_Mario_Brothers_Wiiv1.0b.zip"
+DOWNLOAD_LINK="http://www.mediafire.com/download/3j52g4j2jjdxg43/Cliff_Super_Mario_Brothers_Wiiv1.0.4.zip"
+RIIVOLUTION_ZIP="Cliff_Super_Mario_Brothers_Wiiv1.0.4.zip"
 RIIVOLUTION_DIR="Cliff"
 GAMENAME="Cliff Super Mario Bros. Wii"
 XML_SOURCE="${RIIVOLUTION_DIR}"
