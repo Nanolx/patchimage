@@ -1,3 +1,7 @@
+v7.2.1:
+::bug fixes
+- fix ID for Kirby's Adventure Wii and Mario Kart Wii for US versions
+
 v7.2.0:
 ::internal changes
 - functions for applying IPS, PPF and BPS patches now check for patch zip files
