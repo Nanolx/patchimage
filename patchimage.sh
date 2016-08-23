@@ -318,7 +318,7 @@ for game in ${GAME[@]}; do
 	fi
 
 	if [[ ${PATCHIMAGE_SHOW_DOWNLOAD} ]]; then
-		echo -e "\nDownloadlink for required files of Game ${GAMENAME} (${game}):\n\t${DOWNLOAD_LINK}\n"
+		echo -e "\nDownloadlink for required files of Game:\n\t${GAMENAME} (${game}):\n\n\t${DOWNLOAD_LINK}\n"
 		continue
 	fi
 
