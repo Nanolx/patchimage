@@ -302,6 +302,12 @@ for game in ${GAME[@]}; do
 	[[ ${NEW_GAME} ]] && GAME=(${NEW_GAME[@]})
 done
 
+CURDIR=${PWD}
+if [[ -w ${CURDIR} ]]; then
+	BUILD_DIR="${CURDIR}"/patchimage_build
+else	BUILD_DIR="${HOME}"/patchimage_build
+fi
+
 for game in ${GAME[@]}; do
 
 	script=$(gawk -F : "/\<${game}\>/"'{print $3}' ${PATCHIMAGE_DATABASE_DIR}/scripts.db)
@@ -315,6 +321,9 @@ for game in ${GAME[@]}; do
 		echo -e "\nDownloadlink for required files of Game ${GAMENAME} (${game}):\n\t${DOWNLOAD_LINK}\n"
 		continue
 	fi
+
+	mkdir -p "${BUILD_DIR}"
+	cd "${BUILD_DIR}"
 
 	case ${GAME_TYPE} in
 		"RIIVOLUTION" )
@@ -350,4 +359,7 @@ for game in ${GAME[@]}; do
 		;;
 
 	esac
+
+	cd "${CURDIR}"
+	rm -rf "${BUILD_DIR}"
 done

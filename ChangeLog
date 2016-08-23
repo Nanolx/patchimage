@@ -2,6 +2,11 @@ v7.2.2:
 ::bug fixes
 - fix PATCHIMAGE_3DS_DIR setup when no ${HOME}/.patchimage.rc exists
 - fix PATCHIMAGE_ROM_DIR setup when no ${HOME}/.patchimage.rc exists
+- fix error messages or required user-input during batch-build by
+  creating a separate build directory, when create the mod and before
+  the next build is done that build directory is removed and re-created
+  - when ${PWD} is writable that will be ${PWD}/patchimage_build, else
+    it will be ${HOME}/patchimage_build
 
 v7.2.1:
 ::bug fixes
