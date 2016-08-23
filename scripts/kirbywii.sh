@@ -66,7 +66,7 @@ pi_action () {
 7	Restore to original
 
 type in a number."
-read -r ID
+read -er ID
 
 	[[ ${ID} != [0-9] ]] && echo "invalid number provided from user-input." && exit 1
 

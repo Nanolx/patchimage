@@ -28,7 +28,7 @@ ALL	Build all distributions."
 	gawk -F : 'NR>1 {print $1 "\t" $2}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm.db
 	echo "
 type in ALL or an ID (multiple separated by space)"
-	read -r ID
+	read -er ID
 
 }
 

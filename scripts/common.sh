@@ -31,7 +31,7 @@ echo "${SUPPORTED_GAMES_ALL}
 Enter ID or Short Name for the Game you want to build (multiple separated by space):
 "
 
-read -r GAME
+read -er GAME
 
 }
 

@@ -24,7 +24,7 @@ check_input_image_special () {
 
 	ask_input_image_mkwiimm
 	echo -e "type RMC???.wbfs:\n"
-	read -r ID
+	read -er ID
 
 	if [[ -f ${PWD}/${ID} ]]; then
 		GAMEDIR="${PWD}"
@@ -45,7 +45,7 @@ orig		Original Mario Kart Wii Font"
 	gawk -F : '{print $1 "\t\t" $2}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm_fonts.db
 
 	echo -e "\ntype ???.szs or orig"
-	read -r FONT
+	read -er FONT
 
 	if [[ ${FONT} != orig ]]; then
 		if [[ ! -f ${PATCHIMAGE_DATA_DIR}/mkwiimm_fonts/${FONT} ]]; then

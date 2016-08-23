@@ -24,7 +24,7 @@ check_input_image_special () {
 
 	ask_input_image_mkwiimm
 	echo -e "type RMC???.wbfs:\n"
-	read -r ID
+	read -er ID
 
 	if [[ -f ${PWD}/${ID} ]]; then
 		GAMEDIR="${PWD}"
@@ -60,7 +60,7 @@ ask_items () {
 	if [[ -f ${HOME}/.patchimage.choice ]]; then
 		echo "Your choices from last time can be re-used."
 		echo "y (yes) or n (no)"
-		read -r choice
+		read -er choice
 
 		[[ ${choice} == y ]] && source "${HOME}"/.patchimage.choice
 	fi
@@ -77,7 +77,7 @@ orig		Original item"
 
 			gawk -F : "/${slot}/"'{print $1 "\t" $3}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm_items.db
 			echo -e "\ntype orig or ???.brres"
-			read -r slotid
+			read -er slotid
 			echo "<<<<<<>>>>>>"
 			choosenitems=( ${choosenitems[@]} ${slot}:${slotid} )
 		done

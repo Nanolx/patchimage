@@ -52,7 +52,7 @@ Encounter type changes the wild Pokemon availability:
 enter either 'legit', 'leveled' or '679':
 "
 
-	read -r choice
+	read -er choice
 
 	case ${choice} in
 		[lL]egit ) HANS_EXTRA_PATH="${RIIVOLUTION_DIR}/Encounter Type/Legit Build" ;;

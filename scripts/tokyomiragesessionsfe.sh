@@ -26,13 +26,13 @@ menu () {
 
 	if [[ ! ${XDELTA_PATH} ]]; then
 		echo -e "\nEnter path to the directory containing the delta patches:\n"
-		read -r XDELTA_PATH || exit 75
+		read -er XDELTA_PATH || exit 75
 	else	status=9
 	fi
 
 	if [[ ! ${CPK_PATH} ]]; then
 		echo -e "\nEnter path to the directory containing the game files (cpk):\n"
-		read -r CPK_PATH || exit 75
+		read -er CPK_PATH || exit 75
 	else	status=9
 	fi
 

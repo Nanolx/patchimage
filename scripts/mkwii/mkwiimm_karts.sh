@@ -22,7 +22,7 @@ check_input_image_special () {
 
 	ask_input_image_mkwiimm
 	echo -e "type ALL or RMC???.wbfs:\n"
-	read -r ID
+	read -er ID
 
 	if [[ -f ${PWD}/${ID} ]]; then
 		GAMEDIR="${PWD}"
@@ -39,12 +39,12 @@ ask_slot () {
 	echo -e "\nFirst choose a vehicle to be replaced\n"
 	gawk -F : '{print $1 "\t\t" $2}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm_vehicles.db
 	echo -e "\ntype in ??_??? as in first column\n"
-	read -r VEHICLE
+	read -er VEHICLE
 
 	echo -e "\nNow choose a character to be replaced\n"
 	gawk -F : '{print $1 "\t\t" $2}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm_characters.db
 	echo -e "\ntype in -?? as in first column\n"
-	read -r CHARACTER
+	read -er CHARACTER
 
 	choosenkarts=( ${choosenkarts[@]} ${kart}:${VEHICLE}${CHARACTER} )
 
@@ -55,7 +55,7 @@ download_wiimm () {
 	if [[ -f ${HOME}/.patchimage.choice ]]; then
 		echo "Your choices from last time can be re-used."
 		echo "y (yes) or n (no)"
-		read -r choice
+		read -er choice
 
 		if [[ ${choice} == y ]]; then
 			source "${HOME}"/.patchimage.choice
@@ -66,7 +66,7 @@ download_wiimm () {
 		echo -e "Choose a character to add to the game\n"
 		gawk -F : '{print $1 "\t\t" $2}' < "${PATCHIMAGE_DATABASE_DIR}"/mkwiimm_karts.db
 		echo -e "\ntype ???.szs (multiple possible, space separated)"
-		read -r KART
+		read -er KART
 
 		for kart in "${KART[@]}"; do
 			if [[ ! -f ${PATCHIMAGE_DATA_DIR}/mkwiimm_karts/${kart} ]]; then

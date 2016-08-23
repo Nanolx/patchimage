@@ -24,7 +24,7 @@ check_input_image_special () {
 	ask_input_image_wiimmfi
 
 	echo -e "type ??????.wbfs (or ??????.iso):\n"
-	read -r ID
+	read -er ID
 
 	if [[ -f ${PWD}/${ID} ]]; then
 		GAMEDIR="${PWD}"

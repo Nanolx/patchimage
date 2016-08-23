@@ -23,7 +23,7 @@ check_input_image_special () {
 	ask_input_image_nsmb
 
 	echo -e "type ??????.wbfs or ??????.iso:\n"
-	read -r ID
+	read -er ID
 
 	if [[ -f ${PWD}/${ID} ]]; then
 		GAMEDIR="${PWD}"
@@ -40,7 +40,7 @@ pi_action () {
 	if [[ -f ${HOME}/.patchimage.choice ]]; then
 		echo "Your choices from last time can be re-used."
 		echo "y (yes) or n (no)"
-		read -r choice
+		read -er choice
 
 		[[ ${choice} == y ]] && source "${HOME}"/.patchimage.choice
 	fi
@@ -51,7 +51,7 @@ pi_action () {
 		echo -e "\ntype ???.arc (only one per slot (second column) possible, space separated)
 or type 'restore' to only restore original characters.
 "
-		read -r PLAYERS
+		read -er PLAYERS
 	fi
 
 	rm -rf workdir

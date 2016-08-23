@@ -36,7 +36,7 @@ viola_nerf () {
 enter either 'nerf' or press [Enter] to keep:
 "
 
-	read -r choice
+	read -er choice
 
 	case choice in
 		[nN]erf ) HANS_EXTRA_PATH="${HANS_PATH}/Viola Nerf Files" ;;
@@ -63,7 +63,7 @@ Encounter type changes the wild Pokemon availability:
 enter either 'legal', 'rebalanced' or 'insanity':
 "
 
-	read -r choice
+	read -er choice
 
 	case ${choice} in
 		[lL]egal ) HANS_PATH="${RIIVOLUTION_DIR}/Legal version"

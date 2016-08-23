@@ -8,6 +8,11 @@ v7.2.2:
   - when ${PWD} is writable that will be ${PWD}/patchimage_build, else
     it will be ${HOME}/patchimage_build
 
+::misc. changes
+- use 'read -er' instead of 'read -r' so that during user-input readline
+  features like path-completion can be used.
+- in game information fix link to Pokemon Star Sapphire Thread
+
 v7.2.1:
 ::bug fixes
 - fix ID for Kirby's Adventure Wii and Mario Kart Wii for US versions

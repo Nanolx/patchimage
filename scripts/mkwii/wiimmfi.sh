@@ -23,7 +23,7 @@ check_input_image_special () {
 
 	ask_input_image_mkwiimm
 	echo -e "type RMC???.wbfs:\n"
-	read -r ID
+	read -er ID
 
 	if [[ -f ${PWD}/${ID} ]]; then
 		GAMEDIR="${PWD}"
