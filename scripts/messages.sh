@@ -136,7 +136,7 @@ NSMB24	RemixedSuperMarioBros	Remixed v1.5.zip
 NSMB25	GhostlySuperGhostBoos	GSGBW v1.0.2.zip
 NSMB26	RevisedSuperMarioBros	RSMBW Version 1.0.zip
 NSMB27	MLGSuperLuigi		MLGLuigiWii.zip
-NSMB28	Cliff			Cliff_Super_Mario_Brothers_Wiiv1.0b.zip
+NSMB28	Cliff			Cliff_Super_Mario_Brothers_Wiiv1.0.4.zip
 NSMB29	Virtual			ChaSMBW_VrS_v0.2.zip
 
 NSMB99	NSMBWCharacters		Alternative Character Files are supplied
