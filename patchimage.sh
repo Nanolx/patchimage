@@ -37,6 +37,8 @@ export PATCHIMAGE_WBFS_DIR="${basedir}"
 export PATCHIMAGE_AUDIO_DIR="${basedir}"
 export PATCHIMAGE_GAME_DIR="${basedir}"
 export PATCHIMAGE_COVER_DIR="${basedir}"
+export PATCHIMAGE_ROM_DIR="${basedir}"
+export PATCHIMAGE_3DS_DIR="${basedir}"
 
 source "${PATCHIMAGE_SCRIPT_DIR}/common.sh"
 source "${PATCHIMAGE_SCRIPT_DIR}/messages.sh"
