@@ -517,7 +517,7 @@ while [[ $xcount -lt $pcount ]]; do
 			export PATCHIMAGE_RIIVOLUTION_DOWNLOAD=TRUE
 		;;
 
-		--show-downloadlink )
+		--show-download )
 			export PATCHIMAGE_SHOW_DOWNLOAD=TRUE
 		;;
 
