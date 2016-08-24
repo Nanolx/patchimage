@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PATCHIMAGE_VERSION=7.2.2
-PATCHIMAGE_RELEASE=2016/08/23
+PATCHIMAGE_VERSION=7.3.0-devel
+PATCHIMAGE_RELEASE=2016/08/24+
 
 [[ -e ${HOME}/.patchimage.rc ]] && source "${HOME}"/.patchimage.rc
 
