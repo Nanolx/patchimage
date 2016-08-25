@@ -2,6 +2,9 @@ v7.3.0 (---):
 ::internal changes:
 - modularize common.sh
 
+::misc. changes:
+- update Cliff Super Mario Bros. to version 1.0.5
+
 v7.2.2 (20160823):
 ::bug fixes
 - fix PATCHIMAGE_3DS_DIR setup when no ${HOME}/.patchimage.rc exists
