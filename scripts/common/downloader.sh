@@ -51,15 +51,6 @@ download_riivolution_patch () {
 			unpack "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 		;;
 
-		*mega.nz* )
-			x=6
-			echo "can not download from Mega, download manually from:
-
-	${DOWNLOAD_LINK}
-"
-			exit 21
-		;;
-
 		*romhacking* )
 			x=6
 			echo "can not download from Romhacking, download manually from:
