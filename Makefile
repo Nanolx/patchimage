@@ -1,5 +1,5 @@
 all:
-	@echo "nothing to do"
+	@echo "nothing to do, use 'make install'"
 
 install:
 	mkdir -p $(DESTDIR)/usr/bin/
@@ -28,3 +28,4 @@ uninstall:
 	fi
 
 clean:
+	@echo "nothing to"
