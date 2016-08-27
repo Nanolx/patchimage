@@ -51,6 +51,19 @@ download_riivolution_patch () {
 			unpack "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 		;;
 
+		*mega.nz* )
+			x=5
+			echo "*** >> downloading"
+			${MEGADL} \
+				--path="${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
+				"${DOWNLOAD_LINK}" >/dev/null || \
+				( echo -e "\nDownload failed!" && exit 57 )
+			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
+				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
+			echo "*** >> unpacking"
+			unpack "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
+		;;
+
 		*romhacking* )
 			x=6
 			echo "can not download from Romhacking, download manually from:
