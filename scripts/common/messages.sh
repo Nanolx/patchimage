@@ -18,7 +18,6 @@ NSMB9	RetroRemix		New Super Mario Bros. Wii Retro Remix
 NSMB10	WinterMoon		Super Mario: Mushroom Adventure PLUS - Winter Moon
 NSMB11	NSMBW3			NSMBW3: The Final Levels
 NSMB12	Vacation		Super Mario Vacation
-NSMB13	ASLM			Awesomer Super Luigi Mini
 NSMB14	Sykland			Super Mario Skyland
 NSMB15	RVLution		RVLution Wii (NewSMB Mod)
 NSMB16	Midi			Midi's Super Mario Wii (Just A Little Adventure)
@@ -121,7 +120,6 @@ NSMB9	RetroRemix		Retro Remix.rar
 NSMB10	WinterMoon		WinterMoon.rar
 NSMB11	NSMBW3			NSMBW3_The final levels.zip
 NSMB12	Vacation		Super_Mario_Vacation_v1.00.zip
-NSMB13	ASLM			AwesomerSLM.zip
 NSMB14	Sykland			Skyland.zip
 NSMB15	RVLution		RVLution Wii.zip
 NSMB16	Midi			MSMBWii.zip
@@ -136,7 +134,7 @@ NSMB24	RemixedSuperMarioBros	Remixed v1.5.zip
 NSMB25	GhostlySuperGhostBoos	GSGBW v1.0.2.zip
 NSMB26	RevisedSuperMarioBros	RSMBW Version 1.0.zip
 NSMB27	MLGSuperLuigi		MLGLuigiWii.zip
-NSMB28	Cliff			Cliff_Super_Mario_Brothers_Wiiv1.0.4.zip
+NSMB28	Cliff			Cliff_Super_Mario_Brothers_Wiiv1.0.5.zip
 NSMB29	Virtual			ChaSMBW_VrS_v0.2.zip
 
 NSMB99	NSMBWCharacters		Alternative Character Files are supplied

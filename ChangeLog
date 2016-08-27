@@ -9,6 +9,10 @@ v7.3.1:
   patcher does, too, but it should fail immediately upon wrong user-input]
 - remove build directory before trying to build a game, not afterwards, so that
   in case a build failed in batch-mode, the next one can be tried without issues
+- fixed that character mods were not applicable to Cliff Super Mario Bros. Wii
+
+::misc. changes:
+- drop support for Awesomer Super Luigi Mini (broken and offline)
 
 v7.3.0 (20160827):
 ::internal changes:
