@@ -4,7 +4,9 @@ download_soundtrack () {
 
 	if [[ ${SOUNDTRACK_LINK} && ! -f ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP} ]]; then
 		wget -q --no-check-certificate "${SOUNDTRACK_LINK}" \
-			-O "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" || exit 57
+			-O "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" || \
+				( rm "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" && \
+					echo "downloading soundtrack failed." && exit 57 )
 		echo -e "\n >>> soundtrack saved to\n >>> ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP}"
 	else
 		echo -e "no soundtrack for ${GAMENAME} available."
@@ -44,7 +46,8 @@ download_riivolution_patch () {
 			echo "*** >> downloading"
 			${GDOWN} "${DOWNLOAD_LINK}" \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || \
-				( echo -e "\nDownload failed!" && exit 57 )
+				( rm "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp && \
+					echo -e "\nDownload failed!" && exit 57 )
 			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 			echo "*** >> unpacking"
@@ -57,7 +60,8 @@ download_riivolution_patch () {
 			${MEGADL} \
 				--path="${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${DOWNLOAD_LINK}" >/dev/null || \
-				( echo -e "\nDownload failed!" && exit 57 )
+				( rm "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp && \
+					echo -e "\nDownload failed!" && exit 57 )
 			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 			echo "*** >> unpacking"
@@ -84,7 +88,8 @@ download_riivolution_patch () {
 			echo "*** >> downloading"
 			wget -q --no-check-certificate "${DOWNLOAD_LINK}" \
 				-O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp || \
-				( echo -e "\nDownload failed!" && exit 57 )
+				( rm "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp && \
+					echo -e "\nDownload failed!" && exit 57 )
 			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 			echo "*** >> unpacking"
