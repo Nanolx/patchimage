@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://www.sendspace.com/file/cky4rn"
+DOWNLOAD_LINK="https://fs10n4.sendspace.com/dl/939b01a934c50dcb9d5f739180108e37/57c153d6055d64ea/cky4rn/ChaSMBW_VrS_v0.2.zip"
 RIIVOLUTION_ZIP="ChaSMBW_VrS_v0.2.zip"
 RIIVOLUTION_DIR="VirtualChallenging"
 GAMENAME="Challenging Super Mario Bros. Wii: Virtual Special"

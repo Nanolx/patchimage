@@ -7,6 +7,9 @@ v7.3.0 (---):
   downloaded using wget, this makes Cliff Super Mario Bros., Ghostly Super
   Mario Boos Wii, MLG Super Mario Bros. Wii, Pokemon Neo X, Pokemon Neo Y
   and Pokemon Red Ruby auto-downloadable
+- changed download links to Sendspace so that they can automatically be
+  downloaded using wget, this makes Challenging Super Mario Bros. Wii:
+  Virtual Special auto-downloadable
 
 ::misc. changes:
 - update Cliff Super Mario Bros. to version 1.0.5
