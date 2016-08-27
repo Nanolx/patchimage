@@ -47,7 +47,7 @@ check_input_rom_special () {
 		EUR )
 			echo ">> found EUR game version"
 			ROMFS="0017BB00.romfs"
-			DOWNLOAD_LINK="mega:///#!N0QEHLRB!g_Wy5dngt4xgVXtk1BhQaqSSRj0phjP6xMp776OSEo8"
+			DOWNLOAD_LINK="https://mega.nz/#!N0QEHLRB!g_Wy5dngt4xgVXtk1BhQaqSSRj0phjP6xMp776OSEo8"
 			RIIVOLUTION_ZIP="Bravely_Second_Uncensored_EUR_MINI_Asia81.rar"
 			RIIVOLUTION_DIR="Bravely_Second_Uncensored_EUR_MINI_Asia81/ExtractedRomFS"
 		;;
@@ -55,7 +55,7 @@ check_input_rom_special () {
 		USA )
 			echo ">> found USA game version"
 			ROMFS="0017BA00.romfs"
-			DOWNLOAD_LINK="mega:///#!9sx1QKRQ!A6qzCkvY9HmPGu4VIy1TiikTRgbE-vUho99LOYWxA84"
+			DOWNLOAD_LINK="https://mega.nz/#!9sx1QKRQ!A6qzCkvY9HmPGu4VIy1TiikTRgbE-vUho99LOYWxA84"
 			RIIVOLUTION_ZIP="Bravely_Second_Uncensored_USA_MINI_Asia81.rar"
 			RIIVOLUTION_DIR="Bravely_Second_Uncensored_USA_MINI_Asia81/ExtractedRomFS"
 		;;
