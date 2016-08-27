@@ -154,7 +154,11 @@ check_riivolution_patch () {
 	x=0
 	if [[ ! -d ${RIIVOLUTION_DIR} ]]; then
 		x=1
-		if [[ -f "${PWD}/${RIIVOLUTION_ZIP}" ]]; then
+		if [[ -f "${RIIVOLUTION_ZIP_CUSTOM}" ]]; then
+			echo "*** >> unpacking"
+			x=2
+			unpack "${RIIVOLUTION_ZIP_CUSTOM}"
+		elif [[ -f "${PWD}/${RIIVOLUTION_ZIP}" ]]; then
 			echo "*** >> unpacking"
 			x=2
 			unpack "${PWD}/${RIIVOLUTION_ZIP}"

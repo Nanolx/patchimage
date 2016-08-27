@@ -103,6 +103,7 @@ for game in ${GAME[@]}; do
 		continue
 	fi
 
+	rm -rf "${BUILD_DIR}"
 	mkdir -p "${BUILD_DIR}"
 	cd "${BUILD_DIR}"
 
@@ -142,5 +143,4 @@ for game in ${GAME[@]}; do
 	esac
 
 	cd "${CURDIR}"
-	rm -rf "${BUILD_DIR}"
 done

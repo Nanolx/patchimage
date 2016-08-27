@@ -13,7 +13,7 @@ while [[ $xcount -lt $pcount ]]; do
 			ISO_PATH="${1/*=}"
 
 			if [[ -f "${ISO_PATH}" ]]; then
-				IMAGE="${ISO_PATH}"
+				IMAGE=$(readlink -m "${ISO_PATH}")
 			else
 				echo -e "ISO not found"
 				exit 15
@@ -24,7 +24,7 @@ while [[ $xcount -lt $pcount ]]; do
 			ROM_PATH="${1/*=}"
 
 			if [[ -f "${ROM_PATH}" ]]; then
-				ROM="${ROM_PATH}"
+				ROM=$(readlink -m "${ROM_PATH}")
 			else
 				echo -e "ROM not found"
 				exit 15
@@ -34,7 +34,7 @@ while [[ $xcount -lt $pcount ]]; do
 		--riivolution=* )
 			RIIVOLUTION="${1/*=}"
 			if [[ -f "${RIIVOLUTION}" ]]; then
-				"${UNP}" "${RIIVOLUTION}" >/dev/null
+				RIIVOLUTION_ZIP_CUSTOM=$(readlink -m "${RIIVOLUTION}")
 			else
 				echo -e "Riivolution patch ${RIIVOLUTION} not found."
 				exit 21
@@ -44,7 +44,7 @@ while [[ $xcount -lt $pcount ]]; do
 		--patch=*  )
 			PATCH="${1/*=}"
 			if [[ -f "${PATCH}" ]]; then
-				PATCH="${PATCH}"
+				PATCH=$(readlink -m "${PATCH}")
 			else
 				echo -e "IPS/PPF patch ${PATCH} not found."
 				exit 21
@@ -229,11 +229,21 @@ while [[ $xcount -lt $pcount ]]; do
 		;;
 
 		--xdelta=* )
-			export XDELTA_PATH="${1/*=}"
+			if [[ -d ${1/*=} ]]; then
+				export XDELTA_PATH=$(readlink -m "${1/*=}")
+			else
+				echo "given directory ${1/*=} does no exist."
+				exit 75
+			fi
 		;;
 
 		--cpk=* )
-			export CPK_PATH="${1/*=}"
+			if [[ -d ${1/*=} ]]; then
+				export CPK_PATH=$(readlink -m "${1/*=}")
+			else
+				echo "given directory ${1/*=} does no exist."
+				exit 75
+			fi
 		;;
 
 		--help | -h )
