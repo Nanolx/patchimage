@@ -1,3 +1,13 @@
+v7.3.1:
+::bug fixes
+- fixed that --iso, --rom, --patch, --xdelta, --cpk and --riivolution command
+  line flags failed when relative paths were given
+- fixed that temporary files were kept when downloads failed, causing required
+  user-input for wget when trying again
+- fixed that --cpk and --xdelta command line flags never actually checked wether
+  the given directory does exist, before trying to patch the game [the game
+  patcher does, too, but it should fail immediately upon wrong user-input]
+
 v7.3.0 (20160827):
 ::internal changes:
 - modularize common.sh
