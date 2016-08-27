@@ -7,6 +7,8 @@ v7.3.1:
 - fixed that --cpk and --xdelta command line flags never actually checked wether
   the given directory does exist, before trying to patch the game [the game
   patcher does, too, but it should fail immediately upon wrong user-input]
+- remove build directory before trying to build a game, not afterwards, so that
+  in case a build failed in batch-mode, the next one can be tried without issues
 
 v7.3.0 (20160827):
 ::internal changes:
