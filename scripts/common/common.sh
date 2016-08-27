@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PATCHIMAGE_VERSION=7.3.0-devel
-PATCHIMAGE_RELEASE=2016/08/24+
+PATCHIMAGE_VERSION=7.3.0
+PATCHIMAGE_RELEASE=2016/08/27
 
 [[ -e ${HOME}/.patchimage.rc ]] && source "${HOME}"/.patchimage.rc
 
@@ -21,6 +21,7 @@ setup_tools () {
 	export GDOWN="${PATCHIMAGE_TOOLS_DIR}"/gdown.pl
 	export CTRTOOL="${PATCHIMAGE_TOOLS_DIR}"/ctrtool."${SUFFIX}"
 	export FDSTOOL="${PATCHIMAGE_TOOLS_DIR}"/3dstool."${SUFFIX}"
+	export MEGADL="${PATCHIMAGE_TOOLS_DIR}"/megadl."${SUFFIX}"
 
 }
 

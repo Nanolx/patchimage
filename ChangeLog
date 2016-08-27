@@ -1,6 +1,7 @@
 v7.3.0 (---):
 ::internal changes:
 - modularize common.sh
+- supply megadl (32 and 64 bit)
 
 ::downloader changes:
 - changed download links to Mediafire so that they can automatically be
@@ -10,6 +11,9 @@ v7.3.0 (---):
 - changed download links to Sendspace so that they can automatically be
   downloaded using wget, this makes Challenging Super Mario Bros. Wii:
   Virtual Special auto-downloadable
+- include megadl a tool that can download files from Mega using commandline,
+  this makes Pokemon Delta Emerald, Pokemon Rutile Ruby, Pokemon Star Sapphire
+  and Bravely Second Uncensored auto-downloadable
 
 ::misc. changes:
 - update Cliff Super Mario Bros. to version 1.0.5
