@@ -1,7 +1,7 @@
 v7.3.1:
 ::bug fixes
 - fixed that --iso, --rom, --patch, --xdelta, --cpk and --riivolution command
-  line flags failed when relative paths were given
+  line flags failed when relative paths were given (regression from 7.2.2)
 - fixed that temporary files were kept when downloads failed, causing required
   user-input for wget when trying again
 - fixed that --cpk and --xdelta command line flags never actually checked wether
