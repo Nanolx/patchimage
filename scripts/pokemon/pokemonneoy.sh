@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOWNLOAD_LINK="http://www.mediafire.com/download/nd9z16t5nb92743/Neo+X+and+Y+Files.rar"
+DOWNLOAD_LINK="http://download842.mediafire.com/610594k0d1dg/nd9z16t5nb92743/Neo+X+and+Y+Files.rar"
 RIIVOLUTION_ZIP="Neo X and Y Files.rar"
 RIIVOLUTION_DIR="Neo X and Y Files/Pokemon NeoXY1.4/Installation hub/data/"
 GAMENAME="Pokemon Neo Y"

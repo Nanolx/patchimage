@@ -60,15 +60,6 @@ download_riivolution_patch () {
 			exit 21
 		;;
 
-		*mediafire* )
-			x=6
-			echo "can not download from Mediafire, download manually from:
-
-	${DOWNLOAD_LINK}
-"
-			exit 21
-		;;
-
 		*sendspace* )
 			x=6
 			echo "can not download from SendSpace, download manually from:

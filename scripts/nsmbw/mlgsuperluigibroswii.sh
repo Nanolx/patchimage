@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="http://www.mediafire.com/download/wsob4c27urgkl62/MLGLuigiWii.zip"
+DOWNLOAD_LINK="http://download1334.mediafire.com/11ypp8a15gag/wsob4c27urgkl62/MLGLuigiWii.zip"
 RIIVOLUTION_ZIP="MLGLuigiWii.zip"
 RIIVOLUTION_DIR="MLGLuigiWii/MLGLuigi"
 GAMENAME="MLG Super Luigi Wii"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOWNLOAD_LINK="http://www.mediafire.com/download/8tacxp6oz5cw6c8/Pokemon+Red+Ruby.rar"
+DOWNLOAD_LINK="http://download2009.mediafire.com/kv9pjged8ueg/8tacxp6oz5cw6c8/Pokemon+Red+Ruby.rar"
 RIIVOLUTION_ZIP="Pokemon Red Ruby.rar"
 RIIVOLUTION_DIR="Installation Files"
 GAMENAME="Pokemon Red Ruby"
