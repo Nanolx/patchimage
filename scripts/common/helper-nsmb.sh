@@ -39,12 +39,14 @@ ask_input_image_nsmb () {
 
 	ALL		patch all images"
 
-	for image in "${PWD}"/SMN???.{iso,wbfs} \
+	for image in "${PWD}"/SCL???.{iso,wbfs}
+		"${PWD}"/SMN???.{iso,wbfs} \
 		"${PWD}"/SLF???.{iso,wbfs} \
 		"${PWD}"/SLB???.{iso,wbfs} \
 		"${PWD}"/SMM???.{iso,wbfs} \
 		"${PWD}"/SMV???.{iso,wbfs} \
 		"${PWD}"/MRR???.{iso,wbfs} \
+		"${PATCHIMAGE_WBFS_DIR}"/SCL???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SMN???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SLF???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SLB???.{iso,wbfs} \
