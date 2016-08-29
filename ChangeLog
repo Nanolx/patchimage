@@ -1,4 +1,31 @@
-v7.3.1:
+v7.4.0:
+::misc. changes:
+- use 'wget -nv' instead of 'wget -q'
+- improved Tokyo Mirage Sessions #FE Restoration Patcher:
+  - use 'Restoration' instead of 'Uncensored' as Name
+  - more failsafe build-directory name
+  - add support for downloading xdelta files with --download
+  - check whether files have already been downloaded and use those
+    - if you want to re-download the files regardless, simply use --download
+      this will trigger re-download (unlike for Riivolution archives, where
+      --download will not re-download if the file[s] were found)
+  - for cpk file path support both the top level directory of the dump as well
+    as the sub level directory which holds the cpk files, read: when your dump
+    is in
+	/home/test/TMSFE
+    you were previously required to set the cpk path to
+	/home/test/TMSFE/vol/content/Pack
+    now using
+	/home/test/TMSFE
+    will work, too, as the script will look for the sub directory
+	vol/content/Pack
+    on it's own
+
+v7.3.1.1 (20160829):
+::bug fixes
+- fixed brocken nsmb-helper script
+
+v7.3.1 (20160828):
 ::bug fixes
 - fixed that --iso, --rom, --patch, --xdelta, --cpk and --riivolution command
   line flags failed when relative paths were given (regression from 7.2.2)
