@@ -114,7 +114,8 @@ menu () {
 
 patch () {
 
-	BUILD_DIR="${PWD}"/TMSxFE-Restoration-Build
+	cd "${CURDIR}"
+	BUILD_DIR="${CURDIR}"/TMSxFE-Restoration-Build
 
 	if [[ -d ${BUILD_DIR} ]]; then
 		echo -e "\nremoving old files"
