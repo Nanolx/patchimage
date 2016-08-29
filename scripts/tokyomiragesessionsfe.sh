@@ -9,7 +9,7 @@ DOWNLOAD_LINKS=( "patch_000_map.xdelta+https://drive.google.com/uc?id=0BxykxdPQq
 		 "patch_010_character.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZSzZzNVd4ejZYalE&export=download"
 		 "patch_030_etc.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZNEZfN1hqOHVYZ0E&export=download"
 		 "patch_031_message.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZTDlRdzlkUno3ZXM&export=download"
-		 "patch_050_move.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZNU5kNlh2d1VRQzQ&export=download"
+		 "patch_050_movie.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZNU5kNlh2d1VRQzQ&export=download"
 		 "patch_999_etc_om.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZN2VxTERFY2JPUFU&export=download"
 		 "patch_999_lua.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZUERRR0w2Nnl2YUk&export=download" )
 
