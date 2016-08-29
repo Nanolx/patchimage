@@ -6,9 +6,6 @@ v7.4.0:
   - more failsafe build-directory name
   - add support for downloading xdelta files with --download
   - check whether files have already been downloaded and use those
-    - if you want to re-download the files regardless, simply use --download
-      this will trigger re-download (unlike for Riivolution archives, where
-      --download will not re-download if the file[s] were found)
   - for xdelta patches and original cpk files, now check whether every single
     file exists, rather than just one of them
   - for cpk file path support both the top level directory of the dump as well
