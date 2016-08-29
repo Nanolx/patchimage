@@ -3,7 +3,7 @@
 download_soundtrack () {
 
 	if [[ ${SOUNDTRACK_LINK} && ! -f ${PATCHIMAGE_AUDIO_DIR}/${SOUNDTRACK_ZIP} ]]; then
-		wget -q --no-check-certificate "${SOUNDTRACK_LINK}" \
+		wget -nv --no-check-certificate "${SOUNDTRACK_LINK}" \
 			-O "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" || \
 				( rm "${PATCHIMAGE_AUDIO_DIR}"/"${SOUNDTRACK_ZIP}" && \
 					echo "downloading soundtrack failed." && exit 57 )
@@ -19,7 +19,7 @@ download_banner () {
 	if [[ ${PATCHIMAGE_BANNER_DOWNLOAD} == "TRUE" ]]; then
 		if [[ ${CUSTOM_BANNER} ]]; then
 			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr ]]; then
-				wget -q --no-check-certificate "${CUSTOM_BANNER}" \
+				wget -nv --no-check-certificate "${CUSTOM_BANNER}" \
 					-O "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr__tmp || \
 					rm -f "${PATCHIMAGE_RIIVOLUTION_DIR}"/"${GAMEID}"-custom-banner.bnr__tmp
 			fi
@@ -86,7 +86,7 @@ download_riivolution_patch () {
 		* )
 			x=5
 			echo "*** >> downloading"
-			wget -q --no-check-certificate "${DOWNLOAD_LINK}" \
+			wget -nv --no-check-certificate "${DOWNLOAD_LINK}" \
 				-O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp || \
 				( rm "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp && \
 					echo -e "\nDownload failed!" && exit 57 )
@@ -105,12 +105,12 @@ download_covers () {
 
 	for path in cover cover3D coverfull disc disccustom; do
 		if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png ]]; then
-			wget -q -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
+			wget -nv -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
 				http://art.gametdb.com/wii/"${path}"/EN/"${1}".png \
 				|| rm "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png
 
 			if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png ]]; then
-				wget -q -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
+				wget -nv -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
 					http://art.gametdb.com/wii/"${path}"/US/"${alt}".png \
 				|| rm "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png
 			fi

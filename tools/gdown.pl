@@ -54,7 +54,7 @@ while (-s $FILENAME < 100000) { # only if the file isn't the download yet
 }
 
 sub execute_command() {
-    $COMMAND="wget --load-cookie $TEMP/cookie.txt --save-cookie $TEMP/cookie.txt \"$URL\"";
+    $COMMAND="wget -nv --load-cookie $TEMP/cookie.txt --save-cookie $TEMP/cookie.txt \"$URL\"";
     $COMMAND.=" -O \"$FILENAME\"" if $FILENAME ne '';
     `$COMMAND`;
     return 1;
