@@ -1,6 +1,7 @@
 v7.4.0:
 ::misc. changes:
 - use 'wget -nv' instead of 'wget -q'
+- update Cliff Super Mario Bros. Wii to version 1.1.1
 - improved Tokyo Mirage Sessions #FE Restoration Patcher:
   - use 'Restoration' instead of 'Uncensored' as Name
   - more failsafe build-directory name
