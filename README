@@ -60,6 +60,9 @@ Example usages:
 	Newer Super Mario Bros. Wii and Cannon Super Mario Bros. in one go:
 	$ patchimage --game="NewerSMB Cannon" --iso=/home/test/SMNP01.iso --download
 
+	All Mods of New Super Mario Bros. Wii:
+	$ patchimage --game=NSMB_ALL --iso=/home/test/SMNP01.iso --download
+
 License: GNU GPLv3
 Extra Licenses:
 > applyppf3	as-is
