@@ -10,7 +10,7 @@ DOWNLOAD_LINKS=( "patch_000_map.xdelta+https://drive.google.com/uc?id=0BxykxdPQq
 		 "patch_030_etc.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZNEZfN1hqOHVYZ0E&export=download"
 		 "patch_031_message.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZTDlRdzlkUno3ZXM&export=download"
 		 "patch_050_movie.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZNU5kNlh2d1VRQzQ&export=download"
-		 "patch_999_etc_om.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZN2VxTERFY2JPUFU&export=download"
+		 "patch_999_etc_om.xdelta+https://drive.google.com/drive/folders/0BxykxdPQq3oZbVNGODB2TFlKTHc"
 		 "patch_999_lua.xdelta+https://drive.google.com/uc?id=0BxykxdPQq3oZUERRR0w2Nnl2YUk&export=download" )
 
 show_notes () {
@@ -50,13 +50,15 @@ menu () {
 		fi
 
 	else
-		echo -e "\nDownloading required files, ~1.9 Gigabyte. This will take a while.\n"
+		echo -e "\nChecking whether to download required files\nmaximum ~1.9 Gigabyte. This may take a while."
+
+		[[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration ]] && \
+			mkdir ${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration
+		XDELTA_PATH="${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration"
 		for delta in ${DOWNLOAD_LINKS[@]}; do
 			DL_NAME=${delta/+*}
 			DL_LINK=${delta/*+}
-			[[ ! -d ${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration ]] && \
-				mkdir ${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration
-			if [[ ! -f ${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration/${DL_NAME} ]]; then
+			if [[ ! -f "${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration/${DL_NAME}" ]]; then
 				${GDOWN} "${DL_LINK}" \
 					"${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration/${DL_NAME}"__tmp || \
 					( rm "${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration/${DL_NAME}"__tmp && \
@@ -64,8 +66,6 @@ menu () {
 				mv "${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration/${DL_NAME}"__tmp \
 					"${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration/${DL_NAME}"
 			fi
-
-			XDELTA_PATH="${PATCHIMAGE_RIIVOLUTION_DIR}/TMSFE_Restoration"
 		done
 	fi
 
@@ -103,22 +103,24 @@ menu () {
 
 patch () {
 
-	if [[ -d ${PWD}/TMSxFE-Restoration-Build ]]; then
+	BUILD_DIR="${PWD}"/TMSxFE-Restoration-Build
+
+	if [[ -d ${BUILD_DIR} ]]; then
 		echo -e "\nremoving old files"
-		rm -rf "${PWD}"/TMSxFE-Restoration-Build
+		rm -rf "${BUILD_DIR}"
 	fi
 
 	all=${#PATCH_FILES[@]}
 
 	echo -e "\n> copying cpk files"
-	mkdir "${PWD}"/TMSxFE-Restoration-Build
+	mkdir "${BUILD_DIR}"
 
 	cur=0
 	for file in "${PATCH_FILES[@]}"; do
 		cur=$((cur+1))
 		echo ">> [${cur}/${all}] pack_${file}.cpk"
 		cp "${CPK_PATH}"/pack_"${file}".cpk \
-			"${PWD}"/TMSxFE-Restoration-Build
+			"${BUILD_DIR}"
 	done
 
 	cur=0
@@ -126,17 +128,17 @@ patch () {
 	for patch in "${PATCH_FILES[@]}"; do
 		cur=$((cur+1))
 		echo ">> [${cur}/${all}] pack_${patch}.cpk"
-		"${XD3}" -d -f -s "${PWD}"/TMSxFE-Restoration-Build/pack_"${patch}".cpk \
+		"${XD3}" -d -f -s "${BUILD_DIR}"/pack_"${patch}".cpk \
 			"${XDELTA_PATH}"/patch_"${patch}".xdelta \
-			"${PWD}"/TMSxFE-Restoration-Build/pack_"${patch}".cpk_new || exit 51
+			"${BUILD_DIR}"/pack_"${patch}".cpk_new || exit 51
 
-		mv "${PWD}"/TMSxFE-Restoration-Build/pack_"${patch}".cpk_new \
-			"${PWD}"/TMSxFE-Restoration-Build/pack_"${patch}".cpk
+		mv "${BUILD_DIR}"/pack_"${patch}".cpk_new \
+			"${BUILD_DIR}"/pack_"${patch}".cpk
 	done
 
 	echo -e "\n< Done patching
 << Find your modified cpk files in:
-	\n\t${PWD}/TMSxFE-Restoration-Build
+	\n\t${BUILD_DIR}
 
 Copy your complete dump (content, code, meta folders) to your SD-Card in
 
