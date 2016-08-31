@@ -110,7 +110,7 @@ download_covers () {
 				|| rm "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png
 
 			if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png ]]; then
-				wget -nv -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
+				wget -q -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
 					http://art.gametdb.com/wii/"${path}"/US/"${alt}".png \
 				|| rm "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png
 			fi
