@@ -105,7 +105,7 @@ download_covers () {
 
 	for path in cover cover3D coverfull disc disccustom; do
 		if [[ ! -f "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png ]]; then
-			wget -nv -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
+			wget -q -O "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png \
 				http://art.gametdb.com/wii/"${path}"/EN/"${1}".png \
 				|| rm "${PATCHIMAGE_COVER_DIR}"/"${1}"_"${path}".png
 
