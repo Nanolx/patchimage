@@ -1,6 +1,7 @@
 v7.4.0:
 ::misc. changes:
 - use 'wget -nv' instead of 'wget -q'
+  - except for cover downloader
 - update Cliff Super Mario Bros. Wii to version 1.1.1
 - update Revised Super Mario Bros. Wii to version 1.1
 - update The Legend of Yoshi to version 2016-08-31
