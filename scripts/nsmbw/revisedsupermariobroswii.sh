@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://www.dropbox.com/s/0hrmxz3gh7b3b1q/RSMBW%20Version%201.1.zip?dl=0"
+DOWNLOAD_LINK="https://www.dropbox.com/s/0hrmxz3gh7b3b1q/RSMBW%20Version%201.1.zip"
 RIIVOLUTION_ZIP="RSMBW Version 1.1.zip"
 RIIVOLUTION_DIR="rsmbw"
 GAMENAME="Revised Super Mario Bros. Wii"

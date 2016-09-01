@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://www.dropbox.com/s/rw3iwa8vhj7o337/LSYB.zip?dl=0"
+DOWNLOAD_LINK="https://www.dropbox.com/s/rw3iwa8vhj7o337/LSYB.zip"
 RIIVOLUTION_ZIP="LSYB.zip"
 RIIVOLUTION_DIR="LSYB"
 GAMENAME="Luigis Super Yoshi Bros."
