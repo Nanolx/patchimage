@@ -2,9 +2,9 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://www.dropbox.com/s/tfypq5j3t85v6dv/The%20Legend%20Of%20Yoshi.zip"
+DOWNLOAD_LINK="https://www.dropbox.com/s/t2u8soleg8qeix8/The%20Legend%20Of%20Yoshi.zip"
 RIIVOLUTION_ZIP="The Legend Of Yoshi.zip"
-RIIVOLUTION_DIR="TLOY (Riivolution) [P] [J] [E] (05-28-2016)  [no custom logo]/The Legend Of Yoshi/tloy"
+RIIVOLUTION_DIR="TLOY (Riivolution) [P] [J] [E] (08-31-2016)  [no custom logo]/The Legend Of Yoshi/tloy"
 GAMENAME="The Legend of Yoshi"
 XML_SOURCE="${RIIVOLUTION_DIR}"
 XML_FILE="${RIIVOLUTION_DIR}/../riivolution/TLOY ("
