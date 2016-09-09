@@ -42,6 +42,7 @@ ask_input_image_nsmb () {
 	for image in "${PWD}"/SCL???.{iso,wbfs} \
 		"${PWD}"/SMN???.{iso,wbfs} \
 		"${PWD}"/SLF???.{iso,wbfs} \
+		"${PWD}"/SFR???.{iso,wbfs} \
 		"${PWD}"/SLB???.{iso,wbfs} \
 		"${PWD}"/SMM???.{iso,wbfs} \
 		"${PWD}"/SMV???.{iso,wbfs} \
@@ -49,6 +50,7 @@ ask_input_image_nsmb () {
 		"${PATCHIMAGE_WBFS_DIR}"/SCL???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SMN???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SLF???.{iso,wbfs} \
+		"${PATCHIMAGE_WBFS_DIR}"/SFR???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SLB???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SMM???.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/SMV???.{iso,wbfs} \

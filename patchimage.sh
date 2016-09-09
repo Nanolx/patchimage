@@ -56,7 +56,7 @@ setup_tools
 for game in ${GAME[@]}; do
 	case ${game} in
 		NSMB_ALL )
-			NEW_GAME=(${NEW_GAME[@]} NSMB{1..12} NSMB{14..29})
+			NEW_GAME=(${NEW_GAME[@]} NSMB{1..29})
 		;;
 
 		PKMN_ALL )

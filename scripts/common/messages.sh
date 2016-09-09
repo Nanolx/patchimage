@@ -18,6 +18,7 @@ NSMB9	RetroRemix		New Super Mario Bros. Wii Retro Remix
 NSMB10	WinterMoon		Super Mario: Mushroom Adventure PLUS - Winter Moon
 NSMB11	NSMBW3			NSMBW3: The Final Levels
 NSMB12	Vacation		Super Mario Vacation
+NSMB13	Frozen			Super Mario Bros. Frozen Editon
 NSMB14	Sykland			Super Mario Skyland
 NSMB15	RVLution		RVLution Wii (NewSMB Mod)
 NSMB16	Midi			Midi's Super Mario Wii (Just A Little Adventure)
@@ -120,6 +121,7 @@ NSMB9	RetroRemix		Retro Remix.rar
 NSMB10	WinterMoon		WinterMoon.rar
 NSMB11	NSMBW3			NSMBW3_The final levels.zip
 NSMB12	Vacation		Super_Mario_Vacation_v1.00.zip
+NSMB13	Frozen			SMBFrozenEdition.rar
 NSMB14	Sykland			Skyland.zip
 NSMB15	RVLution		RVLution Wii.zip
 NSMB16	Midi			MSMBWii.zip
