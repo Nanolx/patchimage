@@ -2,6 +2,10 @@ v7.5.0 ():
 ::game additions:
 - add support for Super Mario Bros. Frozen Editon
 
+::misc. changes:
+- fix ID6 for NSMBW3: The Final Levels in README.GAMEIDS
+- other minor changes
+
 v7.4.0 (20160903):
 ::Tokyo Mirage Sessions #FE Restoration Patcher
 - use 'Restoration' instead of 'Uncensored' as Name
