@@ -17,7 +17,7 @@ ask_input_image_wiimmfi () {
 
 	for image in "${PWD}"/*.{iso,wbfs} \
 		"${PATCHIMAGE_WBFS_DIR}"/*.{iso,wbfs}; do
-		if [[ -e ${image} && ! ${image} == "*/RMC*" && $(check_wfc "${image##*/}") == TRUE ]]; then
+		if [[ -f ${image} && ! ${image} == "*/RMC*" && $(check_wfc "${image##*/}") == TRUE ]]; then
 			echo "	${image##*/}	$(show_titles_db "${image##*/}")"
 		fi
 	done
