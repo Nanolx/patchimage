@@ -1,3 +1,9 @@
+patchimage (7.5.0-1nano) unstable; urgency=low
+
+  * new upstream stable release
+
+ -- Christopher Roy Bratusek <nano@jpberlin.de>  Tue, 27 Sep 2016 18:10:38 +0200
+
 patchimage (7.4.0-1nano) unstable; urgency=low
 
   * new upstream stable release
