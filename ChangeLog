@@ -2,6 +2,10 @@ v7.5.0 ():
 ::game additions:
 - add support for Super Mario Bros. Frozen Editon
 
+::game updates:
+- Pokemon Rising Ruby: support version 2.0
+- Pokemon Sinking Sapphire: support version 2.0
+
 ::misc. changes:
 - fix ID6 for NSMBW3: The Final Levels in README.GAMEIDS
 - other minor changes
