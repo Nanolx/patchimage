@@ -8,7 +8,7 @@ GAME_TYPE=HANS
 
 ROM_MASK="*000400000011[cC]500*cxi"
 ROMFS="SinkingSapphire.romfs"
-DATA="${PATCHIMAGE_DATA_DIR}/Sinking Sapphire Files/Raw Files/romFS a/"
+DATA="${PATCHIMAGE_DATA_DIR}/Sinking Sapphire/"
 
 show_notes () {
 
@@ -31,6 +31,6 @@ check_hans_files () {
 
 patch_romfs () {
 
-	cp -r "${RIIVOLUTION_DIR}"/a romfs/
+	cp -r "${RIIVOLUTION_DIR}/Sinking Sapphire Files/Raw Files/romFS a/a" romfs/
 
 	}
