@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DOWNLOAD_LINK="https://drive.google.com/uc?id=0B-zmEVN0Mas6NUlqM1hMTnVuS00&export=download"
-RIIVOLUTION_ZIP="RRSSv2.0.zip"
-RIIVOLUTION_DIR="RRSSv2.0"
+DOWNLOAD_LINK="https://drive.google.com/uc?id=0B-zmEVN0Mas6Qm5jYXZkVy1QZjA&export=download"
+RIIVOLUTION_ZIP="RRSSv2.1.zip"
+RIIVOLUTION_DIR="RRSSv2.1"
 GAMENAME="Pokemon Rising Ruby"
 GAME_TYPE=HANS
 
@@ -31,6 +31,6 @@ check_hans_files () {
 
 patch_romfs () {
 
-	cp -r "${RIIVOLUTION_DIR}/Rising Ruby Files/Raw Files/romFS a/" romfs/a/
+	cp -r "${RIIVOLUTION_DIR}/Drop-In Files/Rising Ruby/Drop-It-In (CRO FOR LUMA3DS ONLY)/romfs/a/" romfs/
 
 	}
