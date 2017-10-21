@@ -177,7 +177,7 @@ patch_wiimm () {
 
 	XD="${PWD}"
 	if [[ ${ID} == ALL ]]; then
-		for ID in {06..32}; do
+		for ID in {06..34}; do
 			build_mkwiimm "${ID}"
 		done
 	else
