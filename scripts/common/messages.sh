@@ -35,6 +35,7 @@ NSMB26	RevisedSuperMarioBros	Revised Super Mario Bros. Wii
 NSMB27	MLGSuperLuigi		MLG Super Luigi Bros. Wii
 NSMB28	Cliff			Cliff Super Mario Bros. Wii
 NSMB29	Virtual			Challenging Super Mario Bros. Wii: Virtual Special
+NSMB30	NSLDM			Newer Super Luigi Wii: Dark Moon
 
 NSMB99	NSMBWCharacters		Customize Characters
 
