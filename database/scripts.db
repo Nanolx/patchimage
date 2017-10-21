@@ -27,6 +27,7 @@ NSMB26:RevisedSuperMarioBros:nsmbw/revisedsupermariobroswii.sh
 NSMB27:MLGSuperLuigi:nsmbw/mlgsuperluigibroswii.sh
 NSMB28:Cliff:nsmbw/cliffsmb.sh
 NSMB29:Virtual:nsmbw/virtualspecial.sh
+NSMB30:NSLDM:nsmbw/luigidarkmoon.sh
 NSMB99:NSMBWCharacters:nsmbw/nsmbw_characters.sh
 MKW1:Wiimmfi:mkwii/wiimmfi.sh
 MKW2:Wiimmpatch:wiimmfi_generic.sh
