@@ -39,7 +39,7 @@ detect_game_version () {
 place_files () {
 
 
-	NEW_DIRS=( "${WORKDIR}"/files/LevelSamples "${WORKDIR}"/files/NewerRes "${WORKDIR}"/files/Maps )
+	NEW_DIRS=( "${WORKDIR}"/files/LevelSamples "${WORKDIR}"/files/NewerRes "${WORKDIR}"/files/Maps "${WORKDIR}"/files/Sound/new )
 	for dir in "${NEW_DIRS[@]}"; do
 		mkdir -p "${dir}"
 	done
@@ -73,7 +73,6 @@ place_files () {
 	cp "${RIIVOLUTION_DIR}"/BGs/* "${WORKDIR}"/files/Object/
 	cp "${RIIVOLUTION_DIR}"/SpriteTex/* "${WORKDIR}"/files/Object/
 	cp "${RIIVOLUTION_DIR}"/Layouts/* "${WORKDIR}"/files/Layout/
-	mkdir "${WORKDIR}"/files/Sound/new/
 	cp -r "${RIIVOLUTION_DIR}"/Music/*.er "${WORKDIR}"/files/Sound/new/
 	cp "${RIIVOLUTION_DIR}"/Music/stream/* "${WORKDIR}"/files/Sound/stream/
 	cp "${RIIVOLUTION_DIR}"/Music/rsar/* "${WORKDIR}"/files/Sound/
