@@ -73,6 +73,7 @@ place_files () {
 	cp "${RIIVOLUTION_DIR}"/BGs/* "${WORKDIR}"/files/Object/
 	cp "${RIIVOLUTION_DIR}"/SpriteTex/* "${WORKDIR}"/files/Object/
 	cp "${RIIVOLUTION_DIR}"/Layouts/* "${WORKDIR}"/files/Layout/
+	mkdir "${WORKDIR}"/files/Sound/new/
 	cp -r "${RIIVOLUTION_DIR}"/Music/*.er "${WORKDIR}"/files/Sound/new/
 	cp "${RIIVOLUTION_DIR}"/Music/stream/* "${WORKDIR}"/files/Sound/stream/
 	cp "${RIIVOLUTION_DIR}"/Music/rsar/* "${WORKDIR}"/files/Sound/
