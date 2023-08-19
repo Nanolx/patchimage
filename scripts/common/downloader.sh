@@ -47,7 +47,7 @@ download_riivolution_patch () {
 			${GDOWN} "${DOWNLOAD_LINK}" \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp >/dev/null || \
 				( rm "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp && \
-					echo -e "\nDownload failed!" && exit 57 )
+					download_riivolution_failed && exit 57 )
 			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 			echo "*** >> unpacking"
@@ -61,7 +61,7 @@ download_riivolution_patch () {
 				--path="${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${DOWNLOAD_LINK}" >/dev/null || \
 				( rm "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp && \
-					echo -e "\nDownload failed!" && exit 57 )
+					download_riivolution_failed && exit 57 )
 			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 			echo "*** >> unpacking"
@@ -80,6 +80,7 @@ download_riivolution_patch () {
 
 		"" )
 			echo "no download link for ${GAMENAME} available."
+            download_riivolution_failed
 			exit 21
 		;;
 
@@ -89,7 +90,7 @@ download_riivolution_patch () {
 			wget -nv --no-check-certificate "${DOWNLOAD_LINK}" \
 				-O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp || \
 				( rm "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp && \
-					echo -e "\nDownload failed!" && exit 57 )
+					download_riivolution_failed && exit 57 )
 			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
 				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
 			echo "*** >> unpacking"
@@ -120,5 +121,13 @@ download_covers () {
 		fi
 
 	done
+
+}
+
+download_riivolution_failed () {
+    echo -e "\nDownload failed!
+You can try to download manualy from :
+    https://goaibox.com/sl/3suwkMVFZj
+    https://archive.org/download/new-super-mario-bros-wii-mod-archive/"
 
 }
