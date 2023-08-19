@@ -39,7 +39,7 @@ detect_game_version () {
 place_files () {
 
 
-	NEW_DIRS=( "${WORKDIR}"/files/LevelSamples "${WORKDIR}"/files/NewerRes "${WORKDIR}"/files/Maps )
+	NEW_DIRS=( "${WORKDIR}"/files/LevelSamples "${WORKDIR}"/files/NewerRes "${WORKDIR}"/files/Maps "${WORKDIR}"/files/Sound/new )
 	for dir in "${NEW_DIRS[@]}"; do
 		mkdir -p "${dir}"
 	done
