@@ -36,6 +36,7 @@ NSMB27	MLGSuperLuigi		MLG Super Luigi Bros. Wii
 NSMB28	Cliff			Cliff Super Mario Bros. Wii
 NSMB29	Virtual			Challenging Super Mario Bros. Wii: Virtual Special
 NSMB30	NSLDM			Newer Super Luigi Wii: Dark Moon
+NSMB31  Alpine          Newer Alpine Dream
 
 NSMB99	NSMBWCharacters		Customize Characters
 
@@ -139,6 +140,8 @@ NSMB26	RevisedSuperMarioBros	RSMBW Version 1.1.zip
 NSMB27	MLGSuperLuigi		MLGLuigiWii.zip
 NSMB28	Cliff			Cliff_Super_Mario_Brothers_Wiiv1.1.1.zip
 NSMB29	Virtual			ChaSMBW_VrS_v0.2.zip
+NSMB30  NSLDM			Luigi_Dark_Moon_1.1.zip
+NSMB31  Alpine			Newer-Alpine-Dream-main.zip
 
 NSMB99	NSMBWCharacters		Alternative Character Files are supplied
 "
