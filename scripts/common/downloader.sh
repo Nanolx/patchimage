@@ -78,6 +78,16 @@ download_riivolution_patch () {
 			exit 21
 		;;
 
+        *mediafire* )
+			x=6
+			echo "can not download from MediaFire, download manually from:
+
+	${DOWNLOAD_LINK}
+"
+
+			exit 21
+		;;
+
 		"" )
 			echo "no download link for ${GAMENAME} available."
             download_riivolution_failed
