@@ -2,8 +2,8 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://www.dropbox.com/s/rw3iwa8vhj7o337/LSYB.zip"
-RIIVOLUTION_ZIP="LSYB.zip"
+DOWNLOAD_LINK="https://ia803406.us.archive.org/0/items/new-super-mario-bros-wii-mod-archive/Original%20Versions/Luigi%27s%20Super%20Yoshi%20Bros.zip"
+RIIVOLUTION_ZIP="Luigi's Super Yoshi Bros.zip"
 RIIVOLUTION_DIR="LSYB"
 GAMENAME="Luigis Super Yoshi Bros."
 XML_SOURCE="${RIIVOLUTION_DIR}"
