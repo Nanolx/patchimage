@@ -2,7 +2,7 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="http://download858.mediafire.com/d8ceavb0izvg/vf7p9pu8bqxohuo/GSGBW+v1.0.2.zip"
+DOWNLOAD_LINK="https://www.mediafire.com/file/vf7p9pu8bqxohuo/GSGBW_v1.0.2.zip/file"
 RIIVOLUTION_ZIP="GSGBW v1.0.2.zip"
 RIIVOLUTION_DIR="GSGBW/Ghostly"
 GAMENAME="Ghostly Super Ghost Boos. Wii"
