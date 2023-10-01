@@ -2,8 +2,8 @@
 
 WORKDIR=nsmb.d
 DOL=${WORKDIR}/sys/main.dol
-DOWNLOAD_LINK="https://drive.google.com/open?id=0Bx9bufRDCntQOUhlbno1cmlSOGs"
-RIIVOLUTION_ZIP="Luigi_Dark_Moon_1.1.zip"
+DOWNLOAD_LINK="https://ia903406.us.archive.org/0/items/new-super-mario-bros-wii-mod-archive/Original%20Versions/Newer%20Super%20Luigi%20Wii%20-%20Dark%20Moon%20V%201.2.0.zip"
+RIIVOLUTION_ZIP="Newer Super Luigi Wii - Dark Moon V 1.2.0.zip"
 RIIVOLUTION_DIR="DarkMoon"
 GAMENAME="Newer Super Luigi Wii: Dark Moon"
 GAME_TYPE=RIIVOLUTION
@@ -18,8 +18,8 @@ echo -e \
 "************************************************
 ${GAMENAME}
 
-Newer Super Luigi Wii: Dark Moon is a fan-made sequel to Newer Super Mario Bros. Wii. 
-Freshened up from their last adventure, Mario and the gang decide to explore a small remote location called Evershade Isles. 
+Newer Super Luigi Wii: Dark Moon is a fan-made sequel to Newer Super Mario Bros. Wii.
+Freshened up from their last adventure, Mario and the gang decide to explore a small remote location called Evershade Isles.
 However, in the midst of their expedition, Mario goes missing! Looks like it's up to Luigi to save the day!
 
 Features:

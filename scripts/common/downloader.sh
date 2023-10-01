@@ -94,6 +94,20 @@ download_riivolution_patch () {
 			exit 21
 		;;
 
+        *archive.org* )
+			x=5
+			echo "*** >> downloading"
+            echo -e "\e[93m\e[5m◢◣\e[25m INFO: it can be very slow because we download from archive.org\e[0m"
+			wget -nv --no-check-certificate "${DOWNLOAD_LINK}" \
+				-O "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp || \
+				( rm "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp && \
+					download_riivolution_failed && exit 57 )
+			mv "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"__tmp \
+				"${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
+			echo "*** >> unpacking"
+			unpack "${PATCHIMAGE_RIIVOLUTION_DIR}/${RIIVOLUTION_ZIP}"
+		;;
+
 		* )
 			x=5
 			echo "*** >> downloading"
